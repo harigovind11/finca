@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
-import 'package:flutter/material.dart';
-import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +13,6 @@ class HomePage extends StatefulWidget {
 class _MyHomePageState extends State<HomePage> {
   late PageController _pageController;
   int selectedIndex = 0;
-  bool _colorful = false;
   @override
   void initState() {
     super.initState();
@@ -34,7 +32,7 @@ class _MyHomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
-        title: Text('F I N C A'),
+        title: const Text('F I N C A'),
         centerTitle: true,
       ),
       body: Column(
