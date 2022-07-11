@@ -19,6 +19,9 @@ dependencies:
     git:
       url: https://github.com/watery-desert/sliding_clipped_nav_bar
   splashscreen:
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
+  calendar_appbar: ^0.0.6
 
 dev_dependencies:
   flutter_test:
@@ -38,16 +41,10 @@ flutter:
     - assets/
 
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: MusticaPro
+      fonts:
+        - asset: fonts/MusticaPro-SemiBold.otf
+        
+  
 

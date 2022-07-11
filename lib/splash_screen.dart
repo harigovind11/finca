@@ -1,41 +1,49 @@
-import 'package:finca/home_page.dart';
+import 'package:finca/home.dart';
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
-class SplashScr extends StatefulWidget {
+import 'package:finca/bottomNavbar.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
-  _SplashScrState createState() => new _SplashScrState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScrState extends State<SplashScr> {
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigatetohome();
+  }
+
+  _navigatetohome() async {
+    await Future.delayed(Duration(milliseconds: 1500));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new SplashScreen(
-      seconds: 14,
-      title: new Text('Welcome In SplashScreen'
+    return AnimatedSplashScreen(
+      splash: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'fin',
+            style: TextStyle(
+                color: Colors.black, fontSize: 70, fontFamily: 'MusticaPro'),
+          ),
+          Text(
+            'ca',
+            style: TextStyle(
+                color: Colors.white, fontSize: 70, fontFamily: 'MusticaPro'),
+          ),
+        ],
       ),
-      image: new Image.network('https://flutter.io/images/catalog-widget-placeholder.png'),
-      backgroundColor: Colors.white,
-      photoSize: 100.0,
-      loaderColor: Colors.red,
-      pageRoute: _createRoute()
+      backgroundColor: Color.fromARGB(255, 255, 91, 126),
+      nextScreen: HomeScreen(),
+      splashTransition: SplashTransition.fadeTransition,
     );
   }
-}
-
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var begin = Offset(0.0, 1.0);
-      var end = Offset.zero;
-      var curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
 }
