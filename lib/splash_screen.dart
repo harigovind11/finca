@@ -1,4 +1,4 @@
-import 'package:finca/home.dart';
+import 'package:finca/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/bottomNavbar.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';

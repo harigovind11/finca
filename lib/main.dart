@@ -13,10 +13,11 @@ class Finca extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         canvasColor: const Color.fromARGB(255, 255, 255, 255),
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       // home: Scaffold(
       // appBar: AppBar(
       //   backgroundColor: kblueGrey,

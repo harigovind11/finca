@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:finca/navigation.dart';
-
-const kblueGrey = Color(0xFF263238);
-const kpink = Colors.pink;
+import 'package:finca/colors_picker.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({Key? key}) : super(key: key);
@@ -30,7 +29,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         children: <Widget>[
           Expanded(
             child: PageView(
-              physics: const NeverScrollableScrollPhysics(),
+              //Scroll
+              // physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               children: listOfWidget,
             ),
@@ -54,12 +54,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
               gap: 8,
-              activeColor: Colors.teal,
+              activeColor: kpink,
               iconSize: 24,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               // ignore: prefer_const_constructors
               duration: Duration(milliseconds: 400),
-              tabBackgroundColor: Colors.tealAccent,
+              tabBackgroundColor: kpinkaccent,
               color: Colors.black,
               tabs: const [
                 GButton(
@@ -83,6 +83,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               onTabChange: (int index) {
                 setState(() {
                   selectedIndex = index;
+                  HapticFeedback.vibrate();
                 });
                 _pageController.animateToPage(selectedIndex,
                     duration: const Duration(milliseconds: 400),
