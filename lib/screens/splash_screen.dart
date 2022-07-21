@@ -1,10 +1,11 @@
-import 'package:finca/home_screen.dart';
+import 'package:finca/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/bottomNavbar.dart';
+import 'package:finca/components.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:finca/colors_picker.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  static const String id = 'splash_screen';
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   _navigatetohome() async {
     await Future.delayed(Duration(milliseconds: 1500));
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   @override
@@ -32,17 +33,17 @@ class _SplashScreenState extends State<SplashScreen> {
           Text(
             'fin',
             style: TextStyle(
-                color: Colors.black, fontSize: 70, fontFamily: 'MusticaPro'),
+                color: Colors.white, fontSize: 70, fontFamily: 'MusticaPro'),
           ),
           Text(
             'ca',
             style: TextStyle(
-                color: Colors.white, fontSize: 70, fontFamily: 'MusticaPro'),
+                color: kblueGrey, fontSize: 70, fontFamily: 'MusticaPro'),
           ),
         ],
       ),
       backgroundColor: Color.fromARGB(255, 255, 91, 126),
-      nextScreen: HomeScreen(),
+      nextScreen: WelcomeScreen(),
       splashTransition: SplashTransition.fadeTransition,
     );
   }

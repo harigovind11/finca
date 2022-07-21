@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "964487767207",
+    "project_id": "finca-e7a78",
+    "storage_bucket": "finca-e7a78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964487767207:android:898fd574ea742b187be782",
+        "android_client_info": {
+          "package_name": "com.zeit.finca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964487767207-df530oibb7rct27e7b4motvf3ehtd0tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABujFnbTGdCcoldXf-r853SR0_ZiSyPH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964487767207-df530oibb7rct27e7b4motvf3ehtd0tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
