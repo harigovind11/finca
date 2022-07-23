@@ -17,8 +17,6 @@ import 'package:finca/components.dart';
 import 'package:finca/constants.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 

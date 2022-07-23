@@ -6,6 +6,7 @@ import 'screens/splash_screen.dart';
 import 'screens/registration_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:finca/screens/profile_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -31,6 +32,7 @@ class Finca extends StatelessWidget {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
+        ProfileScreen.id: (context) => ProfileScreen(),
       },
     );
   }
