@@ -1,15 +1,15 @@
 import 'package:finca/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'components.dart';
 import 'screens/login_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/registration_screen.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
-import 'package:calendar_appbar/calendar_appbar.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('money');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(Finca());

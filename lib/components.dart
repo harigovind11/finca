@@ -80,7 +80,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 ),
               ],
               selectedIndex: selectedIndex,
-              
+
               onTabChange: (int index) {
                 setState(() {
                   selectedIndex = index;

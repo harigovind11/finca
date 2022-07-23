@@ -25,7 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         AnimationController(duration: Duration(seconds: 1), vsync: this);
     animation =
         ColorTween(begin: kfincaPink, end: kfincaPink).animate(controller!);
-    controller?.forward();
+    controller?.fling();
     controller?.addListener(() {
       setState(() {});
     });
@@ -55,14 +55,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // TypewriterAnimatedTextKit(
-                      //   text: ['ca'],
-                      //   textStyle: TextStyle(
-                      //     color: kblueGrey,
-                      //     fontSize: 70.0,
-                      //     fontFamily: 'MusticsPro',
-                      //   ),
-                      // ),
                       Text(
                         'fin',
                         style: TextStyle(

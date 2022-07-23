@@ -33,3 +33,9 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+var userName = "Sabith";
+double balance = 50000;
+double income = 4000;
+double expense = 500;
+double montlyLimit = 10000;
