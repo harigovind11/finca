@@ -30,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       final user = _auth.currentUser!;
       loggedInUser = user;
-      print(loggedInUser.email);
+      
     } catch (e) {
       print(e);
     }

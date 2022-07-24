@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finca/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/components.dart';
@@ -15,8 +16,10 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
+  final _register = FirebaseFirestore.instance;
   bool showSpinner = false;
   String? email;
+  String? name;
   String? password;
 
   @override
@@ -59,6 +62,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 48.0,
               ),
               TextField(
+                keyboardType: TextInputType.name,
+                textAlign: TextAlign.center,
+                onChanged: (value) async {
+                  name = value;
+                },
+                decoration:
+                    kTextFieldDecoration.copyWith(hintText: 'Enter your name'),
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              TextField(
                 keyboardType: TextInputType.emailAddress,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
@@ -92,6 +107,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   try {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: email!, password: password!);
+                    await _register.collection('user').add({
+                      'name': name,
+                    });
                     if (newUser != null) {
                       Navigator.push(
                           context,
