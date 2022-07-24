@@ -11,6 +11,7 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:finca/colors_picker.dart';
 
 class TransactionScreen extends StatefulWidget {
   const TransactionScreen({Key? key}) : super(key: key);
@@ -139,6 +140,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: Text(
                 "Oopssss !!! There is some error !",
                 style: TextStyle(
+                  fontFamily: 'musticaPro',
                   fontSize: 24.0,
                 ),
               ),
@@ -150,6 +152,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 child: Text(
                   "You haven't added Any Data !",
                   style: TextStyle(
+                    fontFamily: 'musticaPro',
                     fontSize: 24.0,
                   ),
                 ),
@@ -312,6 +315,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
             Text(
               "Income",
               style: TextStyle(
+                fontWeight: FontWeight.bold,
                 fontSize: 14.0,
                 color: Colors.white70,
               ),
@@ -358,6 +362,8 @@ class _TransactionScreenState extends State<TransactionScreen> {
             Text(
               "Expense",
               style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'musticaPro',
                 fontSize: 14.0,
                 color: Colors.white70,
               ),
@@ -365,6 +371,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
             Text(
               value,
               style: TextStyle(
+                fontFamily: 'musticaPro',
                 fontSize: 20.0,
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
@@ -426,6 +433,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                         Text(
                           "Expense",
                           style: TextStyle(
+                            fontFamily: 'musticaPro',
                             fontSize: 20.0,
                           ),
                         ),
@@ -476,7 +484,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
 
   Widget incomeTile(int value, String note, DateTime date, int index) {
     return InkWell(
-      splashColor: Colors.blueAccent,
+      splashColor: kfincaPink,
       onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
           deleteInfoSnackBar,
@@ -522,6 +530,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     Text(
                       "Credit",
                       style: TextStyle(
+                        fontFamily: 'musticaPro',
                         fontSize: 20.0,
                       ),
                     ),
@@ -547,6 +556,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   "+ $value",
                   style: TextStyle(
                     fontSize: 24.0,
+                    fontFamily: 'musticaPro',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -557,6 +567,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   child: Text(
                     note,
                     style: TextStyle(
+                      fontFamily: 'musticaPro',
                       color: Colors.grey[800],
                     ),
                   ),
@@ -597,6 +608,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: Text(
                 months[now.month - 3],
                 style: TextStyle(
+                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                   color: index == 3 ? Colors.white : kfincaPink,
@@ -624,6 +636,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: Text(
                 months[now.month - 2],
                 style: TextStyle(
+                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                   color: index == 2 ? Colors.white : kfincaPink,
@@ -651,6 +664,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: Text(
                 months[now.month - 1],
                 style: TextStyle(
+                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                   color: index == 1 ? Colors.white : kfincaPink,

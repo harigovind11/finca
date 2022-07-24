@@ -5,8 +5,13 @@ showConfirmDialog(BuildContext context, String title, String content) async {
   return await showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(title),
-      content: Text(content),
+      title: Text(
+        title,
+      ),
+      content: Text(
+        content,
+        style: TextStyle(fontFamily: 'musticaPro', fontWeight: FontWeight.bold),
+      ),
       actions: [
         ElevatedButton(
           onPressed: () {
@@ -19,6 +24,9 @@ showConfirmDialog(BuildContext context, String title, String content) async {
           ),
           child: Text(
             "YES",
+            style: TextStyle(
+              fontFamily: 'MusticaPro',
+            ),
           ),
         ),
         ElevatedButton(
@@ -27,6 +35,9 @@ showConfirmDialog(BuildContext context, String title, String content) async {
           },
           child: Text(
             "No",
+            style: TextStyle(
+              fontFamily: 'MusticaPro',
+            ),
           ),
         ),
       ],

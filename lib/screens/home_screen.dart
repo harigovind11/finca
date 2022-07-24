@@ -157,6 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Oopssss !!! There is some error !",
                 style: TextStyle(
                   fontSize: 24.0,
+                  fontFamily: 'musticaPro',
                 ),
               ),
             );

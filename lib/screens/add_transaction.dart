@@ -200,15 +200,15 @@ class _AddTransactionState extends State<AddTransaction> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "Note on Transaction",
+                          hintText: "Category",
                           border: InputBorder.none,
                         ),
                         style: TextStyle(
                           fontFamily: 'MusticaPro',
                           fontSize: 20.0,
                         ),
-                        onChanged: (val) {
-                          note = val;
+                        onChanged: (value) {
+                          note = value;
                         },
                       ),
                     ),
@@ -365,25 +365,26 @@ class _AddTransactionState extends State<AddTransaction> {
                         dbHelper.addData(amount!, selectedDate, type, note);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Colors.greenAccent,
                             content: Text(
                               "Sucessfully Added",
                               style: TextStyle(
-                                fontSize: 16.0,
-                                color: Colors.white,
-                              ),
+                                  fontSize: 16.0,
+                                  color: Colors.white,
+                                  fontFamily: 'musticaPro'),
                             ),
                           ),
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            backgroundColor: Colors.red[700],
+                            backgroundColor: Colors.redAccent,
                             content: Text(
                               "Please enter a valid Amount !",
                               style: TextStyle(
                                 fontSize: 16.0,
                                 color: Colors.white,
+                                fontFamily: 'MusticaPro',
                               ),
                             ),
                           ),
