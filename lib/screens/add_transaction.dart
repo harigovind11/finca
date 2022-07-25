@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:finca/components.dart';
 import 'home_screen.dart';
+import 'transaction_screen.dart';
 
 class AddTransaction extends StatefulWidget {
   const AddTransaction({Key? key}) : super(key: key);
@@ -72,7 +73,7 @@ class _AddTransactionState extends State<AddTransaction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffe2e7ef),
+        backgroundColor: Colors.grey[200],
         //
         body: Padding(
           padding: const EdgeInsets.only(top: 18.0),

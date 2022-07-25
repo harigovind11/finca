@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finca/db_helper.dart';
 import 'package:finca/model/transaction.dart';
 import 'package:finca/widgets/confirm_dialog.dart';
@@ -5,6 +6,7 @@ import 'package:finca/widgets/info_snackbar.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,25 +21,28 @@ import 'package:finca/constants.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
-
-  void getCurrentUser() {}
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   final _auth = FirebaseAuth.instance;
-  late User loggedInUser;
+  User? loggedInUser;
 
   void getCurrentUser() async {
     try {
       final user = _auth.currentUser!;
       loggedInUser = user;
-      print(loggedInUser.email);
     } catch (e) {
       print(e);
     }
   }
 
-  //
+  // Future<QuerySnapshot<Map<String, dynamic>>> getData() {
+  //   return FirebaseFirestore.instance
+  //       .collection('users')
+  //       .where('email', isEqualTo: loggedInUser.email)
+  //       .get();
+  // }
+
   late Box box;
   late SharedPreferences preferences;
   DbHelper dbHelper = DbHelper();
@@ -216,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Hi!  $userName',
+                      'Hi!',
                       style: GoogleFonts.poppins(
                           textStyle: const TextStyle(
                               color: kblueGrey,

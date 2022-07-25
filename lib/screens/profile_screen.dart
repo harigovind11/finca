@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,7 +31,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       final user = _auth.currentUser!;
       loggedInUser = user;
-      
     } catch (e) {
       print(e);
     }
@@ -42,31 +42,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Hi!  $userName',
-                      style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                              color: kblueGrey,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                    const CircleAvatar(
-                      radius: 27,
-                      backgroundImage: AssetImage('assets/logo_finca.png'),
-                    ),
-                  ],
+          backgroundColor: Colors.grey[200],
+          body: Padding(
+            padding: const EdgeInsets.only(top: 26.0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Profile',
+                        style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                color: kblueGrey,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 70),
+                Center(
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: Column(
@@ -74,8 +71,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Container(
                           padding: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [kfincaPink, kpink],
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                stops: [0.4, 1],
+                                tileMode: TileMode.repeated,
+                              ),
                               color: Color(0xFFF7F7F7),
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(20),
                               // border: Border.all(color: Colors.black38),
                               boxShadow: [
                                 BoxShadow(
@@ -88,8 +92,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Center(
                             child: Column(
                               children: [
-                                const Text(
-                                  'Balance',
+                                Text(
+                                  'name',
                                   style: TextStyle(
                                     fontFamily: 'MusticaPro',
                                     color: kblueGrey,
@@ -98,11 +102,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                 ),
                                 Text(
-                                  '₹ $balance',
+                                  '$loggedInUser!.email',
                                   style: TextStyle(
                                     fontFamily: 'MusticaPro',
                                     color: Colors.black,
-                                    fontSize: 65,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -146,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             icon: const FaIcon(
                                                 FontAwesomeIcons.chartLine)),
                                         const Text(
-                                          'Income',
+                                          '',
                                           style: TextStyle(
                                             fontFamily: 'MusticaPro',
                                             color: kblueGrey,
@@ -155,7 +159,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           ),
                                         ),
                                         Text(
-                                          '+ ₹$income',
+                                          '',
                                           style: TextStyle(
                                             fontFamily: 'MusticaPro',
                                             color: Colors.greenAccent,
@@ -203,7 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             icon: const FaIcon(
                                                 FontAwesomeIcons.chartLine)),
                                         const Text(
-                                          'Expense',
+                                          '',
                                           style: TextStyle(
                                             fontFamily: 'MusticaPro',
                                             color: kblueGrey,
@@ -212,7 +216,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           ),
                                         ),
                                         Text(
-                                          '- ₹$expense',
+                                          '',
                                           style: TextStyle(
                                             fontFamily: 'MusticaPro',
                                             color: Colors.redAccent,
@@ -272,7 +276,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             fontWeight: FontWeight.normal)),
                                   ),
                                   Text(
-                                    '₹ $montlyLimit',
+                                    '',
                                     style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
                                             color: Colors.black38,
@@ -288,11 +292,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class GetData extends StatelessWidget {
+  @override
+  final _auth = FirebaseAuth.instance;
+  Widget build(BuildContext context) {
+    CollectionReference student = FirebaseFirestore.instance.collection('user');
+
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance.collection('user').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) {
+          print('no data');
+        }
+
+        return ListView(
+          children: snapshot.data!.docs.map((document) {
+            return Container(
+              child: Center(child: Text(document['name'])),
+            );
+          }).toList(),
+        );
+      },
     );
   }
 }

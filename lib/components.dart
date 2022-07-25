@@ -4,9 +4,12 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:finca/navigation.dart';
 import 'package:finca/colors_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({Key? key}) : super(key: key);
+
+  get isFirst => null;
 
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
@@ -15,9 +18,23 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   late PageController _pageController;
   int selectedIndex = 0;
+  User? loggedInUser;
+  final _auth = FirebaseAuth.instance;
   @override
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser!;
+      if (user != null) {
+        loggedInUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   void initState() {
     super.initState();
+    getCurrentUser();
     _pageController = PageController(initialPage: selectedIndex);
   }
 
@@ -29,8 +46,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         children: <Widget>[
           Expanded(
             child: PageView(
-              //Scroll
-              physics: const NeverScrollableScrollPhysics(),
+              // //Scroll
+              // physics: const NeverScrollableScrollPhysics(),
               controller: _pageController,
               children: listOfWidget,
             ),

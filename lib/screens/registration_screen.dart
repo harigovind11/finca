@@ -106,22 +106,65 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   });
                   try {
                     final newUser = await _auth.createUserWithEmailAndPassword(
-                        email: email!, password: password!);
+                      email: email!,
+                      password: password!,
+                    );
+                    // final newUser = await _auth.createUserWithEmailAndPassword(
+                    //     email: email!, password: password!);
                     await _register.collection('user').add({
                       'name': name,
+                      'email': email,
                     });
                     if (newUser != null) {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => BottomNavBar()));
                     }
-
                     setState(() {
                       showSpinner = false;
                     });
-                  } catch (e) {
-                    print(e);
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      print('The password is too weak.');
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.white,
+                          content: Text(
+                            'Email already exists',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.blueGrey,
+                              fontFamily: 'MusticaPro',
+                            ),
+                          ),
+                        ),
+                      );
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegistrationScreen()));
+                    } else if (e.code == 'email-already-in-use') {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.white,
+                          content: Text(
+                            'Email already exists',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              color: Colors.blueGrey,
+                              fontFamily: 'MusticaPro',
+                            ),
+                          ),
+                        ),
+                      );
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegistrationScreen()));
+                    } else {
+                      print(e);
+                    }
                   }
                 },
               ),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
@@ -16,7 +17,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool showSpinner = false;
   final _auth = FirebaseAuth.instance;
-  
+  late User loggedInUser;
   String? email;
 
   String? password;
@@ -85,26 +86,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24.0,
               ),
               RoundedButton(
-                title: 'Log In',
-                colour: Colors.white,
-                onPressed: () async {
-                  setState(() {
+                  title: 'Log In',
+                  colour: Colors.white,
+                  onPressed: () async {
+                    setState(() {
+                      showSpinner = true;
+                    });
                     try {
-                      final user = _auth.signInWithEmailAndPassword(
+                      final user = await _auth.signInWithEmailAndPassword(
                           email: email!, password: password!);
                       if (user != null) {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => BottomNavBar()));
                       }
-                      showSpinner = true;
+
+                      setState(() {
+                        showSpinner = false;
+                      });
                     } catch (e) {
                       print(e);
                     }
-                  });
-                },
-              ),
+                  }),
             ],
           ),
         ),

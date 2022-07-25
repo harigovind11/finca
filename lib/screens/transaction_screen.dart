@@ -391,6 +391,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
           deleteInfoSnackBar,
         );
       },
+      
       onLongPress: () async {
         bool? answer = await showConfirmDialog(
           context,
