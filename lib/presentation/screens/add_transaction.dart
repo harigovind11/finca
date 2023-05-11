@@ -1,9 +1,9 @@
-import 'package:finca/db_helper.dart';
-import 'package:finca/screens/transaction_screen.dart';
+import 'package:finca/core/db_helper.dart';
+import 'package:finca/presentation/screens/transaction_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/colors_picker.dart';
+import 'package:finca/core/colors_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:finca/components.dart';
@@ -101,7 +101,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: kfincaPink,
+                        color: kfincaPinkBg,
                         borderRadius: BorderRadius.circular(
                           16.0,
                         ),
@@ -180,7 +180,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: kfincaPink,
+                        color: kfincaPinkBg,
                         borderRadius: BorderRadius.circular(
                           16.0,
                         ),
@@ -224,7 +224,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: kfincaPink,
+                        color: kfincaPinkBg,
                         borderRadius: BorderRadius.circular(
                           16.0,
                         ),
@@ -318,7 +318,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: kfincaPink,
+                            color: kfincaPinkBg,
                             borderRadius: BorderRadius.circular(
                               16.0,
                             ),

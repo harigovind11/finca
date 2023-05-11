@@ -1,27 +1,39 @@
-import 'package:finca/colors_picker.dart';
-import 'package:finca/db_helper.dart';
-import 'package:finca/screens/add_transaction.dart';
+import 'package:finca/core/db_helper.dart';
 import 'package:finca/model/transaction.dart';
 import 'package:finca/widgets/confirm_dialog.dart';
 import 'package:finca/widgets/info_snackbar.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:finca/colors_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:finca/core/colors_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class TransactionScreen extends StatefulWidget {
-  const TransactionScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  final String title;
 
+  const HomeScreen({super.key, required this.title});
   @override
-  _TransactionScreenState createState() => _TransactionScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _TransactionScreenState extends State<TransactionScreen> {
-  //
+class _HomeScreenState extends State<HomeScreen> {
+  final _auth = FirebaseAuth.instance;
+  User? loggedInUser;
+
+  _HomeScreenState();
+
+  void getCurrentUser() async {
+    try {
+      final user = _auth.currentUser!;
+      loggedInUser = user;
+    } catch (e) {
+      print(e);
+    }
+  }
+
   late Box box;
   late SharedPreferences preferences;
   DbHelper dbHelper = DbHelper();
@@ -53,6 +65,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
   void initState() {
     super.initState();
     getPreference();
+    getCurrentUser();
     box = Hive.box('money');
   }
 
@@ -64,10 +77,8 @@ class _TransactionScreenState extends State<TransactionScreen> {
     if (box.values.isEmpty) {
       return Future.value([]);
     } else {
-      // return Future.value(box.toMap());
       List<TransactionModel> items = [];
       box.toMap().values.forEach((element) {
-        // print(element);
         items.add(
           TransactionModel(
             element['amount'] as int,
@@ -130,7 +141,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
       //   toolbarHeight: 0.0,
       // ),
       backgroundColor: Colors.grey[200],
-
       body: FutureBuilder<List<TransactionModel>>(
         future: fetch(),
         builder: (context, snapshot) {
@@ -140,8 +150,8 @@ class _TransactionScreenState extends State<TransactionScreen> {
               child: Text(
                 "Oopssss !!! There is some error !",
                 style: TextStyle(
-                  fontFamily: 'musticaPro',
                   fontSize: 24.0,
+                  fontFamily: 'musticaPro',
                 ),
               ),
             );
@@ -161,35 +171,170 @@ class _TransactionScreenState extends State<TransactionScreen> {
             //
             getTotalBalance(snapshot.data!);
             getPlotPoints(snapshot.data!);
-            return ListView(
-              children: [
-                //
-                Padding(
-                  padding: const EdgeInsets.all(
-                    12.0,
+            return ListView(children: [
+              //
+              Padding(
+                padding: const EdgeInsets.all(
+                  12.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              32.0,
+                            ),
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                Colors.red,
+                                Colors.blueAccent,
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8.0,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Hi!',
+                      style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                              color: kblueGrey,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    const CircleAvatar(
+                      radius: 27,
+                      backgroundImage: AssetImage('assets/logo_finca.png'),
+                    ),
+                  ],
+                ),
+              ),
+
+              selectMonth(),
+              //
+              Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                margin: EdgeInsets.all(
+                  12.0,
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        24.0,
+                      ),
+                    ),
+                    // color: Colors.red,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 18.0,
+                    horizontal: 8.0,
+                  ),
+                  child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
-                        child: Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                  32.0,
+                      Container(
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFF7F7F7),
+                            borderRadius: BorderRadius.circular(30),
+                            // border: Border.all(color: Colors.black38),
+                            boxShadow: [
+                              BoxShadow(
+                                blurStyle: BlurStyle.solid,
+                                blurRadius: 1.5,
+                                color: Color.fromARGB(255, 145, 145, 145),
+                                offset: Offset(0, 0),
+                              )
+                            ]),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Balance',
+                                style: TextStyle(
+                                  fontFamily: 'MusticaPro',
+                                  color: kblueGrey,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                gradient: LinearGradient(
-                                  colors: <Color>[
-                                    Colors.red,
-                                    Colors.blueAccent,
-                                  ],
+                              ),
+                              Text(
+                                '₹ $totalBalance',
+                                style: TextStyle(
+                                  fontFamily: 'MusticaPro',
+                                  color: kblueGrey,
+                                  fontSize: 65,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFF7F7F7),
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurStyle: BlurStyle.solid,
+                                        blurRadius: 1.5,
+                                        color:
+                                            Color.fromARGB(255, 145, 145, 145),
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                                child: cardIncome(
+                                  totalIncome.toString(),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              width: 8.0,
+                              width: 15,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Color(0xFFF7F7F7),
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurStyle: BlurStyle.solid,
+                                        blurRadius: 1.5,
+                                        color:
+                                            Color.fromARGB(255, 145, 145, 145),
+                                        offset: Offset(0, 0),
+                                      )
+                                    ]),
+                                child: cardExpense(
+                                  totalExpense.toString(),
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -197,79 +342,10 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     ],
                   ),
                 ),
-
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    "Recent Transactions",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                            color: kblueGrey,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                ),
-                selectMonth(),
-                //
-                //
-                Padding(
-                  padding: const EdgeInsets.all(
-                    12.0,
-                  ),
-                  child: Text(
-                    "${months[today.month - 1]} ${today.year}",
-                    style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                            color: kblueGrey,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                ),
-
-                //
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: snapshot.data!.length + 1,
-                  itemBuilder: (context, index) {
-                    TransactionModel dataAtIndex;
-                    try {
-                      // dataAtIndex = snapshot.data![index];
-                      dataAtIndex = snapshot.data![index];
-                    } catch (e) {
-                      // deleteAt deletes that key and value,
-                      // hence makign it null here., as we still build on the length.
-                      return Container();
-                    }
-
-                    if (dataAtIndex.date.month == today.month) {
-                      if (dataAtIndex.type == "Income") {
-                        return incomeTile(
-                          dataAtIndex.amount,
-                          dataAtIndex.note,
-                          dataAtIndex.date,
-                          index,
-                        );
-                      } else {
-                        return expenseTile(
-                          dataAtIndex.amount,
-                          dataAtIndex.note,
-                          dataAtIndex.date,
-                          index,
-                        );
-                      }
-                    } else {
-                      return Container();
-                    }
-                  },
-                ),
-                //
-                SizedBox(
-                  height: 60.0,
-                ),
-              ],
-            );
+              )
+            ]);
+            //
+            //
           } else {
             return Text(
               "Loading...",
@@ -288,96 +364,110 @@ class _TransactionScreenState extends State<TransactionScreen> {
 //
 
   Widget cardIncome(String value) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white60,
-            borderRadius: BorderRadius.circular(
-              20.0,
+        Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.greenAccent,
+              borderRadius: BorderRadius.circular(
+                20.0,
+              ),
             ),
-          ),
-          padding: EdgeInsets.all(
-            6.0,
-          ),
-          child: Icon(
-            Icons.arrow_downward,
-            size: 28.0,
-            color: Colors.green[700],
-          ),
-          margin: EdgeInsets.only(
-            right: 8.0,
+            padding: EdgeInsets.all(
+              6.0,
+            ),
+            child: Icon(
+              Icons.arrow_downward,
+              size: 28.0,
+              color: Colors.green[700],
+            ),
+            margin: EdgeInsets.only(
+              right: 8.0,
+            ),
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Income",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14.0,
-                color: Colors.white70,
+        Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Income",
+                style: TextStyle(
+                    fontSize: 20.0,
+                    color: kblueGrey,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'MusticaPro'),
               ),
-            ),
-            Text(
-              value,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
+              Text(
+                value,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'MusticaPro',
+                  color: Colors.greenAccent,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
   }
 
   Widget cardExpense(String value) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white60,
-            borderRadius: BorderRadius.circular(
-              20.0,
+        Padding(
+          padding: const EdgeInsets.all(18),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.redAccent,
+              borderRadius: BorderRadius.circular(
+                20.0,
+              ),
             ),
-          ),
-          padding: EdgeInsets.all(
-            6.0,
-          ),
-          child: Icon(
-            Icons.arrow_upward,
-            size: 28.0,
-            color: Colors.red[700],
-          ),
-          margin: EdgeInsets.only(
-            right: 8.0,
+            padding: EdgeInsets.all(
+              6.0,
+            ),
+            child: Icon(
+              Icons.arrow_upward,
+              size: 28.0,
+              color: Colors.red[700],
+            ),
+            margin: EdgeInsets.only(
+              right: 8.0,
+            ),
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Expense",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'musticaPro',
-                fontSize: 14.0,
-                color: Colors.white70,
+        Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Expense",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'MusticaPro',
+                  color: kblueGrey,
+                ),
               ),
-            ),
-            Text(
-              value,
-              style: TextStyle(
-                fontFamily: 'musticaPro',
-                fontSize: 20.0,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
+              Text(
+                value,
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'MusticaPro',
+                    color: Colors.redAccent),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -385,13 +475,12 @@ class _TransactionScreenState extends State<TransactionScreen> {
 
   Widget expenseTile(int value, String note, DateTime date, int index) {
     return InkWell(
-      splashColor: kfincaPink,
+      splashColor: kfincaPinkBg,
       onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
           deleteInfoSnackBar,
         );
       },
-      
       onLongPress: () async {
         bool? answer = await showConfirmDialog(
           context,
@@ -434,7 +523,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                         Text(
                           "Expense",
                           style: TextStyle(
-                            fontFamily: 'musticaPro',
                             fontSize: 20.0,
                           ),
                         ),
@@ -485,7 +573,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
 
   Widget incomeTile(int value, String note, DateTime date, int index) {
     return InkWell(
-      splashColor: kfincaPink,
+      splashColor: Colors.blueAccent,
       onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
           deleteInfoSnackBar,
@@ -531,7 +619,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     Text(
                       "Credit",
                       style: TextStyle(
-                        fontFamily: 'musticaPro',
                         fontSize: 20.0,
                       ),
                     ),
@@ -556,10 +643,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 Text(
                   "+ $value",
                   style: TextStyle(
-                    fontSize: 24.0,
-                    fontFamily: 'musticaPro',
-                    fontWeight: FontWeight.w700,
-                  ),
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'musticaPro'),
                 ),
                 //
                 //
@@ -568,9 +654,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   child: Text(
                     note,
                     style: TextStyle(
-                      fontFamily: 'musticaPro',
-                      color: Colors.grey[800],
-                    ),
+                        color: Colors.grey[800], fontFamily: 'MusticaPro'),
                   ),
                 ),
               ],
@@ -603,16 +687,15 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 3 ? kfincaPink : Colors.white,
+                color: index == 3 ? kfincaPinkBg : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 3],
                 style: TextStyle(
-                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 3 ? Colors.white : kfincaPink,
+                  color: index == 3 ? Colors.white : kfincaPinkBg,
                 ),
               ),
             ),
@@ -631,16 +714,15 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 2 ? kfincaPink : Colors.white,
+                color: index == 2 ? kfincaPinkBg : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 2],
                 style: TextStyle(
-                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 2 ? Colors.white : kfincaPink,
+                  color: index == 2 ? Colors.white : kfincaPinkBg,
                 ),
               ),
             ),
@@ -659,16 +741,15 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 1 ? kfincaPink : Colors.white,
+                color: index == 1 ? kfincaPinkBg : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 1],
                 style: TextStyle(
-                  fontFamily: 'musticaPro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 1 ? Colors.white : kfincaPink,
+                  color: index == 1 ? Colors.white : kfincaPinkBg,
                 ),
               ),
             ),
