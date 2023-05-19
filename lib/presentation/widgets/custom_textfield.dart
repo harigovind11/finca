@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../core/colors_picker.dart';
+import '../../../core/colors_picker.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;

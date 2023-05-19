@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-const kblueGrey = Color(0xFF263238);
 const kpink = Colors.pink;
 const kpinkaccent = Color.fromARGB(255, 255, 147, 170);
-const kappBarWhite = Color.fromARGB(26, 255, 243, 243);
 const kfincaPinkBg = Color.fromARGB(255, 255, 91, 126);
-const kplatsilver = Color(0xffd1d0de);
-const kBluegrey = Color.fromARGB(255, 38, 50, 56);
-const kWhite = Colors.white;
+
+const kBluegrey = Color.fromARGB(255, 26, 28, 30);
+const kBluegreyShade = Color.fromARGB(255, 38, 41, 44);
 const kGrey = Colors.grey;
+const kGreyShade = Color.fromARGB(255, 97, 103, 108);
+
 const kBlack = Colors.black;
-final kGreyShade = Colors.grey.shade800;
+const kWhite = Colors.white;
+const kplatsilver = Color(0xffd1d0de);
+
 const kTeal = Colors.teal;
 const kRed = Colors.red;
+const kGreen = Color.fromARGB(255, 52, 182, 127);
+const kTransparent = Colors.transparent;

@@ -9,39 +9,32 @@ environment:
   sdk: ">=2.17.1 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter 
-
-  cupertino_icons: ^1.0.2
-  icons_launcher: ^1.2.1
   animated_splash_screen: ^1.2.0
-  sliding_clipped_nav_bar:
-    git:
-      url: https://github.com/watery-desert/sliding_clipped_nav_bar
-  splashscreen:
-  google_nav_bar: ^5.0.6
-  line_icons: ^2.0.1
-  calendar_appbar: ^0.0.6
-  google_fonts: ^3.0.1
-  font_awesome_flutter: ^10.1.0
-  firebase_core: ^1.19.2
-  firebase_auth: ^3.4.2
-  cloud_firestore: ^3.3.0
   animated_text_kit: ^4.2.2
-
-  hive_flutter: ^1.1.0
-  shared_preferences: ^2.0.15
-  fl_chart: ^0.55.0
-  http: ^0.13.4
+  calendar_appbar: ^0.0.6
+  cloud_firestore: ^3.3.0
+  cupertino_icons: ^1.0.2
+  firebase_auth: ^3.4.2
+  firebase_core: ^1.19.2
   firebase_core_platform_interface: 4.5.1
-
+  fl_chart: ^0.62.0
+  flutter:
+    sdk: flutter
+  flutter_emoji: ^2.4.0
+  font_awesome_flutter: ^10.1.0
+  google_fonts: ^3.0.1
+  google_nav_bar: ^5.0.6
+  http: ^0.13.4
+  icons_launcher: ^1.2.1
+  line_icons: ^2.0.1
+  shared_preferences: ^2.0.15
+  splashscreen: null
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
-  
 flutter_icons:
   image_path: 'assets/logo_finca.png'
   ios: true
@@ -53,11 +46,7 @@ flutter:
   assets:
     - assets/
 
-
   fonts:
     - family: MusticaPro
       fonts:
         - asset: fonts/MusticaPro-SemiBold.otf
-        
-  
-

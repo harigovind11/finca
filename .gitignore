@@ -1,3 +1,7 @@
+#files
+/lib/presentation/screens/old_screens
+
+
 # Miscellaneous
 *.class
 *.log

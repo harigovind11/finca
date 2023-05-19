@@ -1,8 +1,9 @@
-import 'package:finca/widgets/logo_finca.dart';
+import 'package:finca/presentation/widgets/logo_finca.dart';
 
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import '../../core/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../widgets/custom_textfield.dart';
@@ -41,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               const Logo(
                 color1: kWhite,
-                color2: kblueGrey,
+                color2: kBluegrey,
               ),
               kHeight60,
               CustomTextField(
@@ -70,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               kHeight20,
-              Spacer(),
+              const Spacer(),
               RoundedButton(
                 title: 'Log In',
                 colour: Colors.white,
@@ -79,10 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   final _password = _passwordController.text.trim();
 
                   try {
-                    final user = await _auth.signInWithEmailAndPassword(
+                    final auth = await _auth.signInWithEmailAndPassword(
                         email: _email, password: _password);
-                    if (user != null) {
-                      Navigator.of(context).popAndPushNamed('/home');
+                    if (auth != null || auth != false) {
+                      final _sharedPrefs =
+                          await SharedPreferences.getInstance();
+                      await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
+                      Navigator.of(context).popAndPushNamed('/mainpage');
                     }
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'invalid-email') {
@@ -108,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Not a member ?',
                     style: TextStyle(
                         fontSize: 15,
@@ -116,18 +120,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: kWhite),
                   ),
                   MaterialButton(
-                    child: Text(
+                    splashColor: Colors.transparent,
+                    onPressed: () async {
+                      await Future.delayed(const Duration(milliseconds: 400));
+                      Navigator.of(context).popAndPushNamed('/signup');
+                    },
+                    child: const Text(
                       'Register now',
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: kBluegrey),
                     ),
-                    splashColor: Colors.transparent,
-                    onPressed: () async {
-                      await Future.delayed(Duration(milliseconds: 400));
-                      Navigator.of(context).popAndPushNamed('/signup');
-                    },
                   )
                 ],
               ),

@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finca/presentation/screens/home_screen.dart';
-import 'package:finca/widgets/custom_textfield.dart';
-import 'package:finca/widgets/logo_finca.dart';
+
+import 'package:finca/presentation/widgets/custom_textfield.dart';
+import 'package:finca/presentation/widgets/logo_finca.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/components.dart';
+import 'package:finca/widgets/components.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/rounded_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -41,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           children: <Widget>[
             const Logo(
               color1: kWhite,
-              color2: kblueGrey,
+              color2: kBluegrey,
             ),
             kHeight50,
             CustomTextField(
@@ -91,8 +91,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     password: _password,
                   );
 
-                  if (newUser != null) {
-                    Navigator.of(context).popAndPushNamed('/home');
+                  if (newUser != null || newUser != false) {
+                    if (newUser != null || newUser != false) {
+                      final _sharedPrefs =
+                          await SharedPreferences.getInstance();
+                      await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
+                      Navigator.of(context).popAndPushNamed('/mainpage');
+                    }
+                    Navigator.of(context).popAndPushNamed('/mainpage');
                   }
                   setState(() {});
                 } on FirebaseAuthException catch (e) {

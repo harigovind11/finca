@@ -1,13 +1,13 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
-import 'package:finca/presentation/screens/welcome_screen.dart';
-import 'package:finca/widgets/logo_finca.dart';
+import 'package:finca/presentation/screens/welcome/screen_welcome.dart';
+import 'package:finca/presentation/widgets/logo_finca.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/components.dart';
+import 'package:finca/widgets/components.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../core/colors_picker.dart';
-import '../../core/constants.dart';
+import '../../../core/colors_picker.dart';
+import '../../../core/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.title});
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         padding: EdgeInsets.only(top: 170),
         child: Logo(
           color1: kWhite,
-          color2: kblueGrey,
+          color2: kBluegrey,
         ),
       ),
     );
@@ -49,7 +49,8 @@ class _SplashScreenState extends State<SplashScreen> {
     if (_userLoggedIn == null || _userLoggedIn == false) {
       gotoWelcomePage();
     } else {
-      Navigator.of(context).pushReplacementNamed('/home');
+      await Future.delayed(const Duration(milliseconds: 1500));
+      Navigator.of(context).pushReplacementNamed('/mainpage');
     }
   }
 }
