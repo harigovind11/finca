@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../analytics/widgets/line_graph/line_graph_income.dart';
+
 class CardScreen extends StatelessWidget {
   const CardScreen({super.key});
 
@@ -8,9 +10,10 @@ class CardScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-            child: Center(
-          child: Text('cards'),
-        )),
+          child: Center(
+            child: Text('cards'),
+          ),
+        ),
       ),
     );
   }

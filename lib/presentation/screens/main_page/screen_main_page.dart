@@ -12,7 +12,7 @@ import 'package:line_icons/line_icons.dart';
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key, required this.title});
   final String title;
-  final _pages = [
+  final _pages = const [
     HomeScreen(),
     AnalyticScreen(),
     AddTransaction(),
@@ -33,14 +33,16 @@ class ScreenMainPage extends StatelessWidget {
           )),
           bottomNavigationBar: const BottomNavigationBarWidget(),
         ),
-        Positioned(
-          bottom: 25,
-          right: 150,
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(LineIcons.plus),
-            elevation: 1,
-            backgroundColor: kfincaPinkBg,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 25),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: FloatingActionButton(
+              onPressed: () {},
+              elevation: 1,
+              backgroundColor: kfincaPinkBg,
+              child: const Icon(LineIcons.plus),
+            ),
           ),
         )
       ],

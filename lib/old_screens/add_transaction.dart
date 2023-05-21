@@ -87,7 +87,7 @@
 //                   textAlign: TextAlign.center,
 //                   style: GoogleFonts.poppins(
 //                       textStyle: const TextStyle(
-//                           color: kblueGrey,
+//                           color: kBluegrey,
 //                           fontSize: 30,
 //                           fontWeight: FontWeight.bold)),
 //                 ),
@@ -101,7 +101,7 @@
 //                   children: [
 //                     Container(
 //                       decoration: BoxDecoration(
-//                         color: kfincaPinkBg,
+//                         color: kBluegrey,
 //                         borderRadius: BorderRadius.circular(
 //                           16.0,
 //                         ),
@@ -180,7 +180,7 @@
 //                   children: [
 //                     Container(
 //                       decoration: BoxDecoration(
-//                         color: kfincaPinkBg,
+//                         color: kBluegrey,
 //                         borderRadius: BorderRadius.circular(
 //                           16.0,
 //                         ),
@@ -224,7 +224,7 @@
 //                   children: [
 //                     Container(
 //                       decoration: BoxDecoration(
-//                         color: kfincaPinkBg,
+//                         color: kBluegrey,
 //                         borderRadius: BorderRadius.circular(
 //                           16.0,
 //                         ),
@@ -318,7 +318,7 @@
 //                       children: [
 //                         Container(
 //                           decoration: BoxDecoration(
-//                             color: kfincaPinkBg,
+//                             color: kBluegrey,
 //                             borderRadius: BorderRadius.circular(
 //                               16.0,
 //                             ),

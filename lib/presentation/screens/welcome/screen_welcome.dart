@@ -32,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             RoundedButton(
               title: 'Log In',
               colour: Colors.white,

@@ -216,7 +216,7 @@
 //                       'Hi!',
 //                       style: GoogleFonts.poppins(
 //                           textStyle: const TextStyle(
-//                               color: kblueGrey,
+//                               color: kBluegrey,
 //                               fontSize: 30,
 //                               fontWeight: FontWeight.bold)),
 //                     ),
@@ -272,7 +272,7 @@
 //                                 'Balance',
 //                                 style: TextStyle(
 //                                   fontFamily: 'MusticaPro',
-//                                   color: kblueGrey,
+//                                   color: kBluegrey,
 //                                   fontSize: 40,
 //                                   fontWeight: FontWeight.bold,
 //                                 ),
@@ -281,7 +281,7 @@
 //                                 '₹ $totalBalance',
 //                                 style: TextStyle(
 //                                   fontFamily: 'MusticaPro',
-//                                   color: kblueGrey,
+//                                   color: kBluegrey,
 //                                   fontSize: 65,
 //                                   fontWeight: FontWeight.bold,
 //                                 ),
@@ -401,7 +401,7 @@
 //                 "Income",
 //                 style: TextStyle(
 //                     fontSize: 20.0,
-//                     color: kblueGrey,
+//                     color: kBluegrey,
 //                     fontWeight: FontWeight.bold,
 //                     fontFamily: 'MusticaPro'),
 //               ),
@@ -458,7 +458,7 @@
 //                   fontSize: 20.0,
 //                   fontWeight: FontWeight.bold,
 //                   fontFamily: 'MusticaPro',
-//                   color: kblueGrey,
+//                   color: kBluegrey,
 //                 ),
 //               ),
 //               Text(
@@ -478,7 +478,7 @@
 
 //   Widget expenseTile(int value, String note, DateTime date, int index) {
 //     return InkWell(
-//       splashColor: kfincaPinkBg,
+//       splashColor: kBluegrey,
 //       onTap: () {
 //         ScaffoldMessenger.of(context).showSnackBar(
 //           deleteInfoSnackBar,
@@ -690,7 +690,7 @@
 //                 borderRadius: BorderRadius.circular(
 //                   8.0,
 //                 ),
-//                 color: index == 3 ? kfincaPinkBg : Colors.white,
+//                 color: index == 3 ? kBluegrey : Colors.white,
 //               ),
 //               alignment: Alignment.center,
 //               child: Text(
@@ -698,7 +698,7 @@
 //                 style: TextStyle(
 //                   fontSize: 20.0,
 //                   fontWeight: FontWeight.w600,
-//                   color: index == 3 ? Colors.white : kfincaPinkBg,
+//                   color: index == 3 ? Colors.white : kBluegrey,
 //                 ),
 //               ),
 //             ),
@@ -717,7 +717,7 @@
 //                 borderRadius: BorderRadius.circular(
 //                   8.0,
 //                 ),
-//                 color: index == 2 ? kfincaPinkBg : Colors.white,
+//                 color: index == 2 ? kBluegrey : Colors.white,
 //               ),
 //               alignment: Alignment.center,
 //               child: Text(
@@ -725,7 +725,7 @@
 //                 style: TextStyle(
 //                   fontSize: 20.0,
 //                   fontWeight: FontWeight.w600,
-//                   color: index == 2 ? Colors.white : kfincaPinkBg,
+//                   color: index == 2 ? Colors.white : kBluegrey,
 //                 ),
 //               ),
 //             ),
@@ -744,7 +744,7 @@
 //                 borderRadius: BorderRadius.circular(
 //                   8.0,
 //                 ),
-//                 color: index == 1 ? kfincaPinkBg : Colors.white,
+//                 color: index == 1 ? kBluegrey : Colors.white,
 //               ),
 //               alignment: Alignment.center,
 //               child: Text(
@@ -752,7 +752,7 @@
 //                 style: TextStyle(
 //                   fontSize: 20.0,
 //                   fontWeight: FontWeight.w600,
-//                   color: index == 1 ? Colors.white : kfincaPinkBg,
+//                   color: index == 1 ? Colors.white : kBluegrey,
 //                 ),
 //               ),
 //             ),
