@@ -35,18 +35,22 @@ class TextWidget extends StatelessWidget {
   final Color color;
   final double fontSize;
   final TextAlign? textAlign;
-  const TextWidget(
-      {super.key,
-      required this.text,
-      required this.color,
-      required this.fontSize,
-      this.textAlign});
+  final TextOverflow? overflow;
+  const TextWidget({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.fontSize,
+    this.textAlign,
+    this.overflow,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
+      overflow: overflow,
       style: TextStyle(
         fontFamily: 'MusticaPro',
         color: color,

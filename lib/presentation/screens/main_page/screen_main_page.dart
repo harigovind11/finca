@@ -9,7 +9,10 @@ import 'package:finca/presentation/screens/transactions/screen_transactions.dart
 import 'package:finca/presentation/screens/settings/screen_settings.dart';
 
 class ScreenMainPage extends StatelessWidget {
-  ScreenMainPage({super.key, required this.title});
+  ScreenMainPage({
+    super.key,
+    required this.title,
+  });
   final String title;
   final _pages = [
     const HomeScreen(),
