@@ -21,7 +21,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
     return ValueListenableBuilder(
       valueListenable: selectedCategoryTypeNotifier,
       builder: (BuildContext context, CategoryType newCategory, _) {
-        //?Default Radio Buttom
+        //*Default Radio Buttom
         // return ListTile(
         //   title: Text(title),
         //   leading: Radio<CategoryType>(
@@ -39,7 +39,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         //   ),
         // );
 
-        //?Custom Radio button
+        //*Custom Radio button
         return OutlinedButton(
           onPressed: () {
             selectedCategoryTypeNotifier.value = widget.type;

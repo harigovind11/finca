@@ -148,7 +148,7 @@ class InsideBox extends StatelessWidget {
                   ),
                 ],
               ),
-              //? Percentange widget and arrow button
+              //* Percentange widget and arrow button
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),
                 child: Row(
@@ -185,7 +185,7 @@ class InsideBox extends StatelessWidget {
               ),
             ],
           ),
-          //? Graph
+          //* Graph
         ],
       ),
     );

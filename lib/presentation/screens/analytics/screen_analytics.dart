@@ -84,7 +84,7 @@ class InsideBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //? Transaction
+              //* Transaction
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -101,7 +101,7 @@ class InsideBox extends StatelessWidget {
                   ),
                 ],
               ),
-              //? Down arrow button
+              //* Down arrow button
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),
                 child: Row(
@@ -140,7 +140,7 @@ class InsideBox extends StatelessWidget {
             ],
           ),
           kHeight10,
-          //? Graph
+          //* Graph
           BarGraph(),
         ],
       ),
