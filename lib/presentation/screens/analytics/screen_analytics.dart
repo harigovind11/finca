@@ -16,10 +16,29 @@ class AnalyticScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(50),
+        child: AppBar(
+          backgroundColor: kfincaPinkBg,
+          elevation: 0,
+          title: const TextWidget(
+            text: 'Analytics',
+            color: kWhite,
+            fontSize: 28,
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: LineIcon.bell(color: kWhite, size: 28),
+            ),
+            kWidth20
+          ],
+        ),
+      ),
       body: ListView(
         children: [
           Container(
-            height: size.height * 0.80,
+            height: size.height * 0.70,
             width: double.infinity,
             decoration: const BoxDecoration(
               color: kfincaPinkBg,
@@ -28,11 +47,10 @@ class AnalyticScreen extends StatelessWidget {
                 bottomEnd: Radius.circular(25),
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
               child: Column(
-                children: const [
-                  HeadTitle(),
+                children: [
                   InsideBox(),
                   kHeight20,
                   Section3(),
@@ -43,34 +61,6 @@ class AnalyticScreen extends StatelessWidget {
           const RecentTransaction(),
         ],
       ),
-    );
-  }
-}
-
-class HeadTitle extends StatelessWidget {
-  const HeadTitle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const TextWidget(
-              text: 'Analytics',
-              color: kWhite,
-              fontSize: 28,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: LineIcon.bell(color: kWhite, size: 28),
-            ),
-          ],
-        ),
-        kHeight20
-      ],
     );
   }
 }
@@ -95,9 +85,9 @@ class InsideBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //? Transaction
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   TextWidget(
                     text: 'Transaction',
                     color: kGreyShade,
@@ -176,13 +166,13 @@ class Section3 extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextWidget(
+                const TextWidget(
                   text: 'Money Income',
                   color: kGreyShade,
                   fontSize: 18,
                 ),
                 kHeight5,
-                TextWidget(
+                const TextWidget(
                   text: '₹13424.00',
                   color: kBluegrey,
                   fontSize: 25,
@@ -203,14 +193,14 @@ class Section3 extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                TextWidget(
+              children: [
+                const TextWidget(
                   text: 'Money Spend',
                   color: kGreyShade,
                   fontSize: 18,
                 ),
                 kHeight5,
-                TextWidget(
+                const TextWidget(
                   text: '₹6342.00',
                   color: kBluegrey,
                   fontSize: 25,

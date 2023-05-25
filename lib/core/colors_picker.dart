@@ -13,7 +13,7 @@ const kGreyShade = Color.fromARGB(255, 97, 103, 108);
 const kBlack = Colors.black;
 const kWhite = Colors.white;
 const kOffWhite = Color.fromARGB(255, 235, 235, 237);
-
+const kOutlineWhite = Colors.white24;
 const kplatsilver = Color(0xffd1d0de);
 
 const kTeal = Colors.teal;

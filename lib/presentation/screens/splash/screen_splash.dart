@@ -1,11 +1,8 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
-import 'package:finca/presentation/screens/welcome/screen_welcome.dart';
-import 'package:finca/presentation/widgets/logo_finca.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/widgets/components.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:finca/presentation/widgets/logo_finca.dart';
+
 import '../../../core/colors_picker.dart';
 import '../../../core/constants.dart';
 

@@ -12,28 +12,30 @@ dependencies:
   animated_splash_screen: ^1.2.0
   animated_text_kit: ^4.2.2
   calendar_appbar: ^0.0.6
-  cloud_firestore: ^3.3.0
+  cloud_firestore: ^4.7.1
   cupertino_icons: ^1.0.2
-  firebase_auth: ^3.4.2
-  firebase_core: ^1.19.2
-  firebase_core_platform_interface: 4.5.1
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.13.0
+  firebase_core_platform_interface: ^4.8.0
   fl_chart: ^0.62.0
   flutter:
     sdk: flutter
   flutter_emoji: ^2.4.0
   font_awesome_flutter: ^10.1.0
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.4
   google_nav_bar: ^5.0.6
+  hive_flutter: ^1.1.0
   http: ^0.13.4
-  icons_launcher: ^1.2.1
+  icons_launcher: ^2.1.0
   line_icons: ^2.0.1
   shared_preferences: ^2.0.15
-  splashscreen: null
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  build_runner: ^2.4.4
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.0
 
 flutter_icons:
   image_path: 'assets/logo_finca.png'

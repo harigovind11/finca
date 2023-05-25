@@ -1,13 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore_for_file: unused_local_variable, unrelated_type_equality_checks, unnecessary_null_comparison
 
 import 'package:finca/presentation/widgets/custom_textfield.dart';
 import 'package:finca/presentation/widgets/logo_finca.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/widgets/components.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/rounded_button.dart';

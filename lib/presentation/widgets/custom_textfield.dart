@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatter;
   final TextEditingController controller;
+  final VoidCallback? onTap;
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -21,11 +22,13 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.inputFormatter,
     required this.controller,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
@@ -53,7 +56,7 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: const BorderSide(
-            color: Colors.white24,
+            color: kOutlineWhite,
             width: 1.0,
           ),
         ),

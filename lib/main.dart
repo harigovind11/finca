@@ -1,14 +1,20 @@
+import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/welcome/screen_welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'presentation/screens/login/screen_login.dart';
-import 'presentation/screens/splash/screen_splash.dart';
-import 'presentation/screens/signup/screen_registration.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(TransactionModelAdapter().typeId)) {
+    Hive.registerAdapter(TransactionModelAdapter());
+  }
+  if (!Hive.isAdapterRegistered(CategoryTypeAdapter().typeId)) {
+    Hive.registerAdapter(CategoryTypeAdapter());
+  }
   runApp(Finca());
 }
 

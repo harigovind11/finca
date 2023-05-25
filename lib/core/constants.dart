@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'colors_picker.dart';
-
 const SAVE_KEY_NAME = 'UserLoggedIn';
 
 //SizedBoxes height
@@ -18,6 +16,11 @@ const kWidth5 = SizedBox(width: 5);
 const kWidth10 = SizedBox(width: 10);
 const kWidth15 = SizedBox(width: 15);
 const kWidth20 = SizedBox(width: 20);
+//border radius
+final BorderRadius kRadius5 = BorderRadius.circular(5);
+final BorderRadius kRadius10 = BorderRadius.circular(10);
+final BorderRadius kRadius20 = BorderRadius.circular(20);
+final BorderRadius kRadius30 = BorderRadius.circular(30);
 //Decorations
 
 const kSendButtonTextStyle = TextStyle(
@@ -31,16 +34,19 @@ class TextWidget extends StatelessWidget {
   final String text;
   final Color color;
   final double fontSize;
+  final TextAlign? textAlign;
   const TextWidget(
       {super.key,
       required this.text,
       required this.color,
-      required this.fontSize});
+      required this.fontSize,
+      this.textAlign});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'MusticaPro',
         color: color,

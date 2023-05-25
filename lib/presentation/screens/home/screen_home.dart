@@ -1,10 +1,7 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:line_icons/line_icon.dart';
-
 import 'widgets/arrow_button.dart';
 import 'widgets/recent_transaction.dart';
 import 'widgets/savingplans_scroll_widget.dart';
@@ -19,6 +16,43 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: AppBar(
+          backgroundColor: kfincaPinkBg,
+          elevation: 0,
+          title: const TextWidget(
+            text: 'Available Balance',
+            color: kWhite,
+            fontSize: 18,
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: LineIcon.bell(color: kWhite, size: 27),
+            ),
+            kWidth20,
+          ],
+          bottom: AppBar(
+            backgroundColor: kfincaPinkBg,
+            elevation: 0,
+            title: Row(
+              children: [
+                const TextWidget(
+                  text: '₹125556',
+                  color: kWhite,
+                  fontSize: 32,
+                ),
+                kWidth5,
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.visibility_outlined,
+                        color: kWhite, size: 27)),
+              ],
+            ),
+          ),
+        ),
+      ),
       backgroundColor: kplatsilver,
       body: SingleChildScrollView(
         child: Stack(
@@ -27,7 +61,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: size.height * 0.65,
+                    height: size.height * 0.47,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: kfincaPinkBg,
@@ -41,7 +75,6 @@ class HomeScreen extends StatelessWidget {
                           horizontal: 20, vertical: 10),
                       child: Column(
                         children: [
-                          const HeadSection(),
                           const InsideBox(),
                           SubtitleWithArrowButton(
                             title: 'My Savings Plans',
@@ -59,7 +92,7 @@ class HomeScreen extends StatelessWidget {
             ),
             //! My saving plans
             Positioned(
-              top: 400,
+              top: 275,
               child: LimitedBox(
                 maxHeight: 150,
                 maxWidth: size.width,
@@ -76,47 +109,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class HeadSection extends StatelessWidget {
-  const HeadSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const TextWidget(
-              text: 'Available Balance',
-              color: kWhite,
-              fontSize: 18,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: LineIcon.bell(color: kWhite, size: 27),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            const TextWidget(
-              text: '₹125556',
-              color: kWhite,
-              fontSize: 32,
-            ),
-            kWidth5,
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.visibility_outlined,
-                    color: kWhite, size: 27)),
-          ],
-        ),
-        kHeight20,
-      ],
     );
   }
 }
@@ -141,8 +133,8 @@ class InsideBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //! Monthly spend
-              Column(
-                children: const [
+              const Column(
+                children: [
                   TextWidget(
                     text: 'Money Spend',
                     color: kGreyShade,
@@ -170,8 +162,8 @@ class InsideBox extends StatelessWidget {
                           Radius.circular(50),
                         ),
                       ),
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Icon(
                             Icons.arrow_drop_down,
                             color: kWhite,

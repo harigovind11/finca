@@ -1,10 +1,6 @@
-import 'package:finca/core/constants.dart';
-import 'package:finca/presentation/screens/login/screen_login.dart';
-import 'package:finca/presentation/screens/signup/screen_registration.dart';
 import 'package:finca/presentation/widgets/logo_finca.dart';
 import 'package:flutter/material.dart';
-import '../../../widgets/components.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import '../../widgets/rounded_button.dart';
 import '../../../core/colors_picker.dart';
 

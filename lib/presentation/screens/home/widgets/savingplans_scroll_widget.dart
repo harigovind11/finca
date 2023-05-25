@@ -1,12 +1,11 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
-import 'package:line_icons/line_icon.dart';
 
 import 'arrow_button.dart';
 
+// ignore: must_be_immutable
 class MySavingPlansScrollingWidget extends StatelessWidget {
   final int index;
   var parser = EmojiParser();

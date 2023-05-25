@@ -5,19 +5,18 @@ import 'package:finca/presentation/screens/home/screen_home.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/presentation/screens/analytics/screen_analytics.dart';
-import 'package:finca/presentation/screens/cards/screen_cards.dart';
+import 'package:finca/presentation/screens/transactions/screen_transactions.dart';
 import 'package:finca/presentation/screens/settings/screen_settings.dart';
-import 'package:line_icons/line_icons.dart';
 
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key, required this.title});
   final String title;
-  final _pages = const [
-    HomeScreen(),
-    AnalyticScreen(),
+  final _pages = [
+    const HomeScreen(),
+    const AnalyticScreen(),
     AddTransaction(),
-    CardScreen(),
-    SettingScreen(),
+    const TransactionScreen(),
+    const SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,20 +30,13 @@ class ScreenMainPage extends StatelessWidget {
               return _pages[_index];
             },
           )),
-          bottomNavigationBar: const BottomNavigationBarWidget(),
+          bottomNavigationBar: Theme(
+              data: ThemeData(
+                splashColor: kTransparent,
+                highlightColor: kTransparent,
+              ),
+              child: const BottomNavigationBarWidget()),
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 25),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: FloatingActionButton(
-              onPressed: () {},
-              elevation: 1,
-              backgroundColor: kfincaPinkBg,
-              child: const Icon(LineIcons.plus),
-            ),
-          ),
-        )
       ],
     );
   }

@@ -1,6 +1,5 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
@@ -44,16 +43,18 @@ class BottomNavigationBarWidget extends StatelessWidget {
                   label: 'Analytics'),
               //for FAB
               BottomNavigationBarItem(
-                  icon: Icon(
-                    LineIcons.plus,
-                    color: kTransparent,
-                  ),
-                  label: ''),
+                icon: Icon(
+                  LineIcons.plusCircle,
+                  color: kfincaPinkBg,
+                  size: 30,
+                ),
+                label: 'ADD',
+              ),
               BottomNavigationBarItem(
                   icon: Icon(
                     LineIcons.creditCard,
                   ),
-                  label: 'Cards'),
+                  label: 'Transactions'),
               BottomNavigationBarItem(
                 icon: Icon(
                   LineIcons.cog,
