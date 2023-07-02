@@ -23,18 +23,25 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                 return Slidable(
                   key: Key(_value.id!),
                   direction: Axis.horizontal,
-                  startActionPane:
-                      ActionPane(motion: const DrawerMotion(), children: [
-                    SlidableAction(
-                      onPressed: (context) {
-                        TransactionDb.instance.deleteTransaction(_value.id!);
-                      },
-                      backgroundColor: kDeepBlush,
-                      borderRadius: kRadius10,
-                      icon: LineIcons.trash,
-                      label: 'Delete',
-                    ),
-                  ]),
+                  startActionPane: ActionPane(
+                      motion: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        child: DrawerMotion(),
+                      ),
+                      children: [
+                        SlidableAction(
+                          onPressed: (context) {
+                            TransactionDb.instance
+                                .deleteTransaction(_value.id!);
+                          },
+                          autoClose: true,
+                          backgroundColor: kDeepBlush,
+                          borderRadius: kRadius10,
+                          icon: LineIcons.trash,
+                          label: 'Delete',
+                        ),
+                      ]),
                   child: Card(
                     color: kOrange.withOpacity(.7),
                     elevation: 2,
@@ -43,7 +50,7 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                     ),
                     child: Container(
                       width: double.infinity,
-                      height: 80,
+                      height: 100,
                       padding: const EdgeInsets.all(10.0),
                       decoration:
                           BoxDecoration(borderRadius: BorderRadius.circular(5)),
@@ -59,37 +66,35 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                             ),
                           ),
                           kWidth15,
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const TextWidget(
-                                  text: 'Expense',
-                                  color: kOffWhite,
-                                  fontSize: 15,
-                                ),
-                                Flexible(
-                                  child: TextWidget(
-                                    text: _value.purpose,
-                                    color: kBlack,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                TextWidget(
-                                  text: parseDate(_value.date),
-                                  color: kOffWhite,
-                                  fontSize: 15,
-                                ),
-                              ],
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const TextWidget(
+                                text: 'Expense',
+                                color: kOffWhite,
+                                fontSize: 15,
+                              ),
+                              TextWidget(
+                                text: _value.purpose,
+                                color: kBlack,
+                                fontSize: 15,
+                                overflow: TextOverflow.fade,
+                              ),
+                              TextWidget(
+                                text: parseDate(_value.date),
+                                color: kOffWhite,
+                                fontSize: 15,
+                              ),
+                              kHeight10,
+                            ],
                           ),
                           const Spacer(),
-                          Flexible(
-                            child: TextWidget(
-                              text: '₹${_value.amount}',
-                              color: kBlack,
-                              fontSize: 18,
-                            ),
+                          TextWidget(
+                            text: '₹ ${_value.amount}',
+                            color: kBlack,
+                            fontSize: 15,
+                            overflow: TextOverflow.fade,
                           ),
                         ],
                       ),

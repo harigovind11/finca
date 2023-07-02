@@ -5,7 +5,7 @@ import 'package:finca/core/constants.dart';
 import 'package:finca/domain/db/transaction/transaction_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
-import 'package:finca/presentation/screens/main_page/screen_main_page.dart';
+import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/presentation/widgets/custom_textfield.dart';
 import 'package:finca/presentation/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +15,7 @@ import 'widgets/custom_radio_button.dart';
 
 class AddTransaction extends StatelessWidget {
   AddTransaction({super.key});
+
   final _amountController = TextEditingController();
   final _purposeController = TextEditingController();
   final _dateController = TextEditingController();
@@ -59,12 +60,14 @@ class AddTransaction extends StatelessWidget {
                     prefixIcon: LineIcons.coins,
                     controller: _amountController,
                     keyboardType: TextInputType.number,
+                    maxLength: 10,
                   ),
                   kHeight30,
                   CustomTextField(
                     hintText: 'Purpose',
                     prefixIcon: LineIcons.pollH,
                     controller: _purposeController,
+                    maxLength: 25,
                   ),
                   kHeight30,
                   CustomTextField(
@@ -72,6 +75,7 @@ class AddTransaction extends StatelessWidget {
                     keyboardType: TextInputType.datetime,
                     controller: _dateController,
                     prefixIcon: LineIcons.calendar,
+                    readOnly: true,
                     onTap: () async {
                       final _selectedDateTemp = await showDatePicker(
                           context: ctx,
@@ -123,7 +127,8 @@ class AddTransaction extends StatelessWidget {
                     title: 'ADD',
                     colour: kWhite,
                     onPressed: () {
-                      addTransaction(ctx);
+                      addTransaction();
+                      clearTextFieldData();
                       print('pressed');
                     },
                   ),
@@ -136,7 +141,7 @@ class AddTransaction extends StatelessWidget {
     );
   }
 
-  Future<void> addTransaction(BuildContext context) async {
+  Future<void> addTransaction() async {
     final _amountText = _amountController.text;
     final _purposeText = _purposeController.text;
 
@@ -156,12 +161,12 @@ class AddTransaction extends StatelessWidget {
       );
 
       await TransactionDb.instance.addTransaction(_model);
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ScreenMainPage(
-          title: 'MainPage',
-        ),
-      ));
+
+      BottomNavPageChanger.instance.pageChanger(3);
+
       TransactionDb.instance.refresh();
+
+      TransactionDb.instance.recentTransaction();
     }
   }
 
@@ -171,4 +176,13 @@ class AddTransaction extends StatelessWidget {
     return '${_splitedDate.last}\t${_splitedDate.first}';
     // return '${date.day}\n${date.month}';
   }
+
+  Future<void> clearTextFieldData() async {
+    _amountController.clear();
+    _purposeController.clear();
+    _dateController.clear();
+  }
 }
+ 
+
+ // TODO error msges

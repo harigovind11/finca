@@ -1,14 +1,13 @@
+import 'package:finca/domain/db/transaction/transaction_db.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:finca/presentation/widgets/logo_finca.dart';
-
 import '../../../core/colors_picker.dart';
 import '../../../core/constants.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key, required this.title});
-  final String title;
+  const SplashScreen({super.key, this.title});
+  final String? title;
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -18,6 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     checkUserLogin();
+
     super.initState();
   }
 
@@ -43,10 +43,12 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> checkUserLogin() async {
     final _sharedPrefs = await SharedPreferences.getInstance();
     final _userLoggedIn = _sharedPrefs.getBool(SAVE_KEY_NAME);
+    await TransactionDb.instance.openBoxes();
     if (_userLoggedIn == null || _userLoggedIn == false) {
       gotoWelcomePage();
     } else {
       await Future.delayed(const Duration(milliseconds: 1500));
+      await TransactionDb.instance.openBoxes();
       Navigator.of(context).pushReplacementNamed('/mainpage');
     }
   }

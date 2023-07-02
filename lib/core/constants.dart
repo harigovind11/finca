@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
+//keys
 const SAVE_KEY_NAME = 'UserLoggedIn';
+
+//db names
+const TRANSACTION_DB_NAME = 'transaction-db';
+const MONEY_DETAILS_DB_NAME = 'money-details-db';
 
 //SizedBoxes height
 const kHeight5 = SizedBox(height: 5);

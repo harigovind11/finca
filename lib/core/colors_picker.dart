@@ -4,7 +4,6 @@ const kpink = Color.fromARGB(255, 255, 133, 174);
 const kpinkaccent = Color.fromARGB(255, 255, 147, 170);
 const kDeepBlush = Color.fromARGB(255, 255, 91, 126);
 const kfincaPinkBg = Color(0xFFe96989);
-
 const kBluegrey = Color.fromARGB(255, 26, 28, 30);
 const kBluegreyShade = Color.fromARGB(255, 38, 41, 44);
 const kGrey = Colors.grey;

@@ -8,6 +8,7 @@ import 'package:finca/core/colors_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../domain/db/transaction/transaction_db.dart';
 import '../../widgets/rounded_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -98,7 +99,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     }
                     Navigator.of(context).popAndPushNamed('/mainpage');
                   }
-                  setState(() {});
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
                     popUpWarning(context, 'Weak Password');
@@ -137,6 +137,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   splashColor: Colors.transparent,
                   onPressed: () async {
                     await Future.delayed(const Duration(milliseconds: 400));
+
                     Navigator.of(context).popAndPushNamed('/login');
                   },
                 )

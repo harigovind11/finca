@@ -11,15 +11,15 @@ import 'package:finca/presentation/screens/settings/screen_settings.dart';
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({
     super.key,
-    required this.title,
+    this.title,
   });
-  final String title;
+  final String? title;
   final _pages = [
-    const HomeScreen(),
+    HomeScreen(),
     const AnalyticScreen(),
     AddTransaction(),
     const TransactionScreen(),
-    const SettingScreen(),
+    SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

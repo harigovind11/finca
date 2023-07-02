@@ -1,13 +1,15 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
 
+import 'package:finca/core/constants.dart';
+import 'package:finca/domain/db/money_details/money_details_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
-const TRANSACTION_DB_NAME = 'transaction-db';
-
 abstract class TransactionDbFunctions {
+  Future<void> openBoxes();
   Future<void> addTransaction(TransactionModel object);
   Future<List<TransactionModel>> getAllTransaction();
   Future<void> deleteTransaction(String id);
@@ -21,6 +23,8 @@ class TransactionDb implements TransactionDbFunctions {
   factory TransactionDb() {
     return instance;
   }
+  ValueNotifier<List<TransactionModel>> transactionListNotifier =
+      ValueNotifier([]);
 
   ValueNotifier<List<TransactionModel>> incomeTransactionListNotifier =
       ValueNotifier([]);
@@ -30,20 +34,26 @@ class TransactionDb implements TransactionDbFunctions {
 
   @override
   Future<void> addTransaction(TransactionModel object) async {
-    final _db = await Hive.openBox<TransactionModel>(TRANSACTION_DB_NAME);
+    final _db = await Hive.box<TransactionModel>(TRANSACTION_DB_NAME);
+
     _db.put(object.id, object);
+
+    MoneyDetailsDb.instance.getTotalBalance();
   }
 
   @override
   Future<void> deleteTransaction(String id) async {
-    final _db = await Hive.openBox<TransactionModel>(TRANSACTION_DB_NAME);
+    final _db = await Hive.box<TransactionModel>(TRANSACTION_DB_NAME);
     _db.delete(id);
     refresh();
+    recentTransaction();
+    MoneyDetailsDb.instance.getTotalBalance();
   }
 
   @override
   Future<List<TransactionModel>> getAllTransaction() async {
-    final _db = await Hive.openBox<TransactionModel>(TRANSACTION_DB_NAME);
+    final _db = await Hive.box<TransactionModel>(TRANSACTION_DB_NAME);
+
     return _db.values.toList();
   }
 
@@ -63,5 +73,19 @@ class TransactionDb implements TransactionDbFunctions {
 
     incomeTransactionListNotifier.notifyListeners();
     expenseTransactionListNotifier.notifyListeners();
+  }
+
+  Future<void> recentTransaction() async {
+    final _list = await getAllTransaction();
+    _list.sort((first, second) => second.date.compareTo(first.date));
+    transactionListNotifier.value.clear();
+    transactionListNotifier.value.addAll(_list);
+    transactionListNotifier.notifyListeners();
+  }
+
+  @override
+  Future<void> openBoxes() async {
+    await Hive.openBox<TransactionModel>(TRANSACTION_DB_NAME);
+    await Hive.openBox<MoneyDetailsModel>(MONEY_DETAILS_DB_NAME);
   }
 }

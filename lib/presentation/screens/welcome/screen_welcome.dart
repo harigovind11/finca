@@ -1,4 +1,6 @@
+import 'package:finca/presentation/screens/main_page/screen_main_page.dart';
 import 'package:finca/presentation/widgets/logo_finca.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/rounded_button.dart';
@@ -19,9 +21,9 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
+              children: <Widget>[
                 Logo(
                   color1: kBluegrey,
                   color2: kWhite,

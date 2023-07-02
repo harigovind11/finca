@@ -1,10 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_string_interpolations
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:line_icons/line_icon.dart';
+
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/presentation/screens/analytics/widgets/line_graph/line_graph_expense.dart';
-
 import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart';
-import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 
 import 'widgets/bar_graph/bar_graph.dart';
 import 'widgets/line_graph/line_graph_income.dart';
@@ -14,6 +17,8 @@ class AnalyticScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _db = Hive.box<MoneyDetailsModel>(MONEY_DETAILS_DB_NAME);
+    MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
@@ -38,7 +43,7 @@ class AnalyticScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            height: size.height * 0.70,
+            height: size.height * 0.75,
             width: double.infinity,
             decoration: const BoxDecoration(
               color: kfincaPinkBg,
@@ -47,13 +52,21 @@ class AnalyticScreen extends StatelessWidget {
                 bottomEnd: Radius.circular(25),
               ),
             ),
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
               child: Column(
                 children: [
-                  InsideBox(),
+                  InsideBox(
+                    totalBalance:
+                        '₹ ${moneyDetailsModel?.totalBalance.toStringAsFixed(0) ?? 'N/A'}',
+                  ),
                   kHeight20,
-                  Section3(),
+                  Section3(
+                    totalIncome:
+                        '₹ ${moneyDetailsModel?.totalIncome.toStringAsFixed(0) ?? 'N/A'}',
+                    totalExpense:
+                        '₹ ${moneyDetailsModel?.totalExpense.toStringAsFixed(0) ?? 'N/A'}',
+                  ),
                 ],
               ),
             ),
@@ -66,8 +79,11 @@ class AnalyticScreen extends StatelessWidget {
 }
 
 class InsideBox extends StatelessWidget {
-  const InsideBox({super.key});
-
+  const InsideBox({
+    Key? key,
+    required this.totalBalance,
+  }) : super(key: key);
+  final String totalBalance;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,17 +101,17 @@ class InsideBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //* Transaction
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextWidget(
+                  const TextWidget(
                     text: 'Transaction',
                     color: kGreyShade,
                     fontSize: 18,
                   ),
                   kHeight5,
                   TextWidget(
-                    text: '₹13424.00',
+                    text: totalBalance,
                     color: kBluegrey,
                     fontSize: 32,
                   ),
@@ -149,8 +165,9 @@ class InsideBox extends StatelessWidget {
 }
 
 class Section3 extends StatelessWidget {
-  const Section3({super.key});
-
+  Section3({super.key, required this.totalIncome, required this.totalExpense});
+  final String totalIncome;
+  final String totalExpense;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -172,8 +189,8 @@ class Section3 extends StatelessWidget {
                   fontSize: 18,
                 ),
                 kHeight5,
-                const TextWidget(
-                  text: '₹13424.00',
+                TextWidget(
+                  text: totalIncome,
                   color: kBluegrey,
                   fontSize: 25,
                 ),
@@ -186,7 +203,7 @@ class Section3 extends StatelessWidget {
         Expanded(
           child: Container(
             height: 180,
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
             decoration: const BoxDecoration(
               color: kWhite,
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -200,8 +217,8 @@ class Section3 extends StatelessWidget {
                   fontSize: 18,
                 ),
                 kHeight5,
-                const TextWidget(
-                  text: '₹6342.00',
+                TextWidget(
+                  text: totalExpense,
                   color: kBluegrey,
                   fontSize: 25,
                 ),

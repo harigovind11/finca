@@ -68,3 +68,15 @@ class BottomNavigationBarWidget extends StatelessWidget {
     );
   }
 }
+
+class BottomNavPageChanger {
+  BottomNavPageChanger._internal(); //NamedConstructor
+  static BottomNavPageChanger instance = BottomNavPageChanger._internal();
+  factory BottomNavPageChanger() {
+    return instance;
+  }
+
+  Future<void> pageChanger(int index) async {
+    indexChangeNotifier.value = index;
+  }
+}

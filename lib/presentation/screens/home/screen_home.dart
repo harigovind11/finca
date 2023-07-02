@@ -1,19 +1,36 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+import 'package:finca/domain/models/money_details/money_details_model.dart';
+import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:line_icons/line_icon.dart';
 import 'widgets/arrow_button.dart';
 import 'widgets/recent_transaction.dart';
 import 'widgets/savingplans_scroll_widget.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+class HomeScreen extends StatefulWidget {
+  HomeScreen({
     super.key,
   });
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final _db = Hive.box<MoneyDetailsModel>(MONEY_DETAILS_DB_NAME);
+    MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
@@ -38,8 +55,9 @@ class HomeScreen extends StatelessWidget {
             elevation: 0,
             title: Row(
               children: [
-                const TextWidget(
-                  text: '₹125556',
+                TextWidget(
+                  text:
+                      '₹ ${moneyDetailsModel?.totalBalance.toStringAsFixed(1) ?? 'N/A'}',
                   color: kWhite,
                   fontSize: 32,
                 ),
@@ -75,7 +93,10 @@ class HomeScreen extends StatelessWidget {
                           horizontal: 20, vertical: 10),
                       child: Column(
                         children: [
-                          const InsideBox(),
+                          InsideBox(
+                            expense:
+                                '₹ ${moneyDetailsModel?.totalExpense.toStringAsFixed(1) ?? 'N/A'}',
+                          ),
                           SubtitleWithArrowButton(
                             title: 'My Savings Plans',
                             onPressed: () {},
@@ -114,8 +135,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class InsideBox extends StatelessWidget {
-  const InsideBox({super.key});
-
+  InsideBox({super.key, required this.expense});
+  final String expense;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -133,16 +154,16 @@ class InsideBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //! Monthly spend
-              const Column(
+              Column(
                 children: [
-                  TextWidget(
+                  const TextWidget(
                     text: 'Money Spend',
                     color: kGreyShade,
                     fontSize: 18,
                   ),
                   kHeight5,
                   TextWidget(
-                    text: '₹57556',
+                    text: expense,
                     color: kBlack,
                     fontSize: 32,
                   ),
@@ -178,7 +199,9 @@ class InsideBox extends StatelessWidget {
                     ),
                     kWidth5,
                     ArrowButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        BottomNavPageChanger.instance.pageChanger(3);
+                      },
                     )
                   ],
                 ),
@@ -191,3 +214,4 @@ class InsideBox extends StatelessWidget {
     );
   }
 }
+ // TODO : BLoc
