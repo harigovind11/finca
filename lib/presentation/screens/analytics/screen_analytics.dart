@@ -21,24 +21,21 @@ class AnalyticScreen extends StatelessWidget {
     MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          backgroundColor: kfincaPinkBg,
-          elevation: 0,
-          title: const TextWidget(
-            text: 'Analytics',
-            color: kWhite,
-            fontSize: 28,
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: LineIcon.bell(color: kWhite, size: 28),
-            ),
-            kWidth20
-          ],
+      appBar: AppBar(
+        backgroundColor: kfincaPinkBg,
+        elevation: 0,
+        title: const TextWidget(
+          text: 'Analytics',
+          color: kWhite,
+          fontSize: 28,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: LineIcon.bell(color: kWhite, size: 28),
+          ),
+          kWidth20
+        ],
       ),
       body: ListView(
         children: [

@@ -28,16 +28,13 @@ class AddTransaction extends StatelessWidget {
   Widget build(BuildContext ctx) {
     Size size = MediaQuery.of(ctx).size;
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
-        child: AppBar(
-          backgroundColor: kfincaPinkBg,
-          elevation: 0,
-          title: const TextWidget(
-            text: 'Add Transaction',
-            color: kWhite,
-            fontSize: 28,
-          ),
+      appBar: AppBar(
+        backgroundColor: kfincaPinkBg,
+        elevation: 0,
+        title: const TextWidget(
+          text: 'Add Transaction',
+          color: kWhite,
+          fontSize: 28,
         ),
       ),
       body: ListView(

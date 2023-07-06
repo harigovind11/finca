@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
+const kBluegrey = Color.fromARGB(255, 26, 28, 30); //BG
+const kBluegreyShade = Color.fromARGB(255, 38, 41, 44);
+const kGrey = Colors.grey; // arrow icons
+const kGreyShade = Color.fromARGB(255, 97, 103, 108); //inside box titles
+
 const kpink = Color.fromARGB(255, 255, 133, 174);
 const kpinkaccent = Color.fromARGB(255, 255, 147, 170);
 const kDeepBlush = Color.fromARGB(255, 255, 91, 126);
 const kfincaPinkBg = Color(0xFFe96989);
-const kBluegrey = Color.fromARGB(255, 26, 28, 30);
-const kBluegreyShade = Color.fromARGB(255, 38, 41, 44);
-const kGrey = Colors.grey;
-const kGreyShade = Color.fromARGB(255, 97, 103, 108);
 
 const kBlack = Colors.black;
 const kWhite = Colors.white;
@@ -21,6 +22,10 @@ const kGreen = Color.fromARGB(255, 52, 182, 127);
 const kViolet = Color.fromARGB(255, 133, 55, 244);
 const kOrange = Color.fromARGB(255, 251, 102, 61);
 const kTransparent = Colors.transparent;
+
+
+
+
 
 
 
