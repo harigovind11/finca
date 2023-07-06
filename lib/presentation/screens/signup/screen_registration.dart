@@ -8,13 +8,12 @@ import 'package:finca/core/colors_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../domain/db/transaction/transaction_db.dart';
 import '../../widgets/rounded_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  final String title;
-
-  const RegistrationScreen({super.key, required this.title});
+  const RegistrationScreen({
+    super.key,
+  });
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }

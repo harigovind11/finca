@@ -1,15 +1,12 @@
-import 'package:finca/presentation/screens/main_page/screen_main_page.dart';
+import 'package:finca/core/colors_picker.dart';
 import 'package:finca/presentation/widgets/logo_finca.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:finca/presentation/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/rounded_button.dart';
-import '../../../core/colors_picker.dart';
-
 class WelcomeScreen extends StatelessWidget {
-  final String title;
-
-  const WelcomeScreen({super.key, required this.title});
+  const WelcomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

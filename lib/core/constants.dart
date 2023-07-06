@@ -41,6 +41,7 @@ class TextWidget extends StatelessWidget {
   final double fontSize;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
+  final FontWeight? fontWeight;
   const TextWidget({
     super.key,
     required this.text,
@@ -48,6 +49,7 @@ class TextWidget extends StatelessWidget {
     required this.fontSize,
     this.textAlign,
     this.overflow,
+    this.fontWeight,
   });
 
   @override
@@ -57,10 +59,10 @@ class TextWidget extends StatelessWidget {
       textAlign: textAlign,
       overflow: overflow,
       style: TextStyle(
-        fontFamily: 'MusticaPro',
-        color: color,
-        fontSize: fontSize,
-      ),
+          fontFamily: 'MusticaPro',
+          color: color,
+          fontSize: fontSize,
+          fontWeight: fontWeight),
     );
   }
 }

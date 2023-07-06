@@ -6,8 +6,9 @@ import '../../../core/colors_picker.dart';
 import '../../../core/constants.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key, this.title});
-  final String? title;
+  const SplashScreen({
+    super.key,
+  });
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

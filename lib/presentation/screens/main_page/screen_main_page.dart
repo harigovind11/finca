@@ -11,9 +11,8 @@ import 'package:finca/presentation/screens/settings/screen_settings.dart';
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({
     super.key,
-    this.title,
   });
-  final String? title;
+
   final _pages = [
     HomeScreen(),
     const AnalyticScreen(),

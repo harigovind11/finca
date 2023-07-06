@@ -1,4 +1,5 @@
 import 'package:finca/presentation/screens/login/screen_login.dart';
+import 'package:finca/presentation/screens/login/widgets/forgot_password.dart';
 import 'package:finca/presentation/screens/signup/screen_registration.dart';
 
 import 'package:flutter/material.dart';
@@ -12,27 +13,32 @@ class AppRouter {
     switch (routeSettings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (_) => SplashScreen(title: 'SplashScreen'),
+          builder: (_) => SplashScreen(),
         );
 
       case '/welcome':
         return MaterialPageRoute(
-          builder: (_) => WelcomeScreen(title: 'WelcomeScreen'),
+          builder: (_) => WelcomeScreen(),
         );
 
       case '/signup':
         return MaterialPageRoute(
-          builder: (_) => RegistrationScreen(title: 'SignupScreen'),
+          builder: (_) => RegistrationScreen(),
         );
 
       case '/login':
         return MaterialPageRoute(
-          builder: (_) => LoginScreen(title: 'LoginScreen'),
+          builder: (_) => LoginScreen(),
+        );
+
+      case '/forgotPassword':
+        return MaterialPageRoute(
+          builder: (_) => ForgotPassword(),
         );
 
       case '/mainpage':
         return MaterialPageRoute(
-          builder: (_) => ScreenMainPage(title: 'MainPage'),
+          builder: (_) => ScreenMainPage(),
         );
 
       default:

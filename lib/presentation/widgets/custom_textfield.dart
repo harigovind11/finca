@@ -14,22 +14,23 @@ class CustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatter;
   final TextEditingController controller;
   final VoidCallback? onTap;
+
   int? maxLength;
   bool readOnly;
-  CustomTextField(
-      {Key? key,
-      required this.hintText,
-      required this.prefixIcon,
-      this.suffixIconButton,
-      this.obscureText = false,
-      this.keyboardType,
-      this.validator,
-      this.inputFormatter,
-      required this.controller,
-      this.readOnly = false,
-      this.onTap,
-      this.maxLength})
-      : super(key: key);
+  CustomTextField({
+    Key? key,
+    required this.hintText,
+    required this.prefixIcon,
+    this.suffixIconButton,
+    this.obscureText = false,
+    this.keyboardType,
+    this.validator,
+    this.inputFormatter,
+    required this.controller,
+    this.readOnly = false,
+    this.onTap,
+    this.maxLength,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +39,14 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      inputFormatters: inputFormatter,
+      validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       readOnly: readOnly,
       maxLength: maxLength,
       cursorColor: kWhite,
       style: const TextStyle(color: kWhite),
       decoration: InputDecoration(
-        errorStyle: const TextStyle(
-          color: kGrey,
-          fontSize: 13,
-        ),
-        errorBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: kRed, width: 2),
-        ),
         prefixIcon: Icon(prefixIcon),
         prefixIconColor: kWhite,
         suffixIcon: suffixIconButton,
@@ -75,8 +72,25 @@ class CustomTextField extends StatelessWidget {
             width: 2.0,
           ),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: kBlack,
+            width: 2.0,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: kBlack,
+            width: 2.0,
+          ),
+        ),
+        errorStyle: const TextStyle(
+          color: kBlack,
+          fontSize: 13,
+        ),
       ),
-      validator: validator,
     );
   }
 }

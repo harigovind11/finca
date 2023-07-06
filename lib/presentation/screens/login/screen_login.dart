@@ -14,9 +14,7 @@ import 'package:finca/core/colors_picker.dart';
 import '../../widgets/rounded_button.dart';
 
 class LoginScreen extends StatefulWidget {
-  final String title;
-
-  LoginScreen({super.key, required this.title});
+  LoginScreen({super.key});
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -72,7 +70,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
               ),
-              kHeight20,
+              kHeight10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MaterialButton(
+                    splashColor: Colors.transparent,
+                    onPressed: () async {
+                      await Future.delayed(const Duration(milliseconds: 400));
+                      Navigator.of(context).pushNamed('/forgotPassword');
+                    },
+                    child: const Text(
+                      'Forgot Password ?',
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: kBluegrey),
+                    ),
+                  ),
+                ],
+              ),
               const Spacer(),
               RoundedButton(
                 title: 'Log In',
@@ -93,16 +110,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   } on FirebaseAuthException catch (e) {
                     if (e.code == 'invalid-email') {
                       popUpWarning(context, 'Invalid email');
-                      Navigator.of(context).popAndPushNamed('/login');
                     } else if (e.code == 'user-not-found') {
                       popUpWarning(context, 'User not found');
-                      Navigator.of(context).popAndPushNamed('/login');
                     } else if (e.code == 'wrong-password') {
                       popUpWarning(context, 'Wrong password');
-                      Navigator.of(context).popAndPushNamed('/login');
                     } else if (e.code == 'unknown') {
                       popUpWarning(context, 'Email / Password field empty ');
-                      Navigator.of(context).popAndPushNamed('/login');
                     } else {
                       print(e);
                     }
