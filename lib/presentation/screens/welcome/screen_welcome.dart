@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kfincaPinkBg,
+      backgroundColor: kBluegrey,
       body: Padding(
         padding:
             const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Logo(
-                  color1: kBluegrey,
+                  color1: kBlueShade,
                   color2: kWhite,
                 ),
               ],
@@ -30,14 +30,16 @@ class WelcomeScreen extends StatelessWidget {
             const Spacer(),
             RoundedButton(
               title: 'Log In',
-              colour: Colors.white,
+              backgroundColor: kWhite,
+              textColor: kBluegrey,
               onPressed: () {
                 Navigator.of(context).popAndPushNamed('/login');
               },
             ),
             RoundedButton(
               title: 'Register',
-              colour: Colors.white,
+              backgroundColor: kWhite,
+              textColor: kBluegrey,
               onPressed: () {
                 Navigator.of(context).popAndPushNamed('/signup');
               },

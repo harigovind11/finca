@@ -45,7 +45,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(
                   LineIcons.plusCircle,
-                  color: kfincaPinkBg,
+                  color: kBlueShade,
                   size: 30,
                 ),
                 label: 'ADD',
@@ -57,9 +57,9 @@ class BottomNavigationBarWidget extends StatelessWidget {
                   label: 'Transactions'),
               BottomNavigationBarItem(
                 icon: Icon(
-                  LineIcons.cog,
+                  LineIcons.user,
                 ),
-                label: 'Settings',
+                label: 'Profile',
               ),
             ],
           ),

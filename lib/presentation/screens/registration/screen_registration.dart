@@ -30,7 +30,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: kfincaPinkBg,
+      backgroundColor: kBluegrey,
       body: Padding(
         padding:
             const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
@@ -39,7 +39,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           children: <Widget>[
             const Logo(
               color1: kWhite,
-              color2: kBluegrey,
+              color2: kBlueShade,
             ),
             kHeight50,
             CustomTextField(
@@ -77,7 +77,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const Spacer(),
             RoundedButton(
               title: 'Register',
-              colour: Colors.white,
+              backgroundColor: Colors.white,
+              textColor: kBluegrey,
               onPressed: () async {
                 final _name = _usernameController.text.trim();
                 final _email = _emailController.text.trim();
@@ -126,19 +127,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       fontSize: 15, fontWeight: FontWeight.bold, color: kWhite),
                 ),
                 MaterialButton(
-                  child: const Text(
-                    'Log In',
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: kBluegrey),
-                  ),
                   splashColor: Colors.transparent,
                   onPressed: () async {
                     await Future.delayed(const Duration(milliseconds: 400));
 
                     Navigator.of(context).popAndPushNamed('/login');
                   },
+                  child: const Text(
+                    'Log In',
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: kTeal),
+                  ),
                 )
               ],
             ),

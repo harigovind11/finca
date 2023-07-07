@@ -15,7 +15,7 @@ class GreenArrowButton extends StatelessWidget {
     return IconButton(
         onPressed: onPressed,
         icon: LineIcon.arrowRight(
-          color: kGreen,
+          color: kTeal,
           size: 32,
         ));
   }

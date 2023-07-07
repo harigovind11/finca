@@ -36,7 +36,7 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                                 .deleteTransaction(_value.id!);
                           },
                           autoClose: true,
-                          backgroundColor: kDeepBlush,
+                          backgroundColor: kBluegrey,
                           borderRadius: kRadius10,
                           icon: LineIcons.trash,
                           label: 'Delete',
@@ -62,7 +62,7 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                             radius: 20,
                             child: Icon(
                               LineIcons.arrowDown,
-                              color: kViolet,
+                              color: kOrange,
                             ),
                           ),
                           kWidth15,

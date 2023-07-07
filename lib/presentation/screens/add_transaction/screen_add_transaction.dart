@@ -29,7 +29,7 @@ class AddTransaction extends StatelessWidget {
     Size size = MediaQuery.of(ctx).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kfincaPinkBg,
+        backgroundColor: kBluegrey,
         elevation: 0,
         title: const TextWidget(
           text: 'Add Transaction',
@@ -37,137 +37,133 @@ class AddTransaction extends StatelessWidget {
           fontSize: 28,
         ),
       ),
-      body: ListView(
-        shrinkWrap: true,
-        children: [
-          Container(
-            height: 1000,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: kfincaPinkBg,
-              borderRadius: BorderRadiusDirectional.only(
-                bottomStart: Radius.circular(25),
-                bottomEnd: Radius.circular(25),
-              ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    CustomTextField(
-                      hintText: 'Amount',
-                      prefixIcon: LineIcons.coins,
-                      controller: _amountController,
-                      keyboardType: TextInputType.number,
-                      inputFormatter: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Amount';
-                        }
-                        return null;
-                      },
-                      maxLength: 10,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          color: kBluegrey,
+          // borderRadius: BorderRadiusDirectional.only(
+          //   bottomStart: Radius.circular(25),
+          //   bottomEnd: Radius.circular(25),
+          // ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CustomTextField(
+                  hintText: 'Amount',
+                  prefixIcon: LineIcons.coins,
+                  controller: _amountController,
+                  keyboardType: TextInputType.number,
+                  inputFormatter: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Amount';
+                    }
+                    return null;
+                  },
+                  maxLength: 10,
+                ),
+                kHeight30,
+                CustomTextField(
+                  hintText: 'Purpose',
+                  prefixIcon: LineIcons.pollH,
+                  controller: _purposeController,
+                  inputFormatter: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(
+                      RegExp(r'[a-zA-Z]'),
                     ),
-                    kHeight30,
-                    CustomTextField(
-                      hintText: 'Purpose',
-                      prefixIcon: LineIcons.pollH,
-                      controller: _purposeController,
-                      inputFormatter: <TextInputFormatter>[
-                        FilteringTextInputFormatter.allow(
-                          RegExp(r'[a-zA-Z]'),
+                  ],
+                  maxLength: 25,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Purpose';
+                    }
+                    return null;
+                  },
+                ),
+                kHeight30,
+                CustomTextField(
+                  hintText: 'Date',
+                  keyboardType: TextInputType.datetime,
+                  controller: _dateController,
+                  prefixIcon: LineIcons.calendar,
+                  readOnly: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Date';
+                    }
+                    return null;
+                  },
+                  onTap: () async {
+                    final _selectedDateTemp = await showDatePicker(
+                        context: ctx,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime.now().subtract(
+                          const Duration(days: 60),
                         ),
-                      ],
-                      maxLength: 25,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Purpose';
-                        }
-                        return null;
-                      },
-                    ),
-                    kHeight30,
-                    CustomTextField(
-                      hintText: 'Date',
-                      keyboardType: TextInputType.datetime,
-                      controller: _dateController,
-                      prefixIcon: LineIcons.calendar,
-                      readOnly: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Date';
-                        }
-                        return null;
-                      },
-                      onTap: () async {
-                        final _selectedDateTemp = await showDatePicker(
-                            context: ctx,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime.now().subtract(
-                              const Duration(days: 60),
-                            ),
-                            lastDate: DateTime.now());
-                        if (_selectedDateTemp == null) {
-                          return;
-                        } else {
-                          final _date = parseDate(_selectedDateTemp);
-                          _dateController.text = _date;
+                        lastDate: DateTime.now());
+                    if (_selectedDateTemp == null) {
+                      return;
+                    } else {
+                      final _date = parseDate(_selectedDateTemp);
+                      _dateController.text = _date;
 
-                          _selectedDate = _selectedDateTemp;
-                        }
+                      _selectedDate = _selectedDateTemp;
+                    }
+                  },
+                ),
+                kHeight30,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomRadioButton(
+                      title: 'Income',
+                      type: CategoryType.income,
+                      onPressed: () {
+                        selectedCategoryTypeNotifier.value =
+                            CategoryType.income;
+                        _selectedCategoryType = CategoryType.income;
+                        selectedCategoryTypeNotifier.notifyListeners();
+                        print(selectedCategoryTypeNotifier.value);
                       },
                     ),
-                    kHeight30,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CustomRadioButton(
-                          title: 'Income',
-                          type: CategoryType.income,
-                          onPressed: () {
-                            selectedCategoryTypeNotifier.value =
-                                CategoryType.income;
-                            _selectedCategoryType = CategoryType.income;
-                            selectedCategoryTypeNotifier.notifyListeners();
-                            print(selectedCategoryTypeNotifier.value);
-                          },
-                        ),
-                        CustomRadioButton(
-                          title: 'Expense',
-                          type: CategoryType.expense,
-                          onPressed: () {
-                            selectedCategoryTypeNotifier.value =
-                                CategoryType.expense;
-                            _selectedCategoryType = CategoryType.expense;
-                            selectedCategoryTypeNotifier.notifyListeners();
-                            print(selectedCategoryTypeNotifier.value);
-                          },
-                        ),
-                      ],
-                    ),
-                    kHeight30,
-                    RoundedButton(
-                      title: 'ADD',
-                      colour: kWhite,
+                    CustomRadioButton(
+                      title: 'Expense',
+                      type: CategoryType.expense,
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          addTransaction();
-                          clearTextFieldData();
-                          print('pressed');
-                        }
+                        selectedCategoryTypeNotifier.value =
+                            CategoryType.expense;
+                        _selectedCategoryType = CategoryType.expense;
+                        selectedCategoryTypeNotifier.notifyListeners();
+                        print(selectedCategoryTypeNotifier.value);
                       },
                     ),
                   ],
                 ),
-              ),
+                kHeight30,
+                RoundedButton(
+                  title: 'ADD',
+                  backgroundColor: kWhite,
+                  textColor: kBluegrey,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      addTransaction();
+                      clearTextFieldData();
+                      print('pressed');
+                    }
+                  },
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

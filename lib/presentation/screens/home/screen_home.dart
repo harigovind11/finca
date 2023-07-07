@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
         child: AppBar(
-          backgroundColor: kfincaPinkBg,
+          backgroundColor: kBluegrey,
           elevation: 0,
           title: const TextWidget(
             text: 'Available Balance',
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             kWidth20,
           ],
           bottom: AppBar(
-            backgroundColor: kfincaPinkBg,
+            backgroundColor: kBluegrey,
             elevation: 0,
             title: Row(
               children: [
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: size.height * 0.47,
                     width: double.infinity,
                     decoration: const BoxDecoration(
-                      color: kfincaPinkBg,
+                      color: kBluegrey,
                       borderRadius: BorderRadiusDirectional.only(
                         bottomStart: Radius.circular(25),
                         bottomEnd: Radius.circular(25),
@@ -99,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           SubtitleWithArrowButton(
                             title: 'My Savings Plans',
+                            titleColor: kWhite,
                             onPressed: () {},
                           ),
                         ],
@@ -135,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class InsideBox extends StatelessWidget {
-  InsideBox({super.key, required this.expense});
+  const InsideBox({super.key, required this.expense});
   final String expense;
   @override
   Widget build(BuildContext context) {
@@ -143,7 +144,7 @@ class InsideBox extends StatelessWidget {
       height: 200,
       width: double.infinity,
       decoration: const BoxDecoration(
-        color: kWhite,
+        color: kBluegreyShade,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
@@ -164,7 +165,7 @@ class InsideBox extends StatelessWidget {
                   kHeight5,
                   TextWidget(
                     text: expense,
-                    color: kBlack,
+                    color: kWhite,
                     fontSize: 32,
                   ),
                 ],
@@ -178,7 +179,7 @@ class InsideBox extends StatelessWidget {
                       width: 60,
                       height: 35,
                       decoration: const BoxDecoration(
-                        color: kGreen,
+                        color: kTeal,
                         borderRadius: BorderRadius.all(
                           Radius.circular(50),
                         ),

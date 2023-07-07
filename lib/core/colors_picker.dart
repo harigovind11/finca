@@ -18,6 +18,7 @@ const kplatsilver = Color(0xffd1d0de);
 
 const kTeal = Colors.teal;
 const kRed = Colors.red;
+const kBlueShade = Color.fromARGB(255, 80, 80, 237);
 const kGreen = Color.fromARGB(255, 52, 182, 127);
 const kViolet = Color.fromARGB(255, 133, 55, 244);
 const kOrange = Color.fromARGB(255, 251, 102, 61);

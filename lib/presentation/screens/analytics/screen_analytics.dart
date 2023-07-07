@@ -22,7 +22,7 @@ class AnalyticScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kfincaPinkBg,
+        backgroundColor: kBluegrey,
         elevation: 0,
         title: const TextWidget(
           text: 'Analytics',
@@ -43,7 +43,7 @@ class AnalyticScreen extends StatelessWidget {
             height: size.height * 0.75,
             width: double.infinity,
             decoration: const BoxDecoration(
-              color: kfincaPinkBg,
+              color: kBluegrey,
               borderRadius: BorderRadiusDirectional.only(
                 bottomStart: Radius.circular(25),
                 bottomEnd: Radius.circular(25),

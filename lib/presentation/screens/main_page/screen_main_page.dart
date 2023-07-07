@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/presentation/screens/analytics/screen_analytics.dart';
 import 'package:finca/presentation/screens/transactions/screen_transactions.dart';
-import 'package:finca/presentation/screens/settings/screen_settings.dart';
+import 'package:finca/presentation/screens/profile/screen_profile.dart';
 
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({
@@ -18,7 +18,7 @@ class ScreenMainPage extends StatelessWidget {
     const AnalyticScreen(),
     AddTransaction(),
     const TransactionScreen(),
-    SettingScreen(),
+    SettingProfile(),
   ];
   @override
   Widget build(BuildContext context) {

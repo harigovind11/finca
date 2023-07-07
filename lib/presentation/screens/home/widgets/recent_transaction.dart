@@ -50,6 +50,7 @@ class _RecentTransactionState extends State<RecentTransaction> {
         children: [
           SubtitleWithArrowButton(
             title: 'Recent Transactions',
+            titleColor: kBluegrey,
             onPressed: () {},
           ),
           kHeight5,
@@ -77,10 +78,10 @@ class _RecentTransactionState extends State<RecentTransaction> {
                           ? LineIcons.arrowDown
                           : LineIcons.arrowUp,
                       iconColor: (_value.type) == CategoryType.income
-                          ? kViolet
+                          ? kBlueShade
                           : kOrange,
                       backgroundColor: (_value.type) == CategoryType.income
-                          ? kViolet.withOpacity(.7)
+                          ? kTeal
                           : kOrange.withOpacity(.7),
                     );
                   },
@@ -129,7 +130,7 @@ class RecentTransactionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: backgroundColor
-      // kViolet.withOpacity(.7)
+      // kBlueShade
       ,
       elevation: 2,
       shape: RoundedRectangleBorder(

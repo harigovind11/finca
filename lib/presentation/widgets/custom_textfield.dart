@@ -51,10 +51,13 @@ class CustomTextField extends StatelessWidget {
         prefixIconColor: kWhite,
         suffixIcon: suffixIconButton,
         suffixIconColor: kWhite,
+        counterStyle: const TextStyle(
+          color: kOffWhite,
+        ),
         hintText: hintText,
         hintMaxLines: 1,
         hintStyle: const TextStyle(
-          color: kBluegrey,
+          color: kBluegreyShade,
         ),
         filled: true,
         fillColor: kWhite.withOpacity(.2),
@@ -75,19 +78,19 @@ class CustomTextField extends StatelessWidget {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(
-            color: kBlack,
+            color: kBlueShade,
             width: 2.0,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(
-            color: kBlack,
+            color: kBlueShade,
             width: 2.0,
           ),
         ),
         errorStyle: const TextStyle(
-          color: kBlack,
+          color: kOffWhite,
           fontSize: 13,
         ),
       ),

@@ -28,7 +28,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(120),
           child: AppBar(
-            backgroundColor: kfincaPinkBg,
+            backgroundColor: kBluegrey,
             title: const TextWidget(
                 text: 'Transactions', color: kWhite, fontSize: 28),
             bottom: TabBar(

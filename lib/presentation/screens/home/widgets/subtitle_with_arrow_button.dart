@@ -8,10 +8,12 @@ class SubtitleWithArrowButton extends StatelessWidget {
       {super.key,
       required this.title,
       this.fontSize = 25,
-      required this.onPressed});
+      required this.onPressed,
+      required this.titleColor});
   final String title;
   final double fontSize;
   final VoidCallback onPressed;
+  final Color titleColor;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +26,7 @@ class SubtitleWithArrowButton extends StatelessWidget {
               title,
               style: TextStyle(
                 fontFamily: 'MusticaPro',
-                color: kBluegrey,
+                color: titleColor,
                 fontSize: fontSize,
               ),
             ),

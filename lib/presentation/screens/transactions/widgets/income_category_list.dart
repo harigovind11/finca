@@ -40,7 +40,7 @@ class IncomeCategoryListWidget extends StatelessWidget {
                           TransactionDb.instance.deleteTransaction(_value.id!);
                         },
                         autoClose: true,
-                        backgroundColor: kDeepBlush,
+                        backgroundColor: kBluegrey,
                         borderRadius: kRadius10,
                         icon: LineIcons.trash,
                         label: 'Delete',
@@ -48,7 +48,7 @@ class IncomeCategoryListWidget extends StatelessWidget {
                     ],
                   ),
                   child: Card(
-                    color: kViolet.withOpacity(.7),
+                    color: kTeal,
                     elevation: 2,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -67,7 +67,7 @@ class IncomeCategoryListWidget extends StatelessWidget {
                             radius: 20,
                             child: Icon(
                               LineIcons.arrowDown,
-                              color: kViolet,
+                              color: kBlueShade,
                             ),
                           ),
                           kWidth15,

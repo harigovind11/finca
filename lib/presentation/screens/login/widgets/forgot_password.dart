@@ -29,7 +29,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: kfincaPinkBg,
+      backgroundColor: kBluegrey,
       body: Padding(
         padding:
             const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
@@ -38,7 +38,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           children: <Widget>[
             const Logo(
               color1: kWhite,
-              color2: kBluegrey,
+              color2: kBlueShade,
             ),
             kHeight60,
             const Row(
@@ -62,7 +62,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const Spacer(),
             RoundedButton(
               title: 'Reset Password',
-              colour: Colors.white,
+              backgroundColor: kWhite,
+              textColor: kBluegrey,
               onPressed: () async {
                 passwordReset();
                 popUpWarning(context, 'Reset email sent sucessfully');

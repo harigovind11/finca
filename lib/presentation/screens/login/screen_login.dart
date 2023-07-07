@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: kfincaPinkBg,
+      backgroundColor: kBluegrey,
       body: Padding(
         padding:
             const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               const Logo(
                 color1: kWhite,
-                color2: kBluegrey,
+                color2: kBlueShade,
               ),
               kHeight60,
               CustomTextField(
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
-                          color: kBluegrey),
+                          color: kTeal),
                     ),
                   ),
                 ],
@@ -93,7 +93,8 @@ class _LoginScreenState extends State<LoginScreen> {
               const Spacer(),
               RoundedButton(
                 title: 'Log In',
-                colour: Colors.white,
+                backgroundColor: kWhite,
+                textColor: kBluegrey,
                 onPressed: () async {
                   final _email = _emailController.text.trim();
                   final _password = _passwordController.text.trim();
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: kBluegrey),
+                          color: kTeal),
                     ),
                   )
                 ],
