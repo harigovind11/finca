@@ -16,6 +16,7 @@ Future<void> showSavingPlansAddPopup(BuildContext context) async {
   final _formKey = GlobalKey<FormState>();
 
   showModalBottomSheet(
+    isScrollControlled: true,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
     ),
@@ -23,66 +24,70 @@ Future<void> showSavingPlansAddPopup(BuildContext context) async {
     builder: (ctx) {
       return Form(
         key: _formKey,
-        child: Container(
-          height: 500,
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-          child: Column(
-            children: [
-              kHeight30,
-              const TextWidget(
-                text: 'Create Saving Plan',
-                color: kBluegrey,
-                fontSize: 30,
-              ),
-              kHeight40,
-              CustomTextField.light(
-                hintText: 'Plan Name',
-                prefixIcon: LineIcons.pollH,
-                controller: _planNameEditingController,
-                inputFormatter: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(
-                    RegExp(r'[a-zA-Z]'),
-                  ),
-                ],
-                maxLength: 25,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please Enter Plan Name';
-                  }
-                  return null;
-                },
-              ),
-              kHeight20,
-              CustomTextField.light(
-                hintText: 'Goal Amount',
-                prefixIcon: LineIcons.coins,
-                controller: _goalAmountEditingController,
-                keyboardType: TextInputType.number,
-                inputFormatter: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please Enter Goal Amount';
-                  }
-                  return null;
-                },
-                maxLength: 10,
-              ),
-              kHeight30,
-              RoundedButton(
-                title: 'ADD',
-                backgroundColor: kBluegrey,
-                textColor: kWhite,
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    addTransaction(_planNameEditingController.text,
-                        _goalAmountEditingController.text);
-                    print('pressed');
-                  }
-                },
-              ),
-            ],
+        child: Padding(
+          padding: MediaQuery.of(context).viewInsets,
+          child: Container(
+            height: 500,
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            child: Column(
+              children: [
+                kHeight30,
+                const TextWidget(
+                  text: 'Create Saving Plan',
+                  color: kBluegrey,
+                  fontSize: 30,
+                ),
+                kHeight40,
+                CustomTextField.light(
+                  hintText: 'Plan Name',
+                  prefixIcon: LineIcons.pollH,
+                  controller: _planNameEditingController,
+                  inputFormatter: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(
+                      RegExp(r'[a-zA-Z]'),
+                    ),
+                  ],
+                  maxLength: 25,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Plan Name';
+                    }
+                    return null;
+                  },
+                ),
+                kHeight20,
+                CustomTextField.light(
+                  hintText: 'Goal Amount',
+                  prefixIcon: LineIcons.coins,
+                  controller: _goalAmountEditingController,
+                  keyboardType: TextInputType.number,
+                  inputFormatter: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please Enter Goal Amount';
+                    }
+                    return null;
+                  },
+                  maxLength: 10,
+                ),
+                kHeight30,
+                RoundedButton(
+                  title: 'ADD',
+                  backgroundColor: kBluegrey,
+                  textColor: kWhite,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      addTransaction(_planNameEditingController.text,
+                          _goalAmountEditingController.text);
+                      print('pressed');
+                      Navigator.of(context).pop();
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       );

@@ -81,57 +81,32 @@ class SavingPlans extends StatelessWidget {
               horizontal: 5,
             ),
             child: ValueListenableBuilder(
-                valueListenable:
-                    SavingPlansDb.instance.savingPlansValueNotifier,
-                builder: (BuildContext ctx, List<SavingPlansModel> newList,
-                    Widget? _) {
-                  return GridView.builder(
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 1 / 1.1,
-                    ),
-                    itemBuilder: (
-                      context,
-                      index,
-                    ) {
-                      final _value = newList[index];
-                      return SavingPlansScrollingWidget(
-                        planName: _value.planName,
-                        goalAmount: _value.goalAmount,
-                      );
-                    },
-                    itemCount: newList.length,
-                  );
-                }),
+              valueListenable: SavingPlansDb.instance.savingPlansValueNotifier,
+              builder: (BuildContext ctx, List<SavingPlansModel> newList,
+                  Widget? _) {
+                return GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1 / 1.1,
+                  ),
+                  itemBuilder: (
+                    context,
+                    index,
+                  ) {
+                    final _value = newList[index];
+                    return SavingPlansScrollingWidget.savingPlanScreen(
+                      planName: _value.planName,
+                      goalAmount: _value.goalAmount,
+                    );
+                  },
+                  itemCount: newList.length,
+                );
+              },
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-
-
-
-
-// GridView.count(
-                  //   shrinkWrap: true,
-                  //   crossAxisCount: 2,
-                  //   mainAxisSpacing: 10,
-                  //   crossAxisSpacing: 10,
-                  //   childAspectRatio: 1 / 1.1,
-                  //   children: List.generate(
-                  //     20,
-                  //     (index) {
-                  //       final _value = newList[index];
-                  //       return SavingPlansScrollingWidget(
-                  //         planName: _value.planName,
-                  //         goalAmount: _value.goalAmount,
-                  //       );
-                  //     },
-                  //   ),
-                  // );

@@ -4,32 +4,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
 class SavingPlansScrollingWidget extends StatelessWidget {
-  SavingPlansScrollingWidget({
+  final String planName;
+  final double goalAmount;
+  final EdgeInsetsGeometry outsidePadding;
+  final EdgeInsetsGeometry insidePadding;
+  final double borderRadius;
+
+  const SavingPlansScrollingWidget.homeScreen({
     super.key,
     required this.planName,
     required this.goalAmount,
+    this.outsidePadding = const EdgeInsets.only(left: 10),
+    this.insidePadding = const EdgeInsets.symmetric(
+      horizontal: 10,
+      vertical: 15,
+    ),
+    this.borderRadius = 10,
   });
-  final String planName;
-  final double goalAmount;
+
+  const SavingPlansScrollingWidget.savingPlanScreen({
+    super.key,
+    required this.planName,
+    required this.goalAmount,
+    this.outsidePadding = const EdgeInsets.only(top: 10),
+    this.insidePadding = const EdgeInsets.symmetric(
+      horizontal: 15,
+      vertical: 20,
+    ),
+    this.borderRadius = 20,
+  });
+
   @override
   Widget build(BuildContext context) {
     var parser = EmojiParser();
     final emoji = parser.emojify('🚗');
 
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 10,
-      ),
+      padding: outsidePadding,
       child: Card(
         color: kWhite,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Container(
-          width: 140,
+          width: 165,
           height: 140,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: insidePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -61,8 +82,8 @@ class SavingPlansScrollingWidget extends StatelessWidget {
                 ),
                 kHeight15,
                 TextWidget(
-                  text: goalAmount.toString(),
-                  color: kBluegrey,
+                  text: '₹ ${goalAmount.toStringAsFixed(0)}',
+                  color: kBluegreyShade,
                   fontSize: 22,
                 ),
               ],

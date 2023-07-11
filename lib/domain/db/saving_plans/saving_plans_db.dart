@@ -30,6 +30,7 @@ class SavingPlansDb implements SavingPlansDbFunctions {
   Future<void> deleteTransaction(String id) async {
     final _db = await Hive.openBox<SavingPlansModel>(SAVING_PLANS_DB_NAME);
     _db.delete(id);
+    refresh();
   }
 
   @override

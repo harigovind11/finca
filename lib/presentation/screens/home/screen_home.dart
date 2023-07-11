@@ -1,17 +1,16 @@
 // ignore_for_file: must_be_immutable
-
-import 'dart:developer';
-
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+import 'package:finca/domain/db/saving_plans/saving_plans_db.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
+import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:line_icons/line_icon.dart';
+import '../saving_plans/widgets/savings_plan_scrolling_widget.dart';
 import 'widgets/arrow_buttons.dart';
 import 'widgets/recent_transaction.dart';
-import 'widgets/savingplans_scroll_widget.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,12 +25,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
+    SavingPlansDb.instance.refresh();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    log('s');
     final _db = Hive.box<MoneyDetailsModel>(MONEY_DETAILS_DB_NAME);
     MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: size.height * 0.47,
+                    height: size.height * 0.52,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       color: kBluegrey,
@@ -121,16 +120,24 @@ class _HomeScreenState extends State<HomeScreen> {
             Positioned(
               top: 275,
               child: LimitedBox(
-                maxHeight: 150,
+                maxHeight: 180,
                 maxWidth: size.width,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(5, (index) {
-                    return SavingPlansScrollingWidget(
-                      index: index,
-                    );
-                  }),
-                ),
+                child: ValueListenableBuilder(
+                    valueListenable:
+                        SavingPlansDb.instance.savingPlansValueNotifier,
+                    builder: (BuildContext ctx, List<SavingPlansModel> newList,
+                        Widget? _) {
+                      return ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: List.generate(newList.length, (index) {
+                          final _value = newList[index];
+                          return SavingPlansScrollingWidget.homeScreen(
+                            planName: _value.planName,
+                            goalAmount: _value.goalAmount,
+                          );
+                        }),
+                      );
+                    }),
               ),
             ),
           ],
