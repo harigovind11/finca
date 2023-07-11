@@ -1,5 +1,6 @@
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
+import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,6 +19,9 @@ void main() async {
   }
   if (!Hive.isAdapterRegistered(CategoryTypeAdapter().typeId)) {
     Hive.registerAdapter(CategoryTypeAdapter());
+  }
+  if (!Hive.isAdapterRegistered(SavingPlansModelAdapter().typeId)) {
+    Hive.registerAdapter(SavingPlansModelAdapter());
   }
   runApp(Finca());
 }

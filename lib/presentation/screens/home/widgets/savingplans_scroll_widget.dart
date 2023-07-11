@@ -3,14 +3,14 @@ import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
-import 'arrow_button.dart';
+import 'arrow_buttons.dart';
 
 // ignore: must_be_immutable
-class MySavingPlansScrollingWidget extends StatelessWidget {
+class SavingPlansScrollingWidget extends StatelessWidget {
   final int index;
   var parser = EmojiParser();
 
-  MySavingPlansScrollingWidget({
+  SavingPlansScrollingWidget({
     super.key,
     required this.index,
   });

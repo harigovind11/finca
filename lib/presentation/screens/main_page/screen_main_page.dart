@@ -18,7 +18,7 @@ class ScreenMainPage extends StatelessWidget {
     const AnalyticScreen(),
     AddTransaction(),
     const TransactionScreen(),
-    SettingProfile(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

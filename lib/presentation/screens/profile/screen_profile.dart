@@ -9,10 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 
-class SettingProfile extends StatelessWidget {
-  SettingProfile({super.key});
-
-  final _user = FirebaseAuth.instance.currentUser;
+class ProfileScreen extends StatelessWidget {
+  ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,7 @@ class SettingProfile extends StatelessWidget {
                 const CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage(
-                    'assets/logo_finca.png',
+                    'images/foreground.png',
                   ),
                 ),
                 kHeight40,

@@ -14,23 +14,74 @@ class CustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatter;
   final TextEditingController controller;
   final VoidCallback? onTap;
+  final Color cursorColor;
+  final Color textColor;
+  final Color prefixIconColor;
+  final Color suffixIconColor;
+  final Color counterColor;
+  final Color hintTextColor;
+  final Color fillColor;
+  final Color enabledBorderColor;
+  final Color focusedBorderColor;
+  final Color errorBorderColor;
+  final Color focusedErrorBorderColor;
+  final Color errorStyleColor;
 
   int? maxLength;
   bool readOnly;
-  CustomTextField({
-    Key? key,
-    required this.hintText,
-    required this.prefixIcon,
-    this.suffixIconButton,
-    this.obscureText = false,
-    this.keyboardType,
-    this.validator,
-    this.inputFormatter,
-    required this.controller,
-    this.readOnly = false,
-    this.onTap,
-    this.maxLength,
-  }) : super(key: key);
+  CustomTextField.dark(
+      {Key? key,
+      required this.hintText,
+      required this.prefixIcon,
+      this.suffixIconButton,
+      this.obscureText = false,
+      this.keyboardType,
+      this.validator,
+      this.inputFormatter,
+      required this.controller,
+      this.readOnly = false,
+      this.onTap,
+      this.maxLength,
+      this.cursorColor = kWhite,
+      this.textColor = kWhite,
+      this.prefixIconColor = kWhite,
+      this.suffixIconColor = kOffWhite,
+      this.counterColor = kOffWhite,
+      this.hintTextColor = kBluegreyShade,
+      this.fillColor = kWhite,
+      this.enabledBorderColor = kOutlineWhite,
+      this.focusedBorderColor = kWhite,
+      this.errorBorderColor = kBlueShade,
+      this.focusedErrorBorderColor = kBlueShade,
+      this.errorStyleColor = kOffWhite})
+      : super(key: key);
+
+  CustomTextField.light(
+      {Key? key,
+      required this.hintText,
+      required this.prefixIcon,
+      this.suffixIconButton,
+      this.obscureText = false,
+      this.keyboardType,
+      this.validator,
+      this.inputFormatter,
+      required this.controller,
+      this.readOnly = false,
+      this.onTap,
+      this.maxLength,
+      this.cursorColor = kBluegrey,
+      this.textColor = kBluegrey,
+      this.prefixIconColor = kBluegrey,
+      this.suffixIconColor = kBluegrey,
+      this.counterColor = kBluegrey,
+      this.hintTextColor = kBluegreyShade,
+      this.fillColor = kBluegrey,
+      this.enabledBorderColor = kBluegrey,
+      this.focusedBorderColor = kBluegreyShade,
+      this.errorBorderColor = kBlueShade,
+      this.focusedErrorBorderColor = kBlueShade,
+      this.errorStyleColor = kBluegreyShade})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,53 +95,53 @@ class CustomTextField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       readOnly: readOnly,
       maxLength: maxLength,
-      cursorColor: kWhite,
-      style: const TextStyle(color: kWhite),
+      cursorColor: cursorColor,
+      style: TextStyle(color: textColor),
       decoration: InputDecoration(
         prefixIcon: Icon(prefixIcon),
-        prefixIconColor: kWhite,
+        prefixIconColor: prefixIconColor,
         suffixIcon: suffixIconButton,
-        suffixIconColor: kWhite,
-        counterStyle: const TextStyle(
-          color: kOffWhite,
+        suffixIconColor: suffixIconColor,
+        counterStyle: TextStyle(
+          color: counterColor,
         ),
         hintText: hintText,
         hintMaxLines: 1,
-        hintStyle: const TextStyle(
-          color: kBluegreyShade,
+        hintStyle: TextStyle(
+          color: hintTextColor,
         ),
         filled: true,
-        fillColor: kWhite.withOpacity(.2),
+        fillColor: fillColor.withOpacity(.2),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(
-            color: kOutlineWhite,
+          borderSide: BorderSide(
+            color: enabledBorderColor,
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(
-            color: kWhite,
+          borderSide: BorderSide(
+            color: focusedBorderColor,
             width: 2.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(
-            color: kBlueShade,
+          borderSide: BorderSide(
+            color: errorBorderColor,
             width: 2.0,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: const BorderSide(
-            color: kBlueShade,
+          borderSide: BorderSide(
+            color: focusedErrorBorderColor,
             width: 2.0,
           ),
         ),
-        errorStyle: const TextStyle(
-          color: kOffWhite,
+        errorStyle: TextStyle(
+          color: errorStyleColor,
           fontSize: 13,
         ),
       ),

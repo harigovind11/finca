@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:finca/presentation/widgets/logo_finca.dart';
+import 'package:finca/presentation/widgets/warning_popup.dart';
 
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -45,14 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 color2: kBlueShade,
               ),
               kHeight60,
-              CustomTextField(
+              CustomTextField.dark(
                 controller: _emailController,
                 hintText: 'Email',
                 prefixIcon: LineIcons.at,
                 keyboardType: TextInputType.emailAddress,
               ),
               kHeight20,
-              CustomTextField(
+              CustomTextField.dark(
                 controller: _passwordController,
                 hintText: 'Password',
                 prefixIcon: LineIcons.key,
@@ -152,23 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  void popUpWarning(BuildContext context, String errorMessage) {
-    final scaffold = ScaffoldMessenger.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.white,
-        content: Text(
-          errorMessage,
-          style: const TextStyle(
-            fontSize: 16.0,
-            color: Colors.blueGrey,
-            fontFamily: 'MusticaPro',
           ),
         ),
       ),

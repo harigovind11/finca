@@ -37,133 +37,135 @@ class AddTransaction extends StatelessWidget {
           fontSize: 28,
         ),
       ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: kBluegrey,
-          // borderRadius: BorderRadiusDirectional.only(
-          //   bottomStart: Radius.circular(25),
-          //   bottomEnd: Radius.circular(25),
-          // ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                CustomTextField(
-                  hintText: 'Amount',
-                  prefixIcon: LineIcons.coins,
-                  controller: _amountController,
-                  keyboardType: TextInputType.number,
-                  inputFormatter: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Amount';
-                    }
-                    return null;
-                  },
-                  maxLength: 10,
-                ),
-                kHeight30,
-                CustomTextField(
-                  hintText: 'Purpose',
-                  prefixIcon: LineIcons.pollH,
-                  controller: _purposeController,
-                  inputFormatter: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(
-                      RegExp(r'[a-zA-Z]'),
-                    ),
-                  ],
-                  maxLength: 25,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Purpose';
-                    }
-                    return null;
-                  },
-                ),
-                kHeight30,
-                CustomTextField(
-                  hintText: 'Date',
-                  keyboardType: TextInputType.datetime,
-                  controller: _dateController,
-                  prefixIcon: LineIcons.calendar,
-                  readOnly: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please Enter Date';
-                    }
-                    return null;
-                  },
-                  onTap: () async {
-                    final _selectedDateTemp = await showDatePicker(
-                        context: ctx,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now().subtract(
-                          const Duration(days: 60),
-                        ),
-                        lastDate: DateTime.now());
-                    if (_selectedDateTemp == null) {
-                      return;
-                    } else {
-                      final _date = parseDate(_selectedDateTemp);
-                      _dateController.text = _date;
-
-                      _selectedDate = _selectedDateTemp;
-                    }
-                  },
-                ),
-                kHeight30,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          Container(
+            height: 700,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: kBluegrey,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    CustomRadioButton(
-                      title: 'Income',
-                      type: CategoryType.income,
-                      onPressed: () {
-                        selectedCategoryTypeNotifier.value =
-                            CategoryType.income;
-                        _selectedCategoryType = CategoryType.income;
-                        selectedCategoryTypeNotifier.notifyListeners();
-                        print(selectedCategoryTypeNotifier.value);
+                    kHeight20,
+                    CustomTextField.dark(
+                      hintText: 'Amount',
+                      prefixIcon: LineIcons.coins,
+                      controller: _amountController,
+                      keyboardType: TextInputType.number,
+                      inputFormatter: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please Enter Amount';
+                        }
+                        return null;
+                      },
+                      maxLength: 10,
+                    ),
+                    kHeight30,
+                    CustomTextField.dark(
+                      hintText: 'Purpose',
+                      prefixIcon: LineIcons.pollH,
+                      controller: _purposeController,
+                      inputFormatter: <TextInputFormatter>[
+                        FilteringTextInputFormatter.allow(
+                          RegExp(r'[a-zA-Z]'),
+                        ),
+                      ],
+                      maxLength: 25,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please Enter Purpose';
+                        }
+                        return null;
                       },
                     ),
-                    CustomRadioButton(
-                      title: 'Expense',
-                      type: CategoryType.expense,
+                    kHeight30,
+                    CustomTextField.dark(
+                      hintText: 'Date',
+                      keyboardType: TextInputType.datetime,
+                      controller: _dateController,
+                      prefixIcon: LineIcons.calendar,
+                      readOnly: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please Enter Date';
+                        }
+                        return null;
+                      },
+                      onTap: () async {
+                        final _selectedDateTemp = await showDatePicker(
+                            context: ctx,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime.now().subtract(
+                              const Duration(days: 60),
+                            ),
+                            lastDate: DateTime.now());
+                        if (_selectedDateTemp == null) {
+                          return;
+                        } else {
+                          final _date = parseDate(_selectedDateTemp);
+                          _dateController.text = _date;
+
+                          _selectedDate = _selectedDateTemp;
+                        }
+                      },
+                    ),
+                    kHeight30,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CustomRadioButton(
+                          title: 'Income',
+                          type: CategoryType.income,
+                          onPressed: () {
+                            selectedCategoryTypeNotifier.value =
+                                CategoryType.income;
+                            _selectedCategoryType = CategoryType.income;
+                            selectedCategoryTypeNotifier.notifyListeners();
+                            print(selectedCategoryTypeNotifier.value);
+                          },
+                        ),
+                        CustomRadioButton(
+                          title: 'Expense',
+                          type: CategoryType.expense,
+                          onPressed: () {
+                            selectedCategoryTypeNotifier.value =
+                                CategoryType.expense;
+                            _selectedCategoryType = CategoryType.expense;
+                            selectedCategoryTypeNotifier.notifyListeners();
+                            print(selectedCategoryTypeNotifier.value);
+                          },
+                        ),
+                      ],
+                    ),
+                    kHeight30,
+                    RoundedButton(
+                      title: 'ADD',
+                      backgroundColor: kWhite,
+                      textColor: kBluegrey,
                       onPressed: () {
-                        selectedCategoryTypeNotifier.value =
-                            CategoryType.expense;
-                        _selectedCategoryType = CategoryType.expense;
-                        selectedCategoryTypeNotifier.notifyListeners();
-                        print(selectedCategoryTypeNotifier.value);
+                        if (_formKey.currentState!.validate()) {
+                          addTransaction();
+                          clearTextFieldData();
+                          print('pressed');
+                        }
                       },
                     ),
                   ],
                 ),
-                kHeight30,
-                RoundedButton(
-                  title: 'ADD',
-                  backgroundColor: kWhite,
-                  textColor: kBluegrey,
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      addTransaction();
-                      clearTextFieldData();
-                      print('pressed');
-                    }
-                  },
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -201,23 +203,6 @@ class AddTransaction extends StatelessWidget {
     _amountController.clear();
     _purposeController.clear();
     _dateController.clear();
-  }
-
-  void popUpWarning(BuildContext context, String errorMessage) {
-    final scaffold = ScaffoldMessenger.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.white,
-        content: Text(
-          errorMessage,
-          style: const TextStyle(
-            fontSize: 16.0,
-            color: Colors.blueGrey,
-            fontFamily: 'MusticaPro',
-          ),
-        ),
-      ),
-    );
   }
 
   String parseDate(DateTime date) {

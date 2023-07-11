@@ -6,10 +6,12 @@ const SAVE_KEY_NAME = 'UserLoggedIn';
 //db names
 const TRANSACTION_DB_NAME = 'transaction-db';
 const MONEY_DETAILS_DB_NAME = 'money-details-db';
+const SAVING_PLANS_DB_NAME = 'saving-plans-db';
 
 //SizedBoxes height
 const kHeight5 = SizedBox(height: 5);
 const kHeight10 = SizedBox(height: 10);
+const kHeight15 = SizedBox(height: 15);
 const kHeight20 = SizedBox(height: 20);
 const kHeight30 = SizedBox(height: 30);
 const kHeight40 = SizedBox(height: 40);

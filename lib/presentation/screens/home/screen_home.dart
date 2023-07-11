@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:developer';
+
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
@@ -7,7 +9,7 @@ import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:line_icons/line_icon.dart';
-import 'widgets/arrow_button.dart';
+import 'widgets/arrow_buttons.dart';
 import 'widgets/recent_transaction.dart';
 import 'widgets/savingplans_scroll_widget.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
@@ -29,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    log('s');
     final _db = Hive.box<MoneyDetailsModel>(MONEY_DETAILS_DB_NAME);
     MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
@@ -100,7 +103,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           SubtitleWithArrowButton(
                             title: 'My Savings Plans',
                             titleColor: kWhite,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/savingPlans');
+                            },
                           ),
                         ],
                       ),
@@ -121,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: List.generate(5, (index) {
-                    return MySavingPlansScrollingWidget(
+                    return SavingPlansScrollingWidget(
                       index: index,
                     );
                   }),

@@ -14,6 +14,7 @@ abstract class TransactionDbFunctions {
   Future<List<TransactionModel>> getAllTransaction();
   Future<void> deleteTransaction(String id);
   Future<void> refresh();
+  Future<void> recentTransaction();
 }
 
 class TransactionDb implements TransactionDbFunctions {

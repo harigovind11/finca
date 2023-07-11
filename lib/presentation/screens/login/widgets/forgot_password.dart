@@ -52,7 +52,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ],
             ),
             kHeight60,
-            CustomTextField(
+            CustomTextField.dark(
               controller: _emailController,
               hintText: 'Email',
               prefixIcon: LineIcons.at,
