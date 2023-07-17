@@ -98,6 +98,10 @@ class SavingPlans extends StatelessWidget {
                     return SavingPlansScrollingWidget.savingPlanScreen(
                       planName: _value.planName,
                       goalAmount: _value.goalAmount,
+                      deleteButton: () {
+                        SavingPlansDb.instance.deleteTransaction(_value.id!);
+                        SavingPlansDb.instance.refresh();
+                      },
                     );
                   },
                   itemCount: newList.length,

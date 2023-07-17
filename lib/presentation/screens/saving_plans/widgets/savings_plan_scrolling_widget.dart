@@ -1,16 +1,21 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+import 'package:finca/domain/db/saving_plans/saving_plans_db.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
-class SavingPlansScrollingWidget extends StatelessWidget {
+class SavingPlansScrollingWidget extends StatefulWidget {
   final String planName;
   final double goalAmount;
   final EdgeInsetsGeometry outsidePadding;
   final EdgeInsetsGeometry insidePadding;
   final double borderRadius;
+  final double containerWidth;
+  final VoidCallback deleteButton;
+  final VoidCallback? onLongPress;
+  bool isSavingPlanScreen = false;
 
-  const SavingPlansScrollingWidget.homeScreen({
+  SavingPlansScrollingWidget.homeScreen({
     super.key,
     required this.planName,
     required this.goalAmount,
@@ -20,9 +25,13 @@ class SavingPlansScrollingWidget extends StatelessWidget {
       vertical: 15,
     ),
     this.borderRadius = 10,
+    this.containerWidth = 165,
+    required this.deleteButton,
+    required this.onLongPress,
+    this.isSavingPlanScreen = false,
   });
 
-  const SavingPlansScrollingWidget.savingPlanScreen({
+  SavingPlansScrollingWidget.savingPlanScreen({
     super.key,
     required this.planName,
     required this.goalAmount,
@@ -32,65 +41,135 @@ class SavingPlansScrollingWidget extends StatelessWidget {
       vertical: 20,
     ),
     this.borderRadius = 20,
+    this.containerWidth = 190,
+    required this.deleteButton,
+    this.isSavingPlanScreen = true,
+    this.onLongPress,
   });
+  SavingPlansScrollingWidgetState savingPlansScrollingWidgetState =
+      SavingPlansScrollingWidgetState();
+  @override
+  State<SavingPlansScrollingWidget> createState() =>
+      SavingPlansScrollingWidgetState();
+}
+
+class SavingPlansScrollingWidgetState extends State<SavingPlansScrollingWidget>
+    with TickerProviderStateMixin {
+  bool _isDeleting = false;
+  AnimationController? _controller;
+  Animation<double>? _animation;
 
   @override
   Widget build(BuildContext context) {
     var parser = EmojiParser();
     final emoji = parser.emojify('🚗');
 
-    return Padding(
-      padding: outsidePadding,
-      child: Card(
-        color: kWhite,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius),
-        ),
-        child: Container(
-          width: 165,
-          height: 140,
-          child: Padding(
-            padding: insidePadding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 35,
-                      height: 35,
-                      alignment: Alignment.topCenter,
-                      decoration: BoxDecoration(
-                          color: kGrey.withOpacity(.4),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Text(
-                        emoji,
-                        style: const TextStyle(fontSize: 20),
-                      ),
+    return GestureDetector(
+      // onLongPress: widget.onLongPress,
+      onLongPress: () {
+        widget.isSavingPlanScreen == true ? startAnimation() : null;
+      },
+      child: Padding(
+        padding: widget.outsidePadding,
+        child: Card(
+          color: kWhite,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(widget.borderRadius),
+          ),
+          child: Stack(
+            children: [
+              Opacity(
+                opacity: 1 - _animation!.value,
+                child: Container(
+                  width: widget.containerWidth,
+                  height: 190,
+                  child: Padding(
+                    padding: widget.insidePadding,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 35,
+                              height: 35,
+                              alignment: Alignment.topCenter,
+                              decoration: BoxDecoration(
+                                  color: kGrey.withOpacity(.4),
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                emoji,
+                                style: const TextStyle(fontSize: 20),
+                              ),
+                            ),
+                            // ArrowButton(
+                            //   onPressed: () {},
+                            // )
+                          ],
+                        ),
+                        kHeight20,
+                        TextWidget(
+                          text: widget.planName,
+                          color: kBlack,
+                          fontSize: 18,
+                        ),
+                        kHeight15,
+                        TextWidget(
+                          text: '₹ ${widget.goalAmount.toStringAsFixed(0)}',
+                          color: kBluegreyShade,
+                          fontSize: 22,
+                        ),
+                      ],
                     ),
-                    // ArrowButton(
-                    //   onPressed: () {},
-                    // )
-                  ],
+                  ),
                 ),
-                kHeight20,
-                TextWidget(
-                  text: planName,
-                  color: kBlack,
-                  fontSize: 18,
+              ),
+              Positioned.fill(
+                child: Opacity(
+                  opacity: _animation!.value,
+                  child: Center(
+                    child: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: widget.deleteButton),
+                  ),
                 ),
-                kHeight15,
-                TextWidget(
-                  text: '₹ ${goalAmount.toStringAsFixed(0)}',
-                  color: kBluegreyShade,
-                  fontSize: 22,
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+
+    _animation = Tween<double>(begin: 0, end: 1).animate(_controller!)
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    super.dispose();
+  }
+
+  void startAnimation() {
+    _isDeleting = !_isDeleting;
+
+    if (_isDeleting) {
+      _controller!.forward();
+    } else {
+      _controller!.reverse();
+    }
   }
 }

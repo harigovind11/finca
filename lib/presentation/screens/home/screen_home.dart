@@ -134,6 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           return SavingPlansScrollingWidget.homeScreen(
                             planName: _value.planName,
                             goalAmount: _value.goalAmount,
+                            deleteButton: () {},
+                            onLongPress: () {},
                           );
                         }),
                       );
