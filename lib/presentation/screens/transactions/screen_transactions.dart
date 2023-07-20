@@ -1,6 +1,6 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/expense_category_list.dart';

@@ -25,6 +25,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   bool passwordVisible = true;
 
   @override
@@ -34,7 +35,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       backgroundColor: kBluegrey,
       body: Padding(
         padding:
-            const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
+            const EdgeInsets.only(left: 24, right: 24, top: 100, bottom: 100),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -75,47 +76,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 },
               ),
             ),
+            kHeight20,
+            CustomTextField.dark(
+              controller: _confirmPasswordController,
+              hintText: 'Confirm Password',
+              prefixIcon: LineIcons.key,
+              obscureText: passwordVisible,
+              suffixIconButton: IconButton(
+                splashRadius: 1,
+                icon: Icon(
+                  passwordVisible ? Icons.visibility : Icons.visibility_off,
+                  color: kWhite,
+                ),
+                onPressed: () {
+                  setState(() {
+                    passwordVisible = !passwordVisible;
+                  });
+                },
+              ),
+            ),
             const Spacer(),
             RoundedButton(
               title: 'Register',
               backgroundColor: Colors.white,
               textColor: kBluegrey,
               onPressed: () async {
-                final _name = _usernameController.text.trim();
-                final _email = _emailController.text.trim();
-                final _password = _passwordController.text.trim();
-
-                try {
-                  final newUser = await _auth.createUserWithEmailAndPassword(
-                    email: _email,
-                    password: _password,
-                  );
-
-                  if (newUser != null || newUser != false) {
-                    if (newUser != null || newUser != false) {
-                      final _sharedPrefs =
-                          await SharedPreferences.getInstance();
-                      await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
-                      Navigator.of(context).popAndPushNamed('/mainpage');
-                    }
-                    Navigator.of(context).popAndPushNamed('/mainpage');
-                  }
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                    popUpWarning(context, 'Weak Password');
-                    Navigator.of(context).popAndPushNamed('/signup');
-                  } else if (e.code == 'email-already-in-use') {
-                    popUpWarning(context, 'Email already exist ');
-                    Navigator.of(context).popAndPushNamed('/signup');
-                  } else if (e.code == 'invalid-email') {
-                    popUpWarning(context, 'Invalid Email ');
-                    Navigator.of(context).popAndPushNamed('/signup');
-                  } else if (e.code == 'unknown') {
-                    popUpWarning(context, 'Email / Password field empty ');
-                    Navigator.of(context).popAndPushNamed('/signup');
-                  } else {
-                    print(e);
-                  }
+                if (passwordConfirmed()) {
+                  signUp();
+                } else {
+                  popUpWarning(context, 'Passwords  don\'t match');
                 }
               },
             ),
@@ -148,5 +137,45 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ),
       ),
     );
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future signUp() async {
+    final _name = _usernameController.text.trim();
+    final _email = _emailController.text.trim();
+    final _password = _passwordController.text.trim();
+
+    try {
+      final newUser = await _auth.createUserWithEmailAndPassword(
+        email: _email,
+        password: _password,
+      );
+
+      if (newUser != null || newUser != false) {
+        final _sharedPrefs = await SharedPreferences.getInstance();
+        await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
+        Navigator.of(context).popAndPushNamed('/mainpage');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        popUpWarning(context, 'Weak Password');
+      } else if (e.code == 'email-already-in-use') {
+        popUpWarning(context, 'Email already exist ');
+      } else if (e.code == 'invalid-email') {
+        popUpWarning(context, 'Invalid Email ');
+      } else if (e.code == 'unknown') {
+        popUpWarning(context, 'Email / Password field empty ');
+      } else {
+        print(e);
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, unused_import
 
-import 'package:finca/domain/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/presentation/screens/home/widgets/arrow_buttons.dart';
 import 'package:finca/presentation/screens/saving_plans/widgets/savings_plan_popup.dart';

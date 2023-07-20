@@ -1,5 +1,5 @@
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';

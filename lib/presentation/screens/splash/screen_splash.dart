@@ -1,4 +1,4 @@
-import 'package:finca/domain/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:finca/presentation/widgets/logo_finca.dart';

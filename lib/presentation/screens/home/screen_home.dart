@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';

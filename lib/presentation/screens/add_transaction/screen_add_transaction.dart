@@ -2,7 +2,7 @@
 
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';

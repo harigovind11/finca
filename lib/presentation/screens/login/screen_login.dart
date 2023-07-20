@@ -6,6 +6,7 @@ import 'package:finca/presentation/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../core/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool passwordVisible = true;
   late User loggedInUser;
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: kBluegrey,
       body: Padding(
         padding:
-            const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
+            const EdgeInsets.only(left: 24, right: 24, top: 100, bottom: 100),
         child: Form(
           key: _formKey,
           child: Column(
@@ -56,6 +58,25 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField.dark(
                 controller: _passwordController,
                 hintText: 'Password',
+                prefixIcon: LineIcons.key,
+                obscureText: passwordVisible,
+                suffixIconButton: IconButton(
+                  splashRadius: 1,
+                  icon: Icon(
+                    passwordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: kWhite,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      passwordVisible = !passwordVisible;
+                    });
+                  },
+                ),
+              ),
+              kHeight20,
+              CustomTextField.dark(
+                controller: _confirmPasswordController,
+                hintText: 'Confirm Password',
                 prefixIcon: LineIcons.key,
                 obscureText: passwordVisible,
                 suffixIconButton: IconButton(
@@ -97,32 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 backgroundColor: kWhite,
                 textColor: kBluegrey,
                 onPressed: () async {
-                  final _email = _emailController.text.trim();
-                  final _password = _passwordController.text.trim();
-
-                  try {
-                    final auth = await _auth.signInWithEmailAndPassword(
-                        email: _email, password: _password);
-                    if (auth != null || auth != false) {
-                      final _sharedPrefs =
-                          await SharedPreferences.getInstance();
-                      await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
-                      Navigator.of(context).popAndPushNamed('/mainpage');
-                    }
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == 'invalid-email') {
-                      popUpWarning(context, 'Invalid email');
-                    } else if (e.code == 'user-not-found') {
-                      popUpWarning(context, 'User not found');
-                    } else if (e.code == 'wrong-password') {
-                      popUpWarning(context, 'Wrong password');
-                    } else if (e.code == 'unknown') {
-                      popUpWarning(context, 'Email / Password field empty ');
-                    } else {
-                      print(e);
-                    }
-                  } catch (e) {
-                    print(e);
+                  if (passwordConfirmed()) {
+                    signIn();
+                  } else {
+                    popUpWarning(context, 'Passwords don\'t match');
                   }
                 },
               ),
@@ -157,5 +156,43 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future signIn() async {
+    final _email = _emailController.text.trim();
+    final _password = _passwordController.text.trim();
+
+    try {
+      final auth = await _auth.signInWithEmailAndPassword(
+          email: _email, password: _password);
+      if (auth != null || auth != false) {
+        final _sharedPrefs = await SharedPreferences.getInstance();
+        await _sharedPrefs.setBool(SAVE_KEY_NAME, true);
+        Navigator.of(context).popAndPushNamed('/mainpage');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        popUpWarning(context, 'Invalid email');
+      } else if (e.code == 'user-not-found') {
+        popUpWarning(context, 'User not found');
+      } else if (e.code == 'wrong-password') {
+        popUpWarning(context, 'Wrong password');
+      } else if (e.code == 'unknown') {
+        popUpWarning(context, 'Email / Password field empty ');
+      } else {
+        print(e);
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 }

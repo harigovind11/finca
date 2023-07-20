@@ -1,6 +1,6 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/presentation/widgets/custom_textfield.dart';
 import 'package:finca/presentation/widgets/rounded_button.dart';

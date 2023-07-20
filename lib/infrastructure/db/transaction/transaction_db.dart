@@ -1,7 +1,7 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
 
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/db/money_details/money_details_db.dart';
+import 'package:finca/infrastructure/db/money_details/money_details_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
