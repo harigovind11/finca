@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, unused_import
-
-import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/hive/saving_plans_db.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
 import 'package:finca/presentation/screens/home/widgets/arrow_buttons.dart';
 import 'package:finca/presentation/screens/saving_plans/widgets/savings_plan_popup.dart';
@@ -8,11 +6,12 @@ import 'package:finca/presentation/screens/saving_plans/widgets/savings_plan_scr
 import 'package:flutter/material.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:auto_route/auto_route.dart';
 
-class SavingPlans extends StatelessWidget {
-  SavingPlans({super.key});
+@RoutePage()
+class SavingPlansScreen extends StatelessWidget {
+  const SavingPlansScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +53,14 @@ class SavingPlans extends StatelessWidget {
                             print('add');
                             showSavingPlansAddPopup(context);
                           },
-                          child: Row(
+                          child: const Row(
                             children: [
                               LineIcon.plus(
                                 color: kTeal,
                                 size: 18,
                               ),
                               kWidth5,
-                              const TextWidget(
+                              TextWidget(
                                 text: 'Add',
                                 color: kTeal,
                                 fontSize: 15,

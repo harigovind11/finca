@@ -1,9 +1,11 @@
 // ignore_for_file: must_be_immutable
+import 'package:auto_route/auto_route.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/hive/saving_plans_db.dart';
 import 'package:finca/domain/models/money_details/money_details_model.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
+import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -14,7 +16,7 @@ import 'widgets/recent_transaction.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({
+  const HomeScreen({
     super.key,
   });
 
@@ -48,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             IconButton(
               onPressed: () {},
-              icon: LineIcon.bell(color: kWhite, size: 27),
+              icon: const LineIcon.bell(color: kWhite, size: 27),
             ),
             kWidth20,
           ],
@@ -103,7 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             title: 'My Savings Plans',
                             titleColor: kWhite,
                             onPressed: () {
-                              Navigator.pushNamed(context, '/savingPlans');
+                              AutoRouter.of(context)
+                                  .push(const SavingPlansRoute());
                             },
                           ),
                         ],
@@ -134,8 +137,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           return SavingPlansScrollingWidget.homeScreen(
                             planName: _value.planName,
                             goalAmount: _value.goalAmount,
-                            deleteButton: () {},
-                            onLongPress: () {},
                           );
                         }),
                       );

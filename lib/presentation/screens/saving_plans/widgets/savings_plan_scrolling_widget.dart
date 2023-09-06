@@ -1,6 +1,6 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/hive/saving_plans_db.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
@@ -11,7 +11,7 @@ class SavingPlansScrollingWidget extends StatefulWidget {
   final EdgeInsetsGeometry insidePadding;
   final double borderRadius;
   final double containerWidth;
-  final VoidCallback deleteButton;
+  final VoidCallback? deleteButton;
   final VoidCallback? onLongPress;
   bool isSavingPlanScreen = false;
 
@@ -26,8 +26,8 @@ class SavingPlansScrollingWidget extends StatefulWidget {
     ),
     this.borderRadius = 10,
     this.containerWidth = 165,
-    required this.deleteButton,
-    required this.onLongPress,
+    this.deleteButton,
+    this.onLongPress,
     this.isSavingPlanScreen = false,
   });
 

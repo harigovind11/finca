@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/saving_plans/saving_plans_db.dart';
+import 'package:finca/infrastructure/hive/saving_plans_db.dart';
 import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
-import 'package:finca/presentation/widgets/custom_textfield.dart';
-import 'package:finca/presentation/widgets/rounded_button.dart';
+import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
+import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
@@ -82,7 +83,7 @@ Future<void> showSavingPlansAddPopup(BuildContext context) async {
                       addTransaction(_planNameEditingController.text,
                           _goalAmountEditingController.text);
                       print('pressed');
-                      Navigator.of(context).pop();
+                      AutoRouter.of(context).pop();
                     }
                   },
                 ),

@@ -1,8 +1,11 @@
 import 'package:finca/core/colors_picker.dart';
-import 'package:finca/presentation/widgets/logo_finca.dart';
-import 'package:finca/presentation/widgets/rounded_button.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/widgets/logo_finca.dart';
+import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 
+@RoutePage()
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({
     super.key,
@@ -33,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
               backgroundColor: kWhite,
               textColor: kBluegrey,
               onPressed: () {
-                Navigator.of(context).popAndPushNamed('/login');
+                AutoRouter.of(context).replace(const SignInRoute());
               },
             ),
             RoundedButton(
@@ -41,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
               backgroundColor: kWhite,
               textColor: kBluegrey,
               onPressed: () {
-                Navigator.of(context).popAndPushNamed('/signup');
+                AutoRouter.of(context).replace(const SignUpRoute());
               },
             ),
           ],

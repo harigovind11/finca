@@ -2,12 +2,12 @@
 
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/hive/transaction_db.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
-import 'package:finca/presentation/widgets/custom_textfield.dart';
-import 'package:finca/presentation/widgets/rounded_button.dart';
+import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
+import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -25,8 +25,8 @@ class AddTransaction extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext ctx) {
-    Size size = MediaQuery.of(ctx).size;
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBluegrey,
@@ -103,7 +103,7 @@ class AddTransaction extends StatelessWidget {
                       },
                       onTap: () async {
                         final _selectedDateTemp = await showDatePicker(
-                            context: ctx,
+                            context: context,
                             initialDate: DateTime.now(),
                             firstDate: DateTime.now().subtract(
                               const Duration(days: 60),

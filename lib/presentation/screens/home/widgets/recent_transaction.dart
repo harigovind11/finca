@@ -7,7 +7,7 @@ import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/hive/transaction_db.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
@@ -65,7 +65,7 @@ class _RecentTransactionState extends State<RecentTransaction> {
             ) {
               return Expanded(
                 child: ListView.separated(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (ctx, index) {
                     final _value = newList[index];
 
@@ -80,7 +80,7 @@ class _RecentTransactionState extends State<RecentTransaction> {
                           ? LineIcons.arrowDown
                           : LineIcons.arrowUp,
                       iconColor: (_value.type) == CategoryType.income
-                          ? kBlueShade
+                          ? kTeal
                           : kOrange,
                       backgroundColor: (_value.type) == CategoryType.income
                           ? kTeal
@@ -171,18 +171,18 @@ class RecentTransactionWidget extends StatelessWidget {
                   overflow: TextOverflow.fade,
                 ),
                 TextWidget(
-                  text: date,
+                  text: '₹ ${amount.toString()}',
                   color: kOffWhite,
-                  fontSize: 15,
+                  fontSize: 20,
+                  overflow: TextOverflow.fade,
                 ),
               ],
             ),
             const Spacer(),
             TextWidget(
-              text: "₹ ${amount.toString()}",
-              color: kBlack,
+              text: date,
+              color: kOffWhite,
               fontSize: 15,
-              overflow: TextOverflow.fade,
             ),
             kWidth10,
           ],

@@ -1,6 +1,6 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/db/transaction/transaction_db.dart';
+import 'package:finca/infrastructure/hive/transaction_db.dart';
 import 'package:finca/domain/models/transaction/transaction_model.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -61,7 +61,7 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                             backgroundColor: kWhite,
                             radius: 20,
                             child: Icon(
-                              LineIcons.arrowDown,
+                              LineIcons.arrowUp,
                               color: kOrange,
                             ),
                           ),
@@ -82,19 +82,19 @@ class ExpenseCategoryListWidget extends StatelessWidget {
                                 overflow: TextOverflow.fade,
                               ),
                               TextWidget(
-                                text: parseDate(_value.date),
+                                text: '₹ ${_value.amount}',
                                 color: kOffWhite,
-                                fontSize: 15,
+                                fontSize: 20,
+                                overflow: TextOverflow.fade,
                               ),
                               kHeight10,
                             ],
                           ),
                           const Spacer(),
                           TextWidget(
-                            text: '₹ ${_value.amount}',
-                            color: kBlack,
+                            text: parseDate(_value.date),
+                            color: kOffWhite,
                             fontSize: 15,
-                            overflow: TextOverflow.fade,
                           ),
                         ],
                       ),
