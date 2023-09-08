@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, unnecessary_string_interpolations
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:line_icons/line_icon.dart';
@@ -12,6 +13,7 @@ import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart'
 import 'widgets/bar_graph/bar_graph.dart';
 import 'widgets/line_graph/line_graph_income.dart';
 
+@RoutePage()
 class AnalyticScreen extends StatelessWidget {
   const AnalyticScreen({super.key});
 

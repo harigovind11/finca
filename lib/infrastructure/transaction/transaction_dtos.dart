@@ -25,32 +25,35 @@ abstract class TransactionDto implements _$TransactionDto {
 
   //?Domain to entity
 
-  factory TransactionDto.fromDomain(TransactionCard transaction) {
+  factory TransactionDto.fromDomain(TransactionEntity transactionEntity) {
     return TransactionDto(
-      id: transaction.id.getOrCrash(),
-      amount: transaction.amount.getOrCrash(),
-      purpose: transaction.purpose.getOrCrash(),
-      date: transaction.date.getOrCrash(),
-      type: transaction.type.getOrCrash(),
+      id: transactionEntity.id.getOrCrash(),
+      amount: transactionEntity.amount.getOrCrash(),
+      purpose: transactionEntity.purpose.getOrCrash(),
+      date: transactionEntity.date,
+      type: transactionEntity.type,
       serverTimeStamp: FieldValue.serverTimestamp(),
-    );
-  }
-
-  TransactionCard toDomain() {
-    return TransactionCard(
-      id: UniqueId.fromUniqueString(id!),
-      amount: TransactionAmount(amount),
-      purpose: TransactionPurpose(purpose),
-      date: TransactionDate(date),
-      type: TransactionType(type),
     );
   }
 
   factory TransactionDto.fromJson(Map<String, dynamic> json) =>
       _$TransactionDtoFromJson(json);
-
-  factory TransactionDto.fromFirestore(DocumentSnapshot doc) {
-    return TransactionDto.fromJson(doc.data as Map<String, dynamic>)
-        .copyWith(id: doc.id);
-  }
 }
+
+
+// Entity to Domain
+ // TransactionEntity toDomain() {
+  //   return TransactionEntity(
+  //     id: UniqueId.fromUniqueString(id!),
+  //     amount: TransactionAmount(amount),
+  //     purpose: TransactionPurpose(purpose),
+  //     date: date,
+  //     type: type,
+  //   );
+  // }
+
+  
+  // factory TransactionDto.fromFirestore(DocumentSnapshot doc) {
+  //   return TransactionDto.fromJson(doc.data as Map<String, dynamic>)
+  //       .copyWith(id: doc.id);
+  // }

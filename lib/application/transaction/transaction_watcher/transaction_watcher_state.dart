@@ -6,7 +6,7 @@ class TransactionWatcherState with _$TransactionWatcherState {
 
   const factory TransactionWatcherState.loadInProgress() = _LoadInProgress;
   const factory TransactionWatcherState.loadSucess(
-      KtList<TransactionCard> transactions) = _LoadSucess;
+      List<TransactionEntity> transactions) = _LoadSucess;
   const factory TransactionWatcherState.loadFailure(
       TransactionFailure transactionFailure) = _LoadFailure;
 }

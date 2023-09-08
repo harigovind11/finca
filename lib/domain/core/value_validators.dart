@@ -7,31 +7,23 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
       r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
+  } else if (input.isEmpty) {
+    return left(ValueFailure.empty(failedValue: input));
   } else {
     return left(ValueFailure.invalidEmail(failedValue: input));
   }
 }
 
 Either<ValueFailure<String>, String> validatePassword(String input) {
-  const emailRegex = r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)";
+  const emailRegex = r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)';
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
+  } else if (input.isEmpty) {
+    return left(ValueFailure.empty(failedValue: input));
   } else if (input.length < 6) {
     return left(ValueFailure.shortPassword(failedValue: input));
   } else {
     return left(ValueFailure.invalidPassword(failedValue: input));
-  }
-}
-
-Either<ValueFailure<String>, String> validateConfirmPassword(
-    String password, String confirmPassword) {
-  if (password == confirmPassword) {
-    return right(password);
-  } else {
-    return left(ValueFailure.passwordDoesntMatch(
-      failedValue1: password,
-      failedValue2: confirmPassword,
-    ));
   }
 }
 

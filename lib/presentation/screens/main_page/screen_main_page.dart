@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
   final _pages = [
     const HomeScreen(),
     const AnalyticScreen(),
-    AddTransaction(),
+    const AddTransactionScreen(),
     const TransactionScreen(),
     const ProfileScreen(),
   ];

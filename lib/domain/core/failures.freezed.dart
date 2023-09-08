@@ -16,13 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueFailure<T> {
+  dynamic get failedValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) invalidPassword,
     required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
     required TResult Function(dynamic failedValue) empty,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,8 +30,6 @@ mixin _$ValueFailure<T> {
     TResult? Function(String failedValue)? invalidEmail,
     TResult? Function(String failedValue)? invalidPassword,
     TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult? Function(dynamic failedValue)? empty,
   }) =>
       throw _privateConstructorUsedError;
@@ -41,8 +38,6 @@ mixin _$ValueFailure<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? invalidPassword,
     TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult Function(dynamic failedValue)? empty,
     required TResult orElse(),
   }) =>
@@ -52,7 +47,6 @@ mixin _$ValueFailure<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(InvalidPassword<T> value) invalidPassword,
     required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
     required TResult Function(Empty<T> value) empty,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +55,6 @@ mixin _$ValueFailure<T> {
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(InvalidPassword<T> value)? invalidPassword,
     TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult? Function(Empty<T> value)? empty,
   }) =>
       throw _privateConstructorUsedError;
@@ -70,7 +63,6 @@ mixin _$ValueFailure<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(InvalidPassword<T> value)? invalidPassword,
     TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult Function(Empty<T> value)? empty,
     required TResult orElse(),
   }) =>
@@ -163,8 +155,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) invalidPassword,
     required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
     required TResult Function(dynamic failedValue) empty,
   }) {
     return invalidEmail(failedValue);
@@ -176,8 +166,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult? Function(String failedValue)? invalidEmail,
     TResult? Function(String failedValue)? invalidPassword,
     TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult? Function(dynamic failedValue)? empty,
   }) {
     return invalidEmail?.call(failedValue);
@@ -189,8 +177,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? invalidPassword,
     TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult Function(dynamic failedValue)? empty,
     required TResult orElse(),
   }) {
@@ -206,7 +192,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(InvalidPassword<T> value) invalidPassword,
     required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
     required TResult Function(Empty<T> value) empty,
   }) {
     return invalidEmail(this);
@@ -218,7 +203,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(InvalidPassword<T> value)? invalidPassword,
     TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult? Function(Empty<T> value)? empty,
   }) {
     return invalidEmail?.call(this);
@@ -230,7 +214,6 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(InvalidPassword<T> value)? invalidPassword,
     TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult Function(Empty<T> value)? empty,
     required TResult orElse(),
   }) {
@@ -245,6 +228,7 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
   const factory InvalidEmail({required final String failedValue}) =
       _$InvalidEmail<T>;
 
+  @override
   String get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidEmailCopyWith<T, _$InvalidEmail<T>> get copyWith =>
@@ -320,8 +304,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) invalidPassword,
     required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
     required TResult Function(dynamic failedValue) empty,
   }) {
     return invalidPassword(failedValue);
@@ -333,8 +315,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     TResult? Function(String failedValue)? invalidEmail,
     TResult? Function(String failedValue)? invalidPassword,
     TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult? Function(dynamic failedValue)? empty,
   }) {
     return invalidPassword?.call(failedValue);
@@ -346,8 +326,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? invalidPassword,
     TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult Function(dynamic failedValue)? empty,
     required TResult orElse(),
   }) {
@@ -363,7 +341,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(InvalidPassword<T> value) invalidPassword,
     required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
     required TResult Function(Empty<T> value) empty,
   }) {
     return invalidPassword(this);
@@ -375,7 +352,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(InvalidPassword<T> value)? invalidPassword,
     TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult? Function(Empty<T> value)? empty,
   }) {
     return invalidPassword?.call(this);
@@ -387,7 +363,6 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(InvalidPassword<T> value)? invalidPassword,
     TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult Function(Empty<T> value)? empty,
     required TResult orElse(),
   }) {
@@ -402,6 +377,7 @@ abstract class InvalidPassword<T> implements ValueFailure<T> {
   const factory InvalidPassword({required final String failedValue}) =
       _$InvalidPassword<T>;
 
+  @override
   String get failedValue;
   @JsonKey(ignore: true)
   _$$InvalidPasswordCopyWith<T, _$InvalidPassword<T>> get copyWith =>
@@ -476,8 +452,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) invalidPassword,
     required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
     required TResult Function(dynamic failedValue) empty,
   }) {
     return shortPassword(failedValue);
@@ -489,8 +463,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult? Function(String failedValue)? invalidEmail,
     TResult? Function(String failedValue)? invalidPassword,
     TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult? Function(dynamic failedValue)? empty,
   }) {
     return shortPassword?.call(failedValue);
@@ -502,8 +474,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? invalidPassword,
     TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult Function(dynamic failedValue)? empty,
     required TResult orElse(),
   }) {
@@ -519,7 +489,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(InvalidPassword<T> value) invalidPassword,
     required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
     required TResult Function(Empty<T> value) empty,
   }) {
     return shortPassword(this);
@@ -531,7 +500,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(InvalidPassword<T> value)? invalidPassword,
     TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult? Function(Empty<T> value)? empty,
   }) {
     return shortPassword?.call(this);
@@ -543,7 +511,6 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(InvalidPassword<T> value)? invalidPassword,
     TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult Function(Empty<T> value)? empty,
     required TResult orElse(),
   }) {
@@ -558,178 +525,10 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
   const factory ShortPassword({required final String failedValue}) =
       _$ShortPassword<T>;
 
+  @override
   String get failedValue;
   @JsonKey(ignore: true)
   _$$ShortPasswordCopyWith<T, _$ShortPassword<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PasswordDoesntMatchCopyWith<T, $Res> {
-  factory _$$PasswordDoesntMatchCopyWith(_$PasswordDoesntMatch<T> value,
-          $Res Function(_$PasswordDoesntMatch<T>) then) =
-      __$$PasswordDoesntMatchCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String failedValue1, String failedValue2});
-}
-
-/// @nodoc
-class __$$PasswordDoesntMatchCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res, _$PasswordDoesntMatch<T>>
-    implements _$$PasswordDoesntMatchCopyWith<T, $Res> {
-  __$$PasswordDoesntMatchCopyWithImpl(_$PasswordDoesntMatch<T> _value,
-      $Res Function(_$PasswordDoesntMatch<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? failedValue1 = null,
-    Object? failedValue2 = null,
-  }) {
-    return _then(_$PasswordDoesntMatch<T>(
-      failedValue1: null == failedValue1
-          ? _value.failedValue1
-          : failedValue1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      failedValue2: null == failedValue2
-          ? _value.failedValue2
-          : failedValue2 // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$PasswordDoesntMatch<T> implements PasswordDoesntMatch<T> {
-  const _$PasswordDoesntMatch(
-      {required this.failedValue1, required this.failedValue2});
-
-  @override
-  final String failedValue1;
-  @override
-  final String failedValue2;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>.passwordDoesntMatch(failedValue1: $failedValue1, failedValue2: $failedValue2)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PasswordDoesntMatch<T> &&
-            (identical(other.failedValue1, failedValue1) ||
-                other.failedValue1 == failedValue1) &&
-            (identical(other.failedValue2, failedValue2) ||
-                other.failedValue2 == failedValue2));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, failedValue1, failedValue2);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PasswordDoesntMatchCopyWith<T, _$PasswordDoesntMatch<T>> get copyWith =>
-      __$$PasswordDoesntMatchCopyWithImpl<T, _$PasswordDoesntMatch<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String failedValue) invalidEmail,
-    required TResult Function(String failedValue) invalidPassword,
-    required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
-    required TResult Function(dynamic failedValue) empty,
-  }) {
-    return passwordDoesntMatch(failedValue1, failedValue2);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String failedValue)? invalidEmail,
-    TResult? Function(String failedValue)? invalidPassword,
-    TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
-    TResult? Function(dynamic failedValue)? empty,
-  }) {
-    return passwordDoesntMatch?.call(failedValue1, failedValue2);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String failedValue)? invalidEmail,
-    TResult Function(String failedValue)? invalidPassword,
-    TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
-    TResult Function(dynamic failedValue)? empty,
-    required TResult orElse(),
-  }) {
-    if (passwordDoesntMatch != null) {
-      return passwordDoesntMatch(failedValue1, failedValue2);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(InvalidPassword<T> value) invalidPassword,
-    required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
-    required TResult Function(Empty<T> value) empty,
-  }) {
-    return passwordDoesntMatch(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(InvalidPassword<T> value)? invalidPassword,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
-    TResult? Function(Empty<T> value)? empty,
-  }) {
-    return passwordDoesntMatch?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(InvalidPassword<T> value)? invalidPassword,
-    TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
-    TResult Function(Empty<T> value)? empty,
-    required TResult orElse(),
-  }) {
-    if (passwordDoesntMatch != null) {
-      return passwordDoesntMatch(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PasswordDoesntMatch<T> implements ValueFailure<T> {
-  const factory PasswordDoesntMatch(
-      {required final String failedValue1,
-      required final String failedValue2}) = _$PasswordDoesntMatch<T>;
-
-  String get failedValue1;
-  String get failedValue2;
-  @JsonKey(ignore: true)
-  _$$PasswordDoesntMatchCopyWith<T, _$PasswordDoesntMatch<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -800,8 +599,6 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(String failedValue) invalidEmail,
     required TResult Function(String failedValue) invalidPassword,
     required TResult Function(String failedValue) shortPassword,
-    required TResult Function(String failedValue1, String failedValue2)
-        passwordDoesntMatch,
     required TResult Function(dynamic failedValue) empty,
   }) {
     return empty(failedValue);
@@ -813,8 +610,6 @@ class _$Empty<T> implements Empty<T> {
     TResult? Function(String failedValue)? invalidEmail,
     TResult? Function(String failedValue)? invalidPassword,
     TResult? Function(String failedValue)? shortPassword,
-    TResult? Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult? Function(dynamic failedValue)? empty,
   }) {
     return empty?.call(failedValue);
@@ -826,8 +621,6 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(String failedValue)? invalidEmail,
     TResult Function(String failedValue)? invalidPassword,
     TResult Function(String failedValue)? shortPassword,
-    TResult Function(String failedValue1, String failedValue2)?
-        passwordDoesntMatch,
     TResult Function(dynamic failedValue)? empty,
     required TResult orElse(),
   }) {
@@ -843,7 +636,6 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(InvalidPassword<T> value) invalidPassword,
     required TResult Function(ShortPassword<T> value) shortPassword,
-    required TResult Function(PasswordDoesntMatch<T> value) passwordDoesntMatch,
     required TResult Function(Empty<T> value) empty,
   }) {
     return empty(this);
@@ -855,7 +647,6 @@ class _$Empty<T> implements Empty<T> {
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(InvalidPassword<T> value)? invalidPassword,
     TResult? Function(ShortPassword<T> value)? shortPassword,
-    TResult? Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult? Function(Empty<T> value)? empty,
   }) {
     return empty?.call(this);
@@ -867,7 +658,6 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(InvalidPassword<T> value)? invalidPassword,
     TResult Function(ShortPassword<T> value)? shortPassword,
-    TResult Function(PasswordDoesntMatch<T> value)? passwordDoesntMatch,
     TResult Function(Empty<T> value)? empty,
     required TResult orElse(),
   }) {
@@ -881,6 +671,7 @@ class _$Empty<T> implements Empty<T> {
 abstract class Empty<T> implements ValueFailure<T> {
   const factory Empty({required final dynamic failedValue}) = _$Empty<T>;
 
+  @override
   dynamic get failedValue;
   @JsonKey(ignore: true)
   _$$EmptyCopyWith<T, _$Empty<T>> get copyWith =>

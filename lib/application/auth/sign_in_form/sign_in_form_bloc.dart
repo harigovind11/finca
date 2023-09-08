@@ -27,29 +27,19 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           password: Password(event.passwordStr),
           authFailureOrSucessOption: none()));
     });
-    on<ConfirmPasswordChanged>((event, emit) {
-      emit(state.copyWith(
-          confirmPassword: ConfirmPassword(
-            event.password,
-            event.confirmPasswordStr,
-          ),
-          authFailureOrSucessOption: none()));
-    });
+
     on<RegisterWithEmailAndPasswordPressed>((event, emit) async {
       Either<AuthFailure, Unit>? failureOrSucess;
 
       final isEmailVaild = state.emailAddress.isValid();
       final isPasswordValid = state.password.isValid();
-      final isConfirmPasswordValid = state.confirmPassword.isValid();
 
-      if (state.password.value == state.confirmPassword.value) {
-        if (isEmailVaild && isPasswordValid && isConfirmPasswordValid) {
-          emit(state.copyWith(authFailureOrSucessOption: none()));
-          failureOrSucess = await _iAuthFacde.registerWithEmailAndPassword(
-            emailAddress: state.emailAddress,
-            password: state.password,
-          );
-        }
+      if (isEmailVaild && isPasswordValid) {
+        emit(state.copyWith(authFailureOrSucessOption: none()));
+        failureOrSucess = await _iAuthFacde.registerWithEmailAndPassword(
+          emailAddress: state.emailAddress,
+          password: state.password,
+        );
       }
       emit(
           state.copyWith(authFailureOrSucessOption: optionOf(failureOrSucess)));
@@ -60,15 +50,13 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
         final isEmailValid = state.emailAddress.isValid();
         final isPasswordValid = state.password.isValid();
-        final isConfirmPasswordValid = state.confirmPassword.isValid();
-        if (state.password.value == state.confirmPassword.value) {
-          if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
-            emit(state.copyWith(authFailureOrSucessOption: none()));
-            failureOrSuccess = await _iAuthFacde.signInWithEmailAndPassword(
-              emailAddress: state.emailAddress,
-              password: state.password,
-            );
-          }
+
+        if (isEmailValid && isPasswordValid) {
+          emit(state.copyWith(authFailureOrSucessOption: none()));
+          failureOrSuccess = await _iAuthFacde.signInWithEmailAndPassword(
+            emailAddress: state.emailAddress,
+            password: state.password,
+          );
         }
         emit(
           state.copyWith(

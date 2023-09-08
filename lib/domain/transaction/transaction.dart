@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:finca/domain/core/failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
@@ -8,29 +9,42 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'transaction.freezed.dart';
 
 @freezed
-class TransactionCard with _$TransactionCard {
-  const TransactionCard._();
-  const factory TransactionCard({
+class TransactionEntity with _$TransactionEntity {
+  const TransactionEntity._();
+  const factory TransactionEntity({
     required UniqueId id,
     required TransactionAmount amount,
     required TransactionPurpose purpose,
-    required TransactionDate date,
-    required TransactionType type,
-  }) = _TransactionCard;
+    required DateTime date,
+    required CategoryType type,
+  }) = _TransactionEntity;
 
-  factory TransactionCard.empty() => TransactionCard(
+  factory TransactionEntity.empty() => TransactionEntity(
         id: UniqueId(''),
-        amount: TransactionAmount(0),
+        amount: TransactionAmount(''),
         purpose: TransactionPurpose(''),
-        date: TransactionDate(DateTime.now()),
-        type: TransactionType(CategoryType.income),
+        date: DateTime.now(),
+        type: CategoryType.income,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return amount
-        .getOrCrash()
+    return amount.failureOrUnit
         .andThen(purpose.failureOrUnit)
-        .andThen(date.getOrCrash())
-        .andThen(type.failureOrUnit);
+        .fold((f) => some(f), (_) => none());
+  }
+
+//? Entity to Domain
+  factory TransactionEntity.fromSnapshot(DocumentSnapshot snapshot) {
+    final data = snapshot.data() as Map<String, dynamic>;
+    final categoryTypeString = data['type'] as String;
+    final categoryType = categoryTypeFromString(categoryTypeString);
+
+    return TransactionEntity(
+      id: UniqueId.fromUniqueString(snapshot.id),
+      amount: TransactionAmount(data['amount']),
+      purpose: TransactionPurpose(data['purpose']),
+      date: DateTime.tryParse(data['date'])!,
+      type: categoryType,
+    );
   }
 }

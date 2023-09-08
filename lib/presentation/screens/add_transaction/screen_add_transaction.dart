@@ -1,32 +1,78 @@
-// ignore_for_file: unused_local_variable, must_be_immutable, invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-
+import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
+import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/hive/transaction_db.dart';
-import 'package:finca/domain/models/category/category_model.dart';
-import 'package:finca/domain/models/transaction/transaction_model.dart';
+import 'package:finca/domain/transaction/transaction.dart';
+import 'package:finca/injectable.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_widget.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
+import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 import 'widgets/custom_radio_button.dart';
 
-class AddTransaction extends StatelessWidget {
-  AddTransaction({super.key});
-
-  final _amountController = TextEditingController();
-  final _purposeController = TextEditingController();
-  final _dateController = TextEditingController();
-  DateTime? _selectedDate;
-  CategoryType? _selectedCategoryType = CategoryType.income;
-  final _formKey = GlobalKey<FormState>();
+@RoutePage()
+class AddTransactionScreen extends StatelessWidget {
+  const AddTransactionScreen({super.key, this.transaction});
+  final TransactionEntity? transaction;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    return BlocProvider(
+      create: (context) => getIt<TransactionFormBloc>()
+        ..add(
+          TransactionFormEvent.initialized(
+            optionOf(transaction),
+          ),
+        ),
+      child: BlocConsumer<TransactionFormBloc, TransactionFormState>(
+        listenWhen: ((previous, current) =>
+            previous.saveFailureOrSucessOption !=
+            current.saveFailureOrSucessOption),
+        listener: (context, state) {
+          state.saveFailureOrSucessOption.fold(() {}, (either) {
+            either.fold((failure) {
+              popUpWarning(
+                context,
+                failure.map(
+                  insufficientPermissions: (_) => 'Insufficient permissions ❌',
+                  unableToUpdate: (_) => "Couldn't update the transaction.",
+                  unexpected: (_) =>
+                      'Unexpected error occured, please contact support.',
+                ),
+              );
+            }, (_) {
+              BottomNavPageChanger.instance.pageChanger(3);
+            });
+          });
+        },
+        buildWhen: ((previous, current) =>
+            previous.isEditing != current.isEditing),
+        builder: (context, state) {
+          return Stack(
+            children: [
+              const TransactionFormScaffold(),
+              SavingInProgressOverlay(isSaving: state.isSaving),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class TransactionFormScaffold extends StatelessWidget {
+  const TransactionFormScaffold({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBluegrey,
@@ -57,106 +103,79 @@ class AddTransaction extends StatelessWidget {
                     CustomTextField.dark(
                       hintText: 'Amount',
                       prefixIcon: LineIcons.coins,
-                      controller: _amountController,
                       keyboardType: TextInputType.number,
                       inputFormatter: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Amount';
-                        }
-                        return null;
-                      },
                       maxLength: 10,
+                      onChanged: (value) =>
+                          context.read<TransactionFormBloc>().add(
+                                TransactionFormEvent.amountChanged(value),
+                              ),
+                      validator: (_) => context
+                          .read<TransactionFormBloc>()
+                          .state
+                          .transactionEntity
+                          .amount
+                          .value
+                          .fold(
+                            (f) => f.maybeMap(
+                                empty: (f) => 'Cannot be empty',
+                                orElse: (() => null)),
+                            (_) => null,
+                          ),
                     ),
                     kHeight30,
                     CustomTextField.dark(
                       hintText: 'Purpose',
                       prefixIcon: LineIcons.pollH,
-                      controller: _purposeController,
                       inputFormatter: <TextInputFormatter>[
                         FilteringTextInputFormatter.allow(
                           RegExp(r'[a-zA-Z]'),
                         ),
                       ],
                       maxLength: 25,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Purpose';
-                        }
-                        return null;
+                      onChanged: (value) =>
+                          context.read<TransactionFormBloc>().add(
+                                TransactionFormEvent.purposeChanged(value),
+                              ),
+                      validator: (_) => context
+                          .read<TransactionFormBloc>()
+                          .state
+                          .transactionEntity
+                          .purpose
+                          .value
+                          .fold(
+                            (f) => f.maybeMap(
+                                empty: (f) => 'Cannot be empty',
+                                orElse: (() => null)),
+                            (_) => null,
+                          ),
+                    ),
+                    kHeight30,
+                    //? Date picker
+                    BlocBuilder<TransactionFormBloc, TransactionFormState>(
+                      builder: (context, state) {
+                        return DatePickerWidget(
+                            selectedDate: state.transactionEntity.date);
                       },
                     ),
                     kHeight30,
-                    CustomTextField.dark(
-                      hintText: 'Date',
-                      keyboardType: TextInputType.datetime,
-                      controller: _dateController,
-                      prefixIcon: LineIcons.calendar,
-                      readOnly: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please Enter Date';
-                        }
-                        return null;
-                      },
-                      onTap: () async {
-                        final _selectedDateTemp = await showDatePicker(
-                            context: context,
-                            initialDate: DateTime.now(),
-                            firstDate: DateTime.now().subtract(
-                              const Duration(days: 60),
-                            ),
-                            lastDate: DateTime.now());
-                        if (_selectedDateTemp == null) {
-                          return;
-                        } else {
-                          final _date = parseDate(_selectedDateTemp);
-                          _dateController.text = _date;
 
-                          _selectedDate = _selectedDateTemp;
-                        }
-                      },
-                    ),
-                    kHeight30,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CustomRadioButton(
-                          title: 'Income',
-                          type: CategoryType.income,
-                          onPressed: () {
-                            selectedCategoryTypeNotifier.value =
-                                CategoryType.income;
-                            _selectedCategoryType = CategoryType.income;
-                            selectedCategoryTypeNotifier.notifyListeners();
-                            print(selectedCategoryTypeNotifier.value);
-                          },
-                        ),
-                        CustomRadioButton(
-                          title: 'Expense',
-                          type: CategoryType.expense,
-                          onPressed: () {
-                            selectedCategoryTypeNotifier.value =
-                                CategoryType.expense;
-                            _selectedCategoryType = CategoryType.expense;
-                            selectedCategoryTypeNotifier.notifyListeners();
-                            print(selectedCategoryTypeNotifier.value);
-                          },
-                        ),
-                      ],
-                    ),
+                    //? Radio button
+                    const CustomRadioButtonWidget(),
                     kHeight30,
                     RoundedButton(
                       title: 'ADD',
                       backgroundColor: kWhite,
                       textColor: kBluegrey,
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          addTransaction();
-                          clearTextFieldData();
-                          print('pressed');
+                          context
+                              .read<TransactionFormBloc>()
+                              .add(const TransactionFormEvent.saved());
+                          await Future.delayed(const Duration(seconds: 1));
+                          BottomNavPageChanger.instance.pageChanger(3);
                         }
                       },
                     ),
@@ -169,46 +188,46 @@ class AddTransaction extends StatelessWidget {
       ),
     );
   }
-
-  Future<void> addTransaction() async {
-    final _amountText = _amountController.text;
-    final _purposeText = _purposeController.text;
-
-    final _parsedAmount = double.tryParse(_amountText);
-
-    if (_amountText.isEmpty ||
-        _purposeText.isEmpty ||
-        _selectedDate == null ||
-        _parsedAmount == null) {
-      return;
-    } else {
-      final _model = TransactionModel(
-        amount: _parsedAmount,
-        purpose: _purposeText,
-        date: _selectedDate!,
-        type: _selectedCategoryType!,
-      );
-
-      await TransactionDb.instance.addTransaction(_model);
-
-      BottomNavPageChanger.instance.pageChanger(3);
-
-      TransactionDb.instance.refresh();
-
-      TransactionDb.instance.recentTransaction();
-    }
-  }
-
-  Future<void> clearTextFieldData() async {
-    _amountController.clear();
-    _purposeController.clear();
-    _dateController.clear();
-  }
-
-  String parseDate(DateTime date) {
-    final _date = DateFormat.MMMMd().format(date);
-    final _splitedDate = _date.split(' ');
-    return '${_splitedDate.last}\t${_splitedDate.first}';
-    // return '${date.day}\n${date.month}';
-  }
 }
+
+// Future<void> addTransactionScreen() async {
+//   final _amountText = _amountController.text;
+//   final _purposeText = _purposeController.text;
+
+//   final _parsedAmount = double.tryParse(_amountText);
+
+//   if (_amountText.isEmpty ||
+//       _purposeText.isEmpty ||
+//       _selectedDate == null ||
+//       _parsedAmount == null) {
+//     return;
+//   } else {
+//     final _model = TransactionModel(
+//       amount: _parsedAmount,
+//       purpose: _purposeText,
+//       date: _selectedDate!,
+//       type: _selectedCategoryType!,
+//     );
+
+//     await TransactionDb.instance.addTransactionScreen(_model);
+
+//     BottomNavPageChanger.instance.pageChanger(3);
+
+//     TransactionDb.instance.refresh();
+
+//     TransactionDb.instance.recentTransaction();
+//   }
+// }
+
+// Future<void> clearTextFieldData() async {
+//   _amountController.clear();
+//   _purposeController.clear();
+//   _dateController.clear();
+// }
+
+// String parseDate(DateTime date) {
+//   final _date = DateFormat.MMMMd().format(date);
+//   final _splitedDate = _date.split(' ');
+//   return '${_splitedDate.last}\t${_splitedDate.first}';
+//   // return '${date.day}\n${date.month}';
+// }

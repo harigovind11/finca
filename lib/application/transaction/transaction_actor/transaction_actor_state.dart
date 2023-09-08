@@ -5,6 +5,6 @@ class TransactionActorState with _$TransactionActorState {
   const factory TransactionActorState.initial() = _Initial;
   const factory TransactionActorState.actionInProgress() = _ActionInProgress;
   const factory TransactionActorState.deleteFailure(
-      TransactionFailure noteFailure) = _DeleteFailure;
+      TransactionFailure transactionFailure) = _DeleteFailure;
   const factory TransactionActorState.deleteSucess() = _DeleteSucess;
 }

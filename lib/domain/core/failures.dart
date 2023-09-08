@@ -11,11 +11,8 @@ class ValueFailure<T> with _$ValueFailure<T> {
       InvalidPassword<T>;
   const factory ValueFailure.shortPassword({required String failedValue}) =
       ShortPassword<T>;
-  const factory ValueFailure.passwordDoesntMatch({
-    required String failedValue1,
-    required String failedValue2,
-  }) = PasswordDoesntMatch<T>;
-  //!Add Transactions
+
+  //!Common
   const factory ValueFailure.empty({
     required dynamic failedValue,
   }) = Empty<T>;

@@ -1,4 +1,3 @@
-import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'arrow_buttons.dart';

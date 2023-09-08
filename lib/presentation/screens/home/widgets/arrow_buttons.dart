@@ -14,7 +14,7 @@ class GreenArrowButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: onPressed,
-        icon: LineIcon.arrowRight(
+        icon: const LineIcon.arrowRight(
           color: kTeal,
           size: 32,
         ));
@@ -29,7 +29,7 @@ class ArrowButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: LineIcon.angleRight(
+      icon: const LineIcon.angleRight(
         color: kGrey,
       ),
     );

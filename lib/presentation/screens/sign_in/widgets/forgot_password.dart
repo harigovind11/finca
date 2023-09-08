@@ -7,6 +7,7 @@ import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/logo_finca.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
+import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
@@ -23,7 +24,7 @@ class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _auth = FirebaseAuth.instance;
-    final _emailController = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
     return BlocProvider(
       create: (context) => getIt<SignInFormBloc>(),
       child: BlocConsumer<SignInFormBloc, SignInFormState>(
@@ -74,25 +75,28 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ],
                   ),
                   kHeight60,
-                  CustomTextField.dark(
-                    controller: _emailController,
-                    hintText: 'Email',
-                    prefixIcon: LineIcons.at,
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (value) => context.read<SignInFormBloc>().add(
-                          SignInFormEvent.emailChanged(value),
-                        ),
-                    validator: (_) => context
-                        .read<SignInFormBloc>()
-                        .state
-                        .emailAddress
-                        .value
-                        .fold(
-                            (failure) => failure.maybeMap(
-                                  invalidEmail: (_) => 'Invalid Email',
-                                  orElse: () => null,
-                                ),
-                            (_) => null),
+                  Form(
+                    key: _formKey,
+                    child: CustomTextField.dark(
+                      hintText: 'Email',
+                      prefixIcon: LineIcons.at,
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (value) => context.read<SignInFormBloc>().add(
+                            SignInFormEvent.emailChanged(value),
+                          ),
+                      validator: (_) => context
+                          .read<SignInFormBloc>()
+                          .state
+                          .emailAddress
+                          .value
+                          .fold(
+                              (failure) => failure.maybeMap(
+                                    empty: (_) => 'Cannot be empty',
+                                    invalidEmail: (_) => 'Invalid Email',
+                                    orElse: () => null,
+                                  ),
+                              (_) => null),
+                    ),
                   ),
                   kHeight20,
                   const Spacer(),
@@ -101,10 +105,11 @@ class ForgotPasswordScreen extends StatelessWidget {
                     backgroundColor: kWhite,
                     textColor: kBluegrey,
                     onPressed: () async {
-                      // passwordReset();
-                      popUpWarning(context, 'Reset email sent sucessfully');
-                      await Future.delayed(const Duration(seconds: 1));
-                      AutoRouter.of(context).replace(const SignInRoute());
+                      if (_formKey.currentState!.validate()) {
+                        popUpWarning(context, 'Reset email sent sucessfully');
+                        await Future.delayed(const Duration(seconds: 1));
+                        AutoRouter.of(context).replace(const SignInRoute());
+                      }
                     },
                   ),
                 ],
@@ -112,39 +117,6 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-
-  // Future<void> passwordReset() async {
-  //   try {
-  //     final _email = _emailController.text.trim();
-  //     await _auth.sendPasswordResetEmail(email: _email);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'invalid-email') {
-  //       popUpWarning(context, 'Invalid email');
-  //     } else if (e.code == 'user-not-found') {
-  //       popUpWarning(context, 'User not found');
-  //     } else if (e.code == 'unknown') {
-  //       popUpWarning(context, 'Email field empty ');
-  //     }
-  //     print(e);
-  //   }
-  // }
-
-  void popUpWarning(BuildContext context, String errorMessage) {
-    final scaffold = ScaffoldMessenger.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        backgroundColor: Colors.white,
-        content: Text(
-          errorMessage,
-          style: const TextStyle(
-            fontSize: 16.0,
-            color: Colors.blueGrey,
-            fontFamily: 'MusticaPro',
-          ),
-        ),
       ),
     );
   }

@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: must_be_immutable
 
+import 'package:auto_route/auto_route.dart';
 import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
@@ -71,7 +74,7 @@ class _RecentTransactionState extends State<RecentTransaction> {
 
                     return RecentTransactionWidget(
                       pupose: _value.purpose,
-                      date: parseDate(_value.date),
+                      date: parseDateMMMD(_value.date),
                       amount: _value.amount,
                       title: (_value.type) == CategoryType.income
                           ? 'Receive'
@@ -98,13 +101,6 @@ class _RecentTransactionState extends State<RecentTransaction> {
         ],
       ),
     );
-  }
-
-  String parseDate(DateTime date) {
-    final _date = DateFormat.MMMd().format(date);
-    final _splitedDate = _date.split(' ');
-    return '${_splitedDate.last}\t${_splitedDate.first}';
-    // return '${date.day}\t${date.month}';
   }
 }
 

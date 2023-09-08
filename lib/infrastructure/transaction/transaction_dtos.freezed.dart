@@ -22,7 +22,7 @@ TransactionDto _$TransactionDtoFromJson(Map<String, dynamic> json) {
 mixin _$TransactionDto {
   @JsonKey(includeFromJson: false)
   String? get id => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   CategoryType get type => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $TransactionDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(includeFromJson: false) String? id,
-      double amount,
+      String amount,
       String purpose,
       DateTime date,
       CategoryType type,
@@ -78,7 +78,7 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_TransactionDtoCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(includeFromJson: false) String? id,
-      double amount,
+      String amount,
       String purpose,
       DateTime date,
       CategoryType type,
@@ -142,7 +142,7 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ class _$_TransactionDto extends _TransactionDto {
   @JsonKey(includeFromJson: false)
   final String? id;
   @override
-  final double amount;
+  final String amount;
   @override
   final String purpose;
   @override
@@ -234,7 +234,7 @@ class _$_TransactionDto extends _TransactionDto {
 abstract class _TransactionDto extends TransactionDto {
   const factory _TransactionDto(
       {@JsonKey(includeFromJson: false) final String? id,
-      required final double amount,
+      required final String amount,
       required final String purpose,
       required final DateTime date,
       required final CategoryType type,
@@ -249,7 +249,7 @@ abstract class _TransactionDto extends TransactionDto {
   @JsonKey(includeFromJson: false)
   String? get id;
   @override
-  double get amount;
+  String get amount;
   @override
   String get purpose;
   @override

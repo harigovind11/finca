@@ -8,7 +8,7 @@ part of 'transaction_dtos.dart';
 
 _$_TransactionDto _$$_TransactionDtoFromJson(Map<String, dynamic> json) =>
     _$_TransactionDto(
-      amount: (json['amount'] as num).toDouble(),
+      amount: json['amount'] as String,
       purpose: json['purpose'] as String,
       date: DateTime.parse(json['date'] as String),
       type: $enumDecode(_$CategoryTypeEnumMap, json['type']),

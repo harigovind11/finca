@@ -15,10 +15,33 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddTransactionRoute.name: (routeData) {
+      final args = routeData.argsAs<AddTransactionRouteArgs>(
+          orElse: () => const AddTransactionRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddTransactionScreen(
+          key: args.key,
+          transaction: args.transaction,
+        ),
+      );
+    },
+    AnalyticRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AnalyticScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ForgotPasswordScreen(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
       );
     },
     MainRoute.name: (routeData) {
@@ -27,6 +50,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: MainPage(key: args.key),
+      );
+    },
+    ProfileRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileScreen(),
       );
     },
     SavingPlansRoute.name: (routeData) {
@@ -53,6 +82,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    TransactionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TransactionScreen(),
+      );
+    },
     WelcomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -60,6 +95,58 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AddTransactionScreen]
+class AddTransactionRoute extends PageRouteInfo<AddTransactionRouteArgs> {
+  AddTransactionRoute({
+    Key? key,
+    TransactionEntity? transaction,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddTransactionRoute.name,
+          args: AddTransactionRouteArgs(
+            key: key,
+            transaction: transaction,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddTransactionRoute';
+
+  static const PageInfo<AddTransactionRouteArgs> page =
+      PageInfo<AddTransactionRouteArgs>(name);
+}
+
+class AddTransactionRouteArgs {
+  const AddTransactionRouteArgs({
+    this.key,
+    this.transaction,
+  });
+
+  final Key? key;
+
+  final TransactionEntity? transaction;
+
+  @override
+  String toString() {
+    return 'AddTransactionRouteArgs{key: $key, transaction: $transaction}';
+  }
+}
+
+/// generated route for
+/// [AnalyticScreen]
+class AnalyticRoute extends PageRouteInfo<void> {
+  const AnalyticRoute({List<PageRouteInfo>? children})
+      : super(
+          AnalyticRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AnalyticRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -72,6 +159,20 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ForgotPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeScreen]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -102,6 +203,20 @@ class MainRouteArgs {
   String toString() {
     return 'MainRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [ProfileScreen]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -156,6 +271,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TransactionScreen]
+class TransactionRoute extends PageRouteInfo<void> {
+  const TransactionRoute({List<PageRouteInfo>? children})
+      : super(
+          TransactionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TransactionRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

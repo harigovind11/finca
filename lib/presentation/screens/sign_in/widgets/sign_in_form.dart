@@ -18,6 +18,7 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _passwordTextEditingController = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
     // final passwordVisible = useState(false);
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
@@ -47,6 +48,7 @@ class SignInForm extends StatelessWidget {
       },
       builder: (context, state) {
         return Form(
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -69,6 +71,7 @@ class SignInForm extends StatelessWidget {
                     .value
                     .fold(
                         (l) => l.maybeMap(
+                              empty: (_) => 'Cannot be empty',
                               invalidEmail: (_) => 'Invalid Email',
                               orElse: () => null,
                             ),
@@ -89,36 +92,9 @@ class SignInForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<SignInFormBloc>().state.password.value.fold(
                         (l) => l.maybeMap(
+                              empty: (_) => 'Cannot be empty',
                               invalidPassword: (_) => 'Invalid Password',
                               shortPassword: (_) => 'Short Password',
-                              passwordDoesntMatch: (_) =>
-                                  'Password doesnt match',
-                              orElse: () => null,
-                            ),
-                        (_) => null),
-              ),
-              kHeight20,
-              CustomTextField.dark(
-                hintText: 'Confirm Password',
-                prefixIcon: LineIcons.key,
-                showObscure: true,
-                onChanged: (value) => context.read<SignInFormBloc>().add(
-                      SignInFormEvent.confirmPasswordChanged(
-                        _passwordTextEditingController.text,
-                        value,
-                      ),
-                    ),
-                validator: (_) => context
-                    .read<SignInFormBloc>()
-                    .state
-                    .confirmPassword
-                    .value
-                    .fold(
-                        (l) => l.maybeMap(
-                              invalidPassword: (_) => 'Invalid Password',
-                              shortPassword: (_) => 'Short Password',
-                              passwordDoesntMatch: (_) =>
-                                  'Password doesnt match',
                               orElse: () => null,
                             ),
                         (_) => null),
@@ -149,8 +125,10 @@ class SignInForm extends StatelessWidget {
                 backgroundColor: kWhite,
                 textColor: kBluegrey,
                 onPressed: () async {
-                  context.read<SignInFormBloc>().add(const SignInFormEvent
-                      .signInWithEmailAndPasswordPressed());
+                  if (_formKey.currentState!.validate()) {
+                    context.read<SignInFormBloc>().add(const SignInFormEvent
+                        .signInWithEmailAndPasswordPressed());
+                  }
                 },
               ),
               Row(

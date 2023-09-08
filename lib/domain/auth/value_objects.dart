@@ -54,30 +54,3 @@ class Password extends ValueObject<String> {
   @override
   int get hashCode => value.hashCode;
 }
-
-class ConfirmPassword extends ValueObject<String> {
-  const ConfirmPassword._(this.value);
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ConfirmPassword(String password, String confirmPassword) {
-    assert(password != null && confirmPassword != null);
-    return ConfirmPassword._(validateConfirmPassword(
-      password,
-      confirmPassword,
-    ));
-  }
-
-  @override
-  String toString() => 'ConfirmPassword(value: $value)';
-
-  @override
-  bool operator ==(covariant ConfirmPassword other) {
-    if (identical(this, other)) return true;
-
-    return other.value == value;
-  }
-
-  @override
-  int get hashCode => value.hashCode;
-}

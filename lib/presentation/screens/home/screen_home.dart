@@ -15,6 +15,7 @@ import 'widgets/arrow_buttons.dart';
 import 'widgets/recent_transaction.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
+@RoutePage()
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,

@@ -1,125 +1,48 @@
-import 'package:finca/core/colors_picker.dart';
-import 'package:finca/core/constants.dart';
-import 'package:finca/infrastructure/hive/transaction_db.dart';
-import 'package:finca/domain/models/transaction/transaction_model.dart';
+import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
+import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/injectable.dart';
+import 'package:finca/presentation/screens/transactions/widgets/error_card.dart';
+import 'package:finca/presentation/screens/transactions/widgets/transaction_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:intl/intl.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'critical_failure_display_widget.dart';
 
 class IncomeCategoryListWidget extends StatelessWidget {
   const IncomeCategoryListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-        valueListenable: TransactionDb.instance.incomeTransactionListNotifier,
-        builder: (
-          BuildContext ctx,
-          List<TransactionModel> newList,
-          Widget? _,
-        ) {
-          return Padding(
-            padding: const EdgeInsets.all(10),
-            child: ListView.separated(
-              itemBuilder: (ctx, index) {
-                final _value = newList[index];
-
-                return Slidable(
-                  key: Key(_value.id!),
-                  direction: Axis.horizontal,
-                  useTextDirection: false,
-                  startActionPane: ActionPane(
-                    motion: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                      child: DrawerMotion(),
-                    ),
-                    children: [
-                      SlidableAction(
-                        onPressed: (context) {
-                          TransactionDb.instance.deleteTransaction(_value.id!);
-                        },
-                        autoClose: true,
-                        backgroundColor: kBluegrey,
-                        borderRadius: kRadius10,
-                        icon: LineIcons.trash,
-                        label: 'Delete',
-                      ),
-                    ],
+    return BlocProvider(
+      create: (context) => getIt<TransactionWatcherBloc>()
+        ..add(const TransactionWatcherEvent.watchIncomeTransactionStarted()),
+      child: BlocBuilder<TransactionWatcherBloc, TransactionWatcherState>(
+        builder: (context, state) {
+          return state.map(
+              initial: (_) => Container(),
+              loadInProgress: (_) => const Center(
+                    child: CircularProgressIndicator(),
                   ),
-                  child: Card(
-                    color: kTeal,
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100,
-                      padding: const EdgeInsets.all(10.0),
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: kWhite,
-                            radius: 20,
-                            child: Icon(
-                              LineIcons.arrowDown,
-                              color: kTeal,
-                            ),
-                          ),
-                          kWidth15,
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const TextWidget(
-                                text: 'Receive',
-                                color: kOffWhite,
-                                fontSize: 15,
-                              ),
-                              TextWidget(
-                                text: _value.purpose,
-                                color: kBlack,
-                                fontSize: 15,
-                                overflow: TextOverflow.fade,
-                              ),
-                              TextWidget(
-                                text: '₹ ${_value.amount}',
-                                color: kOffWhite,
-                                fontSize: 15,
-                                overflow: TextOverflow.fade,
-                              ),
-                              kHeight10,
-                            ],
-                          ),
-                          const Spacer(),
-                          TextWidget(
-                            text: parseDate(_value.date),
-                            color: kOffWhite,
-                            fontSize: 15,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+              loadSucess: (state) {
+                return ListView.builder(
+                  itemBuilder: (context, index) {
+                    final transactionEntity = state.transactions[index];
+                    if (transactionEntity.failureOption.isSome()) {
+                      return ErrorCard(transactionEntity: transactionEntity);
+                    } else {
+                      return TransactionCard(
+                          transactionEntity: transactionEntity,
+                          type: CategoryType.income);
+                    }
+                  },
+                  itemCount: state.transactions.length,
                 );
               },
-              separatorBuilder: (ctx, index) {
-                return kHeight10;
-              },
-              itemCount: newList.length,
-            ),
-          );
-        });
-  }
-
-  String parseDate(DateTime date) {
-    final _date = DateFormat.MMMd().format(date);
-    final _splitedDate = _date.split(' ');
-    return '${_splitedDate.last}\t${_splitedDate.first}';
-    // return '${date.day}\t${date.month}';
+              loadFailure: (state) => CriticalFailureDisplay(
+                    failure: state.transactionFailure,
+                  ));
+        },
+      ),
+    );
   }
 }

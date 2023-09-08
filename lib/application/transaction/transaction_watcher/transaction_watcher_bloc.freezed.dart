@@ -19,8 +19,10 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
+    required TResult Function() watchIncomeTransactionStarted,
+    required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) =>
@@ -28,8 +30,10 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
+    TResult? Function()? watchIncomeTransactionStarted,
+    TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) =>
@@ -37,8 +41,10 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
+    TResult Function()? watchIncomeTransactionStarted,
+    TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -47,18 +53,30 @@ mixin _$TransactionWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_WatchIncomeTransactionStarted value)
+        watchIncomeTransactionStarted,
+    required TResult Function(_WatchExpenseTransactionStarted value)
+        watchExpenseTransactionStarted,
     required TResult Function(_TransactionReceived value) transactionReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult? Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult? Function(_TransactionReceived value)? transactionReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult Function(_TransactionReceived value)? transactionReceived,
     required TResult orElse(),
   }) =>
@@ -123,8 +141,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
+    required TResult Function() watchIncomeTransactionStarted,
+    required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -135,8 +155,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
+    TResult? Function()? watchIncomeTransactionStarted,
+    TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -147,8 +169,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
+    TResult Function()? watchIncomeTransactionStarted,
+    TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -163,6 +187,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_WatchIncomeTransactionStarted value)
+        watchIncomeTransactionStarted,
+    required TResult Function(_WatchExpenseTransactionStarted value)
+        watchExpenseTransactionStarted,
     required TResult Function(_TransactionReceived value) transactionReceived,
   }) {
     return watchAllStarted(this);
@@ -172,6 +200,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult? Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult? Function(_TransactionReceived value)? transactionReceived,
   }) {
     return watchAllStarted?.call(this);
@@ -181,6 +213,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult Function(_TransactionReceived value)? transactionReceived,
     required TResult orElse(),
   }) {
@@ -196,13 +232,285 @@ abstract class _WatchAllStarted implements TransactionWatcherEvent {
 }
 
 /// @nodoc
+abstract class _$$_WatchIncomeTransactionStartedCopyWith<$Res> {
+  factory _$$_WatchIncomeTransactionStartedCopyWith(
+          _$_WatchIncomeTransactionStarted value,
+          $Res Function(_$_WatchIncomeTransactionStarted) then) =
+      __$$_WatchIncomeTransactionStartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_WatchIncomeTransactionStartedCopyWithImpl<$Res>
+    extends _$TransactionWatcherEventCopyWithImpl<$Res,
+        _$_WatchIncomeTransactionStarted>
+    implements _$$_WatchIncomeTransactionStartedCopyWith<$Res> {
+  __$$_WatchIncomeTransactionStartedCopyWithImpl(
+      _$_WatchIncomeTransactionStarted _value,
+      $Res Function(_$_WatchIncomeTransactionStarted) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_WatchIncomeTransactionStarted
+    implements _WatchIncomeTransactionStarted {
+  const _$_WatchIncomeTransactionStarted();
+
+  @override
+  String toString() {
+    return 'TransactionWatcherEvent.watchIncomeTransactionStarted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WatchIncomeTransactionStarted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function() watchIncomeTransactionStarted,
+    required TResult Function() watchExpenseTransactionStarted,
+    required TResult Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)
+        transactionReceived,
+  }) {
+    return watchIncomeTransactionStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? watchAllStarted,
+    TResult? Function()? watchIncomeTransactionStarted,
+    TResult? Function()? watchExpenseTransactionStarted,
+    TResult? Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)?
+        transactionReceived,
+  }) {
+    return watchIncomeTransactionStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function()? watchIncomeTransactionStarted,
+    TResult Function()? watchExpenseTransactionStarted,
+    TResult Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)?
+        transactionReceived,
+    required TResult orElse(),
+  }) {
+    if (watchIncomeTransactionStarted != null) {
+      return watchIncomeTransactionStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_WatchIncomeTransactionStarted value)
+        watchIncomeTransactionStarted,
+    required TResult Function(_WatchExpenseTransactionStarted value)
+        watchExpenseTransactionStarted,
+    required TResult Function(_TransactionReceived value) transactionReceived,
+  }) {
+    return watchIncomeTransactionStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult? Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
+    TResult? Function(_TransactionReceived value)? transactionReceived,
+  }) {
+    return watchIncomeTransactionStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
+    TResult Function(_TransactionReceived value)? transactionReceived,
+    required TResult orElse(),
+  }) {
+    if (watchIncomeTransactionStarted != null) {
+      return watchIncomeTransactionStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchIncomeTransactionStarted
+    implements TransactionWatcherEvent {
+  const factory _WatchIncomeTransactionStarted() =
+      _$_WatchIncomeTransactionStarted;
+}
+
+/// @nodoc
+abstract class _$$_WatchExpenseTransactionStartedCopyWith<$Res> {
+  factory _$$_WatchExpenseTransactionStartedCopyWith(
+          _$_WatchExpenseTransactionStarted value,
+          $Res Function(_$_WatchExpenseTransactionStarted) then) =
+      __$$_WatchExpenseTransactionStartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_WatchExpenseTransactionStartedCopyWithImpl<$Res>
+    extends _$TransactionWatcherEventCopyWithImpl<$Res,
+        _$_WatchExpenseTransactionStarted>
+    implements _$$_WatchExpenseTransactionStartedCopyWith<$Res> {
+  __$$_WatchExpenseTransactionStartedCopyWithImpl(
+      _$_WatchExpenseTransactionStarted _value,
+      $Res Function(_$_WatchExpenseTransactionStarted) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_WatchExpenseTransactionStarted
+    implements _WatchExpenseTransactionStarted {
+  const _$_WatchExpenseTransactionStarted();
+
+  @override
+  String toString() {
+    return 'TransactionWatcherEvent.watchExpenseTransactionStarted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_WatchExpenseTransactionStarted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function() watchIncomeTransactionStarted,
+    required TResult Function() watchExpenseTransactionStarted,
+    required TResult Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)
+        transactionReceived,
+  }) {
+    return watchExpenseTransactionStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? watchAllStarted,
+    TResult? Function()? watchIncomeTransactionStarted,
+    TResult? Function()? watchExpenseTransactionStarted,
+    TResult? Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)?
+        transactionReceived,
+  }) {
+    return watchExpenseTransactionStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function()? watchIncomeTransactionStarted,
+    TResult Function()? watchExpenseTransactionStarted,
+    TResult Function(
+            Either<TransactionFailure, List<TransactionEntity>>
+                failureOrTransactions)?
+        transactionReceived,
+    required TResult orElse(),
+  }) {
+    if (watchExpenseTransactionStarted != null) {
+      return watchExpenseTransactionStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_WatchIncomeTransactionStarted value)
+        watchIncomeTransactionStarted,
+    required TResult Function(_WatchExpenseTransactionStarted value)
+        watchExpenseTransactionStarted,
+    required TResult Function(_TransactionReceived value) transactionReceived,
+  }) {
+    return watchExpenseTransactionStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult? Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
+    TResult? Function(_TransactionReceived value)? transactionReceived,
+  }) {
+    return watchExpenseTransactionStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
+    TResult Function(_TransactionReceived value)? transactionReceived,
+    required TResult orElse(),
+  }) {
+    if (watchExpenseTransactionStarted != null) {
+      return watchExpenseTransactionStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchExpenseTransactionStarted
+    implements TransactionWatcherEvent {
+  const factory _WatchExpenseTransactionStarted() =
+      _$_WatchExpenseTransactionStarted;
+}
+
+/// @nodoc
 abstract class _$$_TransactionReceivedCopyWith<$Res> {
   factory _$$_TransactionReceivedCopyWith(_$_TransactionReceived value,
           $Res Function(_$_TransactionReceived) then) =
       __$$_TransactionReceivedCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {Either<TransactionFailure, KtList<TransactionCard>>
+      {Either<TransactionFailure, List<TransactionEntity>>
           failureOrTransactions});
 }
 
@@ -223,7 +531,7 @@ class __$$_TransactionReceivedCopyWithImpl<$Res>
       null == failureOrTransactions
           ? _value.failureOrTransactions
           : failureOrTransactions // ignore: cast_nullable_to_non_nullable
-              as Either<TransactionFailure, KtList<TransactionCard>>,
+              as Either<TransactionFailure, List<TransactionEntity>>,
     ));
   }
 }
@@ -234,7 +542,7 @@ class _$_TransactionReceived implements _TransactionReceived {
   const _$_TransactionReceived(this.failureOrTransactions);
 
   @override
-  final Either<TransactionFailure, KtList<TransactionCard>>
+  final Either<TransactionFailure, List<TransactionEntity>>
       failureOrTransactions;
 
   @override
@@ -265,8 +573,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
+    required TResult Function() watchIncomeTransactionStarted,
+    required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -277,8 +587,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
+    TResult? Function()? watchIncomeTransactionStarted,
+    TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -289,8 +601,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
+    TResult Function()? watchIncomeTransactionStarted,
+    TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, KtList<TransactionCard>>
+            Either<TransactionFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -305,6 +619,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_WatchIncomeTransactionStarted value)
+        watchIncomeTransactionStarted,
+    required TResult Function(_WatchExpenseTransactionStarted value)
+        watchExpenseTransactionStarted,
     required TResult Function(_TransactionReceived value) transactionReceived,
   }) {
     return transactionReceived(this);
@@ -314,6 +632,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult? Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult? Function(_TransactionReceived value)? transactionReceived,
   }) {
     return transactionReceived?.call(this);
@@ -323,6 +645,10 @@ class _$_TransactionReceived implements _TransactionReceived {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_WatchIncomeTransactionStarted value)?
+        watchIncomeTransactionStarted,
+    TResult Function(_WatchExpenseTransactionStarted value)?
+        watchExpenseTransactionStarted,
     TResult Function(_TransactionReceived value)? transactionReceived,
     required TResult orElse(),
   }) {
@@ -335,10 +661,10 @@ class _$_TransactionReceived implements _TransactionReceived {
 
 abstract class _TransactionReceived implements TransactionWatcherEvent {
   const factory _TransactionReceived(
-      final Either<TransactionFailure, KtList<TransactionCard>>
+      final Either<TransactionFailure, List<TransactionEntity>>
           failureOrTransactions) = _$_TransactionReceived;
 
-  Either<TransactionFailure, KtList<TransactionCard>> get failureOrTransactions;
+  Either<TransactionFailure, List<TransactionEntity>> get failureOrTransactions;
   @JsonKey(ignore: true)
   _$$_TransactionReceivedCopyWith<_$_TransactionReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -350,7 +676,7 @@ mixin _$TransactionWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TransactionCard> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions) loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) =>
@@ -359,7 +685,7 @@ mixin _$TransactionWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -367,7 +693,7 @@ mixin _$TransactionWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions)? loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -457,7 +783,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TransactionCard> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions) loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -469,7 +795,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -480,7 +806,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions)? loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -572,7 +898,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TransactionCard> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions) loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -584,7 +910,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -595,7 +921,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions)? loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -653,7 +979,7 @@ abstract class _$$_LoadSucessCopyWith<$Res> {
           _$_LoadSucess value, $Res Function(_$_LoadSucess) then) =
       __$$_LoadSucessCopyWithImpl<$Res>;
   @useResult
-  $Res call({KtList<TransactionCard> transactions});
+  $Res call({List<TransactionEntity> transactions});
 }
 
 /// @nodoc
@@ -671,9 +997,9 @@ class __$$_LoadSucessCopyWithImpl<$Res>
   }) {
     return _then(_$_LoadSucess(
       null == transactions
-          ? _value.transactions
+          ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as KtList<TransactionCard>,
+              as List<TransactionEntity>,
     ));
   }
 }
@@ -681,10 +1007,16 @@ class __$$_LoadSucessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSucess implements _LoadSucess {
-  const _$_LoadSucess(this.transactions);
+  const _$_LoadSucess(final List<TransactionEntity> transactions)
+      : _transactions = transactions;
 
+  final List<TransactionEntity> _transactions;
   @override
-  final KtList<TransactionCard> transactions;
+  List<TransactionEntity> get transactions {
+    if (_transactions is EqualUnmodifiableListView) return _transactions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_transactions);
+  }
 
   @override
   String toString() {
@@ -696,12 +1028,13 @@ class _$_LoadSucess implements _LoadSucess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadSucess &&
-            (identical(other.transactions, transactions) ||
-                other.transactions == transactions));
+            const DeepCollectionEquality()
+                .equals(other._transactions, _transactions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactions);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_transactions));
 
   @JsonKey(ignore: true)
   @override
@@ -714,7 +1047,7 @@ class _$_LoadSucess implements _LoadSucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TransactionCard> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions) loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -726,7 +1059,7 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return loadSucess?.call(transactions);
@@ -737,7 +1070,7 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions)? loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -786,10 +1119,10 @@ class _$_LoadSucess implements _LoadSucess {
 }
 
 abstract class _LoadSucess implements TransactionWatcherState {
-  const factory _LoadSucess(final KtList<TransactionCard> transactions) =
+  const factory _LoadSucess(final List<TransactionEntity> transactions) =
       _$_LoadSucess;
 
-  KtList<TransactionCard> get transactions;
+  List<TransactionEntity> get transactions;
   @JsonKey(ignore: true)
   _$$_LoadSucessCopyWith<_$_LoadSucess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -873,7 +1206,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<TransactionCard> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions) loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -885,7 +1218,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return loadFailure?.call(transactionFailure);
@@ -896,7 +1229,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<TransactionCard> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions)? loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {

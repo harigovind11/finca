@@ -3,8 +3,8 @@ part of 'transaction_form_bloc.dart';
 @freezed
 class TransactionFormEvent with _$TransactionFormEvent {
   const factory TransactionFormEvent.initialized(
-      Option<TransactionCard> initialNoteOption) = _Initialized;
-  const factory TransactionFormEvent.amountChanged(double amountValue) =
+      Option<TransactionEntity> initialNoteOption) = _Initialized;
+  const factory TransactionFormEvent.amountChanged(String amountValue) =
       _AmountChanged;
   const factory TransactionFormEvent.purposeChanged(String purposeStr) =
       _PurposeChanged;
