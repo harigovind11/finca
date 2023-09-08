@@ -16,7 +16,7 @@ abstract class TransactionDto implements _$TransactionDto {
   const TransactionDto._();
   const factory TransactionDto({
     @JsonKey(includeFromJson: false) String? id,
-    required double amount,
+    required String amount,
     required String purpose,
     required DateTime date,
     required CategoryType type,
