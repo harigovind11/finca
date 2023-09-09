@@ -12,8 +12,6 @@ _$_TransactionDto _$$_TransactionDtoFromJson(Map<String, dynamic> json) =>
       purpose: json['purpose'] as String,
       date: DateTime.parse(json['date'] as String),
       type: $enumDecode(_$CategoryTypeEnumMap, json['type']),
-      serverTimeStamp: const ServerTimestampConverter()
-          .fromJson(json['serverTimeStamp'] as Object),
     );
 
 Map<String, dynamic> _$$_TransactionDtoToJson(_$_TransactionDto instance) =>
@@ -22,8 +20,6 @@ Map<String, dynamic> _$$_TransactionDtoToJson(_$_TransactionDto instance) =>
       'purpose': instance.purpose,
       'date': instance.date.toIso8601String(),
       'type': _$CategoryTypeEnumMap[instance.type]!,
-      'serverTimeStamp':
-          const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };
 
 const _$CategoryTypeEnumMap = {

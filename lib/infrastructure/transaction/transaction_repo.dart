@@ -78,7 +78,7 @@ class TransactionRepo implements ITransactionRepository {
 
     return userDoc.transactionCollection
         .orderBy(
-          'serverTimeStamp',
+          'date',
           descending: true,
         )
         .snapshots()
@@ -107,7 +107,7 @@ class TransactionRepo implements ITransactionRepository {
     return userDoc.transactionCollection
         .where('type', isEqualTo: 'income')
         .orderBy(
-          'serverTimeStamp',
+          'date',
           descending: true,
         )
         .snapshots()
@@ -136,7 +136,7 @@ class TransactionRepo implements ITransactionRepository {
     return userDoc.transactionCollection
         .where('type', isEqualTo: 'expense')
         .orderBy(
-          'serverTimeStamp',
+          'date',
           descending: true,
         )
         .snapshots()

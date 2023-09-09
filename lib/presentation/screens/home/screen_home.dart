@@ -10,8 +10,10 @@ import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:line_icons/line_icons.dart';
 import '../saving_plans/widgets/savings_plan_scrolling_widget.dart';
 import 'widgets/arrow_buttons.dart';
+import 'widgets/custom_fab.dart';
 import 'widgets/recent_transaction.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
@@ -38,6 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
     MoneyDetailsModel? moneyDetailsModel = _db.get(0);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: CustomFAB(
+        onPressed: () => AutoRouter.of(context).push(AddTransactionRoute()),
+        icon: LineIcons.plusCircle,
+      ),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
         child: AppBar(

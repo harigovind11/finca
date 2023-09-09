@@ -41,15 +41,15 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     LineIcons.lineChart,
                   ),
                   label: 'Analytics'),
-              //for FAB
-              BottomNavigationBarItem(
-                icon: Icon(
-                  LineIcons.plusCircle,
-                  color: kBlueShade,
-                  size: 30,
-                ),
-                label: 'ADD',
-              ),
+              // //for FAB
+              // BottomNavigationBarItem(
+              //   icon: Icon(
+              //     LineIcons.plusCircle,
+              //     color: kWhite,
+              //     size: 30,
+              //   ),
+              //   label: '',
+              // ),
               BottomNavigationBarItem(
                   icon: Icon(
                     LineIcons.creditCard,

@@ -1,9 +1,13 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/transaction/transaction.dart';
+import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -20,24 +24,43 @@ class TransactionCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(5),
         child: Slidable(
-          // key: Key(_value.id!),
           direction: Axis.horizontal,
           useTextDirection: false,
           startActionPane: ActionPane(
             motion: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-              child: DrawerMotion(),
+              padding: EdgeInsets.fromLTRB(5, 5, 0, 5),
+              child: BehindMotion(),
             ),
             children: [
               SlidableAction(
                 onPressed: (context) {
-                  // TransactionDb.instance.deleteTransaction(_value.id!);
+                  context
+                      .read<TransactionActorBloc>()
+                      .add(TransactionActorEvent.deleted(transactionEntity));
                 },
                 autoClose: true,
-                backgroundColor: kBluegrey,
-                borderRadius: kRadius10,
+                backgroundColor: kBluegreyShade,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
                 icon: LineIcons.trash,
                 label: 'Delete',
+              ),
+              SlidableAction(
+                onPressed: (context) {
+                  // context
+                  //     .innerRouterOf<StackRouter>(AddTransactionRoute.name)
+                  //     ?.push(AddTransactionRoute());
+                },
+                autoClose: true,
+                backgroundColor: kBlueShade,
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                icon: LineIcons.pen,
+                label: 'Edit',
               ),
             ],
           ),

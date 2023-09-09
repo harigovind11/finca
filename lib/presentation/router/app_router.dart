@@ -23,14 +23,14 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: WelcomeRoute.page),
         AutoRoute(page: SignUpRoute.page),
         AutoRoute(page: SignInRoute.page),
+        AutoRoute(page: ForgotPasswordRoute.page),
         AutoRoute(page: SavingPlansRoute.page),
+        AutoRoute(page: AddTransactionRoute.page),
         AutoRoute(page: MainRoute.page, children: [
           AutoRoute(page: HomeRoute.page, initial: true),
           AutoRoute(page: AnalyticRoute.page),
-          AutoRoute(page: AddTransactionRoute.page),
           AutoRoute(page: TransactionRoute.page),
           AutoRoute(page: ProfileRoute.page),
         ]),
-        AutoRoute(page: ForgotPasswordRoute.page),
       ];
 }

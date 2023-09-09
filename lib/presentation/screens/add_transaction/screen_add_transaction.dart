@@ -5,7 +5,10 @@ import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/injectable.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/amount_field_widger.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_widget.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/purpose_field_widget.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
@@ -48,12 +51,12 @@ class AddTransactionScreen extends StatelessWidget {
                 ),
               );
             }, (_) {
-              BottomNavPageChanger.instance.pageChanger(3);
+              // BottomNavPageChanger.instance.pageChanger(3);
             });
           });
         },
         buildWhen: ((previous, current) =>
-            previous.isEditing != current.isEditing),
+            previous.isSaving != current.isSaving),
         builder: (context, state) {
           return Stack(
             children: [
@@ -74,13 +77,20 @@ class TransactionFormScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
+      backgroundColor: kBluegrey,
       appBar: AppBar(
         backgroundColor: kBluegrey,
         elevation: 0,
-        title: const TextWidget(
-          text: 'Add Transaction',
-          color: kWhite,
-          fontSize: 28,
+        title: BlocBuilder<TransactionFormBloc, TransactionFormState>(
+          buildWhen: ((previous, current) =>
+              previous.isEditing != current.isEditing),
+          builder: (context, state) {
+            return TextWidget(
+              text: state.isEditing ? 'Edit Transaction' : 'Add Transaction',
+              color: kWhite,
+              fontSize: 28,
+            );
+          },
         ),
       ),
       body: ListView(
@@ -100,59 +110,11 @@ class TransactionFormScaffold extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     kHeight20,
-                    CustomTextField.dark(
-                      hintText: 'Amount',
-                      prefixIcon: LineIcons.coins,
-                      keyboardType: TextInputType.number,
-                      inputFormatter: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                      maxLength: 10,
-                      onChanged: (value) =>
-                          context.read<TransactionFormBloc>().add(
-                                TransactionFormEvent.amountChanged(value),
-                              ),
-                      validator: (_) => context
-                          .read<TransactionFormBloc>()
-                          .state
-                          .transactionEntity
-                          .amount
-                          .value
-                          .fold(
-                            (f) => f.maybeMap(
-                                empty: (f) => 'Cannot be empty',
-                                orElse: (() => null)),
-                            (_) => null,
-                          ),
-                    ),
+                    const AmountField(),
                     kHeight30,
-                    CustomTextField.dark(
-                      hintText: 'Purpose',
-                      prefixIcon: LineIcons.pollH,
-                      inputFormatter: <TextInputFormatter>[
-                        FilteringTextInputFormatter.allow(
-                          RegExp(r'[a-zA-Z]'),
-                        ),
-                      ],
-                      maxLength: 25,
-                      onChanged: (value) =>
-                          context.read<TransactionFormBloc>().add(
-                                TransactionFormEvent.purposeChanged(value),
-                              ),
-                      validator: (_) => context
-                          .read<TransactionFormBloc>()
-                          .state
-                          .transactionEntity
-                          .purpose
-                          .value
-                          .fold(
-                            (f) => f.maybeMap(
-                                empty: (f) => 'Cannot be empty',
-                                orElse: (() => null)),
-                            (_) => null,
-                          ),
-                    ),
+                    const PurposeField(),
                     kHeight30,
+
                     //? Date picker
                     BlocBuilder<TransactionFormBloc, TransactionFormState>(
                       builder: (context, state) {
@@ -175,7 +137,8 @@ class TransactionFormScaffold extends StatelessWidget {
                               .read<TransactionFormBloc>()
                               .add(const TransactionFormEvent.saved());
                           await Future.delayed(const Duration(seconds: 1));
-                          BottomNavPageChanger.instance.pageChanger(3);
+                          // context
+                          //     .innerRouterOf<TabsRouter>(TransactionRoute.name);
                         }
                       },
                     ),

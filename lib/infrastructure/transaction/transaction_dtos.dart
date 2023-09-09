@@ -1,11 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finca/domain/core/value_objects.dart';
 import 'package:finca/domain/models/category/category_model.dart';
 import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/domain/transaction/value_objects.dart';
-import 'package:finca/infrastructure/core/server_timestamp_convertor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'transaction_dtos.g.dart';
@@ -20,7 +16,6 @@ abstract class TransactionDto implements _$TransactionDto {
     required String purpose,
     required DateTime date,
     required CategoryType type,
-    @ServerTimestampConverter() required FieldValue serverTimeStamp,
   }) = _TransactionDto;
 
   //?Domain to entity
@@ -32,7 +27,6 @@ abstract class TransactionDto implements _$TransactionDto {
       purpose: transactionEntity.purpose.getOrCrash(),
       date: transactionEntity.date,
       type: transactionEntity.type,
-      serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 

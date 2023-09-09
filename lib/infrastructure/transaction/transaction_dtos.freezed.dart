@@ -26,8 +26,6 @@ mixin _$TransactionDto {
   String get purpose => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   CategoryType get type => throw _privateConstructorUsedError;
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,8 +44,7 @@ abstract class $TransactionDtoCopyWith<$Res> {
       String amount,
       String purpose,
       DateTime date,
-      CategoryType type,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      CategoryType type});
 }
 
 /// @nodoc
@@ -68,7 +65,6 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? serverTimeStamp = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -91,10 +87,6 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as CategoryType,
-      serverTimeStamp: null == serverTimeStamp
-          ? _value.serverTimeStamp
-          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
     ) as $Val);
   }
 }
@@ -112,8 +104,7 @@ abstract class _$$_TransactionDtoCopyWith<$Res>
       String amount,
       String purpose,
       DateTime date,
-      CategoryType type,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      CategoryType type});
 }
 
 /// @nodoc
@@ -132,7 +123,6 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? serverTimeStamp = null,
   }) {
     return _then(_$_TransactionDto(
       id: freezed == id
@@ -155,10 +145,6 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as CategoryType,
-      serverTimeStamp: null == serverTimeStamp
-          ? _value.serverTimeStamp
-          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
     ));
   }
 }
@@ -171,8 +157,7 @@ class _$_TransactionDto extends _TransactionDto {
       required this.amount,
       required this.purpose,
       required this.date,
-      required this.type,
-      @ServerTimestampConverter() required this.serverTimeStamp})
+      required this.type})
       : super._();
 
   factory _$_TransactionDto.fromJson(Map<String, dynamic> json) =>
@@ -189,13 +174,10 @@ class _$_TransactionDto extends _TransactionDto {
   final DateTime date;
   @override
   final CategoryType type;
-  @override
-  @ServerTimestampConverter()
-  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'TransactionDto(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type, serverTimeStamp: $serverTimeStamp)';
+    return 'TransactionDto(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type)';
   }
 
   @override
@@ -207,15 +189,12 @@ class _$_TransactionDto extends _TransactionDto {
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.serverTimeStamp, serverTimeStamp) ||
-                other.serverTimeStamp == serverTimeStamp));
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, amount, purpose, date, type, serverTimeStamp);
+  int get hashCode => Object.hash(runtimeType, id, amount, purpose, date, type);
 
   @JsonKey(ignore: true)
   @override
@@ -237,9 +216,7 @@ abstract class _TransactionDto extends TransactionDto {
       required final String amount,
       required final String purpose,
       required final DateTime date,
-      required final CategoryType type,
-      @ServerTimestampConverter()
-      required final FieldValue serverTimeStamp}) = _$_TransactionDto;
+      required final CategoryType type}) = _$_TransactionDto;
   const _TransactionDto._() : super._();
 
   factory _TransactionDto.fromJson(Map<String, dynamic> json) =
@@ -256,9 +233,6 @@ abstract class _TransactionDto extends TransactionDto {
   DateTime get date;
   @override
   CategoryType get type;
-  @override
-  @ServerTimestampConverter()
-  FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionDtoCopyWith<_$_TransactionDto> get copyWith =>
