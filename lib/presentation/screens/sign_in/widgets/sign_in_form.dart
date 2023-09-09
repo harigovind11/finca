@@ -41,7 +41,7 @@ class SignInForm extends StatelessWidget {
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
-              AutoRouter.of(context).replace(MainRoute());
+              AutoRouter.of(context).replace(const MainRoute());
             },
           ),
         );

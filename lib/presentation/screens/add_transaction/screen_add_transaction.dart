@@ -10,14 +10,10 @@ import 'package:finca/presentation/screens/add_transaction/widgets/amount_field_
 import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_widget.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/purpose_field_widget.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
-import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
-import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:line_icons/line_icons.dart';
 import 'widgets/custom_radio_button.dart';
 
 @RoutePage()
@@ -137,8 +133,7 @@ class TransactionFormScaffold extends StatelessWidget {
                               .read<TransactionFormBloc>()
                               .add(const TransactionFormEvent.saved());
                           await Future.delayed(const Duration(seconds: 1));
-                          // context
-                          //     .innerRouterOf<TabsRouter>(TransactionRoute.name);
+                          context.navigateTo(const TransactionRoute());
                         }
                       },
                     ),

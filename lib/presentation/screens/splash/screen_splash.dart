@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
           initial: (_) async {},
           authenticated: (_) async {
             await TransactionDb.instance.openBoxes();
-            AutoRouter.of(context).replace(MainRoute());
+            AutoRouter.of(context).replace(const MainRoute());
           },
           unauthenticated: (_) async {
             await TransactionDb.instance.openBoxes();

@@ -49,9 +49,8 @@ class TransactionCard extends StatelessWidget {
               ),
               SlidableAction(
                 onPressed: (context) {
-                  // context
-                  //     .innerRouterOf<StackRouter>(AddTransactionRoute.name)
-                  //     ?.push(AddTransactionRoute());
+                  context.pushRoute(
+                      AddTransactionRoute(transaction: transactionEntity));
                 },
                 autoClose: true,
                 backgroundColor: kBlueShade,

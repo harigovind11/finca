@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:finca/core/colors_picker.dart';
+import 'package:finca/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -9,16 +11,19 @@ class BottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: indexChangeNotifier,
-      builder: (context, int newIndex, _) {
+    return AutoTabsScaffold(
+      routes: const [
+        HomeRoute(),
+        AnalyticRoute(),
+        TransactionRoute(),
+        ProfileRoute(),
+      ],
+      bottomNavigationBuilder: (_, tabsRouter) {
         return SizedBox(
           height: 70,
           child: BottomNavigationBar(
-            currentIndex: newIndex,
-            onTap: (index) {
-              indexChangeNotifier.value = index;
-            },
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
             enableFeedback: true,
             type: BottomNavigationBarType.fixed,
             backgroundColor: kWhite,
@@ -41,14 +46,13 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     LineIcons.lineChart,
                   ),
                   label: 'Analytics'),
-              // //for FAB
               // BottomNavigationBarItem(
               //   icon: Icon(
               //     LineIcons.plusCircle,
-              //     color: kWhite,
-              //     size: 30,
+              //     color: kBlueShade,
+              //     size: 25,
               //   ),
-              //   label: '',
+              //   label: 'Add',
               // ),
               BottomNavigationBarItem(
                   icon: Icon(
@@ -66,17 +70,5 @@ class BottomNavigationBarWidget extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-class BottomNavPageChanger {
-  BottomNavPageChanger._internal(); //NamedConstructor
-  static BottomNavPageChanger instance = BottomNavPageChanger._internal();
-  factory BottomNavPageChanger() {
-    return instance;
-  }
-
-  Future<void> pageChanger(int index) async {
-    indexChangeNotifier.value = index;
   }
 }

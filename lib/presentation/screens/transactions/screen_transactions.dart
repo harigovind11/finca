@@ -4,10 +4,13 @@ import 'package:finca/application/transaction/transaction_actor/transaction_acto
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/home/widgets/custom_fab.dart';
 import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:line_icons/line_icons.dart';
 
 import 'widgets/expense_category_list.dart';
 import 'widgets/income_category_list.dart';
@@ -42,6 +45,11 @@ class TransactionScreen extends StatelessWidget {
         child: DefaultTabController(
           length: 2,
           child: Scaffold(
+            floatingActionButton: CustomFAB(
+              onPressed: () =>
+                  AutoRouter.of(context).push(AddTransactionRoute()),
+              icon: LineIcons.plusCircle,
+            ),
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(120),
               child: AppBar(

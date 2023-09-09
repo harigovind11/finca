@@ -17,10 +17,6 @@ class CriticalFailureDisplay extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          // const Text(
-          //   '😱',
-          //   style: TextStyle(fontSize: 100),
-          // ),
           kHeight10,
           Text(
             failure.maybeMap(

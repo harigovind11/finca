@@ -17,7 +17,11 @@ class CustomFAB extends StatelessWidget {
       backgroundColor: kBlueShade,
       onPressed: onPressed,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.elliptical(50, 25))),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.elliptical(60, 15),
+              bottomRight: Radius.elliptical(60, 15),
+              topRight: Radius.circular(75),
+              bottomLeft: Radius.circular(75))),
       child: Icon(
         icon,
         color: kWhite,
