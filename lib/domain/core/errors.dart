@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 
 class UnexpectedValueError extends Error {
   final ValueFailure valueFailure;

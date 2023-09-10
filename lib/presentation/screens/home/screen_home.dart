@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                           titleColor: kWhite,
                           onPressed: () {
                             AutoRouter.of(context)
-                                .push(const SavingPlansRoute());
+                                .push(const SavingPlanRoute());
                           },
                         ),
                       ],
@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               //! My saving plans
-              SavingPlansWidget(size: size),
+              // SavingPlansWidget(size: size),
             ],
           ),
         ),

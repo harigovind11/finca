@@ -22,7 +22,7 @@ mixin _$TransactionWatcherEvent {
     required TResult Function() watchIncomeTransactionStarted,
     required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) =>
@@ -33,7 +33,7 @@ mixin _$TransactionWatcherEvent {
     TResult? Function()? watchIncomeTransactionStarted,
     TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) =>
@@ -44,7 +44,7 @@ mixin _$TransactionWatcherEvent {
     TResult Function()? watchIncomeTransactionStarted,
     TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -144,7 +144,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     required TResult Function() watchIncomeTransactionStarted,
     required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -158,7 +158,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult? Function()? watchIncomeTransactionStarted,
     TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -172,7 +172,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult Function()? watchIncomeTransactionStarted,
     TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -278,7 +278,7 @@ class _$_WatchIncomeTransactionStarted
     required TResult Function() watchIncomeTransactionStarted,
     required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -292,7 +292,7 @@ class _$_WatchIncomeTransactionStarted
     TResult? Function()? watchIncomeTransactionStarted,
     TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -306,7 +306,7 @@ class _$_WatchIncomeTransactionStarted
     TResult Function()? watchIncomeTransactionStarted,
     TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -414,7 +414,7 @@ class _$_WatchExpenseTransactionStarted
     required TResult Function() watchIncomeTransactionStarted,
     required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -428,7 +428,7 @@ class _$_WatchExpenseTransactionStarted
     TResult? Function()? watchIncomeTransactionStarted,
     TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -442,7 +442,7 @@ class _$_WatchExpenseTransactionStarted
     TResult Function()? watchIncomeTransactionStarted,
     TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -510,7 +510,7 @@ abstract class _$$_TransactionReceivedCopyWith<$Res> {
       __$$_TransactionReceivedCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {Either<TransactionFailure, List<TransactionEntity>>
+      {Either<FirestoreFailure, List<TransactionEntity>>
           failureOrTransactions});
 }
 
@@ -531,7 +531,7 @@ class __$$_TransactionReceivedCopyWithImpl<$Res>
       null == failureOrTransactions
           ? _value.failureOrTransactions
           : failureOrTransactions // ignore: cast_nullable_to_non_nullable
-              as Either<TransactionFailure, List<TransactionEntity>>,
+              as Either<FirestoreFailure, List<TransactionEntity>>,
     ));
   }
 }
@@ -542,8 +542,7 @@ class _$_TransactionReceived implements _TransactionReceived {
   const _$_TransactionReceived(this.failureOrTransactions);
 
   @override
-  final Either<TransactionFailure, List<TransactionEntity>>
-      failureOrTransactions;
+  final Either<FirestoreFailure, List<TransactionEntity>> failureOrTransactions;
 
   @override
   String toString() {
@@ -576,7 +575,7 @@ class _$_TransactionReceived implements _TransactionReceived {
     required TResult Function() watchIncomeTransactionStarted,
     required TResult Function() watchExpenseTransactionStarted,
     required TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)
         transactionReceived,
   }) {
@@ -590,7 +589,7 @@ class _$_TransactionReceived implements _TransactionReceived {
     TResult? Function()? watchIncomeTransactionStarted,
     TResult? Function()? watchExpenseTransactionStarted,
     TResult? Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
   }) {
@@ -604,7 +603,7 @@ class _$_TransactionReceived implements _TransactionReceived {
     TResult Function()? watchIncomeTransactionStarted,
     TResult Function()? watchExpenseTransactionStarted,
     TResult Function(
-            Either<TransactionFailure, List<TransactionEntity>>
+            Either<FirestoreFailure, List<TransactionEntity>>
                 failureOrTransactions)?
         transactionReceived,
     required TResult orElse(),
@@ -661,10 +660,10 @@ class _$_TransactionReceived implements _TransactionReceived {
 
 abstract class _TransactionReceived implements TransactionWatcherEvent {
   const factory _TransactionReceived(
-      final Either<TransactionFailure, List<TransactionEntity>>
+      final Either<FirestoreFailure, List<TransactionEntity>>
           failureOrTransactions) = _$_TransactionReceived;
 
-  Either<TransactionFailure, List<TransactionEntity>> get failureOrTransactions;
+  Either<FirestoreFailure, List<TransactionEntity>> get failureOrTransactions;
   @JsonKey(ignore: true)
   _$$_TransactionReceivedCopyWith<_$_TransactionReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -679,8 +678,7 @@ mixin _$TransactionWatcherState {
     required TResult Function(List<TransactionEntity> transactions,
             double totalBalance, double totalIncome, double totalExpense)
         loadSucess,
-    required TResult Function(TransactionFailure transactionFailure)
-        loadFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -690,7 +688,7 @@ mixin _$TransactionWatcherState {
     TResult? Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult? Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -700,7 +698,7 @@ mixin _$TransactionWatcherState {
     TResult Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -792,8 +790,7 @@ class _$_Initial implements _Initial {
     required TResult Function(List<TransactionEntity> transactions,
             double totalBalance, double totalIncome, double totalExpense)
         loadSucess,
-    required TResult Function(TransactionFailure transactionFailure)
-        loadFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return initial();
   }
@@ -806,7 +803,7 @@ class _$_Initial implements _Initial {
     TResult? Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult? Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return initial?.call();
   }
@@ -819,7 +816,7 @@ class _$_Initial implements _Initial {
     TResult Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -913,8 +910,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function(List<TransactionEntity> transactions,
             double totalBalance, double totalIncome, double totalExpense)
         loadSucess,
-    required TResult Function(TransactionFailure transactionFailure)
-        loadFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadInProgress();
   }
@@ -927,7 +923,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult? Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult? Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
   }
@@ -940,7 +936,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1105,8 +1101,7 @@ class _$_LoadSucess implements _LoadSucess {
     required TResult Function(List<TransactionEntity> transactions,
             double totalBalance, double totalIncome, double totalExpense)
         loadSucess,
-    required TResult Function(TransactionFailure transactionFailure)
-        loadFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadSucess(transactions, totalBalance, totalIncome, totalExpense);
   }
@@ -1119,7 +1114,7 @@ class _$_LoadSucess implements _LoadSucess {
     TResult? Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult? Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadSucess?.call(
         transactions, totalBalance, totalIncome, totalExpense);
@@ -1133,7 +1128,7 @@ class _$_LoadSucess implements _LoadSucess {
     TResult Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSucess != null) {
@@ -1202,9 +1197,9 @@ abstract class _$$_LoadFailureCopyWith<$Res> {
           _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
       __$$_LoadFailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({TransactionFailure transactionFailure});
+  $Res call({FirestoreFailure firestoreFailure});
 
-  $TransactionFailureCopyWith<$Res> get transactionFailure;
+  $FirestoreFailureCopyWith<$Res> get firestoreFailure;
 }
 
 /// @nodoc
@@ -1218,22 +1213,21 @@ class __$$_LoadFailureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionFailure = null,
+    Object? firestoreFailure = null,
   }) {
     return _then(_$_LoadFailure(
-      null == transactionFailure
-          ? _value.transactionFailure
-          : transactionFailure // ignore: cast_nullable_to_non_nullable
-              as TransactionFailure,
+      null == firestoreFailure
+          ? _value.firestoreFailure
+          : firestoreFailure // ignore: cast_nullable_to_non_nullable
+              as FirestoreFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TransactionFailureCopyWith<$Res> get transactionFailure {
-    return $TransactionFailureCopyWith<$Res>(_value.transactionFailure,
-        (value) {
-      return _then(_value.copyWith(transactionFailure: value));
+  $FirestoreFailureCopyWith<$Res> get firestoreFailure {
+    return $FirestoreFailureCopyWith<$Res>(_value.firestoreFailure, (value) {
+      return _then(_value.copyWith(firestoreFailure: value));
     });
   }
 }
@@ -1241,14 +1235,14 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadFailure implements _LoadFailure {
-  const _$_LoadFailure(this.transactionFailure);
+  const _$_LoadFailure(this.firestoreFailure);
 
   @override
-  final TransactionFailure transactionFailure;
+  final FirestoreFailure firestoreFailure;
 
   @override
   String toString() {
-    return 'TransactionWatcherState.loadFailure(transactionFailure: $transactionFailure)';
+    return 'TransactionWatcherState.loadFailure(firestoreFailure: $firestoreFailure)';
   }
 
   @override
@@ -1256,12 +1250,12 @@ class _$_LoadFailure implements _LoadFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadFailure &&
-            (identical(other.transactionFailure, transactionFailure) ||
-                other.transactionFailure == transactionFailure));
+            (identical(other.firestoreFailure, firestoreFailure) ||
+                other.firestoreFailure == firestoreFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactionFailure);
+  int get hashCode => Object.hash(runtimeType, firestoreFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1277,10 +1271,9 @@ class _$_LoadFailure implements _LoadFailure {
     required TResult Function(List<TransactionEntity> transactions,
             double totalBalance, double totalIncome, double totalExpense)
         loadSucess,
-    required TResult Function(TransactionFailure transactionFailure)
-        loadFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
-    return loadFailure(transactionFailure);
+    return loadFailure(firestoreFailure);
   }
 
   @override
@@ -1291,9 +1284,9 @@ class _$_LoadFailure implements _LoadFailure {
     TResult? Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult? Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
-    return loadFailure?.call(transactionFailure);
+    return loadFailure?.call(firestoreFailure);
   }
 
   @override
@@ -1304,11 +1297,11 @@ class _$_LoadFailure implements _LoadFailure {
     TResult Function(List<TransactionEntity> transactions, double totalBalance,
             double totalIncome, double totalExpense)?
         loadSucess,
-    TResult Function(TransactionFailure transactionFailure)? loadFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
-      return loadFailure(transactionFailure);
+      return loadFailure(firestoreFailure);
     }
     return orElse();
   }
@@ -1352,10 +1345,10 @@ class _$_LoadFailure implements _LoadFailure {
 }
 
 abstract class _LoadFailure implements TransactionWatcherState {
-  const factory _LoadFailure(final TransactionFailure transactionFailure) =
+  const factory _LoadFailure(final FirestoreFailure firestoreFailure) =
       _$_LoadFailure;
 
-  TransactionFailure get transactionFailure;
+  FirestoreFailure get firestoreFailure;
   @JsonKey(ignore: true)
   _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
       throw _privateConstructorUsedError;

@@ -25,7 +25,7 @@ mixin _$TransactionDto {
   String get amount => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
-  CategoryType get type => throw _privateConstructorUsedError;
+  TransactionType get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +44,7 @@ abstract class $TransactionDtoCopyWith<$Res> {
       String amount,
       String purpose,
       DateTime date,
-      CategoryType type});
+      TransactionType type});
 }
 
 /// @nodoc
@@ -86,7 +86,7 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as CategoryType,
+              as TransactionType,
     ) as $Val);
   }
 }
@@ -104,7 +104,7 @@ abstract class _$$_TransactionDtoCopyWith<$Res>
       String amount,
       String purpose,
       DateTime date,
-      CategoryType type});
+      TransactionType type});
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as CategoryType,
+              as TransactionType,
     ));
   }
 }
@@ -173,7 +173,7 @@ class _$_TransactionDto extends _TransactionDto {
   @override
   final DateTime date;
   @override
-  final CategoryType type;
+  final TransactionType type;
 
   @override
   String toString() {
@@ -216,7 +216,7 @@ abstract class _TransactionDto extends TransactionDto {
       required final String amount,
       required final String purpose,
       required final DateTime date,
-      required final CategoryType type}) = _$_TransactionDto;
+      required final TransactionType type}) = _$_TransactionDto;
   const _TransactionDto._() : super._();
 
   factory _TransactionDto.fromJson(Map<String, dynamic> json) =
@@ -232,7 +232,7 @@ abstract class _TransactionDto extends TransactionDto {
   @override
   DateTime get date;
   @override
-  CategoryType get type;
+  TransactionType get type;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionDtoCopyWith<_$_TransactionDto> get copyWith =>

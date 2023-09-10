@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:finca/domain/transaction/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -16,7 +16,7 @@ class TransactionEntity with _$TransactionEntity {
     required TransactionAmount amount,
     required TransactionPurpose purpose,
     required DateTime date,
-    required CategoryType type,
+    required TransactionType type,
   }) = _TransactionEntity;
 
   factory TransactionEntity.empty() => TransactionEntity(
@@ -24,7 +24,7 @@ class TransactionEntity with _$TransactionEntity {
         amount: TransactionAmount(''),
         purpose: TransactionPurpose(''),
         date: DateTime.now(),
-        type: CategoryType.income,
+        type: TransactionType.income,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
@@ -36,15 +36,15 @@ class TransactionEntity with _$TransactionEntity {
 //? Entity to Domain
   factory TransactionEntity.fromSnapshot(DocumentSnapshot snapshot) {
     final data = snapshot.data() as Map<String, dynamic>;
-    final categoryTypeString = data['type'] as String;
-    final categoryType = categoryTypeFromString(categoryTypeString);
+    final transactionTypeString = data['type'] as String;
+    final transactionType = transactionTypeFromString(transactionTypeString);
 
     return TransactionEntity(
       id: UniqueId.fromUniqueString(snapshot.id),
       amount: TransactionAmount(data['amount']),
       purpose: TransactionPurpose(data['purpose']),
       date: DateTime.tryParse(data['date'])!,
-      type: categoryType,
+      type: transactionType,
     );
   }
 }

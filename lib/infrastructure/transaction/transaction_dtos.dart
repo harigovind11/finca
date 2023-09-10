@@ -1,6 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,7 +15,7 @@ abstract class TransactionDto implements _$TransactionDto {
     required String amount,
     required String purpose,
     required DateTime date,
-    required CategoryType type,
+    required TransactionType type,
   }) = _TransactionDto;
 
   //?Domain to entity

@@ -14,10 +14,17 @@ class BottomNavigationBarWidget extends StatelessWidget {
     return AutoTabsScaffold(
       routes: const [
         HomeRoute(),
-        AnalyticRoute(),
+        DebtRoute(),
         TransactionRoute(),
         ProfileRoute(),
       ],
+      transitionBuilder: (context, child, animation) => SlideTransition(
+        position: Tween<Offset>(
+          begin: Offset.zero,
+          end: Offset.zero,
+        ).animate(animation),
+        child: child,
+      ),
       bottomNavigationBuilder: (_, tabsRouter) {
         return SizedBox(
           height: 70,
@@ -43,17 +50,9 @@ class BottomNavigationBarWidget extends StatelessWidget {
                   label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(
-                    LineIcons.lineChart,
+                    LineIcons.fileInvoiceWithUsDollar,
                   ),
-                  label: 'Analytics'),
-              // BottomNavigationBarItem(
-              //   icon: Icon(
-              //     LineIcons.plusCircle,
-              //     color: kBlueShade,
-              //     size: 25,
-              //   ),
-              //   label: 'Add',
-              // ),
+                  label: 'Debts'),
               BottomNavigationBarItem(
                   icon: Icon(
                     LineIcons.creditCard,

@@ -1,4 +1,4 @@
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:finca/presentation/screens/transactions/widgets/critical_failure_display_widget.dart';
 import 'package:flutter/material.dart';
 import 'transaction_card.dart';
@@ -29,14 +29,14 @@ class TransactionList extends StatelessWidget {
                   } else {
                     return TransactionCard(
                         transactionEntity: transactionEntity,
-                        type: CategoryType.income);
+                        type: TransactionType.income);
                   }
                 },
                 itemCount: state.transactions.length,
               );
             },
             loadFailure: (state) => CriticalFailureDisplay(
-                  failure: state.transactionFailure,
+                  failure: state.firestoreFailure,
                 ));
       },
     );

@@ -15,7 +15,7 @@ class CustomFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton.large(
+    return FloatingActionButton(
       backgroundColor: kBlueShade,
       onPressed: onPressed,
       heroTag: heroTag,

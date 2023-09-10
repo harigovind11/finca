@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:finca/domain/core/errors.dart';
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 
 @immutable
 abstract class ValueObject<T> {

@@ -20,9 +20,13 @@ class AnalyticScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocProvider(
-      create: (context) => getIt<TransactionWatcherBloc>()
-        ..add(const TransactionWatcherEvent.watchAllStarted()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<TransactionWatcherBloc>()
+            ..add(const TransactionWatcherEvent.watchAllStarted()),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: kBluegrey,

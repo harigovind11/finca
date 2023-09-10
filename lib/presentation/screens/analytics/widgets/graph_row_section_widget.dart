@@ -1,9 +1,7 @@
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
-
-import 'line_graph/line_graph_expense.dart';
-import 'line_graph/line_graph_income.dart';
+import 'package:chart_sparkline/chart_sparkline.dart';
 
 class GraphRowSectionWidget extends StatelessWidget {
   const GraphRowSectionWidget(
@@ -36,7 +34,19 @@ class GraphRowSectionWidget extends StatelessWidget {
                   color: kBluegrey,
                   fontSize: 25,
                 ),
-                LineGraphIncome(),
+                SizedBox(
+                  height: 40,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Sparkline(
+                      data: [],
+                      useCubicSmoothing: true,
+                      cubicSmoothingFactor: 0.2,
+                      lineWidth: 3,
+                      lineColor: kTeal,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -64,7 +74,19 @@ class GraphRowSectionWidget extends StatelessWidget {
                   color: kBluegrey,
                   fontSize: 25,
                 ),
-                LineGraphExpense()
+                SizedBox(
+                  height: 40,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Sparkline(
+                      data: [],
+                      useCubicSmoothing: true,
+                      cubicSmoothingFactor: 0.2,
+                      lineWidth: 3,
+                      lineColor: kRed,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

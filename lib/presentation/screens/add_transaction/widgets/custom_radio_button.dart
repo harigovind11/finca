@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomRadioButtonWidget extends StatelessWidget {
@@ -12,22 +12,23 @@ class CustomRadioButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CustomOutlineButton(
           title: 'Income',
-          type: CategoryType.income,
+          type: TransactionType.income,
           onPressed: () {
             context.read<TransactionFormBloc>().add(
-                const TransactionFormEvent.typeChanged(CategoryType.income));
+                const TransactionFormEvent.typeChanged(TransactionType.income));
           },
         ),
+        kWidth20,
         CustomOutlineButton(
           title: 'Expense',
-          type: CategoryType.expense,
+          type: TransactionType.expense,
           onPressed: () {
             context.read<TransactionFormBloc>().add(
-                const TransactionFormEvent.typeChanged(CategoryType.expense));
+                const TransactionFormEvent.typeChanged(
+                    TransactionType.expense));
           },
         ),
       ],
@@ -42,7 +43,7 @@ class CustomOutlineButton extends StatelessWidget {
     required this.title,
     required this.onPressed,
   }) : super(key: key);
-  final CategoryType type;
+  final TransactionType type;
   final String title;
   final VoidCallback onPressed;
 
@@ -77,7 +78,7 @@ class CustomOutlineButton extends StatelessWidget {
 //*Default Radio Buttom
         // return ListTile(
         //   title: Text(title),
-        //   leading: Radio<CategoryType>(
+        //   leading: Radio<TransactionType>(
         //     value: type,
         //     groupValue: newCategory,
         //     fillColor: MaterialStateColor.resolveWith((states) => kWhite),
@@ -86,8 +87,8 @@ class CustomOutlineButton extends StatelessWidget {
         //       if (value == null) {
         //         return;
         //       }
-        //       selectedCategoryTypeNotifier.value = value;
-        //       selectedCategoryTypeNotifier.notifyListeners();
+        //       selectedTransactionTypeNotifier.value = value;
+        //       selectedTransactionTypeNotifier.notifyListeners();
         //     },
         //   ),
         // );

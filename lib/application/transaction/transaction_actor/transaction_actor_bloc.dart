@@ -1,6 +1,6 @@
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
 import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/domain/transaction/transaction_faillure.dart';
+import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

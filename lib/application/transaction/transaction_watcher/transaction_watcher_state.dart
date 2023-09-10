@@ -12,5 +12,5 @@ class TransactionWatcherState with _$TransactionWatcherState {
     double totalExpense,
   ) = _LoadSucess;
   const factory TransactionWatcherState.loadFailure(
-      TransactionFailure transactionFailure) = _LoadFailure;
+      FirestoreFailure firestoreFailure) = _LoadFailure;
 }

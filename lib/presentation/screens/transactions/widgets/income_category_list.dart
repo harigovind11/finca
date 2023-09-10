@@ -1,5 +1,5 @@
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/transactions/widgets/error_card.dart';
 import 'package:finca/presentation/screens/transactions/widgets/transaction_card.dart';
@@ -33,14 +33,14 @@ class IncomeCategoryListWidget extends StatelessWidget {
                     } else {
                       return TransactionCard(
                           transactionEntity: transactionEntity,
-                          type: CategoryType.income);
+                          type: TransactionType.income);
                     }
                   },
                   itemCount: state.transactions.length,
                 );
               },
               loadFailure: (state) => CriticalFailureDisplay(
-                    failure: state.transactionFailure,
+                    failure: state.firestoreFailure,
                   ));
         },
       ),

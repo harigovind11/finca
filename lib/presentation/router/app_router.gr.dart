@@ -32,6 +32,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AnalyticScreen(),
       );
     },
+    DebtRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DebtScreen(),
+      );
+    },
     ForgotPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -56,10 +62,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileScreen(),
       );
     },
-    SavingPlansRoute.name: (routeData) {
+    SavingPlanRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SavingPlansScreen(),
+        child: const SavingPlanScreen(),
       );
     },
     SignInRoute.name: (routeData) {
@@ -148,6 +154,20 @@ class AnalyticRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DebtScreen]
+class DebtRoute extends PageRouteInfo<void> {
+  const DebtRoute({List<PageRouteInfo>? children})
+      : super(
+          DebtRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DebtRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ForgotPasswordScreen]
 class ForgotPasswordRoute extends PageRouteInfo<void> {
   const ForgotPasswordRoute({List<PageRouteInfo>? children})
@@ -204,15 +224,15 @@ class ProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SavingPlansScreen]
-class SavingPlansRoute extends PageRouteInfo<void> {
-  const SavingPlansRoute({List<PageRouteInfo>? children})
+/// [SavingPlanScreen]
+class SavingPlanRoute extends PageRouteInfo<void> {
+  const SavingPlanRoute({List<PageRouteInfo>? children})
       : super(
-          SavingPlansRoute.name,
+          SavingPlanRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SavingPlansRoute';
+  static const String name = 'SavingPlanRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

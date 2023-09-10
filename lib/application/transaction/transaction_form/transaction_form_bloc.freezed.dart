@@ -20,30 +20,30 @@ mixin _$TransactionFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -167,10 +167,10 @@ class _$_Initialized implements _Initialized {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
     return initialized(initialNoteOption);
@@ -180,10 +180,10 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
     return initialized?.call(initialNoteOption);
@@ -193,10 +193,10 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -266,7 +266,7 @@ abstract class _$$_AmountChangedCopyWith<$Res> {
           _$_AmountChanged value, $Res Function(_$_AmountChanged) then) =
       __$$_AmountChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({String amountValue});
+  $Res call({String amountStr});
 }
 
 /// @nodoc
@@ -280,12 +280,12 @@ class __$$_AmountChangedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amountValue = null,
+    Object? amountStr = null,
   }) {
     return _then(_$_AmountChanged(
-      null == amountValue
-          ? _value.amountValue
-          : amountValue // ignore: cast_nullable_to_non_nullable
+      null == amountStr
+          ? _value.amountStr
+          : amountStr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -294,14 +294,14 @@ class __$$_AmountChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AmountChanged implements _AmountChanged {
-  const _$_AmountChanged(this.amountValue);
+  const _$_AmountChanged(this.amountStr);
 
   @override
-  final String amountValue;
+  final String amountStr;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.amountChanged(amountValue: $amountValue)';
+    return 'TransactionFormEvent.amountChanged(amountStr: $amountStr)';
   }
 
   @override
@@ -309,12 +309,12 @@ class _$_AmountChanged implements _AmountChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AmountChanged &&
-            (identical(other.amountValue, amountValue) ||
-                other.amountValue == amountValue));
+            (identical(other.amountStr, amountStr) ||
+                other.amountStr == amountStr));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, amountValue);
+  int get hashCode => Object.hash(runtimeType, amountStr);
 
   @JsonKey(ignore: true)
   @override
@@ -327,41 +327,41 @@ class _$_AmountChanged implements _AmountChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
-    return amountChanged(amountValue);
+    return amountChanged(amountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
-    return amountChanged?.call(amountValue);
+    return amountChanged?.call(amountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (amountChanged != null) {
-      return amountChanged(amountValue);
+      return amountChanged(amountStr);
     }
     return orElse();
   }
@@ -411,9 +411,9 @@ class _$_AmountChanged implements _AmountChanged {
 }
 
 abstract class _AmountChanged implements TransactionFormEvent {
-  const factory _AmountChanged(final String amountValue) = _$_AmountChanged;
+  const factory _AmountChanged(final String amountStr) = _$_AmountChanged;
 
-  String get amountValue;
+  String get amountStr;
   @JsonKey(ignore: true)
   _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -486,10 +486,10 @@ class _$_PurposeChanged implements _PurposeChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
     return purposeChanged(purposeStr);
@@ -499,10 +499,10 @@ class _$_PurposeChanged implements _PurposeChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
     return purposeChanged?.call(purposeStr);
@@ -512,10 +512,10 @@ class _$_PurposeChanged implements _PurposeChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -645,10 +645,10 @@ class _$_DateChanged implements _DateChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
     return dateChanged(dateTime);
@@ -658,10 +658,10 @@ class _$_DateChanged implements _DateChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
     return dateChanged?.call(dateTime);
@@ -671,10 +671,10 @@ class _$_DateChanged implements _DateChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -743,7 +743,7 @@ abstract class _$$_TypeChangedCopyWith<$Res> {
           _$_TypeChanged value, $Res Function(_$_TypeChanged) then) =
       __$$_TypeChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({CategoryType categoryType});
+  $Res call({TransactionType transactionType});
 }
 
 /// @nodoc
@@ -757,13 +757,13 @@ class __$$_TypeChangedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categoryType = null,
+    Object? transactionType = null,
   }) {
     return _then(_$_TypeChanged(
-      null == categoryType
-          ? _value.categoryType
-          : categoryType // ignore: cast_nullable_to_non_nullable
-              as CategoryType,
+      null == transactionType
+          ? _value.transactionType
+          : transactionType // ignore: cast_nullable_to_non_nullable
+              as TransactionType,
     ));
   }
 }
@@ -771,14 +771,14 @@ class __$$_TypeChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_TypeChanged implements _TypeChanged {
-  const _$_TypeChanged(this.categoryType);
+  const _$_TypeChanged(this.transactionType);
 
   @override
-  final CategoryType categoryType;
+  final TransactionType transactionType;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.typeChanged(categoryType: $categoryType)';
+    return 'TransactionFormEvent.typeChanged(transactionType: $transactionType)';
   }
 
   @override
@@ -786,12 +786,12 @@ class _$_TypeChanged implements _TypeChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TypeChanged &&
-            (identical(other.categoryType, categoryType) ||
-                other.categoryType == categoryType));
+            (identical(other.transactionType, transactionType) ||
+                other.transactionType == transactionType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categoryType);
+  int get hashCode => Object.hash(runtimeType, transactionType);
 
   @JsonKey(ignore: true)
   @override
@@ -804,41 +804,41 @@ class _$_TypeChanged implements _TypeChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
-    return typeChanged(categoryType);
+    return typeChanged(transactionType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
-    return typeChanged?.call(categoryType);
+    return typeChanged?.call(transactionType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (typeChanged != null) {
-      return typeChanged(categoryType);
+      return typeChanged(transactionType);
     }
     return orElse();
   }
@@ -888,9 +888,10 @@ class _$_TypeChanged implements _TypeChanged {
 }
 
 abstract class _TypeChanged implements TransactionFormEvent {
-  const factory _TypeChanged(final CategoryType categoryType) = _$_TypeChanged;
+  const factory _TypeChanged(final TransactionType transactionType) =
+      _$_TypeChanged;
 
-  CategoryType get categoryType;
+  TransactionType get transactionType;
   @JsonKey(ignore: true)
   _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -934,10 +935,10 @@ class _$_Saved implements _Saved {
   TResult when<TResult extends Object?>({
     required TResult Function(Option<TransactionEntity> initialNoteOption)
         initialized,
-    required TResult Function(String amountValue) amountChanged,
+    required TResult Function(String amountStr) amountChanged,
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(CategoryType categoryType) typeChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -947,10 +948,10 @@ class _$_Saved implements _Saved {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult? Function(String amountValue)? amountChanged,
+    TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(CategoryType categoryType)? typeChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -960,10 +961,10 @@ class _$_Saved implements _Saved {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Option<TransactionEntity> initialNoteOption)? initialized,
-    TResult Function(String amountValue)? amountChanged,
+    TResult Function(String amountStr)? amountChanged,
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(CategoryType categoryType)? typeChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -1026,7 +1027,7 @@ mixin _$TransactionFormState {
   TransactionEntity get transactionEntity => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
-  Option<Either<TransactionFailure, Unit>> get saveFailureOrSucessOption =>
+  Option<Either<FirestoreFailure, Unit>> get saveFailureOrSucessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1044,7 +1045,7 @@ abstract class $TransactionFormStateCopyWith<$Res> {
       {TransactionEntity transactionEntity,
       bool isEditing,
       bool isSaving,
-      Option<Either<TransactionFailure, Unit>> saveFailureOrSucessOption});
+      Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption});
 
   $TransactionEntityCopyWith<$Res> get transactionEntity;
 }
@@ -1084,7 +1085,7 @@ class _$TransactionFormStateCopyWithImpl<$Res,
       saveFailureOrSucessOption: null == saveFailureOrSucessOption
           ? _value.saveFailureOrSucessOption
           : saveFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<TransactionFailure, Unit>>,
+              as Option<Either<FirestoreFailure, Unit>>,
     ) as $Val);
   }
 
@@ -1109,7 +1110,7 @@ abstract class _$$_TransactionFormStateCopyWith<$Res>
       {TransactionEntity transactionEntity,
       bool isEditing,
       bool isSaving,
-      Option<Either<TransactionFailure, Unit>> saveFailureOrSucessOption});
+      Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption});
 
   @override
   $TransactionEntityCopyWith<$Res> get transactionEntity;
@@ -1147,7 +1148,7 @@ class __$$_TransactionFormStateCopyWithImpl<$Res>
       saveFailureOrSucessOption: null == saveFailureOrSucessOption
           ? _value.saveFailureOrSucessOption
           : saveFailureOrSucessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<TransactionFailure, Unit>>,
+              as Option<Either<FirestoreFailure, Unit>>,
     ));
   }
 }
@@ -1168,7 +1169,7 @@ class _$_TransactionFormState implements _TransactionFormState {
   @override
   final bool isSaving;
   @override
-  final Option<Either<TransactionFailure, Unit>> saveFailureOrSucessOption;
+  final Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption;
 
   @override
   String toString() {
@@ -1208,7 +1209,7 @@ abstract class _TransactionFormState implements TransactionFormState {
       {required final TransactionEntity transactionEntity,
       required final bool isEditing,
       required final bool isSaving,
-      required final Option<Either<TransactionFailure, Unit>>
+      required final Option<Either<FirestoreFailure, Unit>>
           saveFailureOrSucessOption}) = _$_TransactionFormState;
 
   @override
@@ -1218,7 +1219,7 @@ abstract class _TransactionFormState implements TransactionFormState {
   @override
   bool get isSaving;
   @override
-  Option<Either<TransactionFailure, Unit>> get saveFailureOrSucessOption;
+  Option<Either<FirestoreFailure, Unit>> get saveFailureOrSucessOption;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionFormStateCopyWith<_$_TransactionFormState> get copyWith =>

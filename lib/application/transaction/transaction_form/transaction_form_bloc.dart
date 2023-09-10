@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
-import 'package:finca/domain/transaction/transaction_faillure.dart';
+import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:finca/domain/transaction/value_objects.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:injectable/injectable.dart';
 
 part 'transaction_form_event.dart';
@@ -31,7 +31,7 @@ class TransactionFormBloc
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
-            amount: TransactionAmount(event.amountValue),
+            amount: TransactionAmount(event.amountStr),
           ),
         ),
       );
@@ -58,13 +58,13 @@ class TransactionFormBloc
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
-            type: event.categoryType,
+            type: event.transactionType,
           ),
         ),
       );
     });
     on<_Saved>((event, emit) async {
-      Either<TransactionFailure, Unit>? failureOrSucess;
+      Either<FirestoreFailure, Unit>? failureOrSucess;
       emit(
         state.copyWith(
           isSaving: true,

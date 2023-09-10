@@ -5,8 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:finca/domain/services/balance_calculation.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
 import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/domain/transaction/transaction_faillure.dart';
-import 'package:flutter/material.dart';
+import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -20,7 +19,7 @@ class TransactionWatcherBloc
     extends Bloc<TransactionWatcherEvent, TransactionWatcherState> {
   final ITransactionRepository _iTransactionRepository;
   final BalanceCalculationService _balanceCalculationService;
-  StreamSubscription<Either<TransactionFailure, List<TransactionEntity>>>?
+  StreamSubscription<Either<FirestoreFailure, List<TransactionEntity>>>?
       _transactionStreamSubscription;
   TransactionWatcherBloc(
       this._iTransactionRepository, this._balanceCalculationService)
@@ -65,6 +64,7 @@ class TransactionWatcherBloc
           .calculateTotalncome(event.failureOrTransactions.getOrElse(() => []));
       final totalExpense = _balanceCalculationService.calculateTotalExpense(
           event.failureOrTransactions.getOrElse(() => []));
+
       emit(
         event.failureOrTransactions.fold(
           (f) => TransactionWatcherState.loadFailure(f),

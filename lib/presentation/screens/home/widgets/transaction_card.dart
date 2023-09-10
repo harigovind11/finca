@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:finca/domain/models/category_model.dart';
+import 'package:finca/domain/models/transaction_model.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
@@ -14,22 +14,22 @@ class TransactionCard extends StatelessWidget {
     required this.type,
   }) : super(key: key);
   final TransactionEntity transactionEntity;
-  final CategoryType type;
+  final TransactionType type;
   @override
   Widget build(BuildContext context) {
     return RecentTransactionWidget(
       pupose: transactionEntity.purpose.getOrCrash(),
       date: parseDateMMMD(transactionEntity.date),
       amount: transactionEntity.amount.getOrCrash(),
-      title: (transactionEntity.type) == CategoryType.income
+      title: (transactionEntity.type) == TransactionType.income
           ? 'Receive'
           : 'Expense',
-      icon: (transactionEntity.type) == CategoryType.income
+      icon: (transactionEntity.type) == TransactionType.income
           ? LineIcons.arrowDown
           : LineIcons.arrowUp,
       iconColor:
-          (transactionEntity.type) == CategoryType.income ? kTeal : kOrange,
-      backgroundColor: (transactionEntity.type) == CategoryType.income
+          (transactionEntity.type) == TransactionType.income ? kTeal : kOrange,
+      backgroundColor: (transactionEntity.type) == TransactionType.income
           ? kTeal
           : kOrange.withOpacity(.7),
     );

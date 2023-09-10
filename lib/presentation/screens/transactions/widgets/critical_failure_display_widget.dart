@@ -1,9 +1,9 @@
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/transaction/transaction_faillure.dart';
+import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:flutter/material.dart';
 
 class CriticalFailureDisplay extends StatelessWidget {
-  final TransactionFailure failure;
+  final FirestoreFailure failure;
 
   const CriticalFailureDisplay({
     Key? key,

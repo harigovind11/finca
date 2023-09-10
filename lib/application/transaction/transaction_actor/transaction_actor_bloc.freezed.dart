@@ -240,8 +240,7 @@ mixin _$TransactionActorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(TransactionFailure transactionFailure)
-        deleteFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) deleteFailure,
     required TResult Function() deleteSucess,
   }) =>
       throw _privateConstructorUsedError;
@@ -249,7 +248,7 @@ mixin _$TransactionActorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult? Function()? deleteSucess,
   }) =>
       throw _privateConstructorUsedError;
@@ -257,7 +256,7 @@ mixin _$TransactionActorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult Function()? deleteSucess,
     required TResult orElse(),
   }) =>
@@ -347,8 +346,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(TransactionFailure transactionFailure)
-        deleteFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) deleteFailure,
     required TResult Function() deleteSucess,
   }) {
     return initial();
@@ -359,7 +357,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult? Function()? deleteSucess,
   }) {
     return initial?.call();
@@ -370,7 +368,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult Function()? deleteSucess,
     required TResult orElse(),
   }) {
@@ -462,8 +460,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(TransactionFailure transactionFailure)
-        deleteFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) deleteFailure,
     required TResult Function() deleteSucess,
   }) {
     return actionInProgress();
@@ -474,7 +471,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult? Function()? deleteSucess,
   }) {
     return actionInProgress?.call();
@@ -485,7 +482,7 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult Function()? deleteSucess,
     required TResult orElse(),
   }) {
@@ -543,9 +540,9 @@ abstract class _$$_DeleteFailureCopyWith<$Res> {
           _$_DeleteFailure value, $Res Function(_$_DeleteFailure) then) =
       __$$_DeleteFailureCopyWithImpl<$Res>;
   @useResult
-  $Res call({TransactionFailure transactionFailure});
+  $Res call({FirestoreFailure firestoreFailure});
 
-  $TransactionFailureCopyWith<$Res> get transactionFailure;
+  $FirestoreFailureCopyWith<$Res> get firestoreFailure;
 }
 
 /// @nodoc
@@ -559,22 +556,21 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionFailure = null,
+    Object? firestoreFailure = null,
   }) {
     return _then(_$_DeleteFailure(
-      null == transactionFailure
-          ? _value.transactionFailure
-          : transactionFailure // ignore: cast_nullable_to_non_nullable
-              as TransactionFailure,
+      null == firestoreFailure
+          ? _value.firestoreFailure
+          : firestoreFailure // ignore: cast_nullable_to_non_nullable
+              as FirestoreFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TransactionFailureCopyWith<$Res> get transactionFailure {
-    return $TransactionFailureCopyWith<$Res>(_value.transactionFailure,
-        (value) {
-      return _then(_value.copyWith(transactionFailure: value));
+  $FirestoreFailureCopyWith<$Res> get firestoreFailure {
+    return $FirestoreFailureCopyWith<$Res>(_value.firestoreFailure, (value) {
+      return _then(_value.copyWith(firestoreFailure: value));
     });
   }
 }
@@ -582,14 +578,14 @@ class __$$_DeleteFailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DeleteFailure implements _DeleteFailure {
-  const _$_DeleteFailure(this.transactionFailure);
+  const _$_DeleteFailure(this.firestoreFailure);
 
   @override
-  final TransactionFailure transactionFailure;
+  final FirestoreFailure firestoreFailure;
 
   @override
   String toString() {
-    return 'TransactionActorState.deleteFailure(transactionFailure: $transactionFailure)';
+    return 'TransactionActorState.deleteFailure(firestoreFailure: $firestoreFailure)';
   }
 
   @override
@@ -597,12 +593,12 @@ class _$_DeleteFailure implements _DeleteFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DeleteFailure &&
-            (identical(other.transactionFailure, transactionFailure) ||
-                other.transactionFailure == transactionFailure));
+            (identical(other.firestoreFailure, firestoreFailure) ||
+                other.firestoreFailure == firestoreFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactionFailure);
+  int get hashCode => Object.hash(runtimeType, firestoreFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -615,11 +611,10 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(TransactionFailure transactionFailure)
-        deleteFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) deleteFailure,
     required TResult Function() deleteSucess,
   }) {
-    return deleteFailure(transactionFailure);
+    return deleteFailure(firestoreFailure);
   }
 
   @override
@@ -627,10 +622,10 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult? Function()? deleteSucess,
   }) {
-    return deleteFailure?.call(transactionFailure);
+    return deleteFailure?.call(firestoreFailure);
   }
 
   @override
@@ -638,12 +633,12 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult Function()? deleteSucess,
     required TResult orElse(),
   }) {
     if (deleteFailure != null) {
-      return deleteFailure(transactionFailure);
+      return deleteFailure(firestoreFailure);
     }
     return orElse();
   }
@@ -687,10 +682,10 @@ class _$_DeleteFailure implements _DeleteFailure {
 }
 
 abstract class _DeleteFailure implements TransactionActorState {
-  const factory _DeleteFailure(final TransactionFailure transactionFailure) =
+  const factory _DeleteFailure(final FirestoreFailure firestoreFailure) =
       _$_DeleteFailure;
 
-  TransactionFailure get transactionFailure;
+  FirestoreFailure get firestoreFailure;
   @JsonKey(ignore: true)
   _$$_DeleteFailureCopyWith<_$_DeleteFailure> get copyWith =>
       throw _privateConstructorUsedError;
@@ -736,8 +731,7 @@ class _$_DeleteSucess implements _DeleteSucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() actionInProgress,
-    required TResult Function(TransactionFailure transactionFailure)
-        deleteFailure,
+    required TResult Function(FirestoreFailure firestoreFailure) deleteFailure,
     required TResult Function() deleteSucess,
   }) {
     return deleteSucess();
@@ -748,7 +742,7 @@ class _$_DeleteSucess implements _DeleteSucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? actionInProgress,
-    TResult? Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult? Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult? Function()? deleteSucess,
   }) {
     return deleteSucess?.call();
@@ -759,7 +753,7 @@ class _$_DeleteSucess implements _DeleteSucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? actionInProgress,
-    TResult Function(TransactionFailure transactionFailure)? deleteFailure,
+    TResult Function(FirestoreFailure firestoreFailure)? deleteFailure,
     TResult Function()? deleteSucess,
     required TResult orElse(),
   }) {

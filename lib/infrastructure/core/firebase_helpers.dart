@@ -16,4 +16,6 @@ extension FirestoreX on FirebaseFirestore {
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get transactionCollection => collection('transactions');
+  CollectionReference get debtCollection => collection('debts');
+  CollectionReference get savingPlanCollection => collection('saving');
 }

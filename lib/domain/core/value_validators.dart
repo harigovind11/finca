@@ -1,4 +1,4 @@
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 import 'package:dartz/dartz.dart';
 
 //!Auth
@@ -27,8 +27,8 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
-//!Add Transactions
-Either<ValueFailure<dynamic>, dynamic> validateInputNotEmpty(dynamic input) {
+//!Add Transactions,Debts,Saving_plans
+Either<ValueFailure<String>, String> validateInputNotEmpty(String input) {
   if (input.isNotEmpty) {
     return right(input);
   } else {

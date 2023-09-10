@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
 import 'package:finca/domain/core/value_validators.dart';
 
-class TransactionAmount extends ValueObject<dynamic> {
+class TransactionAmount extends ValueObject<String> {
   @override
-  final Either<ValueFailure<dynamic>, dynamic> value;
+  final Either<ValueFailure<String>, String> value;
 
   factory TransactionAmount(String input) {
     assert(input != null);
@@ -16,7 +16,7 @@ class TransactionAmount extends ValueObject<dynamic> {
 
 class TransactionPurpose extends ValueObject<dynamic> {
   @override
-  final Either<ValueFailure<dynamic>, dynamic> value;
+  final Either<ValueFailure<String>, String> value;
 
   factory TransactionPurpose(String input) {
     assert(input != null);

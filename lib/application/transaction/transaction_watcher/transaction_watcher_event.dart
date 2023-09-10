@@ -8,6 +8,6 @@ class TransactionWatcherEvent with _$TransactionWatcherEvent {
   const factory TransactionWatcherEvent.watchExpenseTransactionStarted() =
       _WatchExpenseTransactionStarted;
   const factory TransactionWatcherEvent.transactionReceived(
-      Either<TransactionFailure, List<TransactionEntity>>
+      Either<FirestoreFailure, List<TransactionEntity>>
           failureOrTransactions) = _TransactionReceived;
 }

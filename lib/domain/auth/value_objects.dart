@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:finca/domain/core/failures.dart';
+import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
 import 'package:finca/domain/core/value_validators.dart';
 

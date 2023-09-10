@@ -6,7 +6,7 @@ class TransactionFormState with _$TransactionFormState {
     required TransactionEntity transactionEntity,
     required bool isEditing,
     required bool isSaving,
-    required Option<Either<TransactionFailure, Unit>> saveFailureOrSucessOption,
+    required Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption,
   }) = _TransactionFormState;
 
   factory TransactionFormState.initial() => TransactionFormState(

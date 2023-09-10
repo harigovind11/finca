@@ -1,19 +1,17 @@
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:dartz/dartz.dart';
-import 'package:finca/domain/transaction/transaction_faillure.dart';
+import 'package:finca/domain/core/firestore_faillure.dart';
 
 abstract class ITransactionRepository {
-  Stream<Either<TransactionFailure, List<TransactionEntity>>> watchAll();
-  Stream<Either<TransactionFailure, List<TransactionEntity>>>
+  Stream<Either<FirestoreFailure, List<TransactionEntity>>> watchAll();
+  Stream<Either<FirestoreFailure, List<TransactionEntity>>>
       watchIncomeTransaction();
-  Stream<Either<TransactionFailure, List<TransactionEntity>>>
+  Stream<Either<FirestoreFailure, List<TransactionEntity>>>
       watchExpenseTransaction();
-  Future<Either<TransactionFailure, Unit>> create(
+  Future<Either<FirestoreFailure, Unit>> create(
       TransactionEntity transactionEntity);
-
-  Future<Either<TransactionFailure, Unit>> update(
+  Future<Either<FirestoreFailure, Unit>> update(
       TransactionEntity transactionEntity);
-
-  Future<Either<TransactionFailure, Unit>> delete(
+  Future<Either<FirestoreFailure, Unit>> delete(
       TransactionEntity transactionEntity);
 }

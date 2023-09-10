@@ -33,7 +33,7 @@ class TransactionScreen extends StatelessWidget {
               deleteFailure: (state) {
                 popUpWarning(
                   context,
-                  state.transactionFailure.map(
+                  state.firestoreFailure.map(
                       unexpected: (_) =>
                           'Unexpected error occured while deleting, please contact support',
                       insufficientPermissions: (_) => 'InsufficientPermissions',
