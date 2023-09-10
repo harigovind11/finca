@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:finca/domain/services/balance_calculation.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/domain/transaction/transaction_faillure.dart';
@@ -18,9 +19,11 @@ part 'transaction_watcher_bloc.freezed.dart';
 class TransactionWatcherBloc
     extends Bloc<TransactionWatcherEvent, TransactionWatcherState> {
   final ITransactionRepository _iTransactionRepository;
+  final BalanceCalculationService _balanceCalculationService;
   StreamSubscription<Either<TransactionFailure, List<TransactionEntity>>>?
       _transactionStreamSubscription;
-  TransactionWatcherBloc(this._iTransactionRepository)
+  TransactionWatcherBloc(
+      this._iTransactionRepository, this._balanceCalculationService)
       : super(const _Initial()) {
     on<_WatchAllStarted>((event, emit) async {
       emit(const TransactionWatcherState.loadInProgress());
@@ -56,14 +59,22 @@ class TransactionWatcherBloc
               );
     });
     on<_TransactionReceived>((event, emit) async {
+      final totalBalance = _balanceCalculationService.calculateTotalBalance(
+          event.failureOrTransactions.getOrElse(() => []));
+      final totalIncome = _balanceCalculationService
+          .calculateTotalncome(event.failureOrTransactions.getOrElse(() => []));
+      final totalExpense = _balanceCalculationService.calculateTotalExpense(
+          event.failureOrTransactions.getOrElse(() => []));
       emit(
         event.failureOrTransactions.fold(
           (f) => TransactionWatcherState.loadFailure(f),
-          (transactions) => TransactionWatcherState.loadSucess(transactions),
+          (transactions) => TransactionWatcherState.loadSucess(
+              transactions, totalBalance, totalIncome, totalExpense),
         ),
       );
     });
   }
+
   @override
   Future<void> close() async {
     await _transactionStreamSubscription?.cancel();

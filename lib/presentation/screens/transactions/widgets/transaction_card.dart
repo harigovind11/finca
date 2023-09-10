@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/domain/models/category_model.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';

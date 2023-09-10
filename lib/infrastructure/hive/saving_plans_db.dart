@@ -1,6 +1,6 @@
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/hive/savings_plan_db_fucntions.dart';
-import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
+import 'package:finca/domain/models/saving_plans_model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

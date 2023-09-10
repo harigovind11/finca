@@ -1,4 +1,4 @@
-import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
+import 'package:finca/domain/models/saving_plans_model.dart';
 
 abstract class SavingPlansDbFunctions {
   Future<void> addTransaction(SavingPlansModel object);

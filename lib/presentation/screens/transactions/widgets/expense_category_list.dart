@@ -1,5 +1,5 @@
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/domain/models/category_model.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/transactions/widgets/error_card.dart';
 import 'package:finca/presentation/screens/transactions/widgets/transaction_card.dart';

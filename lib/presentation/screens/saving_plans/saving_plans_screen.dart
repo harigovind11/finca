@@ -1,5 +1,5 @@
 import 'package:finca/infrastructure/hive/saving_plans_db.dart';
-import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
+import 'package:finca/domain/models/saving_plans_model.dart';
 import 'package:finca/presentation/screens/home/widgets/arrow_buttons.dart';
 import 'package:finca/presentation/screens/saving_plans/widgets/savings_plan_popup.dart';
 import 'package:finca/presentation/screens/saving_plans/widgets/savings_plan_scrolling_widget.dart';

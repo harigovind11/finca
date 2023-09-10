@@ -6,7 +6,11 @@ class TransactionWatcherState with _$TransactionWatcherState {
 
   const factory TransactionWatcherState.loadInProgress() = _LoadInProgress;
   const factory TransactionWatcherState.loadSucess(
-      List<TransactionEntity> transactions) = _LoadSucess;
+    List<TransactionEntity> transactions,
+    double totalBalance,
+    double totalIncome,
+    double totalExpense,
+  ) = _LoadSucess;
   const factory TransactionWatcherState.loadFailure(
       TransactionFailure transactionFailure) = _LoadFailure;
 }

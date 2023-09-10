@@ -5,7 +5,7 @@ import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/home/widgets/custom_fab.dart';
+import 'package:finca/presentation/screens/widgets/custom_fab.dart';
 import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 
 import 'package:flutter/material.dart';
@@ -49,6 +49,7 @@ class TransactionScreen extends StatelessWidget {
               onPressed: () =>
                   AutoRouter.of(context).push(AddTransactionRoute()),
               icon: LineIcons.plusCircle,
+              heroTag: 'btn2',
             ),
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(120),

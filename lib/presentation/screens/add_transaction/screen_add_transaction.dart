@@ -47,7 +47,7 @@ class AddTransactionScreen extends StatelessWidget {
                 ),
               );
             }, (_) {
-              // BottomNavPageChanger.instance.pageChanger(3);
+              context.navigateTo(const TransactionRoute());
             });
           });
         },
@@ -133,7 +133,6 @@ class TransactionFormScaffold extends StatelessWidget {
                               .read<TransactionFormBloc>()
                               .add(const TransactionFormEvent.saved());
                           await Future.delayed(const Duration(seconds: 1));
-                          context.navigateTo(const TransactionRoute());
                         }
                       },
                     ),

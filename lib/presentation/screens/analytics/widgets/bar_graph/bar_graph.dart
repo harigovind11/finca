@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'bar_data.dart';
 
 class BarGraph extends StatelessWidget {
-  BarGraph({super.key});
+  const BarGraph({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class BarGraph extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(right: 15),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 222,
         child: MyBarGraph(
@@ -56,17 +56,17 @@ class MyBarGraph extends StatelessWidget {
       BarChartData(
         maxY: 100,
         minY: 0,
-        gridData: FlGridData(show: false),
+        gridData: const FlGridData(show: false),
         borderData: FlBorderData(show: false),
         titlesData: FlTitlesData(
           show: true,
-          topTitles: AxisTitles(
+          topTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
-          leftTitles: AxisTitles(
+          leftTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
-          rightTitles: AxisTitles(
+          rightTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
           bottomTitles: AxisTitles(

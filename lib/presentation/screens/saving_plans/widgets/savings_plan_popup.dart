@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/infrastructure/hive/saving_plans_db.dart';
-import 'package:finca/domain/models/saving_plans/saving_plans_model.dart';
+import 'package:finca/domain/models/saving_plans_model.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';

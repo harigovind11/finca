@@ -1,5 +1,4 @@
 import 'package:finca/application/auth/auth_bloc.dart';
-import 'package:finca/infrastructure/hive/transaction_db.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,11 +17,9 @@ class SplashScreen extends StatelessWidget {
         state.map(
           initial: (_) async {},
           authenticated: (_) async {
-            await TransactionDb.instance.openBoxes();
             AutoRouter.of(context).replace(const MainRoute());
           },
           unauthenticated: (_) async {
-            await TransactionDb.instance.openBoxes();
             AutoRouter.of(context).replace(const WelcomeRoute());
           },
         );

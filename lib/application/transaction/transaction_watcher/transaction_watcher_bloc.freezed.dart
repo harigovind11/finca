@@ -676,7 +676,9 @@ mixin _$TransactionWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<TransactionEntity> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions,
+            double totalBalance, double totalIncome, double totalExpense)
+        loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) =>
@@ -685,7 +687,9 @@ mixin _$TransactionWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -693,7 +697,9 @@ mixin _$TransactionWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -783,7 +789,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<TransactionEntity> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions,
+            double totalBalance, double totalIncome, double totalExpense)
+        loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -795,7 +803,9 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -806,7 +816,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -898,7 +910,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<TransactionEntity> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions,
+            double totalBalance, double totalIncome, double totalExpense)
+        loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -910,7 +924,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -921,7 +937,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -979,7 +997,11 @@ abstract class _$$_LoadSucessCopyWith<$Res> {
           _$_LoadSucess value, $Res Function(_$_LoadSucess) then) =
       __$$_LoadSucessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<TransactionEntity> transactions});
+  $Res call(
+      {List<TransactionEntity> transactions,
+      double totalBalance,
+      double totalIncome,
+      double totalExpense});
 }
 
 /// @nodoc
@@ -994,12 +1016,27 @@ class __$$_LoadSucessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? transactions = null,
+    Object? totalBalance = null,
+    Object? totalIncome = null,
+    Object? totalExpense = null,
   }) {
     return _then(_$_LoadSucess(
       null == transactions
           ? _value._transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as List<TransactionEntity>,
+      null == totalBalance
+          ? _value.totalBalance
+          : totalBalance // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == totalIncome
+          ? _value.totalIncome
+          : totalIncome // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == totalExpense
+          ? _value.totalExpense
+          : totalExpense // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -1007,7 +1044,8 @@ class __$$_LoadSucessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSucess implements _LoadSucess {
-  const _$_LoadSucess(final List<TransactionEntity> transactions)
+  const _$_LoadSucess(final List<TransactionEntity> transactions,
+      this.totalBalance, this.totalIncome, this.totalExpense)
       : _transactions = transactions;
 
   final List<TransactionEntity> _transactions;
@@ -1019,8 +1057,15 @@ class _$_LoadSucess implements _LoadSucess {
   }
 
   @override
+  final double totalBalance;
+  @override
+  final double totalIncome;
+  @override
+  final double totalExpense;
+
+  @override
   String toString() {
-    return 'TransactionWatcherState.loadSucess(transactions: $transactions)';
+    return 'TransactionWatcherState.loadSucess(transactions: $transactions, totalBalance: $totalBalance, totalIncome: $totalIncome, totalExpense: $totalExpense)';
   }
 
   @override
@@ -1029,12 +1074,22 @@ class _$_LoadSucess implements _LoadSucess {
         (other.runtimeType == runtimeType &&
             other is _$_LoadSucess &&
             const DeepCollectionEquality()
-                .equals(other._transactions, _transactions));
+                .equals(other._transactions, _transactions) &&
+            (identical(other.totalBalance, totalBalance) ||
+                other.totalBalance == totalBalance) &&
+            (identical(other.totalIncome, totalIncome) ||
+                other.totalIncome == totalIncome) &&
+            (identical(other.totalExpense, totalExpense) ||
+                other.totalExpense == totalExpense));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_transactions));
+      runtimeType,
+      const DeepCollectionEquality().hash(_transactions),
+      totalBalance,
+      totalIncome,
+      totalExpense);
 
   @JsonKey(ignore: true)
   @override
@@ -1047,11 +1102,13 @@ class _$_LoadSucess implements _LoadSucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<TransactionEntity> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions,
+            double totalBalance, double totalIncome, double totalExpense)
+        loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
-    return loadSucess(transactions);
+    return loadSucess(transactions, totalBalance, totalIncome, totalExpense);
   }
 
   @override
@@ -1059,10 +1116,13 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
-    return loadSucess?.call(transactions);
+    return loadSucess?.call(
+        transactions, totalBalance, totalIncome, totalExpense);
   }
 
   @override
@@ -1070,12 +1130,14 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSucess != null) {
-      return loadSucess(transactions);
+      return loadSucess(transactions, totalBalance, totalIncome, totalExpense);
     }
     return orElse();
   }
@@ -1119,10 +1181,16 @@ class _$_LoadSucess implements _LoadSucess {
 }
 
 abstract class _LoadSucess implements TransactionWatcherState {
-  const factory _LoadSucess(final List<TransactionEntity> transactions) =
-      _$_LoadSucess;
+  const factory _LoadSucess(
+      final List<TransactionEntity> transactions,
+      final double totalBalance,
+      final double totalIncome,
+      final double totalExpense) = _$_LoadSucess;
 
   List<TransactionEntity> get transactions;
+  double get totalBalance;
+  double get totalIncome;
+  double get totalExpense;
   @JsonKey(ignore: true)
   _$$_LoadSucessCopyWith<_$_LoadSucess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1206,7 +1274,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<TransactionEntity> transactions) loadSucess,
+    required TResult Function(List<TransactionEntity> transactions,
+            double totalBalance, double totalIncome, double totalExpense)
+        loadSucess,
     required TResult Function(TransactionFailure transactionFailure)
         loadFailure,
   }) {
@@ -1218,7 +1288,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult? Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult? Function(TransactionFailure transactionFailure)? loadFailure,
   }) {
     return loadFailure?.call(transactionFailure);
@@ -1229,7 +1301,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<TransactionEntity> transactions)? loadSucess,
+    TResult Function(List<TransactionEntity> transactions, double totalBalance,
+            double totalIncome, double totalExpense)?
+        loadSucess,
     TResult Function(TransactionFailure transactionFailure)? loadFailure,
     required TResult orElse(),
   }) {

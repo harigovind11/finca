@@ -1,10 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:dartz/dartz.dart';
-import 'package:finca/domain/core/errors.dart';
-import 'package:finca/domain/core/failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
+
+import 'package:finca/domain/core/errors.dart';
+import 'package:finca/domain/core/failures.dart';
 
 @immutable
 abstract class ValueObject<T> {

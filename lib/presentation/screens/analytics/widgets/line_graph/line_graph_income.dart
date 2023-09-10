@@ -29,7 +29,7 @@ class LineGraphIncome extends StatelessWidget {
 
   LineChartData mainData() {
     return LineChartData(
-      lineTouchData: LineTouchData(
+      lineTouchData: const LineTouchData(
         enabled: false,
       ),
       gridData: FlGridData(
@@ -38,19 +38,19 @@ class LineGraphIncome extends StatelessWidget {
         horizontalInterval: 1,
         verticalInterval: 1,
         getDrawingHorizontalLine: (value) {
-          return FlLine(
+          return const FlLine(
             color: kWhite,
             strokeWidth: 1,
           );
         },
         getDrawingVerticalLine: (value) {
-          return FlLine(
+          return const FlLine(
             color: kWhite,
             strokeWidth: 1,
           );
         },
       ),
-      titlesData: FlTitlesData(
+      titlesData: const FlTitlesData(
         show: true,
         rightTitles: AxisTitles(
           sideTitles: SideTitles(showTitles: false),
@@ -94,7 +94,7 @@ class LineGraphIncome extends StatelessWidget {
           ),
           barWidth: 5,
           isStrokeCapRound: true,
-          dotData: FlDotData(
+          dotData: const FlDotData(
             show: false,
           ),
           belowBarData: BarAreaData(

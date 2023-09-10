@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:finca/domain/core/failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
-import 'package:finca/domain/models/category/category_model.dart';
+import 'package:finca/domain/models/category_model.dart';
 import 'package:finca/domain/transaction/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
