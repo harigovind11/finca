@@ -12,9 +12,10 @@ import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_w
 import 'package:finca/presentation/screens/add_transaction/widgets/purpose_field_widget.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 @RoutePage()
 class AddTransactionScreen extends StatelessWidget {
@@ -37,13 +38,17 @@ class AddTransactionScreen extends StatelessWidget {
         listener: (context, state) {
           state.saveFailureOrSucessOption.fold(() {}, (either) {
             either.fold((failure) {
-              popUpWarning(
-                context,
-                failure.map(
-                  insufficientPermissions: (_) => 'Insufficient permissions ❌',
-                  unableToUpdate: (_) => "Couldn't update the transaction.",
-                  unexpected: (_) =>
-                      'Unexpected error occured, please contact support.',
+              showTopSnackBar(
+                Overlay.of(context),
+                CustomSnackBar.error(
+                  backgroundColor: kGreyShade,
+                  message: failure.map(
+                    insufficientPermissions: (_) =>
+                        'Insufficient permissions ❌',
+                    unableToUpdate: (_) => "Couldn't update the transaction.",
+                    unexpected: (_) =>
+                        'Unexpected error occured, please contact support.',
+                  ),
                 ),
               );
             }, (_) {

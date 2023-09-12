@@ -6,11 +6,12 @@ import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_fab.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import 'widgets/expense_category_list.dart';
 import 'widgets/income_category_list.dart';
@@ -31,13 +32,17 @@ class TransactionScreen extends StatelessWidget {
         listener: (context, state) {
           state.maybeMap(
               deleteFailure: (state) {
-                popUpWarning(
-                  context,
-                  state.firestoreFailure.map(
-                      unexpected: (_) =>
-                          'Unexpected error occured while deleting, please contact support',
-                      insufficientPermissions: (_) => 'InsufficientPermissions',
-                      unableToUpdate: (_) => 'Unable to update'),
+                showTopSnackBar(
+                  Overlay.of(context),
+                  CustomSnackBar.error(
+                    backgroundColor: kGreyShade,
+                    message: state.firestoreFailure.map(
+                        unexpected: (_) =>
+                            'Unexpected error occured while deleting, please contact support',
+                        insufficientPermissions: (_) =>
+                            'InsufficientPermissions',
+                        unableToUpdate: (_) => 'Unable to update'),
+                  ),
                 );
               },
               orElse: () => null);

@@ -22,6 +22,7 @@ mixin _$SignInFormEvent {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +32,7 @@ mixin _$SignInFormEvent {
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +42,7 @@ mixin _$SignInFormEvent {
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) =>
@@ -52,6 +55,8 @@ mixin _$SignInFormEvent {
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) =>
@@ -64,6 +69,7 @@ mixin _$SignInFormEvent {
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +81,7 @@ mixin _$SignInFormEvent {
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) =>
@@ -168,6 +175,7 @@ class _$EmailChanged implements EmailChanged {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) {
     return emailChanged(emailStr);
@@ -180,6 +188,7 @@ class _$EmailChanged implements EmailChanged {
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) {
     return emailChanged?.call(emailStr);
@@ -192,6 +201,7 @@ class _$EmailChanged implements EmailChanged {
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -210,6 +220,8 @@ class _$EmailChanged implements EmailChanged {
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) {
@@ -225,6 +237,7 @@ class _$EmailChanged implements EmailChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) {
     return emailChanged?.call(this);
@@ -239,6 +252,7 @@ class _$EmailChanged implements EmailChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -327,6 +341,7 @@ class _$PasswordChanged implements PasswordChanged {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) {
     return passwordChanged(passwordStr);
@@ -339,6 +354,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) {
     return passwordChanged?.call(passwordStr);
@@ -351,6 +367,7 @@ class _$PasswordChanged implements PasswordChanged {
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -369,6 +386,8 @@ class _$PasswordChanged implements PasswordChanged {
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) {
@@ -384,6 +403,7 @@ class _$PasswordChanged implements PasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) {
     return passwordChanged?.call(this);
@@ -398,6 +418,7 @@ class _$PasswordChanged implements PasswordChanged {
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -464,6 +485,7 @@ class _$RegisterWithEmailAndPasswordPressed
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) {
     return registerWithEmailAndPasswordPressed();
@@ -476,6 +498,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) {
     return registerWithEmailAndPasswordPressed?.call();
@@ -488,6 +511,7 @@ class _$RegisterWithEmailAndPasswordPressed
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -506,6 +530,8 @@ class _$RegisterWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) {
@@ -521,6 +547,7 @@ class _$RegisterWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) {
     return registerWithEmailAndPasswordPressed?.call(this);
@@ -535,6 +562,7 @@ class _$RegisterWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -597,6 +625,7 @@ class _$SignInWithEmailAndPasswordPressed
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) {
     return signInWithEmailAndPasswordPressed();
@@ -609,6 +638,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) {
     return signInWithEmailAndPasswordPressed?.call();
@@ -621,6 +651,7 @@ class _$SignInWithEmailAndPasswordPressed
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -639,6 +670,8 @@ class _$SignInWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) {
@@ -654,6 +687,7 @@ class _$SignInWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) {
     return signInWithEmailAndPasswordPressed?.call(this);
@@ -668,6 +702,7 @@ class _$SignInWithEmailAndPasswordPressed
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -681,6 +716,140 @@ class _$SignInWithEmailAndPasswordPressed
 abstract class SignInWithEmailAndPasswordPressed implements SignInFormEvent {
   const factory SignInWithEmailAndPasswordPressed() =
       _$SignInWithEmailAndPasswordPressed;
+}
+
+/// @nodoc
+abstract class _$$SendPasswordResetEmailCopyWith<$Res> {
+  factory _$$SendPasswordResetEmailCopyWith(_$SendPasswordResetEmail value,
+          $Res Function(_$SendPasswordResetEmail) then) =
+      __$$SendPasswordResetEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendPasswordResetEmailCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res, _$SendPasswordResetEmail>
+    implements _$$SendPasswordResetEmailCopyWith<$Res> {
+  __$$SendPasswordResetEmailCopyWithImpl(_$SendPasswordResetEmail _value,
+      $Res Function(_$SendPasswordResetEmail) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SendPasswordResetEmail implements SendPasswordResetEmail {
+  const _$SendPasswordResetEmail();
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.sendPasswordResetEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SendPasswordResetEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
+    required TResult Function() signWithGooglePressed,
+  }) {
+    return sendPasswordResetEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailStr)? emailChanged,
+    TResult? Function(String passwordStr)? passwordChanged,
+    TResult? Function()? registerWithEmailAndPasswordPressed,
+    TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
+    TResult? Function()? signWithGooglePressed,
+  }) {
+    return sendPasswordResetEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
+    TResult Function()? signWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (sendPasswordResetEmail != null) {
+      return sendPasswordResetEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
+    required TResult Function(SignWithGooglePressed value)
+        signWithGooglePressed,
+  }) {
+    return sendPasswordResetEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmailChanged value)? emailChanged,
+    TResult? Function(PasswordChanged value)? passwordChanged,
+    TResult? Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult? Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
+    TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
+  }) {
+    return sendPasswordResetEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
+    TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (sendPasswordResetEmail != null) {
+      return sendPasswordResetEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendPasswordResetEmail implements SignInFormEvent {
+  const factory SendPasswordResetEmail() = _$SendPasswordResetEmail;
 }
 
 /// @nodoc
@@ -725,6 +894,7 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
     required TResult Function(String passwordStr) passwordChanged,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() sendPasswordResetEmail,
     required TResult Function() signWithGooglePressed,
   }) {
     return signWithGooglePressed();
@@ -737,6 +907,7 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
     TResult? Function(String passwordStr)? passwordChanged,
     TResult? Function()? registerWithEmailAndPasswordPressed,
     TResult? Function()? signInWithEmailAndPasswordPressed,
+    TResult? Function()? sendPasswordResetEmail,
     TResult? Function()? signWithGooglePressed,
   }) {
     return signWithGooglePressed?.call();
@@ -749,6 +920,7 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
     TResult Function(String passwordStr)? passwordChanged,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? sendPasswordResetEmail,
     TResult Function()? signWithGooglePressed,
     required TResult orElse(),
   }) {
@@ -767,6 +939,8 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
         signInWithEmailAndPasswordPressed,
+    required TResult Function(SendPasswordResetEmail value)
+        sendPasswordResetEmail,
     required TResult Function(SignWithGooglePressed value)
         signWithGooglePressed,
   }) {
@@ -782,6 +956,7 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
         registerWithEmailAndPasswordPressed,
     TResult? Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult? Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult? Function(SignWithGooglePressed value)? signWithGooglePressed,
   }) {
     return signWithGooglePressed?.call(this);
@@ -796,6 +971,7 @@ class _$SignWithGooglePressed implements SignWithGooglePressed {
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
         signInWithEmailAndPasswordPressed,
+    TResult Function(SendPasswordResetEmail value)? sendPasswordResetEmail,
     TResult Function(SignWithGooglePressed value)? signWithGooglePressed,
     required TResult orElse(),
   }) {

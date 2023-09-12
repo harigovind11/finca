@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:finca/domain/services/balance_calculation.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';

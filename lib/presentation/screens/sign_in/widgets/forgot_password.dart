@@ -7,13 +7,14 @@ import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/logo_finca.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 @RoutePage()
 class ForgotPasswordScreen extends StatelessWidget {
@@ -33,17 +34,30 @@ class ForgotPasswordScreen extends StatelessWidget {
             () => null,
             (either) => either.fold(
               (failure) {
-                popUpWarning(
-                  context,
-                  failure.map(
+                showTopSnackBar(
+                  Overlay.of(context),
+                  CustomSnackBar.error(
+                    backgroundColor: kGreyShade,
+                    message: failure.map(
                       cancelledByUser: (_) => 'Cancelled',
                       serverError: (_) => 'Server Error',
                       emailAlreadyInUse: (_) => 'Email already in use',
                       invalidEmailAndPasswordCombination: (_) =>
-                          'Invalid Email & Password Combination'),
+                          'Invalid Email & Password Combination',
+                    ),
+                  ),
                 );
               },
-              (_) {},
+              (_) {
+                showTopSnackBar(
+                  Overlay.of(context),
+                  const CustomSnackBar.success(
+                      backgroundColor: kTeal,
+                      message: 'Reset email sent sucessfully'),
+                );
+
+                AutoRouter.of(context).replace(const SignInRoute());
+              },
             ),
           );
         },
@@ -106,9 +120,10 @@ class ForgotPasswordScreen extends StatelessWidget {
                     textColor: kBluegrey,
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        popUpWarning(context, 'Reset email sent sucessfully');
+                        context
+                            .read<SignInFormBloc>()
+                            .add(const SendPasswordResetEmail());
                         await Future.delayed(const Duration(seconds: 1));
-                        AutoRouter.of(context).replace(const SignInRoute());
                       }
                     },
                   ),

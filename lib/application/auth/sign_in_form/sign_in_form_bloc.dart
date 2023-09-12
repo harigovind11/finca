@@ -65,6 +65,21 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         );
       },
     );
+    on<SendPasswordResetEmail>((event, emit) async {
+      Either<AuthFailure, Unit>? failureOrSuccess;
+      final isEmailValid = state.emailAddress.isValid();
+      if (isEmailValid) {
+        emit(state.copyWith(authFailureOrSucessOption: none()));
+        failureOrSuccess = await _iAuthFacde.sendPasswordResetEmail(
+          emailAddress: state.emailAddress,
+        );
+      }
+      emit(
+        state.copyWith(
+          authFailureOrSucessOption: optionOf(failureOrSuccess),
+        ),
+      );
+    });
     on<SignWithGooglePressed>((event, emit) async {
       emit(state.copyWith(authFailureOrSucessOption: none()));
       final failureOrSucees = await _iAuthFacde.signInWithGoogle();

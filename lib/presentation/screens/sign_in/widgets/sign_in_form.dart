@@ -7,10 +7,11 @@ import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
 import 'package:finca/presentation/screens/widgets/logo_finca.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -26,14 +27,17 @@ class SignInForm extends StatelessWidget {
           () => null,
           (either) => either.fold(
             (failure) {
-              popUpWarning(
-                context,
-                failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server Error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
-                  invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid Email & Password Combination',
+              showTopSnackBar(
+                Overlay.of(context),
+                CustomSnackBar.error(
+                  backgroundColor: kGreyShade,
+                  message: failure.map(
+                    cancelledByUser: (_) => 'Cancelled',
+                    serverError: (_) => 'Server Error',
+                    emailAlreadyInUse: (_) => 'Email already in use',
+                    invalidEmailAndPasswordCombination: (_) =>
+                        'Invalid Email & Password Combination',
+                  ),
                 ),
               );
             },

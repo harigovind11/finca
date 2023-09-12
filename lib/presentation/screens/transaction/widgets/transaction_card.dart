@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class TransactionCard extends StatelessWidget {
   final TransactionEntity transactionEntity;
@@ -34,6 +36,13 @@ class TransactionCard extends StatelessWidget {
             children: [
               SlidableAction(
                 onPressed: (context) {
+                  showTopSnackBar(
+                    Overlay.of(context),
+                    const CustomSnackBar.success(
+                      backgroundColor: kBlueShade,
+                      message: 'Deleted',
+                    ),
+                  );
                   context
                       .read<TransactionActorBloc>()
                       .add(TransactionActorEvent.deleted(transactionEntity));

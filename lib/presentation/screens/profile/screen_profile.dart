@@ -8,9 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
-
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
@@ -30,9 +31,9 @@ class ProfileScreen extends StatelessWidget {
           },
         ),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             backgroundColor: kBluegrey,
             elevation: 0,
@@ -59,14 +60,10 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   kHeight40,
-                  const TextWidget(
-                    text: 'name',
-                    color: kWhite,
-                    fontSize: 30,
-                  ),
+                  //Name
                   kHeight10,
                   TextWidget(
-                    text: 'Email -: //${_user?.email! ?? "N/A"}',
+                    text: 'Email -: ${_user?.email! ?? "N/A"}',
                     color: kGrey,
                     fontSize: 15,
                   ),
@@ -75,21 +72,42 @@ class ProfileScreen extends StatelessWidget {
                     text: 'Edit Your profile',
                     prefixIcon: LineIcons.userEdit,
                     onTap: () {
-                      print('pressed');
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        const CustomSnackBar.info(
+                          backgroundColor: kRed,
+                          message:
+                              'This feature is not avaliable right now, Sorry for the inconvenience',
+                        ),
+                      );
                     },
                   ),
                   ProfileButtonWidget(
                     text: 'App Settings',
                     prefixIcon: LineIcons.userCog,
                     onTap: () {
-                      print('pressed');
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        const CustomSnackBar.info(
+                          backgroundColor: kRed,
+                          message:
+                              'This feature is not avaliable right now, Sorry for the inconvenience',
+                        ),
+                      );
                     },
                   ),
                   ProfileButtonWidget(
                     text: 'About Finca',
                     prefixIcon: LineIcons.infoCircle,
                     onTap: () {
-                      print('pressed');
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        const CustomSnackBar.info(
+                          backgroundColor: kRed,
+                          message:
+                              'This feature is not avaliable right now, Sorry for the inconvenience',
+                        ),
+                      );
                     },
                   ),
                   RoundedButton(
@@ -110,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-//TODO firebase db 'name' into username
+
 //TODO add Button Functions 
 //TODO user dp add and edit option
   

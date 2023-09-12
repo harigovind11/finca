@@ -2,18 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:finca/injectable.dart';
-import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/add_saving_plan/widgets/goal_amount_field.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
-
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'widgets/add_saving_plan_app_bar.dart';
 import 'widgets/date_picker.dart';
 import 'widgets/plan_name_field.dart';
@@ -39,13 +37,17 @@ class AddSavingPlanScreen extends StatelessWidget {
         listener: (context, state) {
           state.saveFailureOrSucessOption.fold(() {}, (either) {
             either.fold((failure) {
-              popUpWarning(
-                context,
-                failure.map(
-                  insufficientPermissions: (_) => 'Insufficient permissions ❌',
-                  unableToUpdate: (_) => "Couldn't update the transaction.",
-                  unexpected: (_) =>
-                      'Unexpected error occured, please contact support.',
+              showTopSnackBar(
+                Overlay.of(context),
+                CustomSnackBar.error(
+                  backgroundColor: kGreyShade,
+                  message: failure.map(
+                    insufficientPermissions: (_) =>
+                        'Insufficient permissions ❌',
+                    unableToUpdate: (_) => "Couldn't update the transaction.",
+                    unexpected: (_) =>
+                        'Unexpected error occured, please contact support.',
+                  ),
                 ),
               );
             }, (_) {
