@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:injectable/injectable.dart';
 import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:finca/domain/debt/debt.dart';
 import 'package:finca/domain/debt/i_debt_repo.dart';
@@ -14,6 +14,7 @@ part 'debt_watcher_bloc.freezed.dart';
 part 'debt_watcher_event.dart';
 part 'debt_watcher_state.dart';
 
+@injectable
 class DebtWatcherBloc extends Bloc<DebtWatcherEvent, DebtWatcherState> {
   final IDebtRepository _iDebtRepository;
   final BalanceCalculationService _balanceCalculationService;

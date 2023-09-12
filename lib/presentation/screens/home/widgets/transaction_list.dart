@@ -1,9 +1,9 @@
 import 'package:finca/domain/models/transaction_model.dart';
-import 'package:finca/presentation/screens/transactions/widgets/critical_failure_display_widget.dart';
+import 'package:finca/presentation/screens/transaction/widgets/critical_failure_display_widget.dart';
 import 'package:flutter/material.dart';
 import 'transaction_card.dart';
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/presentation/screens/transactions/widgets/error_card.dart';
+import 'package:finca/presentation/screens/transaction/widgets/error_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionList extends StatelessWidget {
@@ -25,7 +25,8 @@ class TransactionList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final transactionEntity = state.transactions[index];
                   if (transactionEntity.failureOption.isSome()) {
-                    return ErrorCard(transactionEntity: transactionEntity);
+                    return TransactionErrorCard(
+                        transactionEntity: transactionEntity);
                   } else {
                     return TransactionCard(
                         transactionEntity: transactionEntity,

@@ -6,11 +6,12 @@ import 'package:finca/domain/saving_plan/i_saving_plan_repo.dart';
 import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:injectable/injectable.dart';
 part 'saving_plan_watcher_event.dart';
 part 'saving_plan_watcher_state.dart';
 part 'saving_plan_watcher_bloc.freezed.dart';
 
+@injectable
 class SavingPlanWatcherBloc
     extends Bloc<SavingPlanWatcherEvent, SavingPlanWatcherState> {
   final ISavingPlanRepository _iSavingPlanRepository;

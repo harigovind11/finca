@@ -15,7 +15,6 @@ import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widgets/custom_radio_button.dart';
 
 @RoutePage()
 class AddTransactionScreen extends StatelessWidget {
@@ -103,17 +102,11 @@ class TransactionFormScaffold extends StatelessWidget {
                       kHeight30,
 
                       //? Date picker
-                      BlocBuilder<TransactionFormBloc, TransactionFormState>(
-                        builder: (context, state) {
-                          return DatePickerWidget(
-                              selectedDate: state.transactionEntity.date);
-                        },
-                      ),
-                      kHeight30,
 
-                      //? Radio button
+                      const TransactionDatePickerWidget(),
 
                       kHeight30,
+
                       RoundedButton(
                         title: 'ADD',
                         backgroundColor: kWhite,

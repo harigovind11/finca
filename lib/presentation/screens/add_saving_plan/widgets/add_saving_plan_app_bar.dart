@@ -1,13 +1,13 @@
-import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
+import 'package:finca/application/debt/debt_form/debt_form_bloc.dart';
+import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'transaction_radio_button.dart';
-
-class AddTransactionAppBar extends StatelessWidget {
-  const AddTransactionAppBar({super.key});
+class AddSavingPlanAppBar extends StatelessWidget {
+  const AddSavingPlanAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +17,18 @@ class AddTransactionAppBar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BlocBuilder<TransactionFormBloc, TransactionFormState>(
+          BlocBuilder<SavingPlanFormBloc, SavingPlanFormState>(
             buildWhen: ((previous, current) =>
                 previous.isEditing != current.isEditing),
             builder: (context, state) {
               return TextWidget(
-                text: state.isEditing ? 'Edit Transaction' : 'Add Transaction',
+                text: state.isEditing ? 'Edit Saving plan' : 'Add Saving plan',
                 color: kWhite,
                 fontSize: 28,
               );
             },
           ),
           kHeight10,
-          const TransactionRadioButtonWidget(),
         ],
       ),
     );

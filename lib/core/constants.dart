@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-//!db names
-const TRANSACTION_DB_NAME = 'transaction-db';
-const MONEY_DETAILS_DB_NAME = 'money-details-db';
-const SAVING_PLANS_DB_NAME = 'saving-plans-db';
-
 //!SizedBoxes height
 const kHeight5 = SizedBox(height: 5);
 const kHeight10 = SizedBox(height: 10);

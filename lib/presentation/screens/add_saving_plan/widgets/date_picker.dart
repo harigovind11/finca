@@ -1,18 +1,15 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
-
-import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
+import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
+import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../widgets/date_and_time_parser.dart';
-
-class TransactionDatePickerWidget extends StatelessWidget {
-  const TransactionDatePickerWidget({super.key});
+class SavingPlanDatePickerWidget extends StatelessWidget {
+  const SavingPlanDatePickerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TransactionFormBloc, TransactionFormState>(
+    return BlocBuilder<SavingPlanFormBloc, SavingPlanFormState>(
       builder: (context, state) {
         return ListTile(
           onTap: () async {
@@ -21,8 +18,8 @@ class TransactionDatePickerWidget extends StatelessWidget {
             );
             if (dateTime != null) {
               context
-                  .read<TransactionFormBloc>()
-                  .add(TransactionFormEvent.dateChanged(dateTime));
+                  .read<SavingPlanFormBloc>()
+                  .add(SavingPlanFormEvent.dateChanged(dateTime));
             } else {
               return;
             }
@@ -36,11 +33,8 @@ class TransactionDatePickerWidget extends StatelessWidget {
             color: kWhite.withOpacity(.5),
           ),
           title: Text(
-            parseDateYMMMD(context
-                .read<TransactionFormBloc>()
-                .state
-                .transactionEntity
-                .date),
+            parseDateYMMMD(
+                context.read<SavingPlanFormBloc>().state.savingPlanEntity.date),
             style: const TextStyle(
               color: kWhite,
             ),
@@ -53,14 +47,14 @@ class TransactionDatePickerWidget extends StatelessWidget {
   Future<DateTime?> datePicker(
     BuildContext context,
   ) {
-    final transactionFormStateDate =
-        context.read<TransactionFormBloc>().state.transactionEntity.date;
+    final savingPlanFormStateDate =
+        context.read<SavingPlanFormBloc>().state.savingPlanEntity.date;
     return showDatePicker(
       context: context,
-      initialDate: transactionFormStateDate,
+      initialDate: savingPlanFormStateDate,
       firstDate: DateTime(2013),
       lastDate: DateTime.now(),
-      currentDate: transactionFormStateDate,
+      currentDate: savingPlanFormStateDate,
       initialEntryMode: DatePickerEntryMode.calendarOnly,
       builder: (context, child) {
         return Theme(

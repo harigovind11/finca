@@ -6,11 +6,12 @@ import 'package:finca/domain/debt/value_objects.dart';
 import 'package:finca/domain/models/debt_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:injectable/injectable.dart';
 part 'debt_form_event.dart';
 part 'debt_form_state.dart';
 part 'debt_form_bloc.freezed.dart';
 
+@injectable
 class DebtFormBloc extends Bloc<DebtFormEvent, DebtFormState> {
   final IDebtRepository _iDebtRepository;
   DebtFormBloc(this._iDebtRepository) : super(DebtFormState.initial()) {

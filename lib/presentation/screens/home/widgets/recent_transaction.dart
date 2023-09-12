@@ -14,7 +14,7 @@ class RecentTransaction extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.76,
+      height: size.height * 0.90,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 10,

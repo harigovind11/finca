@@ -4,13 +4,14 @@ import 'package:finca/domain/saving_plan/i_saving_plan_repo.dart';
 import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:finca/domain/saving_plan/value_objects.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'saving_plan_form_event.dart';
 part 'saving_plan_form_state.dart';
 part 'saving_plan_form_bloc.freezed.dart';
 
+@injectable
 class SavingPlanFormBloc
     extends Bloc<SavingPlanFormEvent, SavingPlanFormState> {
   final ISavingPlanRepository _iSavingPlanRepository;

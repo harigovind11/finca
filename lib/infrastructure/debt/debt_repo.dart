@@ -6,8 +6,10 @@ import 'package:finca/domain/debt/i_debt_repo.dart';
 import 'package:finca/infrastructure/core/firebase_helpers.dart';
 import 'package:finca/infrastructure/debt/debt_dtos.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
+@LazySingleton(as: IDebtRepository)
 class DebtRepository implements IDebtRepository {
   final FirebaseFirestore _firestore;
 
@@ -30,7 +32,7 @@ class DebtRepository implements IDebtRepository {
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> delete(DebtEntity debtEntity) async {
+  Future<Either<FirestoreFailure, Unit>> update(DebtEntity debtEntity) async {
     try {
       final userDoc = await _firestore.userDocument();
       final debtDto = DebtDto.fromDomain(debtEntity);
@@ -47,7 +49,7 @@ class DebtRepository implements IDebtRepository {
   }
 
   @override
-  Future<Either<FirestoreFailure, Unit>> update(DebtEntity debtEntity) async {
+  Future<Either<FirestoreFailure, Unit>> delete(DebtEntity debtEntity) async {
     try {
       final userDoc = await _firestore.userDocument();
       final debtDto = DebtDto.fromDomain(debtEntity);

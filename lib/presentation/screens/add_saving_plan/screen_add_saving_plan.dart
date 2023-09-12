@@ -1,38 +1,38 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:finca/application/debt/debt_form/debt_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
-import 'package:finca/core/constants.dart';
-import 'package:finca/domain/debt/debt.dart';
-import 'package:finca/injectable.dart';
-import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/add_debt_app_bar.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/date_picker_widget.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/description_field.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/name_field.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
-import 'package:finca/presentation/screens/widgets/rounded_button.dart';
-import 'package:finca/presentation/screens/widgets/warning_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'widgets/amount_field_widget.dart';
+import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
+import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/constants.dart';
+import 'package:finca/domain/saving_plan/saving_plan.dart';
+import 'package:finca/injectable.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/add_saving_plan/widgets/goal_amount_field.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
+import 'package:finca/presentation/screens/widgets/rounded_button.dart';
+import 'package:finca/presentation/screens/widgets/warning_popup.dart';
+
+import 'widgets/add_saving_plan_app_bar.dart';
+import 'widgets/date_picker.dart';
+import 'widgets/plan_name_field.dart';
 
 @RoutePage()
-class AddDebtScreen extends StatelessWidget {
-  const AddDebtScreen({super.key, this.debt});
-  final DebtEntity? debt;
+class AddSavingPlanScreen extends StatelessWidget {
+  const AddSavingPlanScreen({super.key, this.savingPlanEntity});
+  final SavingPlanEntity? savingPlanEntity;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<DebtFormBloc>()
+      create: (context) => getIt<SavingPlanFormBloc>()
         ..add(
-          DebtFormEvent.initialized(
-            optionOf(debt),
+          SavingPlanFormEvent.initialized(
+            optionOf(savingPlanEntity),
           ),
         ),
-      child: BlocConsumer<DebtFormBloc, DebtFormState>(
+      child: BlocConsumer<SavingPlanFormBloc, SavingPlanFormState>(
         listenWhen: ((previous, current) =>
             previous.saveFailureOrSucessOption !=
             current.saveFailureOrSucessOption),
@@ -49,7 +49,7 @@ class AddDebtScreen extends StatelessWidget {
                 ),
               );
             }, (_) {
-              context.navigateTo(const DebtRoute());
+              context.popRoute();
             });
           });
         },
@@ -58,7 +58,7 @@ class AddDebtScreen extends StatelessWidget {
         builder: (context, state) {
           return Stack(
             children: [
-              const DebtFormScaffold(),
+              const SavingPlanScaffold(),
               SavingInProgressOverlay(isSaving: state.isSaving),
             ],
           );
@@ -68,8 +68,8 @@ class AddDebtScreen extends StatelessWidget {
   }
 }
 
-class DebtFormScaffold extends StatelessWidget {
-  const DebtFormScaffold({super.key});
+class SavingPlanScaffold extends StatelessWidget {
+  const SavingPlanScaffold({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class DebtFormScaffold extends StatelessWidget {
       child: Scaffold(
         backgroundColor: kBluegrey,
         appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(120), child: AddDebtAppBar()),
+            preferredSize: Size.fromHeight(120), child: AddSavingPlanAppBar()),
         body: Form(
           key: _formKey,
           child: Padding(
@@ -87,18 +87,15 @@ class DebtFormScaffold extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               children: [
-                kHeight20,
-                const AmountField(),
-                kHeight30,
-                const NameField(),
-                kHeight30,
-                const DescriptionField(),
-                kHeight30,
+                const PlanNameField(),
+                kHeight40,
+                const GoalAmountField(),
+                kHeight40,
 
                 //? Date picker
-                const DebtDatePicker(),
+                const SavingPlanDatePickerWidget(),
 
-                kHeight30,
+                kHeight40,
 
                 RoundedButton(
                   title: 'ADD',
@@ -107,8 +104,8 @@ class DebtFormScaffold extends StatelessWidget {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       context
-                          .read<DebtFormBloc>()
-                          .add(const DebtFormEvent.saved());
+                          .read<SavingPlanFormBloc>()
+                          .add(const SavingPlanFormEvent.saved());
                       await Future.delayed(const Duration(seconds: 1));
                     }
                   },

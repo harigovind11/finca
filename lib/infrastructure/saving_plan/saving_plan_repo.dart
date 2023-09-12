@@ -6,8 +6,10 @@ import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:finca/infrastructure/core/firebase_helpers.dart';
 import 'package:finca/infrastructure/saving_plan/saving_plan_dtos.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
+@LazySingleton(as: ISavingPlanRepository)
 class SavingPlanRepo implements ISavingPlanRepository {
   final FirebaseFirestore _firestore;
 

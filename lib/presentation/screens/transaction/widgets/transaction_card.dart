@@ -64,63 +64,54 @@ class TransactionCard extends StatelessWidget {
             ],
           ),
           child: Card(
-            color: type == TransactionType.income
-                ? kTeal
-                : kOrange.withOpacity(.7),
+            color: kBluegrey,
             elevation: 2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
               width: double.infinity,
-              height: 100,
-              padding: const EdgeInsets.all(10.0),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              height: 120,
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: Column(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: kWhite,
-                    radius: 20,
-                    child: Icon(
-                      type == TransactionType.income
-                          ? LineIcons.arrowDown
-                          : LineIcons.arrowUp,
-                      color: type == TransactionType.income ? kTeal : kOrange,
-                    ),
-                  ),
-                  kWidth15,
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextWidget(
-                        text: type == TransactionType.income
-                            ? 'Receive'
-                            : 'Expense',
-                        color: kOffWhite,
-                        fontSize: 15,
-                      ),
-                      TextWidget(
-                        text: transactionEntity.purpose.getOrCrash(),
-                        color: kBlack,
-                        fontSize: 15,
-                        overflow: TextOverflow.fade,
-                      ),
-                      TextWidget(
-                        text: '₹ ${transactionEntity.amount.getOrCrash()}',
-                        color: kOffWhite,
-                        fontSize: 15,
-                        overflow: TextOverflow.fade,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextWidget(
+                            text: type == TransactionType.income
+                                ? 'Receive'
+                                : 'Expense',
+                            color: kWhite,
+                            fontSize: 20,
+                          ),
+                          TextWidget(
+                            text: '₹ ${transactionEntity.amount.getOrCrash()}',
+                            color: kWhite,
+                            fontSize: 20,
+                            overflow: TextOverflow.fade,
+                          ),
+                        ],
                       ),
                       kHeight10,
+                      TextWidget(
+                        text: transactionEntity.purpose.getOrCrash(),
+                        color: kGrey,
+                        fontSize: 15,
+                        overflow: TextOverflow.fade,
+                      ),
+                      kHeight5,
+                      TextWidget(
+                        text: parseDateMMMD(transactionEntity.date),
+                        color: kGreyShade,
+                        fontSize: 15,
+                      ),
                     ],
-                  ),
-                  const Spacer(),
-                  TextWidget(
-                    text: parseDateMMMD(transactionEntity.date),
-                    color: kOffWhite,
-                    fontSize: 15,
                   ),
                 ],
               ),

@@ -15,6 +15,28 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddDebtRoute.name: (routeData) {
+      final args = routeData.argsAs<AddDebtRouteArgs>(
+          orElse: () => const AddDebtRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddDebtScreen(
+          key: args.key,
+          debt: args.debt,
+        ),
+      );
+    },
+    AddSavingPlanRoute.name: (routeData) {
+      final args = routeData.argsAs<AddSavingPlanRouteArgs>(
+          orElse: () => const AddSavingPlanRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddSavingPlanScreen(
+          key: args.key,
+          savingPlanEntity: args.savingPlanEntity,
+        ),
+      );
+    },
     AddTransactionRoute.name: (routeData) {
       final args = routeData.argsAs<AddTransactionRouteArgs>(
           orElse: () => const AddTransactionRouteArgs());
@@ -99,6 +121,82 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AddDebtScreen]
+class AddDebtRoute extends PageRouteInfo<AddDebtRouteArgs> {
+  AddDebtRoute({
+    Key? key,
+    DebtEntity? debt,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddDebtRoute.name,
+          args: AddDebtRouteArgs(
+            key: key,
+            debt: debt,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddDebtRoute';
+
+  static const PageInfo<AddDebtRouteArgs> page =
+      PageInfo<AddDebtRouteArgs>(name);
+}
+
+class AddDebtRouteArgs {
+  const AddDebtRouteArgs({
+    this.key,
+    this.debt,
+  });
+
+  final Key? key;
+
+  final DebtEntity? debt;
+
+  @override
+  String toString() {
+    return 'AddDebtRouteArgs{key: $key, debt: $debt}';
+  }
+}
+
+/// generated route for
+/// [AddSavingPlanScreen]
+class AddSavingPlanRoute extends PageRouteInfo<AddSavingPlanRouteArgs> {
+  AddSavingPlanRoute({
+    Key? key,
+    SavingPlanEntity? savingPlanEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddSavingPlanRoute.name,
+          args: AddSavingPlanRouteArgs(
+            key: key,
+            savingPlanEntity: savingPlanEntity,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddSavingPlanRoute';
+
+  static const PageInfo<AddSavingPlanRouteArgs> page =
+      PageInfo<AddSavingPlanRouteArgs>(name);
+}
+
+class AddSavingPlanRouteArgs {
+  const AddSavingPlanRouteArgs({
+    this.key,
+    this.savingPlanEntity,
+  });
+
+  final Key? key;
+
+  final SavingPlanEntity? savingPlanEntity;
+
+  @override
+  String toString() {
+    return 'AddSavingPlanRouteArgs{key: $key, savingPlanEntity: $savingPlanEntity}';
+  }
 }
 
 /// generated route for

@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:finca/domain/auth/i_auth_facade.dart';
 import 'package:injectable/injectable.dart';
 

@@ -1,12 +1,16 @@
+import 'package:finca/domain/debt/debt.dart';
+import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:finca/domain/transaction/transaction.dart';
+import 'package:finca/presentation/screens/add_debt/screen_add_debt.dart';
+import 'package:finca/presentation/screens/add_saving_plan/screen_add_saving_plan.dart';
 import 'package:finca/presentation/screens/add_transaction/screen_add_transaction.dart';
 import 'package:finca/presentation/screens/analytics/screen_analytics.dart';
-import 'package:finca/presentation/screens/debt/debt_screen.dart';
+import 'package:finca/presentation/screens/debt/screen_debt.dart';
 import 'package:finca/presentation/screens/home/screen_home.dart';
 import 'package:finca/presentation/screens/profile/screen_profile.dart';
-import 'package:finca/presentation/screens/saving_plan/saving_plan_screen.dart';
+import 'package:finca/presentation/screens/saving_plan/screen_saving_plan.dart';
 import 'package:finca/presentation/screens/splash/screen_splash.dart';
-import 'package:finca/presentation/screens/transactions/screen_transactions.dart';
+import 'package:finca/presentation/screens/transaction/screen_transactions.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:finca/presentation/screens/main_page/screen_main_page.dart';
@@ -27,6 +31,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ForgotPasswordRoute.page),
         AutoRoute(page: SavingPlanRoute.page),
         AutoRoute(page: AddTransactionRoute.page),
+        AutoRoute(page: AddDebtRoute.page),
+        AutoRoute(page: AddSavingPlanRoute.page),
         AutoRoute(page: MainRoute.page, children: [
           AutoRoute(page: HomeRoute.page, initial: true),
           AutoRoute(page: DebtRoute.page),

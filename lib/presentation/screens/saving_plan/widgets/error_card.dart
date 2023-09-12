@@ -1,12 +1,12 @@
-import 'package:finca/domain/transaction/transaction.dart';
+import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:flutter/material.dart';
 
-class ErrorCard extends StatelessWidget {
-  final TransactionEntity transactionEntity;
+class SavingPlanErrorCard extends StatelessWidget {
+  final SavingPlanEntity savingPlanEntity;
 
-  const ErrorCard({
+  const SavingPlanErrorCard({
     Key? key,
-    required this.transactionEntity,
+    required this.savingPlanEntity,
   }) : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class ErrorCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              'Invalid note, please, contact support',
+              'Invalid transaction, please, contact support',
               style: Theme.of(context)
                   .primaryTextTheme
                   .bodyMedium
@@ -26,11 +26,11 @@ class ErrorCard extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              'Details for nerds:',
+              'Details:',
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),
             Text(
-              transactionEntity.failureOption
+              savingPlanEntity.failureOption
                   .fold(() => '', (f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyMedium,
             ),

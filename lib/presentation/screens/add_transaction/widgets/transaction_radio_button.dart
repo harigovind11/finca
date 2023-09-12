@@ -6,8 +6,8 @@ import 'package:finca/core/constants.dart';
 import 'package:finca/domain/models/transaction_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomRadioButtonWidget extends StatelessWidget {
-  const CustomRadioButtonWidget({super.key});
+class TransactionRadioButtonWidget extends StatelessWidget {
+  const TransactionRadioButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
