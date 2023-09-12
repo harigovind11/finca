@@ -1,6 +1,9 @@
+import 'package:finca/application/saving_plan/saving_plan_watcher/saving_plan_watcher_bloc.dart';
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
 import 'package:finca/injectable.dart';
+import 'package:finca/presentation/screens/debt/widgets/critical_failure_display_widget.dart';
 import 'package:finca/presentation/screens/widgets/custom_fab.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
@@ -9,10 +12,9 @@ import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart';
-
 import 'widgets/home_app_bar.dart';
 import 'widgets/inside_box_widget.dart';
-import 'widgets/saving_plans_widget.dart';
+import 'widgets/saving_plan_list.dart';
 import 'widgets/subtitle_with_arrow_button.dart';
 
 @RoutePage()
@@ -24,9 +26,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocProvider(
-      create: (context) => getIt<TransactionWatcherBloc>()
-        ..add(const TransactionWatcherEvent.watchAllStarted()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<TransactionWatcherBloc>()
+            ..add(const TransactionWatcherEvent.watchAllStarted()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<SavingPlanWatcherBloc>()
+            ..add(const SavingPlanWatcherEvent.watchAllStarted()),
+        ),
+      ],
       child: Scaffold(
         floatingActionButton: CustomFAB(
           onPressed: () => AutoRouter.of(context).push(AddTransactionRoute()),
@@ -62,14 +72,23 @@ class HomeScreen extends StatelessWidget {
                           builder: (context, state) {
                             return state.maybeMap(
                                 loadSucess: (state) {
-                                  return InsideBoxWidget(
-                                    expense:
-                                        '₹ ${state.totalExpense.toStringAsFixed(0)}',
+                                  return FlipCard(
+                                    front: InsideBoxWidget(
+                                      isIncome: true,
+                                      amount:
+                                          '₹ ${state.totalIncome.toStringAsFixed(0)}',
+                                    ),
+                                    back: InsideBoxWidget(
+                                      isIncome: false,
+                                      amount:
+                                          '₹ ${state.totalExpense.toStringAsFixed(0)}',
+                                    ),
                                   );
                                 },
-                                orElse: () => const InsideBoxWidget(
-                                      expense: 'N/A',
-                                    ));
+                                loadFailure: (state) => CriticalFailureDisplay(
+                                      failure: state.firestoreFailure,
+                                    ),
+                                orElse: () => const Card());
                           },
                         ),
                         SubtitleWithArrowButton(
@@ -88,7 +107,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               //! My saving plans
-              // SavingPlansWidget(size: size),
+              SavingPlanList(
+                size: size,
+              ),
             ],
           ),
         ),

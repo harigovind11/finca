@@ -11,6 +11,7 @@ environment:
 dependencies:
   animated_splash_screen: ^1.3.0
   animated_text_kit: ^4.2.2
+  animations: ^2.0.8
   auto_route: ^7.8.3
   chart_sparkline: ^1.0.13
   cloud_firestore: ^4.9.0
@@ -22,6 +23,7 @@ dependencies:
   firebase_core: ^2.15.1
   firebase_core_platform_interface: ^4.8.0
   fl_chart: ^0.63.0
+  flip_card: ^0.7.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
@@ -71,7 +73,9 @@ flutter:
   assets:
     - images/logo.png
     - images/foreground.png
-
+    - images/credit.jpg
+    - images/income.jpg
+    - images/expense.jpg
   fonts:
     - family: MusticaPro
       fonts:
