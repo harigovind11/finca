@@ -3,7 +3,7 @@ import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:finca/domain/debt/debt.dart';
 import 'package:finca/domain/debt/i_debt_repo.dart';
 import 'package:finca/domain/debt/value_objects.dart';
-import 'package:finca/domain/models/debt_model.dart';
+import 'package:finca/domain/debt/debt_type.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

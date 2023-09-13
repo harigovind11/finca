@@ -71,6 +71,10 @@ class HomeScreen extends StatelessWidget {
                             TransactionWatcherState>(
                           builder: (context, state) {
                             return state.maybeMap(
+                                loadInProgress: (_) => const FlipCard(
+                                      front: InsideBoxLoading(isIncome: true),
+                                      back: InsideBoxLoading(isIncome: false),
+                                    ),
                                 loadSucess: (state) {
                                   return FlipCard(
                                     front: InsideBoxWidget(

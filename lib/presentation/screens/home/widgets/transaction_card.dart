@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:line_icons/line_icons.dart';
 
 class TransactionCard extends StatelessWidget {
   const TransactionCard({
@@ -44,55 +43,51 @@ class RecentTransactionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: kBluegrey,
-      elevation: 2,
-      shape: RoundedRectangleBorder(
+    return Container(
+      width: double.infinity,
+      height: 120,
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        color: kBluegrey,
       ),
-      child: Container(
-        width: double.infinity,
-        height: 120,
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Column(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextWidget(
-                      text: title,
-                      color: kWhite,
-                      fontSize: 20,
-                    ),
-                    TextWidget(
-                      text: '₹ $amount',
-                      color: kWhite,
-                      fontSize: 20,
-                      overflow: TextOverflow.fade,
-                    ),
-                  ],
-                ),
-                kHeight10,
-                TextWidget(
-                  text: pupose,
-                  color: kGrey,
-                  fontSize: 15,
-                  overflow: TextOverflow.fade,
-                ),
-                kHeight5,
-                TextWidget(
-                  text: date,
-                  color: kGreyShade,
-                  fontSize: 15,
-                ),
-              ],
-            ),
-          ],
-        ),
+      child: Column(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextWidget(
+                    text: title,
+                    color: kWhite,
+                    fontSize: 20,
+                  ),
+                  TextWidget(
+                    text: '₹ $amount',
+                    color: kWhite,
+                    fontSize: 20,
+                    overflow: TextOverflow.fade,
+                  ),
+                ],
+              ),
+              kHeight10,
+              TextWidget(
+                text: pupose,
+                color: kGrey,
+                fontSize: 15,
+                overflow: TextOverflow.fade,
+              ),
+              kHeight5,
+              TextWidget(
+                text: date,
+                color: kGreyShade,
+                fontSize: 15,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

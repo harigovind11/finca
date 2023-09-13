@@ -3,7 +3,7 @@ import 'package:finca/application/debt/debt_actor/debt_actor_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/debt/debt.dart';
-import 'package:finca/domain/models/debt_model.dart';
+import 'package:finca/domain/debt/debt_type.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
@@ -28,12 +28,25 @@ class DebtCard extends StatelessWidget {
         child: Slidable(
           direction: Axis.horizontal,
           useTextDirection: false,
-          startActionPane: ActionPane(
+          endActionPane: ActionPane(
             motion: const Padding(
               padding: EdgeInsets.fromLTRB(5, 5, 0, 5),
               child: BehindMotion(),
             ),
             children: [
+              SlidableAction(
+                onPressed: (context) {
+                  context.pushRoute(AddDebtRoute(debt: debtEntity));
+                },
+                autoClose: true,
+                backgroundColor: kBlueShade,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(5),
+                ),
+                icon: LineIcons.pen,
+                label: 'Edit',
+              ),
               SlidableAction(
                 onPressed: (context) {
                   showTopSnackBar(
@@ -51,24 +64,11 @@ class DebtCard extends StatelessWidget {
                 autoClose: true,
                 backgroundColor: kBluegreyShade,
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
-                ),
-                icon: LineIcons.trash,
-                label: 'Delete',
-              ),
-              SlidableAction(
-                onPressed: (context) {
-                  context.pushRoute(AddDebtRoute(debt: debtEntity));
-                },
-                autoClose: true,
-                backgroundColor: kBlueShade,
-                borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(30),
                   bottomRight: Radius.circular(30),
                 ),
-                icon: LineIcons.pen,
-                label: 'Edit',
+                icon: LineIcons.trash,
+                label: 'Delete',
               ),
             ],
           ),
@@ -77,7 +77,7 @@ class DebtCard extends StatelessWidget {
             height: 150,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30), color: kBluegreyShade),
+                borderRadius: BorderRadius.circular(15), color: kBluegreyShade),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

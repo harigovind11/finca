@@ -18,7 +18,7 @@ class RecentTransaction extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
-        vertical: 3,
+        vertical: 8,
       ),
       decoration: const BoxDecoration(
         color: kWhite,

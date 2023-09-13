@@ -1,3 +1,4 @@
+import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:finca/injectable.dart';
@@ -13,30 +14,33 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: kBluegrey,
-        body: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => getIt<SignInFormBloc>(),
-            ),
-          ],
-          child: SafeArea(
-            child: ListView(
-              shrinkWrap: true,
-              children: [
-                Container(
-                  padding: const EdgeInsets.only(
-                    left: 24,
-                    right: 24,
-                    top: 100,
-                    bottom: 25,
+    return DoubleBack(
+      message: 'Press back again to close',
+      child: Scaffold(
+          backgroundColor: kBluegrey,
+          body: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SignInFormBloc>(),
+              ),
+            ],
+            child: SafeArea(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(
+                      left: 24,
+                      right: 24,
+                      top: 100,
+                      bottom: 25,
+                    ),
+                    child: const SignUpForm(),
                   ),
-                  child: const SignUpForm(),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

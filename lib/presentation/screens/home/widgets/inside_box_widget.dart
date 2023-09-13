@@ -1,3 +1,4 @@
+import 'package:fade_shimmer/fade_shimmer.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,61 @@ class InsideBoxWidget extends StatelessWidget {
     );
   }
 }
+
+class InsideBoxLoading extends StatelessWidget {
+  final bool isIncome;
+  const InsideBoxLoading({super.key, required this.isIncome});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: 200,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: kBluegreyShade,
+            // color: kBluegreyShade,
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 25, 0, 0),
+          child: Row(
+            children: [
+              FadeShimmer.round(
+                size: 60,
+                fadeTheme: FadeTheme.dark,
+                millisecondsDelay: 300,
+              ),
+              kWidth15,
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FadeShimmer(
+                    height: 8,
+                    width: 150,
+                    radius: 4,
+                    millisecondsDelay: 300,
+                    fadeTheme: FadeTheme.dark,
+                  ),
+                  kHeight15,
+                  FadeShimmer(
+                      height: 8,
+                      millisecondsDelay: 300,
+                      width: 170,
+                      radius: 4,
+                      fadeTheme: FadeTheme.dark),
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+} 
   // //* Percentange widget and arrow button
   //             Padding(
   //               padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),

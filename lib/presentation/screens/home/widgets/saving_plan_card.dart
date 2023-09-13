@@ -9,47 +9,41 @@ class SavingPlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 10,
-        left: 10,
+    return Card(
+      color: kBluegreyShade,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
-      child: Card(
-        color: kBluegreyShade,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Stack(
-          children: [
-            SizedBox(
-              width: 190,
-              height: 190,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    kHeight20,
-                    TextWidget(
-                      text: savingPlanEntity.planName.getOrCrash(),
-                      color: kWhite,
-                      fontSize: 25,
-                    ),
-                    kHeight15,
-                    TextWidget(
-                      text: '₹ ${savingPlanEntity.goalAmount.getOrCrash()}',
-                      color: kBlueShade,
-                      fontSize: 22,
-                    ),
-                  ],
-                ),
+      child: Stack(
+        children: [
+          SizedBox(
+            width: 190,
+            height: 190,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 5,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  kHeight20,
+                  TextWidget(
+                    text: savingPlanEntity.planName.getOrCrash(),
+                    color: kWhite,
+                    fontSize: 25,
+                  ),
+                  kHeight15,
+                  TextWidget(
+                    text: '₹ ${savingPlanEntity.goalAmount.getOrCrash()}',
+                    color: kBlueShade,
+                    fontSize: 22,
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

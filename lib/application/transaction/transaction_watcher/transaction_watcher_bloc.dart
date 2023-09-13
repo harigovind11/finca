@@ -24,6 +24,7 @@ class TransactionWatcherBloc
       : super(const _Initial()) {
     on<_WatchAllStarted>((event, emit) async {
       emit(const TransactionWatcherState.loadInProgress());
+      await Future.delayed(const Duration(milliseconds: 500));
       await _transactionStreamSubscription?.cancel();
       _transactionStreamSubscription =
           _iTransactionRepository.watchAll().listen(
@@ -35,6 +36,7 @@ class TransactionWatcherBloc
     });
     on<_WatchIncomeTransactionStarted>((event, emit) async {
       emit(const TransactionWatcherState.loadInProgress());
+      await Future.delayed(const Duration(milliseconds: 500));
       await _transactionStreamSubscription?.cancel();
       _transactionStreamSubscription =
           _iTransactionRepository.watchIncomeTransaction().listen(
@@ -46,6 +48,7 @@ class TransactionWatcherBloc
     });
     on<_WatchExpenseTransactionStarted>((event, emit) async {
       emit(const TransactionWatcherState.loadInProgress());
+      await Future.delayed(const Duration(milliseconds: 500));
       await _transactionStreamSubscription?.cancel();
       _transactionStreamSubscription =
           _iTransactionRepository.watchExpenseTransaction().listen(

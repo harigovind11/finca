@@ -1,6 +1,6 @@
 import 'package:finca/domain/debt/debt.dart';
-import 'package:finca/domain/models/debt_model.dart';
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/domain/debt/debt_type.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:injectable/injectable.dart';
 

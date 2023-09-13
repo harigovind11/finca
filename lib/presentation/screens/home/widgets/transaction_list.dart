@@ -1,4 +1,6 @@
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/core/constants.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
+import 'package:finca/presentation/screens/home/widgets/transaction_loading.dart';
 import 'package:finca/presentation/screens/transaction/widgets/critical_failure_display_widget.dart';
 import 'package:flutter/material.dart';
 import 'transaction_card.dart';
@@ -15,11 +17,9 @@ class TransactionList extends StatelessWidget {
       builder: (context, state) {
         return state.map(
             initial: (_) => Container(),
-            loadInProgress: (_) => const Center(
-                  child: CircularProgressIndicator(),
-                ),
+            loadInProgress: (_) => const TransactionLoadingWidget(),
             loadSucess: (state) {
-              return ListView.builder(
+              return ListView.separated(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -33,6 +33,7 @@ class TransactionList extends StatelessWidget {
                         type: TransactionType.income);
                   }
                 },
+                separatorBuilder: (_, __) => kHeight10,
                 itemCount: state.transactions.length,
               );
             },

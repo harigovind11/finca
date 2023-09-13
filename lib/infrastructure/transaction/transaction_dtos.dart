@@ -1,6 +1,6 @@
 // ignore_for_file: invalid_annotation_target
 
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

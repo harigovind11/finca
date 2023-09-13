@@ -15,38 +15,44 @@ class SavingPlanList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 275,
-      child: BlocBuilder<SavingPlanWatcherBloc, SavingPlanWatcherState>(
-        builder: (context, state) {
-          return state.map(
-            initial: (_) => const Card(),
-            loadInProgress: (_) => const Center(
-              child: CircularProgressIndicator(),
-            ),
-            loadSucess: (state) => LimitedBox(
-              maxHeight: 180,
-              maxWidth: size.width,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  final savingPlanEntity = state.savingPlans[index];
-                  if (savingPlanEntity.failureOption.isSome()) {
-                    return SavingPlanErrorCard(
-                        savingPlanEntity: savingPlanEntity);
-                  } else {
-                    return SavingPlanCard(
-                      savingPlanEntity: savingPlanEntity,
-                    );
-                  }
-                },
-                itemCount: state.savingPlans.length,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 10,
+          left: 10,
+        ),
+        child: BlocBuilder<SavingPlanWatcherBloc, SavingPlanWatcherState>(
+          builder: (context, state) {
+            return state.map(
+              initial: (_) => const Card(),
+              loadInProgress: (_) => const Center(
+                child: CircularProgressIndicator(),
               ),
-            ),
-            loadFailure: (state) => CriticalFailureDisplay(
-              failure: state.firestoreFailure,
-            ),
-          );
-        },
+              loadSucess: (state) => LimitedBox(
+                maxHeight: 180,
+                maxWidth: size.width,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final savingPlanEntity = state.savingPlans[index];
+                    if (savingPlanEntity.failureOption.isSome()) {
+                      return SavingPlanErrorCard(
+                          savingPlanEntity: savingPlanEntity);
+                    } else {
+                      return SavingPlanCard(
+                        savingPlanEntity: savingPlanEntity,
+                      );
+                    }
+                  },
+                  itemCount: state.savingPlans.length,
+                ),
+              ),
+              loadFailure: (state) => CriticalFailureDisplay(
+                failure: state.firestoreFailure,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

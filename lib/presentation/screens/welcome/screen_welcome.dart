@@ -1,3 +1,4 @@
+import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/logo_finca.dart';
@@ -13,41 +14,44 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBluegrey,
-      body: Padding(
-        padding:
-            const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Logo(
-                  color1: kBlueShade,
-                  color2: kWhite,
-                ),
-              ],
-            ),
-            const Spacer(),
-            RoundedButton(
-              title: 'Log In',
-              backgroundColor: kWhite,
-              textColor: kBluegrey,
-              onPressed: () {
-                AutoRouter.of(context).replace(const SignInRoute());
-              },
-            ),
-            RoundedButton(
-              title: 'Register',
-              backgroundColor: kWhite,
-              textColor: kBluegrey,
-              onPressed: () {
-                AutoRouter.of(context).replace(const SignUpRoute());
-              },
-            ),
-          ],
+    return DoubleBack(
+      message: 'Press back again to close',
+      child: Scaffold(
+        backgroundColor: kBluegrey,
+        body: Padding(
+          padding:
+              const EdgeInsets.only(left: 24, right: 24, top: 170, bottom: 100),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Logo(
+                    color1: kBlueShade,
+                    color2: kWhite,
+                  ),
+                ],
+              ),
+              const Spacer(),
+              RoundedButton(
+                title: 'Log In',
+                backgroundColor: kWhite,
+                textColor: kBluegrey,
+                onPressed: () {
+                  AutoRouter.of(context).replace(const SignInRoute());
+                },
+              ),
+              RoundedButton(
+                title: 'Register',
+                backgroundColor: kWhite,
+                textColor: kBluegrey,
+                onPressed: () {
+                  AutoRouter.of(context).replace(const SignUpRoute());
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

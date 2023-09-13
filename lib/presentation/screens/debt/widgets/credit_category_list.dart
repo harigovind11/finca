@@ -1,5 +1,5 @@
 import 'package:finca/application/debt/debt_watcher/debt_watcher_bloc.dart';
-import 'package:finca/domain/models/debt_model.dart';
+import 'package:finca/domain/debt/debt_type.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/debt/widgets/critical_failure_display_widget.dart';
 import 'package:flutter/material.dart';

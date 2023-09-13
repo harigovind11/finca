@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionRadioButtonWidget extends StatelessWidget {

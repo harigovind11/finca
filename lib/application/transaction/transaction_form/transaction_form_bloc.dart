@@ -5,7 +5,7 @@ import 'package:finca/domain/transaction/value_objects.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:injectable/injectable.dart';
 
 part 'transaction_form_event.dart';

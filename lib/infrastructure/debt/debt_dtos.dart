@@ -1,7 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:finca/domain/debt/debt.dart';
-import 'package:finca/domain/models/debt_model.dart';
+import 'package:finca/domain/debt/debt_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'debt_dtos.g.dart';

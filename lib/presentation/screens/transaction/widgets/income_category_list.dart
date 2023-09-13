@@ -1,12 +1,15 @@
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/domain/models/transaction_model.dart';
+import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/constants.dart';
+import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/transaction/widgets/error_card.dart';
 import 'package:finca/presentation/screens/transaction/widgets/transaction_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'critical_failure_display_widget.dart';
+
+import 'transaction_loading.dart';
 
 class IncomeCategoryListWidget extends StatelessWidget {
   const IncomeCategoryListWidget({super.key});
@@ -20,9 +23,7 @@ class IncomeCategoryListWidget extends StatelessWidget {
         builder: (context, state) {
           return state.map(
               initial: (_) => Container(),
-              loadInProgress: (_) => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
+              loadInProgress: (_) => const TransactionLoadingWidget(),
               loadSucess: (state) {
                 return ListView.builder(
                   shrinkWrap: true,
