@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
+import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
 import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
 import 'package:finca/core/colors_picker.dart';
 import 'package:finca/core/constants.dart';
@@ -24,13 +25,20 @@ class AddTransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<TransactionFormBloc>()
-        ..add(
-          TransactionFormEvent.initialized(
-            optionOf(transaction),
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<TransactionFormBloc>()
+            ..add(
+              TransactionFormEvent.initialized(
+                optionOf(transaction),
+              ),
+            ),
         ),
+        BlocProvider(
+          create: (context) => getIt<TransactionActorBloc>(),
+        ),
+      ],
       child: BlocConsumer<TransactionFormBloc, TransactionFormState>(
         listenWhen: ((previous, current) =>
             previous.saveFailureOrSucessOption !=

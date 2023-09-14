@@ -6,11 +6,10 @@ import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
-import 'package:flutter/gestures.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
@@ -26,58 +25,31 @@ class TransactionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(5),
-        child: Slidable(
-          direction: Axis.horizontal,
-          closeOnScroll: true,
-          useTextDirection: false,
-          dragStartBehavior: DragStartBehavior.start,
-          endActionPane: ActionPane(
-            motion: const BehindMotion(),
-            children: [
-              SlidableAction(
-                onPressed: (context) {
-                  context.pushRoute(
-                      AddTransactionRoute(transaction: transactionEntity));
-                },
-                autoClose: true,
-                backgroundColor: kBlueShade,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(10),
-                ),
-                icon: LineIcons.pen,
-                label: 'Edit',
-              ),
-              SlidableAction(
-                onPressed: (context) {
-                  showTopSnackBar(
-                    Overlay.of(context),
-                    const CustomSnackBar.success(
-                      backgroundColor: kBlueShade,
-                      message: 'Deleted',
-                    ),
-                  );
-                  context
-                      .read<TransactionActorBloc>()
-                      .add(TransactionActorEvent.deleted(transactionEntity));
-                },
-                autoClose: true,
-                backgroundColor: kBluegreyShade,
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-                icon: LineIcons.trash,
-                label: 'Delete',
-              ),
-            ],
-          ),
-          child: Container(
+        child: FlipCard(
+          front: Container(
             width: double.infinity,
-            height: 120,
+            height: 135,
             padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+            decoration: const BoxDecoration(
+              // borderRadius: BorderRadius.circular(10),
+              border: Border(
+                left: BorderSide(
+                  color: kBluegreyShade,
+                  width: 20.0,
+                ),
+                right: BorderSide(
+                  color: kBluegreyShade,
+                  width: 10.0,
+                ),
+                top: BorderSide(
+                  color: kBlack,
+                  width: 15.0,
+                ),
+                bottom: BorderSide(
+                  color: kBlack,
+                  width: 10.0,
+                ),
+              ),
               color: kBluegrey,
             ),
             child: Column(
@@ -117,6 +89,82 @@ class TransactionCard extends StatelessWidget {
                       fontSize: 15,
                     ),
                   ],
+                ),
+              ],
+            ),
+          ),
+          back: Container(
+            width: double.infinity,
+            height: 135,
+            padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
+            decoration: const BoxDecoration(
+              // borderRadius: BorderRadius.circular(10),
+              border: Border(
+                left: BorderSide(
+                  color: kBluegreyShade,
+                  width: 20.0,
+                ),
+                right: BorderSide(
+                  color: kBluegreyShade,
+                  width: 10.0,
+                ),
+                top: BorderSide(
+                  color: kBlack,
+                  width: 15.0,
+                ),
+                bottom: BorderSide(
+                  color: kBlack,
+                  width: 10.0,
+                ),
+              ),
+              color: kBluegrey,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: TextButton.icon(
+                    onPressed: () {
+                      context.pushRoute(
+                        AddTransactionRoute(transaction: transactionEntity),
+                      );
+                    },
+                    style: const ButtonStyle(
+                        splashFactory: NoSplash.splashFactory),
+                    icon: const LineIcon.pen(
+                      color: kBlueShade,
+                    ),
+                    label: const TextWidget(
+                      text: 'Edit',
+                      color: kBlueShade,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: TextButton.icon(
+                    onPressed: () {
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        const CustomSnackBar.success(
+                          backgroundColor: kBlueShade,
+                          message: 'Deleted',
+                        ),
+                      );
+                      context.read<TransactionActorBloc>().add(
+                          TransactionActorEvent.deleted(transactionEntity));
+                    },
+                    style: const ButtonStyle(
+                        splashFactory: NoSplash.splashFactory),
+                    icon: const LineIcon.trash(
+                      color: kRed,
+                    ),
+                    label: const TextWidget(
+                      text: 'Delete',
+                      color: kRed,
+                      fontSize: 15,
+                    ),
+                  ),
                 ),
               ],
             ),

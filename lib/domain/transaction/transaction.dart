@@ -28,9 +28,10 @@ class TransactionEntity with _$TransactionEntity {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return amount.failureOrUnit
-        .andThen(purpose.failureOrUnit)
-        .fold((f) => some(f), (_) => none());
+    return amount.failureOrUnit.andThen(purpose.failureOrUnit).fold(
+          (f) => some(f),
+          (_) => none(),
+        );
   }
 
 //? Entity to Domain

@@ -20,7 +20,6 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final _passwordTextEditingController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
-    // final passwordVisible = useState(false);
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
         state.authFailureOrSucessOption.fold(

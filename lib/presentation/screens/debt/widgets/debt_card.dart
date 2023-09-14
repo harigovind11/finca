@@ -64,8 +64,8 @@ class DebtCard extends StatelessWidget {
                 autoClose: true,
                 backgroundColor: kBluegreyShade,
                 borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
                 ),
                 icon: LineIcons.trash,
                 label: 'Delete',
@@ -77,7 +77,9 @@ class DebtCard extends StatelessWidget {
             height: 150,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15), color: kBluegreyShade),
+              borderRadius: BorderRadius.circular(15),
+              color: kBluegreyShade,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -17,29 +17,49 @@ class TransactionLoadingWidget extends StatelessWidget {
         final delay = (i * 300);
         return Container(
           width: double.infinity,
-          height: 120,
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-          decoration: BoxDecoration(
-              color: kBluegrey, borderRadius: BorderRadius.circular(10)),
+          height: 135,
+          padding: const EdgeInsets.only(left: 15, right: 15),
+          decoration: const BoxDecoration(
+            color: kBluegrey,
+            // borderRadius: BorderRadius.circular(10),
+            border: Border(
+              left: BorderSide(
+                color: kBluegreyShade,
+                width: 20.0,
+              ),
+              right: BorderSide(
+                color: kBluegreyShade,
+                width: 10.0,
+              ),
+              top: BorderSide(
+                color: kBlack,
+                width: 15.0,
+              ),
+              bottom: BorderSide(
+                color: kBlack,
+                width: 10.0,
+              ),
+            ),
+          ),
           child: Row(
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FadeShimmer.round(
                 size: 60,
                 fadeTheme: FadeTheme.dark,
                 millisecondsDelay: delay,
               ),
-              kWidth15,
+              kWidth10,
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FadeShimmer(
-                    height: 8,
-                    width: 150,
-                    radius: 4,
-                    millisecondsDelay: delay,
-                    fadeTheme: FadeTheme.dark,
-                  ),
+                      height: 8,
+                      width: 150,
+                      radius: 4,
+                      millisecondsDelay: delay,
+                      fadeTheme: FadeTheme.dark),
                   kHeight5,
                   FadeShimmer(
                       height: 8,

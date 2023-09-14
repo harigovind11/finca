@@ -1,6 +1,4 @@
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
-import 'package:finca/core/constants.dart';
 import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/transaction/widgets/error_card.dart';

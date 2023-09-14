@@ -1,4 +1,5 @@
 import 'package:double_back_to_close/double_back_to_close.dart';
+import 'package:finca/application/auth/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:finca/injectable.dart';
@@ -22,6 +23,9 @@ class SignUpPage extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => getIt<SignInFormBloc>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<AuthBloc>(),
               ),
             ],
             child: SafeArea(
