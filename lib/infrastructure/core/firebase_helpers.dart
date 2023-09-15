@@ -18,4 +18,7 @@ extension DocumentReferenceX on DocumentReference {
   CollectionReference get transactionCollection => collection('transactions');
   CollectionReference get debtCollection => collection('debts');
   CollectionReference get savingPlanCollection => collection('saving');
+  CollectionReference get accountCollection => collection('accounts');
+  CollectionReference get billCollection => collection('bills');
+  CollectionReference get categoryCollection => collection('category');
 }

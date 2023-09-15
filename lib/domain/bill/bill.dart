@@ -12,21 +12,21 @@ class BillEntity with _$BillEntity {
   const BillEntity._();
   const factory BillEntity({
     required UniqueId id,
-    required BillName name,
-    required BillAmount amount,
+    required BillName billName,
+    required BillAmount billAmount,
     required DateTime date,
     required BillType billType,
   }) = _BillEntity;
 
   factory BillEntity.empty() => BillEntity(
         id: UniqueId(''),
-        name: BillName(''),
-        amount: BillAmount(''),
+        billName: BillName(''),
+        billAmount: BillAmount(''),
         date: DateTime.now(),
         billType: BillType.bill,
       );
   Option<ValueFailure<dynamic>> get failureOption {
-    return name.failureOrUnit.andThen(amount.failureOrUnit).fold(
+    return billName.failureOrUnit.andThen(billAmount.failureOrUnit).fold(
           (f) => some(f),
           (_) => none(),
         );
@@ -35,13 +35,13 @@ class BillEntity with _$BillEntity {
 //?Entity to domain
   factory BillEntity.fromSnapshot(DocumentSnapshot snapshot) {
     final data = snapshot.data() as Map<String, dynamic>;
-    final billTypeString = data['type'] as String;
+    final billTypeString = data['billType'] as String;
     final billType = billTypeFromString(billTypeString);
 
     return BillEntity(
       id: UniqueId.fromUniqueString(snapshot.id),
-      amount: BillAmount(data['amount']),
-      name: BillName(data['name']),
+      billAmount: BillAmount(data['billAmount']),
+      billName: BillName(data['billName']),
       date: DateTime.tryParse(data['date'])!,
       billType: billType,
     );

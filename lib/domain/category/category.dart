@@ -11,22 +11,22 @@ class CategoryEntity with _$CategoryEntity {
   const CategoryEntity._();
   const factory CategoryEntity({
     required UniqueId id,
-    required CategoryName name,
-    required CategoryIcon icon,
+    required CategoryName categoryName,
+    required CategoryIcon categoryIcon,
     required CategoryIconColor iconColor,
   }) = _CategoryEntity;
 
   factory CategoryEntity.empty() => CategoryEntity(
         id: UniqueId(''),
-        name: CategoryName(CategoryName.predefinedNames[0]),
-        icon: CategoryIcon(CategoryIcon.predefinedIcons[0]),
+        categoryName: CategoryName(CategoryName.predefinedNames[0]),
+        categoryIcon: CategoryIcon(CategoryIcon.predefinedIcons[0]),
         iconColor: CategoryIconColor(
           CategoryIconColor.predefinedColors[0],
         ),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return name.failureOrUnit.andThen(icon.failureOrUnit).fold(
+    return categoryName.failureOrUnit.andThen(categoryIcon.failureOrUnit).fold(
           (f) => some(f),
           (_) => none(),
         );
@@ -36,10 +36,10 @@ class CategoryEntity with _$CategoryEntity {
     final data = snapshot.data() as Map<String, dynamic>;
     return CategoryEntity(
       id: UniqueId.fromUniqueString(snapshot.id),
-      name: CategoryName(
-        data['name'],
+      categoryName: CategoryName(
+        data['categoryName'],
       ),
-      icon: CategoryIcon(data['icon']),
+      categoryIcon: CategoryIcon(data['categoryIcon']),
       iconColor: data['iconColor'],
     );
   }

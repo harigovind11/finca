@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$BillEntity {
   UniqueId get id => throw _privateConstructorUsedError;
-  BillName get name => throw _privateConstructorUsedError;
-  BillAmount get amount => throw _privateConstructorUsedError;
+  BillName get billName => throw _privateConstructorUsedError;
+  BillAmount get billAmount => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   BillType get billType => throw _privateConstructorUsedError;
 
@@ -35,8 +35,8 @@ abstract class $BillEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      BillName name,
-      BillAmount amount,
+      BillName billName,
+      BillAmount billAmount,
       DateTime date,
       BillType billType});
 }
@@ -55,8 +55,8 @@ class _$BillEntityCopyWithImpl<$Res, $Val extends BillEntity>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? amount = null,
+    Object? billName = null,
+    Object? billAmount = null,
     Object? date = null,
     Object? billType = null,
   }) {
@@ -65,13 +65,13 @@ class _$BillEntityCopyWithImpl<$Res, $Val extends BillEntity>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      billName: null == billName
+          ? _value.billName
+          : billName // ignore: cast_nullable_to_non_nullable
               as BillName,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      billAmount: null == billAmount
+          ? _value.billAmount
+          : billAmount // ignore: cast_nullable_to_non_nullable
               as BillAmount,
       date: null == date
           ? _value.date
@@ -95,8 +95,8 @@ abstract class _$$_BillEntityCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      BillName name,
-      BillAmount amount,
+      BillName billName,
+      BillAmount billAmount,
       DateTime date,
       BillType billType});
 }
@@ -113,8 +113,8 @@ class __$$_BillEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
-    Object? amount = null,
+    Object? billName = null,
+    Object? billAmount = null,
     Object? date = null,
     Object? billType = null,
   }) {
@@ -123,13 +123,13 @@ class __$$_BillEntityCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      billName: null == billName
+          ? _value.billName
+          : billName // ignore: cast_nullable_to_non_nullable
               as BillName,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
+      billAmount: null == billAmount
+          ? _value.billAmount
+          : billAmount // ignore: cast_nullable_to_non_nullable
               as BillAmount,
       date: null == date
           ? _value.date
@@ -148,8 +148,8 @@ class __$$_BillEntityCopyWithImpl<$Res>
 class _$_BillEntity extends _BillEntity {
   const _$_BillEntity(
       {required this.id,
-      required this.name,
-      required this.amount,
+      required this.billName,
+      required this.billAmount,
       required this.date,
       required this.billType})
       : super._();
@@ -157,9 +157,9 @@ class _$_BillEntity extends _BillEntity {
   @override
   final UniqueId id;
   @override
-  final BillName name;
+  final BillName billName;
   @override
-  final BillAmount amount;
+  final BillAmount billAmount;
   @override
   final DateTime date;
   @override
@@ -167,7 +167,7 @@ class _$_BillEntity extends _BillEntity {
 
   @override
   String toString() {
-    return 'BillEntity(id: $id, name: $name, amount: $amount, date: $date, billType: $billType)';
+    return 'BillEntity(id: $id, billName: $billName, billAmount: $billAmount, date: $date, billType: $billType)';
   }
 
   @override
@@ -176,8 +176,10 @@ class _$_BillEntity extends _BillEntity {
         (other.runtimeType == runtimeType &&
             other is _$_BillEntity &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.billName, billName) ||
+                other.billName == billName) &&
+            (identical(other.billAmount, billAmount) ||
+                other.billAmount == billAmount) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.billType, billType) ||
                 other.billType == billType));
@@ -185,7 +187,7 @@ class _$_BillEntity extends _BillEntity {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, amount, date, billType);
+      Object.hash(runtimeType, id, billName, billAmount, date, billType);
 
   @JsonKey(ignore: true)
   @override
@@ -197,8 +199,8 @@ class _$_BillEntity extends _BillEntity {
 abstract class _BillEntity extends BillEntity {
   const factory _BillEntity(
       {required final UniqueId id,
-      required final BillName name,
-      required final BillAmount amount,
+      required final BillName billName,
+      required final BillAmount billAmount,
       required final DateTime date,
       required final BillType billType}) = _$_BillEntity;
   const _BillEntity._() : super._();
@@ -206,9 +208,9 @@ abstract class _BillEntity extends BillEntity {
   @override
   UniqueId get id;
   @override
-  BillName get name;
+  BillName get billName;
   @override
-  BillAmount get amount;
+  BillAmount get billAmount;
   @override
   DateTime get date;
   @override
