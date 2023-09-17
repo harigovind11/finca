@@ -27,7 +27,7 @@ abstract class CategoryDto with _$CategoryDto {
     return CategoryDto(
       categoryName: categoryEntity.categoryName.getOrCrash(),
       categoryIcon: categoryEntity.categoryIcon.getOrCrash(),
-      color: categoryEntity.iconColor.getOrCrash().value,
+      color: categoryEntity.color.getOrCrash().value,
       serverTimeStamb: FieldValue.serverTimestamp(),
     );
   }

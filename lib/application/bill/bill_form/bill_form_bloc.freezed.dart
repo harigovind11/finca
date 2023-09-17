@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'transaction_form_bloc.dart';
+part of 'bill_form_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,35 +15,34 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$TransactionFormEvent {
+mixin _$BillFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -51,30 +50,30 @@ mixin _$TransactionFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -82,17 +81,16 @@ mixin _$TransactionFormEvent {
 }
 
 /// @nodoc
-abstract class $TransactionFormEventCopyWith<$Res> {
-  factory $TransactionFormEventCopyWith(TransactionFormEvent value,
-          $Res Function(TransactionFormEvent) then) =
-      _$TransactionFormEventCopyWithImpl<$Res, TransactionFormEvent>;
+abstract class $BillFormEventCopyWith<$Res> {
+  factory $BillFormEventCopyWith(
+          BillFormEvent value, $Res Function(BillFormEvent) then) =
+      _$BillFormEventCopyWithImpl<$Res, BillFormEvent>;
 }
 
 /// @nodoc
-class _$TransactionFormEventCopyWithImpl<$Res,
-        $Val extends TransactionFormEvent>
-    implements $TransactionFormEventCopyWith<$Res> {
-  _$TransactionFormEventCopyWithImpl(this._value, this._then);
+class _$BillFormEventCopyWithImpl<$Res, $Val extends BillFormEvent>
+    implements $BillFormEventCopyWith<$Res> {
+  _$BillFormEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -106,12 +104,12 @@ abstract class _$$_InitializedCopyWith<$Res> {
           _$_Initialized value, $Res Function(_$_Initialized) then) =
       __$$_InitializedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Option<TransactionEntity> initialOption});
+  $Res call({Option<BillEntity> initialOption});
 }
 
 /// @nodoc
 class __$$_InitializedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_Initialized>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_Initialized>
     implements _$$_InitializedCopyWith<$Res> {
   __$$_InitializedCopyWithImpl(
       _$_Initialized _value, $Res Function(_$_Initialized) _then)
@@ -126,7 +124,7 @@ class __$$_InitializedCopyWithImpl<$Res>
       null == initialOption
           ? _value.initialOption
           : initialOption // ignore: cast_nullable_to_non_nullable
-              as Option<TransactionEntity>,
+              as Option<BillEntity>,
     ));
   }
 }
@@ -137,11 +135,11 @@ class _$_Initialized implements _Initialized {
   const _$_Initialized(this.initialOption);
 
   @override
-  final Option<TransactionEntity> initialOption;
+  final Option<BillEntity> initialOption;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.initialized(initialOption: $initialOption)';
+    return 'BillFormEvent.initialized(initialOption: $initialOption)';
   }
 
   @override
@@ -165,12 +163,11 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
     return initialized(initialOption);
@@ -179,11 +176,11 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
     return initialized?.call(initialOption);
@@ -192,11 +189,11 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -210,10 +207,10 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
@@ -223,10 +220,10 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return initialized?.call(this);
@@ -236,10 +233,10 @@ class _$_Initialized implements _Initialized {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -250,42 +247,42 @@ class _$_Initialized implements _Initialized {
   }
 }
 
-abstract class _Initialized implements TransactionFormEvent {
-  const factory _Initialized(final Option<TransactionEntity> initialOption) =
+abstract class _Initialized implements BillFormEvent {
+  const factory _Initialized(final Option<BillEntity> initialOption) =
       _$_Initialized;
 
-  Option<TransactionEntity> get initialOption;
+  Option<BillEntity> get initialOption;
   @JsonKey(ignore: true)
   _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AmountChangedCopyWith<$Res> {
-  factory _$$_AmountChangedCopyWith(
-          _$_AmountChanged value, $Res Function(_$_AmountChanged) then) =
-      __$$_AmountChangedCopyWithImpl<$Res>;
+abstract class _$$_BillAmountChangedCopyWith<$Res> {
+  factory _$$_BillAmountChangedCopyWith(_$_BillAmountChanged value,
+          $Res Function(_$_BillAmountChanged) then) =
+      __$$_BillAmountChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({String amountStr});
+  $Res call({String billAmountStr});
 }
 
 /// @nodoc
-class __$$_AmountChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_AmountChanged>
-    implements _$$_AmountChangedCopyWith<$Res> {
-  __$$_AmountChangedCopyWithImpl(
-      _$_AmountChanged _value, $Res Function(_$_AmountChanged) _then)
+class __$$_BillAmountChangedCopyWithImpl<$Res>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_BillAmountChanged>
+    implements _$$_BillAmountChangedCopyWith<$Res> {
+  __$$_BillAmountChangedCopyWithImpl(
+      _$_BillAmountChanged _value, $Res Function(_$_BillAmountChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? amountStr = null,
+    Object? billAmountStr = null,
   }) {
-    return _then(_$_AmountChanged(
-      null == amountStr
-          ? _value.amountStr
-          : amountStr // ignore: cast_nullable_to_non_nullable
+    return _then(_$_BillAmountChanged(
+      null == billAmountStr
+          ? _value.billAmountStr
+          : billAmountStr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -293,75 +290,75 @@ class __$$_AmountChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AmountChanged implements _AmountChanged {
-  const _$_AmountChanged(this.amountStr);
+class _$_BillAmountChanged implements _BillAmountChanged {
+  const _$_BillAmountChanged(this.billAmountStr);
 
   @override
-  final String amountStr;
+  final String billAmountStr;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.amountChanged(amountStr: $amountStr)';
+    return 'BillFormEvent.billAmountChanged(billAmountStr: $billAmountStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AmountChanged &&
-            (identical(other.amountStr, amountStr) ||
-                other.amountStr == amountStr));
+            other is _$_BillAmountChanged &&
+            (identical(other.billAmountStr, billAmountStr) ||
+                other.billAmountStr == billAmountStr));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, amountStr);
+  int get hashCode => Object.hash(runtimeType, billAmountStr);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
-      __$$_AmountChangedCopyWithImpl<_$_AmountChanged>(this, _$identity);
+  _$$_BillAmountChangedCopyWith<_$_BillAmountChanged> get copyWith =>
+      __$$_BillAmountChangedCopyWithImpl<_$_BillAmountChanged>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
-    return amountChanged(amountStr);
+    return billAmountChanged(billAmountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
-    return amountChanged?.call(amountStr);
+    return billAmountChanged?.call(billAmountStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
-    if (amountChanged != null) {
-      return amountChanged(amountStr);
+    if (billAmountChanged != null) {
+      return billAmountChanged(billAmountStr);
     }
     return orElse();
   }
@@ -370,81 +367,82 @@ class _$_AmountChanged implements _AmountChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
-    return amountChanged(this);
+    return billAmountChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
-    return amountChanged?.call(this);
+    return billAmountChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
-    if (amountChanged != null) {
-      return amountChanged(this);
+    if (billAmountChanged != null) {
+      return billAmountChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _AmountChanged implements TransactionFormEvent {
-  const factory _AmountChanged(final String amountStr) = _$_AmountChanged;
+abstract class _BillAmountChanged implements BillFormEvent {
+  const factory _BillAmountChanged(final String billAmountStr) =
+      _$_BillAmountChanged;
 
-  String get amountStr;
+  String get billAmountStr;
   @JsonKey(ignore: true)
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
+  _$$_BillAmountChangedCopyWith<_$_BillAmountChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PurposeChangedCopyWith<$Res> {
-  factory _$$_PurposeChangedCopyWith(
-          _$_PurposeChanged value, $Res Function(_$_PurposeChanged) then) =
-      __$$_PurposeChangedCopyWithImpl<$Res>;
+abstract class _$$_BillNameChangedCopyWith<$Res> {
+  factory _$$_BillNameChangedCopyWith(
+          _$_BillNameChanged value, $Res Function(_$_BillNameChanged) then) =
+      __$$_BillNameChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({String purposeStr});
+  $Res call({String billNameStr});
 }
 
 /// @nodoc
-class __$$_PurposeChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_PurposeChanged>
-    implements _$$_PurposeChangedCopyWith<$Res> {
-  __$$_PurposeChangedCopyWithImpl(
-      _$_PurposeChanged _value, $Res Function(_$_PurposeChanged) _then)
+class __$$_BillNameChangedCopyWithImpl<$Res>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_BillNameChanged>
+    implements _$$_BillNameChangedCopyWith<$Res> {
+  __$$_BillNameChangedCopyWithImpl(
+      _$_BillNameChanged _value, $Res Function(_$_BillNameChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? purposeStr = null,
+    Object? billNameStr = null,
   }) {
-    return _then(_$_PurposeChanged(
-      null == purposeStr
-          ? _value.purposeStr
-          : purposeStr // ignore: cast_nullable_to_non_nullable
+    return _then(_$_BillNameChanged(
+      null == billNameStr
+          ? _value.billNameStr
+          : billNameStr // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -452,75 +450,74 @@ class __$$_PurposeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PurposeChanged implements _PurposeChanged {
-  const _$_PurposeChanged(this.purposeStr);
+class _$_BillNameChanged implements _BillNameChanged {
+  const _$_BillNameChanged(this.billNameStr);
 
   @override
-  final String purposeStr;
+  final String billNameStr;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.purposeChanged(purposeStr: $purposeStr)';
+    return 'BillFormEvent.billNameChanged(billNameStr: $billNameStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PurposeChanged &&
-            (identical(other.purposeStr, purposeStr) ||
-                other.purposeStr == purposeStr));
+            other is _$_BillNameChanged &&
+            (identical(other.billNameStr, billNameStr) ||
+                other.billNameStr == billNameStr));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, purposeStr);
+  int get hashCode => Object.hash(runtimeType, billNameStr);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PurposeChangedCopyWith<_$_PurposeChanged> get copyWith =>
-      __$$_PurposeChangedCopyWithImpl<_$_PurposeChanged>(this, _$identity);
+  _$$_BillNameChangedCopyWith<_$_BillNameChanged> get copyWith =>
+      __$$_BillNameChangedCopyWithImpl<_$_BillNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
-    return purposeChanged(purposeStr);
+    return billNameChanged(billNameStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
-    return purposeChanged?.call(purposeStr);
+    return billNameChanged?.call(billNameStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
-    if (purposeChanged != null) {
-      return purposeChanged(purposeStr);
+    if (billNameChanged != null) {
+      return billNameChanged(billNameStr);
     }
     return orElse();
   }
@@ -529,52 +526,52 @@ class _$_PurposeChanged implements _PurposeChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
-    return purposeChanged(this);
+    return billNameChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
-    return purposeChanged?.call(this);
+    return billNameChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
-    if (purposeChanged != null) {
-      return purposeChanged(this);
+    if (billNameChanged != null) {
+      return billNameChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _PurposeChanged implements TransactionFormEvent {
-  const factory _PurposeChanged(final String purposeStr) = _$_PurposeChanged;
+abstract class _BillNameChanged implements BillFormEvent {
+  const factory _BillNameChanged(final String billNameStr) = _$_BillNameChanged;
 
-  String get purposeStr;
+  String get billNameStr;
   @JsonKey(ignore: true)
-  _$$_PurposeChangedCopyWith<_$_PurposeChanged> get copyWith =>
+  _$$_BillNameChangedCopyWith<_$_BillNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -589,7 +586,7 @@ abstract class _$$_DateChangedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DateChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_DateChanged>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_DateChanged>
     implements _$$_DateChangedCopyWith<$Res> {
   __$$_DateChangedCopyWithImpl(
       _$_DateChanged _value, $Res Function(_$_DateChanged) _then)
@@ -619,7 +616,7 @@ class _$_DateChanged implements _DateChanged {
 
   @override
   String toString() {
-    return 'TransactionFormEvent.dateChanged(dateTime: $dateTime)';
+    return 'BillFormEvent.dateChanged(dateTime: $dateTime)';
   }
 
   @override
@@ -643,12 +640,11 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
     return dateChanged(dateTime);
@@ -657,11 +653,11 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
     return dateChanged?.call(dateTime);
@@ -670,11 +666,11 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -688,10 +684,10 @@ class _$_DateChanged implements _DateChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return dateChanged(this);
@@ -701,10 +697,10 @@ class _$_DateChanged implements _DateChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return dateChanged?.call(this);
@@ -714,10 +710,10 @@ class _$_DateChanged implements _DateChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -728,7 +724,7 @@ class _$_DateChanged implements _DateChanged {
   }
 }
 
-abstract class _DateChanged implements TransactionFormEvent {
+abstract class _DateChanged implements BillFormEvent {
   const factory _DateChanged(final DateTime dateTime) = _$_DateChanged;
 
   DateTime get dateTime;
@@ -738,107 +734,106 @@ abstract class _DateChanged implements TransactionFormEvent {
 }
 
 /// @nodoc
-abstract class _$$_TypeChangedCopyWith<$Res> {
-  factory _$$_TypeChangedCopyWith(
-          _$_TypeChanged value, $Res Function(_$_TypeChanged) then) =
-      __$$_TypeChangedCopyWithImpl<$Res>;
+abstract class _$$_BillTypeChangedCopyWith<$Res> {
+  factory _$$_BillTypeChangedCopyWith(
+          _$_BillTypeChanged value, $Res Function(_$_BillTypeChanged) then) =
+      __$$_BillTypeChangedCopyWithImpl<$Res>;
   @useResult
-  $Res call({TransactionType transactionType});
+  $Res call({BillType billType});
 }
 
 /// @nodoc
-class __$$_TypeChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_TypeChanged>
-    implements _$$_TypeChangedCopyWith<$Res> {
-  __$$_TypeChangedCopyWithImpl(
-      _$_TypeChanged _value, $Res Function(_$_TypeChanged) _then)
+class __$$_BillTypeChangedCopyWithImpl<$Res>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_BillTypeChanged>
+    implements _$$_BillTypeChangedCopyWith<$Res> {
+  __$$_BillTypeChangedCopyWithImpl(
+      _$_BillTypeChanged _value, $Res Function(_$_BillTypeChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionType = null,
+    Object? billType = null,
   }) {
-    return _then(_$_TypeChanged(
-      null == transactionType
-          ? _value.transactionType
-          : transactionType // ignore: cast_nullable_to_non_nullable
-              as TransactionType,
+    return _then(_$_BillTypeChanged(
+      null == billType
+          ? _value.billType
+          : billType // ignore: cast_nullable_to_non_nullable
+              as BillType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_TypeChanged implements _TypeChanged {
-  const _$_TypeChanged(this.transactionType);
+class _$_BillTypeChanged implements _BillTypeChanged {
+  const _$_BillTypeChanged(this.billType);
 
   @override
-  final TransactionType transactionType;
+  final BillType billType;
 
   @override
   String toString() {
-    return 'TransactionFormEvent.typeChanged(transactionType: $transactionType)';
+    return 'BillFormEvent.billTypeChanged(billType: $billType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TypeChanged &&
-            (identical(other.transactionType, transactionType) ||
-                other.transactionType == transactionType));
+            other is _$_BillTypeChanged &&
+            (identical(other.billType, billType) ||
+                other.billType == billType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactionType);
+  int get hashCode => Object.hash(runtimeType, billType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
-      __$$_TypeChangedCopyWithImpl<_$_TypeChanged>(this, _$identity);
+  _$$_BillTypeChangedCopyWith<_$_BillTypeChanged> get copyWith =>
+      __$$_BillTypeChangedCopyWithImpl<_$_BillTypeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
-    return typeChanged(transactionType);
+    return billTypeChanged(billType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
-    return typeChanged?.call(transactionType);
+    return billTypeChanged?.call(billType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
-    if (typeChanged != null) {
-      return typeChanged(transactionType);
+    if (billTypeChanged != null) {
+      return billTypeChanged(billType);
     }
     return orElse();
   }
@@ -847,53 +842,52 @@ class _$_TypeChanged implements _TypeChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
-    return typeChanged(this);
+    return billTypeChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
-    return typeChanged?.call(this);
+    return billTypeChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
-    if (typeChanged != null) {
-      return typeChanged(this);
+    if (billTypeChanged != null) {
+      return billTypeChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _TypeChanged implements TransactionFormEvent {
-  const factory _TypeChanged(final TransactionType transactionType) =
-      _$_TypeChanged;
+abstract class _BillTypeChanged implements BillFormEvent {
+  const factory _BillTypeChanged(final BillType billType) = _$_BillTypeChanged;
 
-  TransactionType get transactionType;
+  BillType get billType;
   @JsonKey(ignore: true)
-  _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
+  _$$_BillTypeChangedCopyWith<_$_BillTypeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -905,7 +899,7 @@ abstract class _$$_SavedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SavedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_Saved>
+    extends _$BillFormEventCopyWithImpl<$Res, _$_Saved>
     implements _$$_SavedCopyWith<$Res> {
   __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
       : super(_value, _then);
@@ -918,7 +912,7 @@ class _$_Saved implements _Saved {
 
   @override
   String toString() {
-    return 'TransactionFormEvent.saved()';
+    return 'BillFormEvent.saved()';
   }
 
   @override
@@ -933,12 +927,11 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<TransactionEntity> initialOption)
-        initialized,
-    required TResult Function(String amountStr) amountChanged,
-    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(Option<BillEntity> initialOption) initialized,
+    required TResult Function(String billAmountStr) billAmountChanged,
+    required TResult Function(String billNameStr) billNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(BillType billType) billTypeChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -947,11 +940,11 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult? Function(String amountStr)? amountChanged,
-    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(Option<BillEntity> initialOption)? initialized,
+    TResult? Function(String billAmountStr)? billAmountChanged,
+    TResult? Function(String billNameStr)? billNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(BillType billType)? billTypeChanged,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -960,11 +953,11 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<TransactionEntity> initialOption)? initialized,
-    TResult Function(String amountStr)? amountChanged,
-    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(Option<BillEntity> initialOption)? initialized,
+    TResult Function(String billAmountStr)? billAmountChanged,
+    TResult Function(String billNameStr)? billNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(BillType billType)? billTypeChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -978,10 +971,10 @@ class _$_Saved implements _Saved {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_BillAmountChanged value) billAmountChanged,
+    required TResult Function(_BillNameChanged value) billNameChanged,
     required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_BillTypeChanged value) billTypeChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -991,10 +984,10 @@ class _$_Saved implements _Saved {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_BillAmountChanged value)? billAmountChanged,
+    TResult? Function(_BillNameChanged value)? billNameChanged,
     TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_BillTypeChanged value)? billTypeChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -1004,10 +997,10 @@ class _$_Saved implements _Saved {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_BillAmountChanged value)? billAmountChanged,
+    TResult Function(_BillNameChanged value)? billNameChanged,
     TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_BillTypeChanged value)? billTypeChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -1018,43 +1011,42 @@ class _$_Saved implements _Saved {
   }
 }
 
-abstract class _Saved implements TransactionFormEvent {
+abstract class _Saved implements BillFormEvent {
   const factory _Saved() = _$_Saved;
 }
 
 /// @nodoc
-mixin _$TransactionFormState {
-  TransactionEntity get transactionEntity => throw _privateConstructorUsedError;
+mixin _$BillFormState {
+  BillEntity get billEntity => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   Option<Either<FirestoreFailure, Unit>> get saveFailureOrSucessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TransactionFormStateCopyWith<TransactionFormState> get copyWith =>
+  $BillFormStateCopyWith<BillFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TransactionFormStateCopyWith<$Res> {
-  factory $TransactionFormStateCopyWith(TransactionFormState value,
-          $Res Function(TransactionFormState) then) =
-      _$TransactionFormStateCopyWithImpl<$Res, TransactionFormState>;
+abstract class $BillFormStateCopyWith<$Res> {
+  factory $BillFormStateCopyWith(
+          BillFormState value, $Res Function(BillFormState) then) =
+      _$BillFormStateCopyWithImpl<$Res, BillFormState>;
   @useResult
   $Res call(
-      {TransactionEntity transactionEntity,
+      {BillEntity billEntity,
       bool isEditing,
       bool isSaving,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption});
 
-  $TransactionEntityCopyWith<$Res> get transactionEntity;
+  $BillEntityCopyWith<$Res> get billEntity;
 }
 
 /// @nodoc
-class _$TransactionFormStateCopyWithImpl<$Res,
-        $Val extends TransactionFormState>
-    implements $TransactionFormStateCopyWith<$Res> {
-  _$TransactionFormStateCopyWithImpl(this._value, this._then);
+class _$BillFormStateCopyWithImpl<$Res, $Val extends BillFormState>
+    implements $BillFormStateCopyWith<$Res> {
+  _$BillFormStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1064,16 +1056,16 @@ class _$TransactionFormStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionEntity = null,
+    Object? billEntity = null,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSucessOption = null,
   }) {
     return _then(_value.copyWith(
-      transactionEntity: null == transactionEntity
-          ? _value.transactionEntity
-          : transactionEntity // ignore: cast_nullable_to_non_nullable
-              as TransactionEntity,
+      billEntity: null == billEntity
+          ? _value.billEntity
+          : billEntity // ignore: cast_nullable_to_non_nullable
+              as BillEntity,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -1091,52 +1083,52 @@ class _$TransactionFormStateCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $TransactionEntityCopyWith<$Res> get transactionEntity {
-    return $TransactionEntityCopyWith<$Res>(_value.transactionEntity, (value) {
-      return _then(_value.copyWith(transactionEntity: value) as $Val);
+  $BillEntityCopyWith<$Res> get billEntity {
+    return $BillEntityCopyWith<$Res>(_value.billEntity, (value) {
+      return _then(_value.copyWith(billEntity: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_TransactionFormStateCopyWith<$Res>
-    implements $TransactionFormStateCopyWith<$Res> {
-  factory _$$_TransactionFormStateCopyWith(_$_TransactionFormState value,
-          $Res Function(_$_TransactionFormState) then) =
-      __$$_TransactionFormStateCopyWithImpl<$Res>;
+abstract class _$$_BillFormStateCopyWith<$Res>
+    implements $BillFormStateCopyWith<$Res> {
+  factory _$$_BillFormStateCopyWith(
+          _$_BillFormState value, $Res Function(_$_BillFormState) then) =
+      __$$_BillFormStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {TransactionEntity transactionEntity,
+      {BillEntity billEntity,
       bool isEditing,
       bool isSaving,
       Option<Either<FirestoreFailure, Unit>> saveFailureOrSucessOption});
 
   @override
-  $TransactionEntityCopyWith<$Res> get transactionEntity;
+  $BillEntityCopyWith<$Res> get billEntity;
 }
 
 /// @nodoc
-class __$$_TransactionFormStateCopyWithImpl<$Res>
-    extends _$TransactionFormStateCopyWithImpl<$Res, _$_TransactionFormState>
-    implements _$$_TransactionFormStateCopyWith<$Res> {
-  __$$_TransactionFormStateCopyWithImpl(_$_TransactionFormState _value,
-      $Res Function(_$_TransactionFormState) _then)
+class __$$_BillFormStateCopyWithImpl<$Res>
+    extends _$BillFormStateCopyWithImpl<$Res, _$_BillFormState>
+    implements _$$_BillFormStateCopyWith<$Res> {
+  __$$_BillFormStateCopyWithImpl(
+      _$_BillFormState _value, $Res Function(_$_BillFormState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? transactionEntity = null,
+    Object? billEntity = null,
     Object? isEditing = null,
     Object? isSaving = null,
     Object? saveFailureOrSucessOption = null,
   }) {
-    return _then(_$_TransactionFormState(
-      transactionEntity: null == transactionEntity
-          ? _value.transactionEntity
-          : transactionEntity // ignore: cast_nullable_to_non_nullable
-              as TransactionEntity,
+    return _then(_$_BillFormState(
+      billEntity: null == billEntity
+          ? _value.billEntity
+          : billEntity // ignore: cast_nullable_to_non_nullable
+              as BillEntity,
       isEditing: null == isEditing
           ? _value.isEditing
           : isEditing // ignore: cast_nullable_to_non_nullable
@@ -1155,15 +1147,15 @@ class __$$_TransactionFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TransactionFormState implements _TransactionFormState {
-  const _$_TransactionFormState(
-      {required this.transactionEntity,
+class _$_BillFormState implements _BillFormState {
+  const _$_BillFormState(
+      {required this.billEntity,
       required this.isEditing,
       required this.isSaving,
       required this.saveFailureOrSucessOption});
 
   @override
-  final TransactionEntity transactionEntity;
+  final BillEntity billEntity;
   @override
   final bool isEditing;
   @override
@@ -1173,16 +1165,16 @@ class _$_TransactionFormState implements _TransactionFormState {
 
   @override
   String toString() {
-    return 'TransactionFormState(transactionEntity: $transactionEntity, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSucessOption: $saveFailureOrSucessOption)';
+    return 'BillFormState(billEntity: $billEntity, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSucessOption: $saveFailureOrSucessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransactionFormState &&
-            (identical(other.transactionEntity, transactionEntity) ||
-                other.transactionEntity == transactionEntity) &&
+            other is _$_BillFormState &&
+            (identical(other.billEntity, billEntity) ||
+                other.billEntity == billEntity) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
             (identical(other.isSaving, isSaving) ||
@@ -1193,27 +1185,26 @@ class _$_TransactionFormState implements _TransactionFormState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactionEntity, isEditing,
-      isSaving, saveFailureOrSucessOption);
+  int get hashCode => Object.hash(
+      runtimeType, billEntity, isEditing, isSaving, saveFailureOrSucessOption);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransactionFormStateCopyWith<_$_TransactionFormState> get copyWith =>
-      __$$_TransactionFormStateCopyWithImpl<_$_TransactionFormState>(
-          this, _$identity);
+  _$$_BillFormStateCopyWith<_$_BillFormState> get copyWith =>
+      __$$_BillFormStateCopyWithImpl<_$_BillFormState>(this, _$identity);
 }
 
-abstract class _TransactionFormState implements TransactionFormState {
-  const factory _TransactionFormState(
-      {required final TransactionEntity transactionEntity,
+abstract class _BillFormState implements BillFormState {
+  const factory _BillFormState(
+      {required final BillEntity billEntity,
       required final bool isEditing,
       required final bool isSaving,
       required final Option<Either<FirestoreFailure, Unit>>
-          saveFailureOrSucessOption}) = _$_TransactionFormState;
+          saveFailureOrSucessOption}) = _$_BillFormState;
 
   @override
-  TransactionEntity get transactionEntity;
+  BillEntity get billEntity;
   @override
   bool get isEditing;
   @override
@@ -1222,6 +1213,6 @@ abstract class _TransactionFormState implements TransactionFormState {
   Option<Either<FirestoreFailure, Unit>> get saveFailureOrSucessOption;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionFormStateCopyWith<_$_TransactionFormState> get copyWith =>
+  _$$_BillFormStateCopyWith<_$_BillFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }

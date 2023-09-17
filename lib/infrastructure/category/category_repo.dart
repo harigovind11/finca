@@ -8,7 +8,9 @@ import 'package:finca/infrastructure/category/category_dtos.dart';
 import 'package:finca/infrastructure/core/firebase_helpers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: ICategoryRepository)
 class CategoryRepo implements ICategoryRepository {
   final FirebaseFirestore _firestore;
 

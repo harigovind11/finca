@@ -6,8 +6,8 @@ import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:finca/infrastructure/core/firebase_helpers.dart';
 import 'package:finca/infrastructure/transaction/transaction_dtos.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ITransactionRepository)
 class TransactionRepo implements ITransactionRepository {

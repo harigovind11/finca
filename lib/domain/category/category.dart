@@ -13,15 +13,15 @@ class CategoryEntity with _$CategoryEntity {
     required UniqueId id,
     required CategoryName categoryName,
     required CategoryIcon categoryIcon,
-    required CategoryIconColor iconColor,
+    required CategoryColor color,
   }) = _CategoryEntity;
 
   factory CategoryEntity.empty() => CategoryEntity(
         id: UniqueId(''),
         categoryName: CategoryName(CategoryName.predefinedNames[0]),
         categoryIcon: CategoryIcon(CategoryIcon.predefinedIcons[0]),
-        iconColor: CategoryIconColor(
-          CategoryIconColor.predefinedColors[0],
+        color: CategoryColor(
+          CategoryColor.predefinedColors[0],
         ),
       );
 
@@ -40,7 +40,7 @@ class CategoryEntity with _$CategoryEntity {
         data['categoryName'],
       ),
       categoryIcon: CategoryIcon(data['categoryIcon']),
-      iconColor: data['iconColor'],
+      color: data['color'],
     );
   }
 }

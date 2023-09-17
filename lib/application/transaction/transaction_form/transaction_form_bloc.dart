@@ -20,7 +20,7 @@ class TransactionFormBloc
       : super(TransactionFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(
-        event.initialNoteOption.fold(
+        event.initialOption.fold(
           () => state,
           (initial) =>
               state.copyWith(transactionEntity: initial, isEditing: true),

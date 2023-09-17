@@ -71,7 +71,7 @@ class CategoryIcon extends ValueObject<IconData> {
   const CategoryIcon._(this.value);
 }
 
-class CategoryIconColor extends ValueObject<Color> {
+class CategoryColor extends ValueObject<Color> {
   static const List<Color> predefinedColors = [
     Colors.red,
     Colors.purple,
@@ -96,11 +96,11 @@ class CategoryIconColor extends ValueObject<Color> {
   @override
   final Either<ValueFailure<Color>, Color> value;
 
-  factory CategoryIconColor(Color input) {
+  factory CategoryColor(Color input) {
     assert(input != null);
-    return CategoryIconColor._(
+    return CategoryColor._(
       right(makeColorOpaque(input)),
     );
   }
-  const CategoryIconColor._(this.value);
+  const CategoryColor._(this.value);
 }

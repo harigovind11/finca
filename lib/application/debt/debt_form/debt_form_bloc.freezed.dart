@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DebtFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -30,7 +30,7 @@ mixin _$DebtFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -42,7 +42,7 @@ mixin _$DebtFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -116,7 +116,7 @@ abstract class _$$_InitializedCopyWith<$Res> {
           _$_Initialized value, $Res Function(_$_Initialized) then) =
       __$$_InitializedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Option<DebtEntity> initialNoteOption});
+  $Res call({Option<DebtEntity> initialOption});
 }
 
 /// @nodoc
@@ -130,12 +130,12 @@ class __$$_InitializedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialNoteOption = null,
+    Object? initialOption = null,
   }) {
     return _then(_$_Initialized(
-      null == initialNoteOption
-          ? _value.initialNoteOption
-          : initialNoteOption // ignore: cast_nullable_to_non_nullable
+      null == initialOption
+          ? _value.initialOption
+          : initialOption // ignore: cast_nullable_to_non_nullable
               as Option<DebtEntity>,
     ));
   }
@@ -144,14 +144,14 @@ class __$$_InitializedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.initialNoteOption);
+  const _$_Initialized(this.initialOption);
 
   @override
-  final Option<DebtEntity> initialNoteOption;
+  final Option<DebtEntity> initialOption;
 
   @override
   String toString() {
-    return 'DebtFormEvent.initialized(initialNoteOption: $initialNoteOption)';
+    return 'DebtFormEvent.initialized(initialOption: $initialOption)';
   }
 
   @override
@@ -159,12 +159,12 @@ class _$_Initialized implements _Initialized {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initialized &&
-            (identical(other.initialNoteOption, initialNoteOption) ||
-                other.initialNoteOption == initialNoteOption));
+            (identical(other.initialOption, initialOption) ||
+                other.initialOption == initialOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialNoteOption);
+  int get hashCode => Object.hash(runtimeType, initialOption);
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +175,7 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -184,13 +184,13 @@ class _$_Initialized implements _Initialized {
     required TResult Function(DebtType debtType) typeChanged,
     required TResult Function() saved,
   }) {
-    return initialized(initialNoteOption);
+    return initialized(initialOption);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -199,13 +199,13 @@ class _$_Initialized implements _Initialized {
     TResult? Function(DebtType debtType)? typeChanged,
     TResult? Function()? saved,
   }) {
-    return initialized?.call(initialNoteOption);
+    return initialized?.call(initialOption);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -216,7 +216,7 @@ class _$_Initialized implements _Initialized {
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(initialNoteOption);
+      return initialized(initialOption);
     }
     return orElse();
   }
@@ -272,10 +272,10 @@ class _$_Initialized implements _Initialized {
 }
 
 abstract class _Initialized implements DebtFormEvent {
-  const factory _Initialized(final Option<DebtEntity> initialNoteOption) =
+  const factory _Initialized(final Option<DebtEntity> initialOption) =
       _$_Initialized;
 
-  Option<DebtEntity> get initialNoteOption;
+  Option<DebtEntity> get initialOption;
   @JsonKey(ignore: true)
   _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
@@ -346,7 +346,7 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -361,7 +361,7 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -376,7 +376,7 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -515,7 +515,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -530,7 +530,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -545,7 +545,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -686,7 +686,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -701,7 +701,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -716,7 +716,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -857,7 +857,7 @@ class _$_StartDateChanged implements _StartDateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -872,7 +872,7 @@ class _$_StartDateChanged implements _StartDateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -887,7 +887,7 @@ class _$_StartDateChanged implements _StartDateChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -1027,7 +1027,7 @@ class _$_EndDateChanged implements _EndDateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -1042,7 +1042,7 @@ class _$_EndDateChanged implements _EndDateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -1057,7 +1057,7 @@ class _$_EndDateChanged implements _EndDateChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -1197,7 +1197,7 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -1212,7 +1212,7 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -1227,7 +1227,7 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,
@@ -1338,7 +1338,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<DebtEntity> initialNoteOption) initialized,
+    required TResult Function(Option<DebtEntity> initialOption) initialized,
     required TResult Function(String amountStr) amountChanged,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String descriptionStr) descriptionChanged,
@@ -1353,7 +1353,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<DebtEntity> initialOption)? initialized,
     TResult? Function(String amountStr)? amountChanged,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String descriptionStr)? descriptionChanged,
@@ -1368,7 +1368,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<DebtEntity> initialNoteOption)? initialized,
+    TResult Function(Option<DebtEntity> initialOption)? initialized,
     TResult Function(String amountStr)? amountChanged,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String descriptionStr)? descriptionChanged,

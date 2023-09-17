@@ -17,7 +17,7 @@ class DebtFormBloc extends Bloc<DebtFormEvent, DebtFormState> {
   DebtFormBloc(this._iDebtRepository) : super(DebtFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(
-        event.initialNoteOption.fold(
+        event.initialOption.fold(
           () => state,
           (initial) => state.copyWith(debtEntity: initial, isEditing: true),
         ),

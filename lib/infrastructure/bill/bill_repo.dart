@@ -7,7 +7,9 @@ import 'package:finca/infrastructure/bill/bill_dtos.dart';
 import 'package:finca/infrastructure/core/firebase_helpers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: IBillRepository)
 class BillRepo implements IBillRepository {
   final FirebaseFirestore _firestore;
 

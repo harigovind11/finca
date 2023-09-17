@@ -19,7 +19,7 @@ class SavingPlanFormBloc
       : super(SavingPlanFormState.initial()) {
     on<_Initialized>((event, emit) {
       emit(
-        event.initialNoteOption.fold(
+        event.initialOption.fold(
           () => state,
           (initial) =>
               state.copyWith(savingPlanEntity: initial, isEditing: true),

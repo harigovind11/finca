@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SavingPlanFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
@@ -28,7 +28,7 @@ mixin _$SavingPlanFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
@@ -37,7 +37,7 @@ mixin _$SavingPlanFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
@@ -99,7 +99,7 @@ abstract class _$$_InitializedCopyWith<$Res> {
           _$_Initialized value, $Res Function(_$_Initialized) then) =
       __$$_InitializedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Option<SavingPlanEntity> initialNoteOption});
+  $Res call({Option<SavingPlanEntity> initialOption});
 }
 
 /// @nodoc
@@ -113,12 +113,12 @@ class __$$_InitializedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialNoteOption = null,
+    Object? initialOption = null,
   }) {
     return _then(_$_Initialized(
-      null == initialNoteOption
-          ? _value.initialNoteOption
-          : initialNoteOption // ignore: cast_nullable_to_non_nullable
+      null == initialOption
+          ? _value.initialOption
+          : initialOption // ignore: cast_nullable_to_non_nullable
               as Option<SavingPlanEntity>,
     ));
   }
@@ -127,14 +127,14 @@ class __$$_InitializedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.initialNoteOption);
+  const _$_Initialized(this.initialOption);
 
   @override
-  final Option<SavingPlanEntity> initialNoteOption;
+  final Option<SavingPlanEntity> initialOption;
 
   @override
   String toString() {
-    return 'SavingPlanFormEvent.initialized(initialNoteOption: $initialNoteOption)';
+    return 'SavingPlanFormEvent.initialized(initialOption: $initialOption)';
   }
 
   @override
@@ -142,12 +142,12 @@ class _$_Initialized implements _Initialized {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initialized &&
-            (identical(other.initialNoteOption, initialNoteOption) ||
-                other.initialNoteOption == initialNoteOption));
+            (identical(other.initialOption, initialOption) ||
+                other.initialOption == initialOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialNoteOption);
+  int get hashCode => Object.hash(runtimeType, initialOption);
 
   @JsonKey(ignore: true)
   @override
@@ -158,32 +158,32 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) {
-    return initialized(initialNoteOption);
+    return initialized(initialOption);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) {
-    return initialized?.call(initialNoteOption);
+    return initialized?.call(initialOption);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
@@ -191,7 +191,7 @@ class _$_Initialized implements _Initialized {
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(initialNoteOption);
+      return initialized(initialOption);
     }
     return orElse();
   }
@@ -238,10 +238,10 @@ class _$_Initialized implements _Initialized {
 }
 
 abstract class _Initialized implements SavingPlanFormEvent {
-  const factory _Initialized(final Option<SavingPlanEntity> initialNoteOption) =
+  const factory _Initialized(final Option<SavingPlanEntity> initialOption) =
       _$_Initialized;
 
-  Option<SavingPlanEntity> get initialNoteOption;
+  Option<SavingPlanEntity> get initialOption;
   @JsonKey(ignore: true)
   _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
       throw _privateConstructorUsedError;
@@ -313,7 +313,7 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
@@ -326,7 +326,7 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
@@ -338,7 +338,7 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
@@ -467,7 +467,7 @@ class _$_PlanNameChanged implements _PlanNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
@@ -480,7 +480,7 @@ class _$_PlanNameChanged implements _PlanNameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
@@ -492,7 +492,7 @@ class _$_PlanNameChanged implements _PlanNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
@@ -620,7 +620,7 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
@@ -633,7 +633,7 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
@@ -645,7 +645,7 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,
@@ -744,7 +744,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialNoteOption)
+    required TResult Function(Option<SavingPlanEntity> initialOption)
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
@@ -757,7 +757,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
@@ -769,7 +769,7 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialNoteOption)? initialized,
+    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
     TResult Function(DateTime dateTime)? dateChanged,

@@ -2,8 +2,8 @@ part of 'debt_form_bloc.dart';
 
 @freezed
 class DebtFormEvent with _$DebtFormEvent {
-  const factory DebtFormEvent.initialized(
-      Option<DebtEntity> initialNoteOption) = _Initialized;
+  const factory DebtFormEvent.initialized(Option<DebtEntity> initialOption) =
+      _Initialized;
   const factory DebtFormEvent.amountChanged(String amountStr) = _AmountChanged;
   const factory DebtFormEvent.nameChanged(String nameStr) = _NameChanged;
   const factory DebtFormEvent.descriptionChanged(String descriptionStr) =
