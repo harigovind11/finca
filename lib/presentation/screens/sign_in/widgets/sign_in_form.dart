@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:finca/application/auth/auth_bloc.dart';
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_textfield.dart';
@@ -60,7 +60,7 @@ class SignInForm extends StatelessWidget {
                 color2: kBlueShade,
               ),
               kHeight60,
-              CustomTextField.dark(
+              CustomTextField.light(
                 hintText: 'Email',
                 prefixIcon: LineIcons.at,
                 keyboardType: TextInputType.emailAddress,
@@ -81,7 +81,7 @@ class SignInForm extends StatelessWidget {
                         (_) => null),
               ),
               kHeight20,
-              CustomTextField.dark(
+              CustomTextField.light(
                 controller: _passwordTextEditingController,
                 hintText: 'Password',
                 prefixIcon: LineIcons.key,

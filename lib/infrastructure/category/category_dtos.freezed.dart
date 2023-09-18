@@ -23,8 +23,7 @@ mixin _$CategoryDto {
   @JsonKey(includeFromJson: false)
   String? get id => throw _privateConstructorUsedError;
   String get categoryName => throw _privateConstructorUsedError;
-  @IconDataConverter()
-  IconData get categoryIcon => throw _privateConstructorUsedError;
+  int get categoryIcon => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   @ServerTimestampConverter()
   FieldValue get serverTimeStamb => throw _privateConstructorUsedError;
@@ -44,7 +43,7 @@ abstract class $CategoryDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(includeFromJson: false) String? id,
       String categoryName,
-      @IconDataConverter() IconData categoryIcon,
+      int categoryIcon,
       int color,
       @ServerTimestampConverter() FieldValue serverTimeStamb});
 }
@@ -80,7 +79,7 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
       categoryIcon: null == categoryIcon
           ? _value.categoryIcon
           : categoryIcon // ignore: cast_nullable_to_non_nullable
-              as IconData,
+              as int,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -104,7 +103,7 @@ abstract class _$$_CategoryDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(includeFromJson: false) String? id,
       String categoryName,
-      @IconDataConverter() IconData categoryIcon,
+      int categoryIcon,
       int color,
       @ServerTimestampConverter() FieldValue serverTimeStamb});
 }
@@ -138,7 +137,7 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
       categoryIcon: null == categoryIcon
           ? _value.categoryIcon
           : categoryIcon // ignore: cast_nullable_to_non_nullable
-              as IconData,
+              as int,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -157,7 +156,7 @@ class _$_CategoryDto extends _CategoryDto {
   const _$_CategoryDto(
       {@JsonKey(includeFromJson: false) this.id,
       required this.categoryName,
-      @IconDataConverter() required this.categoryIcon,
+      required this.categoryIcon,
       required this.color,
       @ServerTimestampConverter() required this.serverTimeStamb})
       : super._();
@@ -171,8 +170,7 @@ class _$_CategoryDto extends _CategoryDto {
   @override
   final String categoryName;
   @override
-  @IconDataConverter()
-  final IconData categoryIcon;
+  final int categoryIcon;
   @override
   final int color;
   @override
@@ -222,7 +220,7 @@ abstract class _CategoryDto extends CategoryDto {
   const factory _CategoryDto(
       {@JsonKey(includeFromJson: false) final String? id,
       required final String categoryName,
-      @IconDataConverter() required final IconData categoryIcon,
+      required final int categoryIcon,
       required final int color,
       @ServerTimestampConverter()
       required final FieldValue serverTimeStamb}) = _$_CategoryDto;
@@ -237,8 +235,7 @@ abstract class _CategoryDto extends CategoryDto {
   @override
   String get categoryName;
   @override
-  @IconDataConverter()
-  IconData get categoryIcon;
+  int get categoryIcon;
   @override
   int get color;
   @override

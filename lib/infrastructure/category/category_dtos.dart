@@ -16,7 +16,7 @@ abstract class CategoryDto with _$CategoryDto {
   const factory CategoryDto({
     @JsonKey(includeFromJson: false) String? id,
     required String categoryName,
-    @IconDataConverter() required IconData categoryIcon,
+    required int categoryIcon,
     required int color,
     @ServerTimestampConverter() required FieldValue serverTimeStamb,
   }) = _CategoryDto;
@@ -25,9 +25,10 @@ abstract class CategoryDto with _$CategoryDto {
 
   factory CategoryDto.fromDomain(CategoryEntity categoryEntity) {
     return CategoryDto(
+      id: categoryEntity.id.getOrCrash(),
       categoryName: categoryEntity.categoryName.getOrCrash(),
-      categoryIcon: categoryEntity.categoryIcon.getOrCrash(),
-      color: categoryEntity.color.getOrCrash().value,
+      categoryIcon: categoryEntity.categoryIcon.codePoint,
+      color: categoryEntity.color.value,
       serverTimeStamb: FieldValue.serverTimestamp(),
     );
   }

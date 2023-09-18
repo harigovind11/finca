@@ -8,8 +8,6 @@ class SavingPlanFormEvent with _$SavingPlanFormEvent {
       _GoalAmountChanged;
   const factory SavingPlanFormEvent.planNameChanged(String planNameStr) =
       _PlanNameChanged;
-  const factory SavingPlanFormEvent.dateChanged(DateTime dateTime) =
-      _DateChanged;
 
   const factory SavingPlanFormEvent.saved() = _Saved;
 }

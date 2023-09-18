@@ -20,7 +20,7 @@ class BillRepo implements IBillRepository {
       final userDoc = await _firestore.userDocument();
       final billDto = BillDto.fromDomain(billEntity);
       final json = billDto.toJson();
-      await userDoc.accountCollection.doc(billDto.id).set(json);
+      await userDoc.billCollection.doc(billDto.id).set(json);
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -37,7 +37,7 @@ class BillRepo implements IBillRepository {
       final userDoc = await _firestore.userDocument();
       final billDto = BillDto.fromDomain(billEntity);
       final json = billDto.toJson();
-      await userDoc.accountCollection.doc(billDto.id).update(json);
+      await userDoc.billCollection.doc(billDto.id).update(json);
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {
@@ -53,7 +53,7 @@ class BillRepo implements IBillRepository {
     try {
       final userDoc = await _firestore.userDocument();
       final billDto = BillDto.fromDomain(billEntity);
-      await userDoc.accountCollection.doc(billDto.id).delete();
+      await userDoc.billCollection.doc(billDto.id).delete();
       return right(unit);
     } on FirebaseException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {

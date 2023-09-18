@@ -15,6 +15,39 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddAccountRoute.name: (routeData) {
+      final args = routeData.argsAs<AddAccountRouteArgs>(
+          orElse: () => const AddAccountRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddAccountScreen(
+          key: args.key,
+          accountEntity: args.accountEntity,
+        ),
+      );
+    },
+    AddBillRoute.name: (routeData) {
+      final args = routeData.argsAs<AddBillRouteArgs>(
+          orElse: () => const AddBillRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddBillScreen(
+          key: args.key,
+          billEntity: args.billEntity,
+        ),
+      );
+    },
+    AddCategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<AddCategoryRouteArgs>(
+          orElse: () => const AddCategoryRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AddCategoryScreen(
+          key: args.key,
+          categoryEntity: args.categoryEntity,
+        ),
+      );
+    },
     AddDebtRoute.name: (routeData) {
       final args = routeData.argsAs<AddDebtRouteArgs>(
           orElse: () => const AddDebtRouteArgs());
@@ -121,6 +154,120 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AddAccountScreen]
+class AddAccountRoute extends PageRouteInfo<AddAccountRouteArgs> {
+  AddAccountRoute({
+    Key? key,
+    AccountEntity? accountEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddAccountRoute.name,
+          args: AddAccountRouteArgs(
+            key: key,
+            accountEntity: accountEntity,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddAccountRoute';
+
+  static const PageInfo<AddAccountRouteArgs> page =
+      PageInfo<AddAccountRouteArgs>(name);
+}
+
+class AddAccountRouteArgs {
+  const AddAccountRouteArgs({
+    this.key,
+    this.accountEntity,
+  });
+
+  final Key? key;
+
+  final AccountEntity? accountEntity;
+
+  @override
+  String toString() {
+    return 'AddAccountRouteArgs{key: $key, accountEntity: $accountEntity}';
+  }
+}
+
+/// generated route for
+/// [AddBillScreen]
+class AddBillRoute extends PageRouteInfo<AddBillRouteArgs> {
+  AddBillRoute({
+    Key? key,
+    BillEntity? billEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddBillRoute.name,
+          args: AddBillRouteArgs(
+            key: key,
+            billEntity: billEntity,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddBillRoute';
+
+  static const PageInfo<AddBillRouteArgs> page =
+      PageInfo<AddBillRouteArgs>(name);
+}
+
+class AddBillRouteArgs {
+  const AddBillRouteArgs({
+    this.key,
+    this.billEntity,
+  });
+
+  final Key? key;
+
+  final BillEntity? billEntity;
+
+  @override
+  String toString() {
+    return 'AddBillRouteArgs{key: $key, billEntity: $billEntity}';
+  }
+}
+
+/// generated route for
+/// [AddCategoryScreen]
+class AddCategoryRoute extends PageRouteInfo<AddCategoryRouteArgs> {
+  AddCategoryRoute({
+    Key? key,
+    CategoryEntity? categoryEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AddCategoryRoute.name,
+          args: AddCategoryRouteArgs(
+            key: key,
+            categoryEntity: categoryEntity,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AddCategoryRoute';
+
+  static const PageInfo<AddCategoryRouteArgs> page =
+      PageInfo<AddCategoryRouteArgs>(name);
+}
+
+class AddCategoryRouteArgs {
+  const AddCategoryRouteArgs({
+    this.key,
+    this.categoryEntity,
+  });
+
+  final Key? key;
+
+  final CategoryEntity? categoryEntity;
+
+  @override
+  String toString() {
+    return 'AddCategoryRouteArgs{key: $key, categoryEntity: $categoryEntity}';
+  }
 }
 
 /// generated route for

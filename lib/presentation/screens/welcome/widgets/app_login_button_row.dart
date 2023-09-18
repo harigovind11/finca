@@ -1,5 +1,5 @@
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icon.dart';

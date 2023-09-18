@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:finca/injectable.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:auto_route/auto_route.dart';
 
 @RoutePage()

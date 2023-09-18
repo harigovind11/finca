@@ -19,7 +19,7 @@ class PlanNameField extends HookWidget {
         textEditingController.text =
             state.savingPlanEntity.planName.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Plan name',
         prefixIcon: LineIcons.pollH,
         inputFormatter: <TextInputFormatter>[

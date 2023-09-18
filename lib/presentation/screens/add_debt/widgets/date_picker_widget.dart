@@ -1,7 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:finca/application/debt/debt_form/debt_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

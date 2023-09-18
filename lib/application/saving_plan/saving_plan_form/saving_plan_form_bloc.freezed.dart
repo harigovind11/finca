@@ -22,7 +22,6 @@ mixin _$SavingPlanFormEvent {
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,7 +30,6 @@ mixin _$SavingPlanFormEvent {
     TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,7 +38,6 @@ mixin _$SavingPlanFormEvent {
     TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -50,7 +47,6 @@ mixin _$SavingPlanFormEvent {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_GoalAmountChanged value) goalAmountChanged,
     required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,7 +55,6 @@ mixin _$SavingPlanFormEvent {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +63,6 @@ mixin _$SavingPlanFormEvent {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -162,7 +156,6 @@ class _$_Initialized implements _Initialized {
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) {
     return initialized(initialOption);
@@ -174,7 +167,6 @@ class _$_Initialized implements _Initialized {
     TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) {
     return initialized?.call(initialOption);
@@ -186,7 +178,6 @@ class _$_Initialized implements _Initialized {
     TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -202,7 +193,6 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_GoalAmountChanged value) goalAmountChanged,
     required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
@@ -214,7 +204,6 @@ class _$_Initialized implements _Initialized {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return initialized?.call(this);
@@ -226,7 +215,6 @@ class _$_Initialized implements _Initialized {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -317,7 +305,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) {
     return goalAmountChanged(goalAmountStr);
@@ -329,7 +316,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
     TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) {
     return goalAmountChanged?.call(goalAmountStr);
@@ -341,7 +327,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
     TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -357,7 +342,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_GoalAmountChanged value) goalAmountChanged,
     required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return goalAmountChanged(this);
@@ -369,7 +353,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return goalAmountChanged?.call(this);
@@ -381,7 +364,6 @@ class _$_GoalAmountChanged implements _GoalAmountChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -471,7 +453,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) {
     return planNameChanged(planNameStr);
@@ -483,7 +464,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
     TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) {
     return planNameChanged?.call(planNameStr);
@@ -495,7 +475,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
     TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -511,7 +490,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_GoalAmountChanged value) goalAmountChanged,
     required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return planNameChanged(this);
@@ -523,7 +501,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return planNameChanged?.call(this);
@@ -535,7 +512,6 @@ class _$_PlanNameChanged implements _PlanNameChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -552,159 +528,6 @@ abstract class _PlanNameChanged implements SavingPlanFormEvent {
   String get planNameStr;
   @JsonKey(ignore: true)
   _$$_PlanNameChangedCopyWith<_$_PlanNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_DateChangedCopyWith<$Res> {
-  factory _$$_DateChangedCopyWith(
-          _$_DateChanged value, $Res Function(_$_DateChanged) then) =
-      __$$_DateChangedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({DateTime dateTime});
-}
-
-/// @nodoc
-class __$$_DateChangedCopyWithImpl<$Res>
-    extends _$SavingPlanFormEventCopyWithImpl<$Res, _$_DateChanged>
-    implements _$$_DateChangedCopyWith<$Res> {
-  __$$_DateChangedCopyWithImpl(
-      _$_DateChanged _value, $Res Function(_$_DateChanged) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dateTime = null,
-  }) {
-    return _then(_$_DateChanged(
-      null == dateTime
-          ? _value.dateTime
-          : dateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_DateChanged implements _DateChanged {
-  const _$_DateChanged(this.dateTime);
-
-  @override
-  final DateTime dateTime;
-
-  @override
-  String toString() {
-    return 'SavingPlanFormEvent.dateChanged(dateTime: $dateTime)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DateChanged &&
-            (identical(other.dateTime, dateTime) ||
-                other.dateTime == dateTime));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, dateTime);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
-      __$$_DateChangedCopyWithImpl<_$_DateChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Option<SavingPlanEntity> initialOption)
-        initialized,
-    required TResult Function(String goalAmountStr) goalAmountChanged,
-    required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
-    required TResult Function() saved,
-  }) {
-    return dateChanged(dateTime);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
-    TResult? Function(String goalAmountStr)? goalAmountChanged,
-    TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
-    TResult? Function()? saved,
-  }) {
-    return dateChanged?.call(dateTime);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
-    TResult Function(String goalAmountStr)? goalAmountChanged,
-    TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
-    TResult Function()? saved,
-    required TResult orElse(),
-  }) {
-    if (dateChanged != null) {
-      return dateChanged(dateTime);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_GoalAmountChanged value) goalAmountChanged,
-    required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_Saved value) saved,
-  }) {
-    return dateChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
-    TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_Saved value)? saved,
-  }) {
-    return dateChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_GoalAmountChanged value)? goalAmountChanged,
-    TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_Saved value)? saved,
-    required TResult orElse(),
-  }) {
-    if (dateChanged != null) {
-      return dateChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DateChanged implements SavingPlanFormEvent {
-  const factory _DateChanged(final DateTime dateTime) = _$_DateChanged;
-
-  DateTime get dateTime;
-  @JsonKey(ignore: true)
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -748,7 +571,6 @@ class _$_Saved implements _Saved {
         initialized,
     required TResult Function(String goalAmountStr) goalAmountChanged,
     required TResult Function(String planNameStr) planNameChanged,
-    required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function() saved,
   }) {
     return saved();
@@ -760,7 +582,6 @@ class _$_Saved implements _Saved {
     TResult? Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult? Function(String goalAmountStr)? goalAmountChanged,
     TResult? Function(String planNameStr)? planNameChanged,
-    TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -772,7 +593,6 @@ class _$_Saved implements _Saved {
     TResult Function(Option<SavingPlanEntity> initialOption)? initialized,
     TResult Function(String goalAmountStr)? goalAmountChanged,
     TResult Function(String planNameStr)? planNameChanged,
-    TResult Function(DateTime dateTime)? dateChanged,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -788,7 +608,6 @@ class _$_Saved implements _Saved {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_GoalAmountChanged value) goalAmountChanged,
     required TResult Function(_PlanNameChanged value) planNameChanged,
-    required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -800,7 +619,6 @@ class _$_Saved implements _Saved {
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult? Function(_PlanNameChanged value)? planNameChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -812,7 +630,6 @@ class _$_Saved implements _Saved {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_GoalAmountChanged value)? goalAmountChanged,
     TResult Function(_PlanNameChanged value)? planNameChanged,
-    TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {

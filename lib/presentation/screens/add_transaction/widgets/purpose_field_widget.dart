@@ -19,7 +19,7 @@ class PurposeField extends HookWidget {
         textEditingController.text =
             state.transactionEntity.purpose.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Purpose',
         prefixIcon: LineIcons.pollH,
         inputFormatter: <TextInputFormatter>[

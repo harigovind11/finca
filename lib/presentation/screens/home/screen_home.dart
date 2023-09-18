@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart';

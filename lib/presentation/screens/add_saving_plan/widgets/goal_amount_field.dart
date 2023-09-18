@@ -19,7 +19,7 @@ class GoalAmountField extends HookWidget {
         textEditingController.text =
             state.savingPlanEntity.goalAmount.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Amount',
         prefixIcon: LineIcons.coins,
         keyboardType: TextInputType.number,

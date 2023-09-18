@@ -1,15 +1,16 @@
-import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
-import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SavingPlanDatePickerWidget extends StatelessWidget {
-  const SavingPlanDatePickerWidget({super.key});
+import 'package:finca/core/colors_collection.dart';
+import 'package:finca/application/bill/bill_form/bill_form_bloc.dart';
+import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
+
+class BillDatePickerWidget extends StatelessWidget {
+  const BillDatePickerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SavingPlanFormBloc, SavingPlanFormState>(
+    return BlocBuilder<BillFormBloc, BillFormState>(
       builder: (context, state) {
         return ListTile(
           onTap: () async {
@@ -18,8 +19,8 @@ class SavingPlanDatePickerWidget extends StatelessWidget {
             );
             if (dateTime != null) {
               context
-                  .read<SavingPlanFormBloc>()
-                  .add(SavingPlanFormEvent.dateChanged(dateTime));
+                  .read<BillFormBloc>()
+                  .add(BillFormEvent.dateChanged(dateTime));
             } else {
               return;
             }
@@ -33,8 +34,7 @@ class SavingPlanDatePickerWidget extends StatelessWidget {
             color: kWhite.withOpacity(.5),
           ),
           title: Text(
-            parseDateYMMMD(
-                context.read<SavingPlanFormBloc>().state.savingPlanEntity.date),
+            parseDateYMMMD(context.read<BillFormBloc>().state.billEntity.date),
             style: const TextStyle(
               color: kWhite,
             ),
@@ -47,14 +47,14 @@ class SavingPlanDatePickerWidget extends StatelessWidget {
   Future<DateTime?> datePicker(
     BuildContext context,
   ) {
-    final savingPlanFormStateDate =
-        context.read<SavingPlanFormBloc>().state.savingPlanEntity.date;
+    final billFormStateDate =
+        context.read<BillFormBloc>().state.billEntity.date;
     return showDatePicker(
       context: context,
-      initialDate: savingPlanFormStateDate,
+      initialDate: billFormStateDate,
       firstDate: DateTime(2013),
       lastDate: DateTime.now(),
-      currentDate: savingPlanFormStateDate,
+      currentDate: billFormStateDate,
       initialEntryMode: DatePickerEntryMode.calendarOnly,
       builder: (context, child) {
         return Theme(

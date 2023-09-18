@@ -44,7 +44,7 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
       emit(
         state.copyWith(
           categoryEntity: state.categoryEntity.copyWith(
-            categoryIcon: CategoryIcon(event.categoryIcon),
+            categoryIcon: event.categoryIcon,
           ),
         ),
       );
@@ -53,7 +53,7 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
       emit(
         state.copyWith(
           categoryEntity: state.categoryEntity.copyWith(
-            color: CategoryColor(event.color),
+            color: event.color,
           ),
         ),
       );

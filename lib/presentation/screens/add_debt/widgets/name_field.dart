@@ -18,7 +18,7 @@ class NameField extends HookWidget {
       listener: (context, state) {
         textEditingController.text = state.debtEntity.name.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Name',
         prefixIcon: LineIcons.pollH,
         inputFormatter: <TextInputFormatter>[

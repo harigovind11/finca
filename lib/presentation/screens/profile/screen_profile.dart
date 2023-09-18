@@ -8,7 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -43,82 +43,90 @@ class ProfileScreen extends StatelessWidget {
               fontSize: 28,
             ),
           ),
-          body: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: kBluegrey,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-              child: Column(
-                children: [
-                  const CircleAvatar(
-                    radius: 50,
-                    backgroundImage: AssetImage(
-                      'images/foreground.png',
+          body: SingleChildScrollView(
+            child: Container(
+              height: 700,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: kBluegrey,
+              ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+                child: Column(
+                  children: [
+                    const CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        'images/foreground.png',
+                      ),
                     ),
-                  ),
-                  kHeight40,
-                  //Name
-                  kHeight10,
-                  TextWidget(
-                    text: 'Email -: ${_user?.email! ?? "N/A"}',
-                    color: kGrey,
-                    fontSize: 15,
-                  ),
-                  kHeight40,
-                  ProfileButtonWidget(
-                    text: 'Edit Your profile',
-                    prefixIcon: LineIcons.userEdit,
-                    onTap: () {
-                      showTopSnackBar(
-                        Overlay.of(context),
-                        const CustomSnackBar.info(
-                          backgroundColor: kRed,
-                          message:
-                              'This feature is not avaliable right now, Sorry for the inconvenience',
-                        ),
-                      );
-                    },
-                  ),
-                  ProfileButtonWidget(
-                    text: 'App Settings',
-                    prefixIcon: LineIcons.userCog,
-                    onTap: () {
-                      showTopSnackBar(
-                        Overlay.of(context),
-                        const CustomSnackBar.info(
-                          backgroundColor: kRed,
-                          message:
-                              'This feature is not avaliable right now, Sorry for the inconvenience',
-                        ),
-                      );
-                    },
-                  ),
-                  ProfileButtonWidget(
-                    text: 'About Finca',
-                    prefixIcon: LineIcons.infoCircle,
-                    onTap: () {
-                      showTopSnackBar(
-                        Overlay.of(context),
-                        const CustomSnackBar.info(
-                          backgroundColor: kRed,
-                          message:
-                              'This feature is not avaliable right now, Sorry for the inconvenience',
-                        ),
-                      );
-                    },
-                  ),
-                  RoundedButton(
-                    title: 'Sign Out',
-                    backgroundColor: kBlueShade,
-                    textColor: kWhite,
-                    onPressed: () {
-                      context.read<AuthBloc>().add(const AuthEvent.signedOut());
-                    },
-                  )
-                ],
+                    kHeight40,
+                    //Name
+                    kHeight10,
+                    TextWidget(
+                      text: 'Email -: ${_user?.email! ?? "N/A"}',
+                      color: kGrey,
+                      fontSize: 15,
+                    ),
+                    kHeight40,
+                    ProfileButtonWidget(
+                      text: 'Edit Your profile',
+                      prefixIcon: LineIcons.userEdit,
+                      onTap: () {
+                        AutoRouter.of(context).push(AddAccountRoute());
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          const CustomSnackBar.info(
+                            backgroundColor: kRed,
+                            message:
+                                'This feature is not avaliable right now, Sorry for the inconvenience',
+                          ),
+                        );
+                      },
+                    ),
+                    ProfileButtonWidget(
+                      text: 'App Settings',
+                      prefixIcon: LineIcons.userCog,
+                      onTap: () {
+                        AutoRouter.of(context).push(AddBillRoute());
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          const CustomSnackBar.info(
+                            backgroundColor: kRed,
+                            message:
+                                'This feature is not avaliable right now, Sorry for the inconvenience',
+                          ),
+                        );
+                      },
+                    ),
+                    ProfileButtonWidget(
+                      text: 'About Finca',
+                      prefixIcon: LineIcons.infoCircle,
+                      onTap: () {
+                        AutoRouter.of(context).push(AddCategoryRoute());
+                        showTopSnackBar(
+                          Overlay.of(context),
+                          const CustomSnackBar.info(
+                            backgroundColor: kRed,
+                            message:
+                                'This feature is not avaliable right now, Sorry for the inconvenience',
+                          ),
+                        );
+                      },
+                    ),
+                    RoundedButton(
+                      title: 'Sign Out',
+                      backgroundColor: kBlueShade,
+                      textColor: kWhite,
+                      onPressed: () {
+                        context
+                            .read<AuthBloc>()
+                            .add(const AuthEvent.signedOut());
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ),

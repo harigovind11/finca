@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icon.dart';
 
 import 'package:finca/application/transaction/transaction_watcher/transaction_watcher_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart';

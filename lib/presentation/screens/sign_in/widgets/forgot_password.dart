@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -91,7 +91,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   kHeight60,
                   Form(
                     key: _formKey,
-                    child: CustomTextField.dark(
+                    child: CustomTextField.light(
                       hintText: 'Email',
                       prefixIcon: LineIcons.at,
                       keyboardType: TextInputType.emailAddress,

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
 import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/injectable.dart';

@@ -1,7 +1,7 @@
 import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:finca/application/auth/auth_bloc.dart';
 import 'package:finca/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';

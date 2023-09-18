@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';

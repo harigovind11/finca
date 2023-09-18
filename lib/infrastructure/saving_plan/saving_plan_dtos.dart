@@ -1,6 +1,8 @@
 // ignore_for_file: invalid_annotation_target
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finca/domain/saving_plan/saving_plan.dart';
+import 'package:finca/infrastructure/core/json_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'saving_plan_dtos.g.dart';
@@ -13,7 +15,7 @@ class SavingPlanDto with _$SavingPlanDto {
     @JsonKey(includeFromJson: false) String? id,
     required String planName,
     required String goalAmount,
-    required DateTime date,
+    @ServerTimestampConverter() required FieldValue serverTimeStamp,
   }) = _SavingPlanDto;
 
 //?Domain to Entity
@@ -22,7 +24,7 @@ class SavingPlanDto with _$SavingPlanDto {
       id: savingPlanEntity.id.getOrCrash(),
       planName: savingPlanEntity.planName.getOrCrash(),
       goalAmount: savingPlanEntity.goalAmount.getOrCrash(),
-      date: savingPlanEntity.date,
+      serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 

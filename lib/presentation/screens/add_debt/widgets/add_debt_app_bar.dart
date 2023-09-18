@@ -1,5 +1,5 @@
 import 'package:finca/application/debt/debt_form/debt_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/presentation/screens/add_debt/widgets/debt_radio_buton.dart';
 import 'package:flutter/material.dart';

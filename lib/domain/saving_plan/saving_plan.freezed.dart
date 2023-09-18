@@ -19,7 +19,6 @@ mixin _$SavingPlanEntity {
   UniqueId get id => throw _privateConstructorUsedError;
   SavingPlanName get planName => throw _privateConstructorUsedError;
   SavingPlanGoalAmount get goalAmount => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SavingPlanEntityCopyWith<SavingPlanEntity> get copyWith =>
@@ -33,10 +32,7 @@ abstract class $SavingPlanEntityCopyWith<$Res> {
       _$SavingPlanEntityCopyWithImpl<$Res, SavingPlanEntity>;
   @useResult
   $Res call(
-      {UniqueId id,
-      SavingPlanName planName,
-      SavingPlanGoalAmount goalAmount,
-      DateTime date});
+      {UniqueId id, SavingPlanName planName, SavingPlanGoalAmount goalAmount});
 }
 
 /// @nodoc
@@ -55,7 +51,6 @@ class _$SavingPlanEntityCopyWithImpl<$Res, $Val extends SavingPlanEntity>
     Object? id = null,
     Object? planName = null,
     Object? goalAmount = null,
-    Object? date = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -70,10 +65,6 @@ class _$SavingPlanEntityCopyWithImpl<$Res, $Val extends SavingPlanEntity>
           ? _value.goalAmount
           : goalAmount // ignore: cast_nullable_to_non_nullable
               as SavingPlanGoalAmount,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -87,10 +78,7 @@ abstract class _$$_SavingPlanEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UniqueId id,
-      SavingPlanName planName,
-      SavingPlanGoalAmount goalAmount,
-      DateTime date});
+      {UniqueId id, SavingPlanName planName, SavingPlanGoalAmount goalAmount});
 }
 
 /// @nodoc
@@ -107,7 +95,6 @@ class __$$_SavingPlanEntityCopyWithImpl<$Res>
     Object? id = null,
     Object? planName = null,
     Object? goalAmount = null,
-    Object? date = null,
   }) {
     return _then(_$_SavingPlanEntity(
       id: null == id
@@ -122,10 +109,6 @@ class __$$_SavingPlanEntityCopyWithImpl<$Res>
           ? _value.goalAmount
           : goalAmount // ignore: cast_nullable_to_non_nullable
               as SavingPlanGoalAmount,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -134,10 +117,7 @@ class __$$_SavingPlanEntityCopyWithImpl<$Res>
 
 class _$_SavingPlanEntity extends _SavingPlanEntity {
   const _$_SavingPlanEntity(
-      {required this.id,
-      required this.planName,
-      required this.goalAmount,
-      required this.date})
+      {required this.id, required this.planName, required this.goalAmount})
       : super._();
 
   @override
@@ -146,12 +126,10 @@ class _$_SavingPlanEntity extends _SavingPlanEntity {
   final SavingPlanName planName;
   @override
   final SavingPlanGoalAmount goalAmount;
-  @override
-  final DateTime date;
 
   @override
   String toString() {
-    return 'SavingPlanEntity(id: $id, planName: $planName, goalAmount: $goalAmount, date: $date)';
+    return 'SavingPlanEntity(id: $id, planName: $planName, goalAmount: $goalAmount)';
   }
 
   @override
@@ -163,12 +141,11 @@ class _$_SavingPlanEntity extends _SavingPlanEntity {
             (identical(other.planName, planName) ||
                 other.planName == planName) &&
             (identical(other.goalAmount, goalAmount) ||
-                other.goalAmount == goalAmount) &&
-            (identical(other.date, date) || other.date == date));
+                other.goalAmount == goalAmount));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, planName, goalAmount, date);
+  int get hashCode => Object.hash(runtimeType, id, planName, goalAmount);
 
   @JsonKey(ignore: true)
   @override
@@ -181,8 +158,7 @@ abstract class _SavingPlanEntity extends SavingPlanEntity {
   const factory _SavingPlanEntity(
       {required final UniqueId id,
       required final SavingPlanName planName,
-      required final SavingPlanGoalAmount goalAmount,
-      required final DateTime date}) = _$_SavingPlanEntity;
+      required final SavingPlanGoalAmount goalAmount}) = _$_SavingPlanEntity;
   const _SavingPlanEntity._() : super._();
 
   @override
@@ -191,8 +167,6 @@ abstract class _SavingPlanEntity extends SavingPlanEntity {
   SavingPlanName get planName;
   @override
   SavingPlanGoalAmount get goalAmount;
-  @override
-  DateTime get date;
   @override
   @JsonKey(ignore: true)
   _$$_SavingPlanEntityCopyWith<_$_SavingPlanEntity> get copyWith =>

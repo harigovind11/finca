@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CategoryEntity {
   UniqueId get id => throw _privateConstructorUsedError;
   CategoryName get categoryName => throw _privateConstructorUsedError;
-  CategoryIcon get categoryIcon => throw _privateConstructorUsedError;
-  CategoryColor get color => throw _privateConstructorUsedError;
+  IconData get categoryIcon => throw _privateConstructorUsedError;
+  Color get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryEntityCopyWith<CategoryEntity> get copyWith =>
@@ -35,8 +35,8 @@ abstract class $CategoryEntityCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       CategoryName categoryName,
-      CategoryIcon categoryIcon,
-      CategoryColor color});
+      IconData categoryIcon,
+      Color color});
 }
 
 /// @nodoc
@@ -69,11 +69,11 @@ class _$CategoryEntityCopyWithImpl<$Res, $Val extends CategoryEntity>
       categoryIcon: null == categoryIcon
           ? _value.categoryIcon
           : categoryIcon // ignore: cast_nullable_to_non_nullable
-              as CategoryIcon,
+              as IconData,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as CategoryColor,
+              as Color,
     ) as $Val);
   }
 }
@@ -89,8 +89,8 @@ abstract class _$$_CategoryEntityCopyWith<$Res>
   $Res call(
       {UniqueId id,
       CategoryName categoryName,
-      CategoryIcon categoryIcon,
-      CategoryColor color});
+      IconData categoryIcon,
+      Color color});
 }
 
 /// @nodoc
@@ -121,11 +121,11 @@ class __$$_CategoryEntityCopyWithImpl<$Res>
       categoryIcon: null == categoryIcon
           ? _value.categoryIcon
           : categoryIcon // ignore: cast_nullable_to_non_nullable
-              as CategoryIcon,
+              as IconData,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as CategoryColor,
+              as Color,
     ));
   }
 }
@@ -145,9 +145,9 @@ class _$_CategoryEntity extends _CategoryEntity {
   @override
   final CategoryName categoryName;
   @override
-  final CategoryIcon categoryIcon;
+  final IconData categoryIcon;
   @override
-  final CategoryColor color;
+  final Color color;
 
   @override
   String toString() {
@@ -182,8 +182,8 @@ abstract class _CategoryEntity extends CategoryEntity {
   const factory _CategoryEntity(
       {required final UniqueId id,
       required final CategoryName categoryName,
-      required final CategoryIcon categoryIcon,
-      required final CategoryColor color}) = _$_CategoryEntity;
+      required final IconData categoryIcon,
+      required final Color color}) = _$_CategoryEntity;
   const _CategoryEntity._() : super._();
 
   @override
@@ -191,9 +191,9 @@ abstract class _CategoryEntity extends CategoryEntity {
   @override
   CategoryName get categoryName;
   @override
-  CategoryIcon get categoryIcon;
+  IconData get categoryIcon;
   @override
-  CategoryColor get color;
+  Color get color;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryEntityCopyWith<_$_CategoryEntity> get copyWith =>

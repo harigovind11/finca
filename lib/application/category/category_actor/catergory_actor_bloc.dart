@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:finca/domain/category/category.dart';
 import 'package:finca/domain/category/i_category.dart';
 import 'package:finca/domain/core/firestore_faillure.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

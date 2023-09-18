@@ -1,4 +1,4 @@
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/presentation/screens/main_page/widgets/bottom_nav.dart';
 import 'package:auto_route/auto_route.dart';

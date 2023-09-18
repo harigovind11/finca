@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class CustomTextField extends HookWidget {
@@ -32,7 +32,7 @@ class CustomTextField extends HookWidget {
 
   int? maxLength;
   bool readOnly;
-  CustomTextField.dark(
+  CustomTextField.light(
       {Key? key,
       required this.hintText,
       required this.prefixIcon,
@@ -51,7 +51,7 @@ class CustomTextField extends HookWidget {
       this.suffixIconColor = kOffWhite,
       this.counterColor = kOffWhite,
       this.hintTextColor = kBluegreyShade,
-      this.fillColor = kWhite,
+      this.fillColor = kOutlineWhite,
       this.enabledBorderColor = kOutlineWhite,
       this.focusedBorderColor = kWhite,
       this.errorBorderColor = kBlueShade,
@@ -60,7 +60,7 @@ class CustomTextField extends HookWidget {
       this.onChanged})
       : super(key: key);
 
-  CustomTextField.light(
+  CustomTextField.dark(
       {Key? key,
       required this.hintText,
       required this.prefixIcon,
@@ -73,18 +73,18 @@ class CustomTextField extends HookWidget {
       this.readOnly = false,
       this.onTap,
       this.maxLength,
-      this.cursorColor = kBluegrey,
-      this.textColor = kBluegrey,
-      this.prefixIconColor = kBluegrey,
-      this.suffixIconColor = kBluegrey,
-      this.counterColor = kBluegrey,
+      this.cursorColor = kGrey,
+      this.textColor = kGrey,
+      this.prefixIconColor = kOffWhite,
+      this.suffixIconColor = kOffWhite,
+      this.counterColor = kOffWhite,
       this.hintTextColor = kBluegreyShade,
-      this.fillColor = kBluegrey,
-      this.enabledBorderColor = kBluegrey,
-      this.focusedBorderColor = kBluegreyShade,
+      this.fillColor = kBluegreyShade,
+      this.enabledBorderColor = kOutlineWhite,
+      this.focusedBorderColor = kOutlineWhite,
       this.errorBorderColor = kBlueShade,
       this.focusedErrorBorderColor = kBlueShade,
-      this.errorStyleColor = kBluegreyShade,
+      this.errorStyleColor = kBlueShade,
       this.onChanged})
       : super(key: key);
 
@@ -131,7 +131,7 @@ class CustomTextField extends HookWidget {
           color: hintTextColor,
         ),
         filled: true,
-        fillColor: fillColor.withOpacity(.2),
+        fillColor: fillColor,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: BorderSide(

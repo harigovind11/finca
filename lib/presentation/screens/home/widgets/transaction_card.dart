@@ -3,7 +3,7 @@ import 'package:finca/domain/transaction/transaction_type.dart';
 import 'package:finca/domain/transaction/transaction.dart';
 import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
 import 'package:flutter/material.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 
 class TransactionCard extends StatelessWidget {

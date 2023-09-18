@@ -76,7 +76,7 @@ class SavingPlanRepo implements ISavingPlanRepository {
     final user = FirebaseAuth.instance.currentUser;
     final userDoc = _firestoreInstance.collection('users').doc(user?.uid);
     return userDoc.savingPlanCollection
-        .orderBy('date', descending: true)
+        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map((querySnapshot) {
       return right<FirestoreFailure, List<SavingPlanEntity>>(

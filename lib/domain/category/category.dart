@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:finca/domain/category/value_objects.dart';
 import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'category.freezed.dart';
 
@@ -12,24 +13,22 @@ class CategoryEntity with _$CategoryEntity {
   const factory CategoryEntity({
     required UniqueId id,
     required CategoryName categoryName,
-    required CategoryIcon categoryIcon,
-    required CategoryColor color,
+    required IconData categoryIcon,
+    required Color color,
   }) = _CategoryEntity;
 
   factory CategoryEntity.empty() => CategoryEntity(
         id: UniqueId(''),
-        categoryName: CategoryName(CategoryName.predefinedNames[0]),
-        categoryIcon: CategoryIcon(CategoryIcon.predefinedIcons[0]),
-        color: CategoryColor(
-          CategoryColor.predefinedColors[0],
-        ),
+        categoryName: CategoryName(''),
+        categoryIcon: Icons.category,
+        color: Colors.blue,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return categoryName.failureOrUnit.andThen(categoryIcon.failureOrUnit).fold(
-          (f) => some(f),
-          (_) => none(),
-        );
+    return categoryName.failureOrUnit.fold(
+      (f) => some(f),
+      (_) => none(),
+    );
   }
 
   factory CategoryEntity.fromSnapshot(DocumentSnapshot snapshot) {
@@ -39,8 +38,8 @@ class CategoryEntity with _$CategoryEntity {
       categoryName: CategoryName(
         data['categoryName'],
       ),
-      categoryIcon: CategoryIcon(data['categoryIcon']),
-      color: data['color'],
+      categoryIcon: IconData(data['categoryIcon']),
+      color: Color(data['color']),
     );
   }
 }

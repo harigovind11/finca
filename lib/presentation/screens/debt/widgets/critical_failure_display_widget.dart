@@ -1,4 +1,4 @@
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:flutter/material.dart';

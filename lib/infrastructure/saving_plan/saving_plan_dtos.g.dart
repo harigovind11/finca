@@ -10,12 +10,14 @@ _$_SavingPlanDto _$$_SavingPlanDtoFromJson(Map<String, dynamic> json) =>
     _$_SavingPlanDto(
       planName: json['planName'] as String,
       goalAmount: json['goalAmount'] as String,
-      date: DateTime.parse(json['date'] as String),
+      serverTimeStamp: const ServerTimestampConverter()
+          .fromJson(json['serverTimeStamp'] as Object),
     );
 
 Map<String, dynamic> _$$_SavingPlanDtoToJson(_$_SavingPlanDto instance) =>
     <String, dynamic>{
       'planName': instance.planName,
       'goalAmount': instance.goalAmount,
-      'date': instance.date.toIso8601String(),
+      'serverTimeStamp':
+          const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

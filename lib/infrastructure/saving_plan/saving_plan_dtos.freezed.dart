@@ -24,7 +24,8 @@ mixin _$SavingPlanDto {
   String? get id => throw _privateConstructorUsedError;
   String get planName => throw _privateConstructorUsedError;
   String get goalAmount => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,7 @@ abstract class $SavingPlanDtoCopyWith<$Res> {
       {@JsonKey(includeFromJson: false) String? id,
       String planName,
       String goalAmount,
-      DateTime date});
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -61,7 +62,7 @@ class _$SavingPlanDtoCopyWithImpl<$Res, $Val extends SavingPlanDto>
     Object? id = freezed,
     Object? planName = null,
     Object? goalAmount = null,
-    Object? date = null,
+    Object? serverTimeStamp = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -76,10 +77,10 @@ class _$SavingPlanDtoCopyWithImpl<$Res, $Val extends SavingPlanDto>
           ? _value.goalAmount
           : goalAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      serverTimeStamp: null == serverTimeStamp
+          ? _value.serverTimeStamp
+          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
     ) as $Val);
   }
 }
@@ -96,7 +97,7 @@ abstract class _$$_SavingPlanDtoCopyWith<$Res>
       {@JsonKey(includeFromJson: false) String? id,
       String planName,
       String goalAmount,
-      DateTime date});
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -113,7 +114,7 @@ class __$$_SavingPlanDtoCopyWithImpl<$Res>
     Object? id = freezed,
     Object? planName = null,
     Object? goalAmount = null,
-    Object? date = null,
+    Object? serverTimeStamp = null,
   }) {
     return _then(_$_SavingPlanDto(
       id: freezed == id
@@ -128,10 +129,10 @@ class __$$_SavingPlanDtoCopyWithImpl<$Res>
           ? _value.goalAmount
           : goalAmount // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      serverTimeStamp: null == serverTimeStamp
+          ? _value.serverTimeStamp
+          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
     ));
   }
 }
@@ -143,7 +144,7 @@ class _$_SavingPlanDto extends _SavingPlanDto {
       {@JsonKey(includeFromJson: false) this.id,
       required this.planName,
       required this.goalAmount,
-      required this.date})
+      @ServerTimestampConverter() required this.serverTimeStamp})
       : super._();
 
   factory _$_SavingPlanDto.fromJson(Map<String, dynamic> json) =>
@@ -157,11 +158,12 @@ class _$_SavingPlanDto extends _SavingPlanDto {
   @override
   final String goalAmount;
   @override
-  final DateTime date;
+  @ServerTimestampConverter()
+  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'SavingPlanDto(id: $id, planName: $planName, goalAmount: $goalAmount, date: $date)';
+    return 'SavingPlanDto(id: $id, planName: $planName, goalAmount: $goalAmount, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -174,12 +176,14 @@ class _$_SavingPlanDto extends _SavingPlanDto {
                 other.planName == planName) &&
             (identical(other.goalAmount, goalAmount) ||
                 other.goalAmount == goalAmount) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.serverTimeStamp, serverTimeStamp) ||
+                other.serverTimeStamp == serverTimeStamp));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, planName, goalAmount, date);
+  int get hashCode =>
+      Object.hash(runtimeType, id, planName, goalAmount, serverTimeStamp);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +204,8 @@ abstract class _SavingPlanDto extends SavingPlanDto {
       {@JsonKey(includeFromJson: false) final String? id,
       required final String planName,
       required final String goalAmount,
-      required final DateTime date}) = _$_SavingPlanDto;
+      @ServerTimestampConverter()
+      required final FieldValue serverTimeStamp}) = _$_SavingPlanDto;
   const _SavingPlanDto._() : super._();
 
   factory _SavingPlanDto.fromJson(Map<String, dynamic> json) =
@@ -214,7 +219,8 @@ abstract class _SavingPlanDto extends SavingPlanDto {
   @override
   String get goalAmount;
   @override
-  DateTime get date;
+  @ServerTimestampConverter()
+  FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
   _$$_SavingPlanDtoCopyWith<_$_SavingPlanDto> get copyWith =>

@@ -1,5 +1,5 @@
 import 'package:fade_shimmer/fade_shimmer.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:flutter/material.dart';
 

@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:finca/application/saving_plan/saving_plan_form/saving_plan_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/saving_plan/saving_plan.dart';
 import 'package:finca/injectable.dart';
@@ -13,7 +13,6 @@ import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'widgets/add_saving_plan_app_bar.dart';
-import 'widgets/date_picker.dart';
 import 'widgets/plan_name_field.dart';
 
 @RoutePage()
@@ -93,12 +92,6 @@ class SavingPlanScaffold extends StatelessWidget {
                 kHeight40,
                 const GoalAmountField(),
                 kHeight40,
-
-                //? Date picker
-                const SavingPlanDatePickerWidget(),
-
-                kHeight40,
-
                 RoundedButton(
                   title: 'ADD',
                   backgroundColor: kWhite,

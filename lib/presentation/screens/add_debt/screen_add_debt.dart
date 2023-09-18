@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:finca/application/debt/debt_form/debt_form_bloc.dart';
-import 'package:finca/core/colors_picker.dart';
+import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/domain/debt/debt.dart';
 import 'package:finca/injectable.dart';

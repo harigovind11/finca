@@ -18,7 +18,7 @@ class AmountField extends HookWidget {
       listener: (context, state) {
         textEditingController.text = state.debtEntity.amount.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Amount',
         prefixIcon: LineIcons.coins,
         keyboardType: TextInputType.number,

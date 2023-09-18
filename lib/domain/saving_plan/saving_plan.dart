@@ -13,14 +13,12 @@ class SavingPlanEntity with _$SavingPlanEntity {
     required UniqueId id,
     required SavingPlanName planName,
     required SavingPlanGoalAmount goalAmount,
-    required DateTime date,
   }) = _SavingPlanEntity;
 
   factory SavingPlanEntity.empty() => SavingPlanEntity(
         id: UniqueId(''),
         planName: SavingPlanName(''),
         goalAmount: SavingPlanGoalAmount(''),
-        date: DateTime.now(),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
@@ -37,7 +35,6 @@ class SavingPlanEntity with _$SavingPlanEntity {
       id: UniqueId.fromUniqueString(snapshot.id),
       planName: SavingPlanName(data['planName']),
       goalAmount: SavingPlanGoalAmount(data['goalAmount']),
-      date: DateTime.tryParse(data['date'])!,
     );
   }
 }

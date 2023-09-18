@@ -18,7 +18,7 @@ class DescriptionField extends HookWidget {
       listener: (context, state) {
         textEditingController.text = state.debtEntity.description.getOrCrash();
       },
-      child: CustomTextField.dark(
+      child: CustomTextField.light(
         hintText: 'Description',
         prefixIcon: LineIcons.pollH,
         inputFormatter: <TextInputFormatter>[

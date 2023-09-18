@@ -44,15 +44,6 @@ class SavingPlanFormBloc
         ),
       );
     });
-    on<_DateChanged>((event, emit) {
-      emit(
-        state.copyWith(
-          savingPlanEntity: state.savingPlanEntity.copyWith(
-            date: event.dateTime,
-          ),
-        ),
-      );
-    });
 
     on<_Saved>((event, emit) async {
       Either<FirestoreFailure, Unit>? failureOrSucess;
