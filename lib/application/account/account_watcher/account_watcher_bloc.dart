@@ -20,7 +20,7 @@ class AccountWatcherBloc
       _accountStreamSubscription;
   AccountWatcherBloc(this._iAccountRepository) : super(const _Initial()) {
     on<_WatchAllStarted>((event, emit) async {
-      const AccountWatcherState.loadInProgress();
+      emit(const AccountWatcherState.loadInProgress());
       await _accountStreamSubscription?.cancel();
       _accountStreamSubscription = _iAccountRepository.watchAll().listen(
           (failureOrAccounts) =>

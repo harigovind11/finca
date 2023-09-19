@@ -34,6 +34,6 @@ class AccountEntity with _$AccountEntity {
     return AccountEntity(
         id: UniqueId.fromUniqueString(snapshot.id),
         accountName: AccountName(data['accountName']),
-        accountBalance: data['accountBalance']);
+        accountBalance: AccountBalance(data['accountBalance']));
   }
 }

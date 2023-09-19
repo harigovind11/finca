@@ -101,7 +101,7 @@ class BillRepo implements IBillRepository {
     return userDoc.billCollection
         .where(
           'billType',
-          isNotEqualTo: 'bill',
+          isEqualTo: 'bill',
         )
         .orderBy(
           'serverTimeStamp',
@@ -132,7 +132,7 @@ class BillRepo implements IBillRepository {
     return userDoc.billCollection
         .where(
           'billType',
-          isNotEqualTo: 'subscription',
+          isEqualTo: 'subscription',
         )
         .orderBy(
           'serverTimeStamp',

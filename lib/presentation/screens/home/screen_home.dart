@@ -12,10 +12,9 @@ import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/home/widgets/recent_transaction.dart';
+import 'widgets/features_row.dart';
 import 'widgets/home_app_bar.dart';
 import 'widgets/inside_box_widget.dart';
-import 'widgets/saving_plan_list.dart';
-import 'widgets/subtitle_with_arrow_button.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -25,7 +24,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -49,71 +47,57 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: kplatsilver,
         body: SingleChildScrollView(
-          child: Stack(
+          child: Column(
             children: [
-              Column(
-                children: [
-                  Container(
-                    height: size.height * .52,
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    decoration: const BoxDecoration(
-                      color: kBluegrey,
-                      borderRadius: BorderRadiusDirectional.only(
-                        bottomStart: Radius.circular(25),
-                        bottomEnd: Radius.circular(25),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        BlocBuilder<TransactionWatcherBloc,
-                            TransactionWatcherState>(
-                          builder: (context, state) {
-                            return state.maybeMap(
-                                loadInProgress: (_) => const FlipCard(
-                                      front: InsideBoxLoading(isIncome: true),
-                                      back: InsideBoxLoading(isIncome: false),
-                                    ),
-                                loadSucess: (state) {
-                                  return FlipCard(
-                                    front: InsideBoxWidget(
-                                      isIncome: true,
-                                      amount:
-                                          '₹ ${state.totalIncome.toStringAsFixed(0)}',
-                                    ),
-                                    back: InsideBoxWidget(
-                                      isIncome: false,
-                                      amount:
-                                          '₹ ${state.totalExpense.toStringAsFixed(0)}',
-                                    ),
-                                  );
-                                },
-                                loadFailure: (state) => CriticalFailureDisplay(
-                                      failure: state.firestoreFailure,
-                                    ),
-                                orElse: () => const Card());
-                          },
-                        ),
-                        SubtitleWithArrowButton(
-                          title: 'My Savings Plans',
-                          titleColor: kWhite,
-                          onPressed: () {
-                            AutoRouter.of(context)
-                                .push(const SavingPlanRoute());
-                          },
-                        ),
-                      ],
-                    ),
+              Container(
+                // height: size.height * .52,
+                width: double.infinity,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: const BoxDecoration(
+                  color: kBluegrey,
+                  borderRadius: BorderRadiusDirectional.only(
+                    bottomStart: Radius.circular(20),
+                    bottomEnd: Radius.circular(20),
                   ),
-                  kHeight60,
-                  const RecentTransaction(),
-                ],
+                ),
+                child: Column(
+                  children: [
+                    BlocBuilder<TransactionWatcherBloc,
+                        TransactionWatcherState>(
+                      builder: (context, state) {
+                        return state.maybeMap(
+                            loadInProgress: (_) => const FlipCard(
+                                  front: InsideBoxLoading(isIncome: true),
+                                  back: InsideBoxLoading(isIncome: false),
+                                ),
+                            loadSucess: (state) {
+                              return FlipCard(
+                                front: InsideBoxWidget(
+                                  isIncome: true,
+                                  amount:
+                                      '₹ ${state.totalIncome.toStringAsFixed(0)}',
+                                ),
+                                back: InsideBoxWidget(
+                                  isIncome: false,
+                                  amount:
+                                      '₹ ${state.totalExpense.toStringAsFixed(0)}',
+                                ),
+                              );
+                            },
+                            loadFailure: (state) => CriticalFailureDisplay(
+                                  failure: state.firestoreFailure,
+                                ),
+                            orElse: () => const Card());
+                      },
+                    ),
+                    const FeaturesRow(),
+                    kHeight20,
+                  ],
+                ),
               ),
-              //! My saving plans
-              SavingPlanList(
-                size: size,
-              ),
+              kHeight60,
+              const RecentTransaction(),
             ],
           ),
         ),
@@ -121,6 +105,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
- // TODO : BLoc

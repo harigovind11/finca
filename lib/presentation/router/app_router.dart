@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:finca/domain/category/category.dart';
+import 'package:finca/presentation/screens/account/screen_account.dart';
 import 'package:finca/presentation/screens/add_category/screen_add_category.dart';
+import 'package:finca/presentation/screens/bill/screen_bill.dart';
 import 'package:flutter/material.dart';
 
 import 'package:finca/domain/account/account.dart';
@@ -38,6 +40,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SignInRoute.page),
         AutoRoute(page: ForgotPasswordRoute.page),
         AutoRoute(page: SavingPlanRoute.page),
+        AutoRoute(page: AccountRoute.page),
+        AutoRoute(page: BillRoute.page),
         AutoRoute(page: AddTransactionRoute.page),
         AutoRoute(page: AddDebtRoute.page),
         AutoRoute(page: AddSavingPlanRoute.page),

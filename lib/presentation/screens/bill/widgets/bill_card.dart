@@ -1,11 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
-import 'package:finca/core/colors_collection.dart';
-import 'package:finca/core/constants.dart';
-import 'package:finca/domain/transaction/transaction_type.dart';
-import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
+import 'package:finca/application/bill/bill_actor/bill_actor_bloc.dart';
+import 'package:finca/domain/bill/bill.dart';
+import 'package:finca/domain/bill/bill_type.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,12 +9,17 @@ import 'package:line_icons/line_icon.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-class TransactionCard extends StatelessWidget {
-  final TransactionEntity transactionEntity;
-  final TransactionType type;
-  const TransactionCard({
+import 'package:finca/core/colors_collection.dart';
+import 'package:finca/core/constants.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/widgets/date_and_time_parser.dart';
+
+class BillCard extends StatelessWidget {
+  final BillEntity billEntity;
+  final BillType type;
+  const BillCard({
     super.key,
-    required this.transactionEntity,
+    required this.billEntity,
     required this.type,
   });
   @override
@@ -34,7 +35,7 @@ class TransactionCard extends StatelessWidget {
               // borderRadius: BorderRadius.circular(10),
               border: Border(
                 left: BorderSide(
-                  color: type == TransactionType.income ? kGreen : kOrange,
+                  color: type == BillType.bill ? kBlue : kDeepBlush,
                   width: 20.0,
                 ),
                 right: const BorderSide(
@@ -61,14 +62,12 @@ class TransactionCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextWidget(
-                          text: type == TransactionType.income
-                              ? 'Receive'
-                              : 'Expense',
+                          text: type == BillType.bill ? 'Bill' : 'Subscription',
                           color: kWhite,
                           fontSize: 20,
                         ),
                         TextWidget(
-                          text: '₹ ${transactionEntity.amount.getOrCrash()}',
+                          text: '₹ ${billEntity.billAmount.getOrCrash()}',
                           color: kWhite,
                           fontSize: 20,
                           overflow: TextOverflow.fade,
@@ -77,14 +76,14 @@ class TransactionCard extends StatelessWidget {
                     ),
                     kHeight10,
                     TextWidget(
-                      text: transactionEntity.purpose.getOrCrash(),
+                      text: billEntity.billName.getOrCrash(),
                       color: kGrey,
                       fontSize: 15,
                       overflow: TextOverflow.fade,
                     ),
                     kHeight5,
                     TextWidget(
-                      text: parseDateMMMD(transactionEntity.date),
+                      text: parseDateMMMD(billEntity.date),
                       color: kGreyShade,
                       fontSize: 15,
                     ),
@@ -105,7 +104,7 @@ class TransactionCard extends StatelessWidget {
                   width: 10.0,
                 ),
                 right: BorderSide(
-                  color: type == TransactionType.income ? kGreen : kOrange,
+                  color: type == BillType.bill ? kBlue : kDeepBlush,
                   width: 20.0,
                 ),
                 top: const BorderSide(
@@ -126,7 +125,7 @@ class TransactionCard extends StatelessWidget {
                   child: TextButton.icon(
                     onPressed: () {
                       context.pushRoute(
-                        AddTransactionRoute(transaction: transactionEntity),
+                        AddBillRoute(billEntity: billEntity),
                       );
                     },
                     style: const ButtonStyle(
@@ -151,8 +150,9 @@ class TransactionCard extends StatelessWidget {
                           message: 'Deleted',
                         ),
                       );
-                      context.read<TransactionActorBloc>().add(
-                          TransactionActorEvent.deleted(transactionEntity));
+                      context
+                          .read<BillActorBloc>()
+                          .add(BillActorEvent.deleted(billEntity));
                     },
                     style: const ButtonStyle(
                         splashFactory: NoSplash.splashFactory),

@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AccountScreen(),
+      );
+    },
     AddAccountRoute.name: (routeData) {
       final args = routeData.argsAs<AddAccountRouteArgs>(
           orElse: () => const AddAccountRouteArgs());
@@ -87,6 +93,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AnalyticScreen(),
       );
     },
+    BillRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BillScreen(),
+      );
+    },
     DebtRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -154,6 +166,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AccountScreen]
+class AccountRoute extends PageRouteInfo<void> {
+  const AccountRoute({List<PageRouteInfo>? children})
+      : super(
+          AccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -394,6 +420,20 @@ class AnalyticRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AnalyticRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BillScreen]
+class BillRoute extends PageRouteInfo<void> {
+  const BillRoute({List<PageRouteInfo>? children})
+      : super(
+          BillRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BillRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -22,7 +22,10 @@ class InsideBoxWidget extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             // color: kBluegreyShade,
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
           ),
         ),
         Padding(
