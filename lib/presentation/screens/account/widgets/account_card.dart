@@ -20,47 +20,40 @@ class AccountCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: FlipCard(
         front: Container(
           width: double.infinity,
           height: 160,
-          padding: const EdgeInsets.only(left: 20, right: 12, top: 5),
-          decoration: const BoxDecoration(
-            color: kBluegrey,
-            border: Border(
-              left: BorderSide(
-                color: kBlueShade,
-                width: 20.0,
-              ),
-              right: BorderSide(
-                color: kBlack,
-                width: 10.0,
-              ),
-              top: BorderSide(
-                color: kBluegreyShade,
-                width: 15.0,
-              ),
-              bottom: BorderSide(
-                color: kBluegreyShade,
-                width: 10.0,
-              ),
+          padding: const EdgeInsets.only(
+            left: 25,
+            right: 12,
+            top: 10,
+          ),
+          decoration: BoxDecoration(
+            color: kWhite,
+            borderRadius: kRadius20,
+            image: const DecorationImage(
+              image: AssetImage('images/account.jpg'),
+              alignment: Alignment.centerRight,
+              fit: BoxFit.fitHeight,
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               kHeight20,
-              TextWidget(
-                text: accountEntity.accountName.getOrCrash(),
-                color: kGreyShade,
-                fontSize: 20,
+              Text(
+                accountEntity.accountName.getOrCrash(),
+                style: kTextStyle,
               ),
               kHeight20,
-              TextWidget(
-                text: '₹ ${accountEntity.accountBalance.getOrCrash()}',
-                color: kBlueShade,
-                fontSize: 25,
+              Text(
+                '₹ ${accountEntity.accountBalance.getOrCrash()}',
+                style: kTextStyle.copyWith(
+                  color: kBlack,
+                  fontSize: 25,
+                ),
               ),
             ],
           ),
@@ -68,26 +61,17 @@ class AccountCard extends StatelessWidget {
         back: Container(
           width: double.infinity,
           height: 160,
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
-          decoration: const BoxDecoration(
-            color: kBluegrey,
-            border: Border(
-              left: BorderSide(
-                color: kBlack,
-                width: 10.0,
-              ),
-              right: BorderSide(
-                color: kBlueShade,
-                width: 20.0,
-              ),
-              top: BorderSide(
-                color: kBluegreyShade,
-                width: 15.0,
-              ),
-              bottom: BorderSide(
-                color: kBluegreyShade,
-                width: 10.0,
-              ),
+          padding: const EdgeInsets.only(
+            left: 25,
+            right: 12,
+            top: 10,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: kRadius20,
+            image: const DecorationImage(
+              opacity: .7,
+              image: AssetImage('images/account.jpg'),
+              fit: BoxFit.cover,
             ),
           ),
           child: Row(
@@ -103,12 +87,14 @@ class AccountCard extends StatelessWidget {
                   style:
                       const ButtonStyle(splashFactory: NoSplash.splashFactory),
                   icon: const LineIcon.pen(
-                    color: kBlueShade,
+                    color: kBluegrey,
                   ),
-                  label: const TextWidget(
-                    text: 'Edit',
-                    color: kBlueShade,
-                    fontSize: 15,
+                  label: Text(
+                    'Edit',
+                    style: kTextStyle.copyWith(
+                      color: kBlack,
+                      fontSize: 15,
+                    ),
                   ),
                 ),
               ),
@@ -129,12 +115,14 @@ class AccountCard extends StatelessWidget {
                   style:
                       const ButtonStyle(splashFactory: NoSplash.splashFactory),
                   icon: const LineIcon.trash(
-                    color: kRed,
+                    color: kBlack,
                   ),
-                  label: const TextWidget(
-                    text: 'Delete',
-                    color: kRed,
-                    fontSize: 15,
+                  label: Text(
+                    'Delete',
+                    style: kTextStyle.copyWith(
+                      color: kBlack,
+                      fontSize: 15,
+                    ),
                   ),
                 ),
               ),

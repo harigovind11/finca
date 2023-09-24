@@ -86,21 +86,13 @@ class BillScreen extends StatelessWidget {
                     ]),
               ),
             ),
-            body: TabBarView(children: [
-              _buildIncome(),
-              _buildExpense(),
+            body: const TabBarView(children: [
+              BillListWidget(),
+              SubscriptionListWidget(),
             ]),
           ),
         ),
       ),
     );
-  }
-
-  Widget _buildIncome() {
-    return const BillListWidget();
-  }
-
-  Widget _buildExpense() {
-    return const SubscriptionListWidget();
   }
 }

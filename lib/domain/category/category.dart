@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:finca/domain/category/value_objects.dart';
 import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
+import 'package:finca/domain/core/value_transformers.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'category.freezed.dart';
@@ -21,7 +22,7 @@ class CategoryEntity with _$CategoryEntity {
         id: UniqueId(''),
         categoryName: CategoryName(''),
         categoryIcon: Icons.category,
-        color: Colors.blue,
+        color: Colors.blueAccent,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
@@ -31,6 +32,7 @@ class CategoryEntity with _$CategoryEntity {
     );
   }
 
+//? Entity to Domain
   factory CategoryEntity.fromSnapshot(DocumentSnapshot snapshot) {
     final data = snapshot.data() as Map<String, dynamic>;
     return CategoryEntity(
@@ -38,8 +40,16 @@ class CategoryEntity with _$CategoryEntity {
       categoryName: CategoryName(
         data['categoryName'],
       ),
-      categoryIcon: IconData(data['categoryIcon']),
-      color: Color(data['color']),
+      categoryIcon: IconData(
+        data['categoryIcon'],
+      ),
+      color: makeColorOpaque(Color(data['color'])),
+    );
+  }
+  IconData getIconData() {
+    return IconData(
+      categoryIcon.codePoint,
+      fontFamily: 'MaterialIcons',
     );
   }
 }

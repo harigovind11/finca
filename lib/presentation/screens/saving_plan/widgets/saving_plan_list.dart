@@ -1,8 +1,8 @@
 import 'package:finca/application/saving_plan/saving_plan_watcher/saving_plan_watcher_bloc.dart';
-import 'package:finca/presentation/screens/transaction/widgets/critical_failure_display_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'critical_failure_display_widget.dart';
 import 'error_card.dart';
 import 'saving_plan_card.dart';
 

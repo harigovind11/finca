@@ -50,6 +50,7 @@ dependencies:
   json_annotation: ^4.8.1
   json_serializable: ^6.7.1
   line_icons: ^2.0.3
+  line_awesome_flutter: ^2.0.0
   material_design_icons_flutter: ^7.0.7296
   provider: ^6.0.5
   rxdart: ^0.27.7
@@ -82,8 +83,9 @@ flutter:
     - images/logo.png
     - images/foreground.png
     - images/credit.jpg
-    - images/income.jpg
+    - images/income.jpg    
     - images/expense.jpg
+    - images/account.jpg
   fonts:
     - family: MusticaPro
       fonts:

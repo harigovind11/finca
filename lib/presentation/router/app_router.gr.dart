@@ -99,6 +99,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BillScreen(),
       );
     },
+    CategoryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CategoryScreen(),
+      );
+    },
     DebtRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -434,6 +440,20 @@ class BillRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'BillRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CategoryScreen]
+class CategoryRoute extends PageRouteInfo<void> {
+  const CategoryRoute({List<PageRouteInfo>? children})
+      : super(
+          CategoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CategoryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

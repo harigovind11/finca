@@ -1,9 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:finca/domain/category/category.dart';
 import 'package:finca/infrastructure/core/json_converter.dart';
 
@@ -18,7 +16,7 @@ abstract class CategoryDto with _$CategoryDto {
     required String categoryName,
     required int categoryIcon,
     required int color,
-    @ServerTimestampConverter() required FieldValue serverTimeStamb,
+    @ServerTimestampConverter() required FieldValue serverTimeStamp,
   }) = _CategoryDto;
 
 //?Domain to Entity
@@ -29,7 +27,7 @@ abstract class CategoryDto with _$CategoryDto {
       categoryName: categoryEntity.categoryName.getOrCrash(),
       categoryIcon: categoryEntity.categoryIcon.codePoint,
       color: categoryEntity.color.value,
-      serverTimeStamb: FieldValue.serverTimestamp(),
+      serverTimeStamp: FieldValue.serverTimestamp(),
     );
   }
 

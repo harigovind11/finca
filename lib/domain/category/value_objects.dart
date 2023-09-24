@@ -1,32 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:finca/domain/core/value_failures.dart';
 import 'package:finca/domain/core/value_objects.dart';
-import 'package:finca/domain/core/value_transformers.dart';
 import 'package:finca/domain/core/value_validators.dart';
-import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 
 class CategoryName extends ValueObject<String> {
-  // static const List<String> predefinedNames = [
-  //   'salary',
-  //   'food',
-  //   'grocery',
-  //   'shopping',
-  //   'transportaion',
-  //   'fuel',
-  //   'cloth',
-  //   'phone',
-  //   'wifi',
-  //   'water',
-  //   'film',
-  //   'concert',
-  //   'hospital',
-  //   'medicine',
-  //   'cat food',
-  //   'records',
-  //   'television',
-  //   'motel',
-  // ];
   @override
   final Either<ValueFailure<String>, String> value;
 
@@ -72,24 +49,24 @@ class CategoryName extends ValueObject<String> {
 
 // class CategoryColor extends ValueObject<Color> {
 //   static const List<Color> predefinedColors = [
-//     Colors.red,
-//     Colors.purple,
-//     Colors.deepPurple,
-//     Colors.indigo,
-//     Colors.blue,
-//     Colors.lightBlue,
-//     Colors.cyan,
-//     Colors.pink,
-//     Colors.teal,
-//     Colors.green,
-//     Colors.lightGreen,
-//     Colors.lime,
-//     Colors.yellow,
-//     Colors.amber,
-//     Colors.orange,
-//     Colors.deepOrange,
-//     Colors.brown,
-//     Colors.tealAccent ,
+    // Colors.red,
+    // Colors.purple,
+    // Colors.deepPurple,
+    // Colors.indigo,
+    // Colors.blue,
+    // Colors.lightBlue,
+    // Colors.cyan,
+    // Colors.pink,
+    // Colors.teal,
+    // Colors.green,
+    // Colors.lightGreen,
+    // Colors.lime,
+    // Colors.yellow,
+    // Colors.amber,
+    // Colors.orange,
+    // Colors.deepOrange,
+    // Colors.brown,
+    // Colors.tealAccent ,
 //   ];
 
 //   @override
@@ -103,3 +80,26 @@ class CategoryName extends ValueObject<String> {
 //   }
 //   const CategoryColor._(this.value);
 // }
+ 
+ 
+ //?
+  // static const List<String> predefinedNames = [
+  //   'salary',
+  //   'food',
+  //   'grocery',
+  //   'shopping',
+  //   'transportaion',
+  //   'fuel',
+  //   'cloth',
+  //   'phone',
+  //   'wifi',
+  //   'water',
+  //   'film',
+  //   'concert',
+  //   'hospital',
+  //   'medicine',
+  //   'cat food',
+  //   'records',
+  //   'television',
+  //   'motel',
+  // ];

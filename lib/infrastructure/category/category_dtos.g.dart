@@ -11,8 +11,8 @@ _$_CategoryDto _$$_CategoryDtoFromJson(Map<String, dynamic> json) =>
       categoryName: json['categoryName'] as String,
       categoryIcon: json['categoryIcon'] as int,
       color: json['color'] as int,
-      serverTimeStamb: const ServerTimestampConverter()
-          .fromJson(json['serverTimeStamb'] as Object),
+      serverTimeStamp: const ServerTimestampConverter()
+          .fromJson(json['serverTimeStamp'] as Object),
     );
 
 Map<String, dynamic> _$$_CategoryDtoToJson(_$_CategoryDto instance) =>
@@ -20,6 +20,6 @@ Map<String, dynamic> _$$_CategoryDtoToJson(_$_CategoryDto instance) =>
       'categoryName': instance.categoryName,
       'categoryIcon': instance.categoryIcon,
       'color': instance.color,
-      'serverTimeStamb':
-          const ServerTimestampConverter().toJson(instance.serverTimeStamb),
+      'serverTimeStamp':
+          const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

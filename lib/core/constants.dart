@@ -1,3 +1,4 @@
+import 'package:finca/core/colors_collection.dart';
 import 'package:flutter/material.dart';
 
 //!SizedBoxes height
@@ -22,10 +23,11 @@ final BorderRadius kRadius20 = BorderRadius.circular(20);
 final BorderRadius kRadius30 = BorderRadius.circular(30);
 //!Decorations
 
-const kSendButtonTextStyle = TextStyle(
-  color: Colors.lightBlueAccent,
+const kTextStyle = TextStyle(
+  color: kBluegrey,
+  fontSize: 20,
+  fontFamily: 'MusticaPro',
   fontWeight: FontWeight.bold,
-  fontSize: 18.0,
 );
 
 //!Texts

@@ -103,7 +103,11 @@ class FeaturesRow extends StatelessWidget {
                 backgroundColor: kWhite,
                 child: IconButton(
                   color: kBluegrey,
-                  onPressed: () {},
+                  onPressed: () {
+                    AutoRouter.of(context).push(
+                      const CategoryRoute(),
+                    );
+                  },
                   icon: const Icon(
                     LineIcons.icons,
                   ),

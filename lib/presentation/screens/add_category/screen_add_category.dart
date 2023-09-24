@@ -98,18 +98,25 @@ class CategoryScaffold extends StatelessWidget {
                 const IconPicker(),
                 kHeight20,
                 //?Color picker
-                const ColorPickerWidget(), kHeight20,
-                RoundedButton(
-                  title: 'ADD',
-                  backgroundColor: kWhite,
-                  textColor: kBluegrey,
-                  onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      context
-                          .read<CategoryFormBloc>()
-                          .add(const CategoryFormEvent.saved());
-                      await Future.delayed(const Duration(seconds: 1));
-                    }
+                const ColorPickerWidget(),
+                kHeight20,
+                BlocBuilder<CategoryFormBloc, CategoryFormState>(
+                  buildWhen: ((previous, current) =>
+                      previous.isEditing != current.isEditing),
+                  builder: (context, state) {
+                    return RoundedButton(
+                      title: state.isEditing ? 'Edit' : 'Add',
+                      backgroundColor: kWhite,
+                      textColor: kBluegrey,
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          context
+                              .read<CategoryFormBloc>()
+                              .add(const CategoryFormEvent.saved());
+                          await Future.delayed(const Duration(seconds: 1));
+                        }
+                      },
+                    );
                   },
                 ),
               ],

@@ -12,51 +12,57 @@ class IconPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _pickIcon() async {
-      IconData? icon = await FlutterIconPicker.showIconPicker(context,
-          iconColor: kOffWhite,
-          backgroundColor: kBluegrey,
-          mainAxisSpacing: 15,
-          crossAxisSpacing: 5,
-          iconPickerShape: RoundedRectangleBorder(borderRadius: kRadius20),
-          iconPackModes: [IconPack.lineAwesomeIcons]);
-      context.read<CategoryFormBloc>().add(
-            CategoryFormEvent.categoryIconChanged(icon!),
-          );
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: Material(
-        elevation: 5,
-        color: kBluegreyShade,
-        borderRadius: BorderRadius.circular(20.0),
-        child: GestureDetector(
-          onTap: _pickIcon,
-          child: ListTile(
-            title: const Text(
-              'Select icon',
-              style: TextStyle(
-                color: kWhite,
-              ),
-            ),
-            subtitle: const Text(
-              'Tap to select icon',
-              style: TextStyle(
-                color: kGrey,
-              ),
-            ),
-            trailing: BlocBuilder<CategoryFormBloc, CategoryFormState>(
-              builder: (context, state) {
-                return Icon(
-                  color: kWhite,
-                  state.categoryEntity.categoryIcon,
-                );
+    return BlocBuilder<CategoryFormBloc, CategoryFormState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: Material(
+            elevation: 5,
+            color: kBluegreyShade,
+            borderRadius: BorderRadius.circular(20.0),
+            child: GestureDetector(
+              onTap: () async {
+                final IconData? icon = await pickIcon(context);
+                if (icon != null) {
+                  context.read<CategoryFormBloc>().add(
+                        CategoryFormEvent.categoryIconChanged(icon),
+                      );
+                } else {
+                  return;
+                }
               },
+              child: ListTile(
+                title: const Text(
+                  'Select icon',
+                  style: TextStyle(
+                    color: kWhite,
+                  ),
+                ),
+                subtitle: const Text(
+                  'Tap to select icon',
+                  style: TextStyle(
+                    color: kGrey,
+                  ),
+                ),
+                trailing: Icon(
+                  color: kWhite,
+                  state.categoryEntity.getIconData(),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
+  }
+
+  Future<IconData?> pickIcon(BuildContext context) async {
+    return FlutterIconPicker.showIconPicker(context,
+        iconColor: kOffWhite,
+        backgroundColor: kBluegrey,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 5,
+        iconPickerShape: RoundedRectangleBorder(borderRadius: kRadius20),
+        iconPackModes: [IconPack.material]);
   }
 }

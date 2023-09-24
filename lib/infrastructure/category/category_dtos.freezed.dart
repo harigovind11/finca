@@ -26,7 +26,7 @@ mixin _$CategoryDto {
   int get categoryIcon => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   @ServerTimestampConverter()
-  FieldValue get serverTimeStamb => throw _privateConstructorUsedError;
+  FieldValue get serverTimeStamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $CategoryDtoCopyWith<$Res> {
       String categoryName,
       int categoryIcon,
       int color,
-      @ServerTimestampConverter() FieldValue serverTimeStamb});
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
     Object? categoryName = null,
     Object? categoryIcon = null,
     Object? color = null,
-    Object? serverTimeStamb = null,
+    Object? serverTimeStamp = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -84,9 +84,9 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
-      serverTimeStamb: null == serverTimeStamb
-          ? _value.serverTimeStamb
-          : serverTimeStamb // ignore: cast_nullable_to_non_nullable
+      serverTimeStamp: null == serverTimeStamp
+          ? _value.serverTimeStamp
+          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
               as FieldValue,
     ) as $Val);
   }
@@ -105,7 +105,7 @@ abstract class _$$_CategoryDtoCopyWith<$Res>
       String categoryName,
       int categoryIcon,
       int color,
-      @ServerTimestampConverter() FieldValue serverTimeStamb});
+      @ServerTimestampConverter() FieldValue serverTimeStamp});
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
     Object? categoryName = null,
     Object? categoryIcon = null,
     Object? color = null,
-    Object? serverTimeStamb = null,
+    Object? serverTimeStamp = null,
   }) {
     return _then(_$_CategoryDto(
       id: freezed == id
@@ -142,9 +142,9 @@ class __$$_CategoryDtoCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
-      serverTimeStamb: null == serverTimeStamb
-          ? _value.serverTimeStamb
-          : serverTimeStamb // ignore: cast_nullable_to_non_nullable
+      serverTimeStamp: null == serverTimeStamp
+          ? _value.serverTimeStamp
+          : serverTimeStamp // ignore: cast_nullable_to_non_nullable
               as FieldValue,
     ));
   }
@@ -158,7 +158,7 @@ class _$_CategoryDto extends _CategoryDto {
       required this.categoryName,
       required this.categoryIcon,
       required this.color,
-      @ServerTimestampConverter() required this.serverTimeStamb})
+      @ServerTimestampConverter() required this.serverTimeStamp})
       : super._();
 
   factory _$_CategoryDto.fromJson(Map<String, dynamic> json) =>
@@ -175,11 +175,11 @@ class _$_CategoryDto extends _CategoryDto {
   final int color;
   @override
   @ServerTimestampConverter()
-  final FieldValue serverTimeStamb;
+  final FieldValue serverTimeStamp;
 
   @override
   String toString() {
-    return 'CategoryDto(id: $id, categoryName: $categoryName, categoryIcon: $categoryIcon, color: $color, serverTimeStamb: $serverTimeStamb)';
+    return 'CategoryDto(id: $id, categoryName: $categoryName, categoryIcon: $categoryIcon, color: $color, serverTimeStamp: $serverTimeStamp)';
   }
 
   @override
@@ -193,14 +193,14 @@ class _$_CategoryDto extends _CategoryDto {
             (identical(other.categoryIcon, categoryIcon) ||
                 other.categoryIcon == categoryIcon) &&
             (identical(other.color, color) || other.color == color) &&
-            (identical(other.serverTimeStamb, serverTimeStamb) ||
-                other.serverTimeStamb == serverTimeStamb));
+            (identical(other.serverTimeStamp, serverTimeStamp) ||
+                other.serverTimeStamp == serverTimeStamp));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, categoryName, categoryIcon, color, serverTimeStamb);
+      runtimeType, id, categoryName, categoryIcon, color, serverTimeStamp);
 
   @JsonKey(ignore: true)
   @override
@@ -223,7 +223,7 @@ abstract class _CategoryDto extends CategoryDto {
       required final int categoryIcon,
       required final int color,
       @ServerTimestampConverter()
-      required final FieldValue serverTimeStamb}) = _$_CategoryDto;
+      required final FieldValue serverTimeStamp}) = _$_CategoryDto;
   const _CategoryDto._() : super._();
 
   factory _CategoryDto.fromJson(Map<String, dynamic> json) =
@@ -240,7 +240,7 @@ abstract class _CategoryDto extends CategoryDto {
   int get color;
   @override
   @ServerTimestampConverter()
-  FieldValue get serverTimeStamb;
+  FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryDtoCopyWith<_$_CategoryDto> get copyWith =>

@@ -1,37 +1,36 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:finca/application/account/account_actor/account_actor_bloc.dart';
-import 'package:finca/application/account/account_watcher/account_watcher_bloc.dart';
+import 'package:finca/application/category/category_actor/catergory_actor_bloc.dart';
+import 'package:finca/application/category/category_watcher/category_watcher_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import 'package:finca/core/colors_collection.dart';
 import 'package:finca/core/constants.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';
 import 'package:finca/presentation/screens/widgets/custom_fab.dart';
 
-import 'widgets/account_list.dart';
+import 'widgets/category_list.dart';
 
 @RoutePage()
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<AccountActorBloc>(),
+          create: (context) => getIt<CatergoryActorBloc>(),
         ),
         BlocProvider(
-          create: (context) => getIt<AccountWatcherBloc>()
-            ..add(const AccountWatcherEvent.watchAllStarted()),
+          create: (context) => getIt<CategoryWatcherBloc>()
+            ..add(const CategoryWatcherEvent.watchAllStarted()),
         ),
       ],
-      child: BlocListener<AccountActorBloc, AccountActorState>(
+      child: BlocListener<CatergoryActorBloc, CatergoryActorState>(
         listener: (context, state) {
           state.maybeMap(
               deleteFailure: (state) {
@@ -57,20 +56,22 @@ class AccountScreen extends StatelessWidget {
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.endFloat,
               floatingActionButton: CustomFAB(
-                onPressed: () => AutoRouter.of(context).push(AddAccountRoute()),
+                onPressed: () =>
+                    AutoRouter.of(context).push(AddCategoryRoute()),
                 icon: LineIcons.plusCircle,
-                heroTag: 'btn5',
+                heroTag: 'btn7',
               ),
               backgroundColor: kBluegrey,
               appBar: AppBar(
                 backgroundColor: kBluegrey,
+                elevation: 0,
                 title: const TextWidget(
-                  text: 'My Accounts ',
+                  text: 'Categories ',
                   color: kWhite,
                   fontSize: 25,
                 ),
               ),
-              body: const AccountListWidget(),
+              body: const CategoryListWidget(),
             ),
           ),
         ),
