@@ -74,7 +74,6 @@ class ProfileScreen extends StatelessWidget {
                       text: 'Edit Your profile',
                       prefixIcon: LineIcons.userEdit,
                       onTap: () {
-                        AutoRouter.of(context).push(AddAccountRoute());
                         showTopSnackBar(
                           Overlay.of(context),
                           const CustomSnackBar.info(
@@ -89,7 +88,6 @@ class ProfileScreen extends StatelessWidget {
                       text: 'App Settings',
                       prefixIcon: LineIcons.userCog,
                       onTap: () {
-                        AutoRouter.of(context).push(AddBillRoute());
                         showTopSnackBar(
                           Overlay.of(context),
                           const CustomSnackBar.info(
@@ -104,7 +102,6 @@ class ProfileScreen extends StatelessWidget {
                       text: 'About Finca',
                       prefixIcon: LineIcons.infoCircle,
                       onTap: () {
-                        AutoRouter.of(context).push(AddCategoryRoute());
                         showTopSnackBar(
                           Overlay.of(context),
                           const CustomSnackBar.info(

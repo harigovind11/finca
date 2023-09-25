@@ -20,6 +20,7 @@ class CategoryWatcherBloc
   CategoryWatcherBloc(this._iCategoryRepository) : super(const _Initial()) {
     on<_WatchAllStarted>((event, emit) async {
       emit(const CategoryWatcherState.loadInProgress());
+      await _iCategoryRepository.initializeCategories();
       await _categoryStreamSubscription?.cancel();
       _categoryStreamSubscription = _iCategoryRepository.watchAll().listen(
             (failureOrCategories) => add(

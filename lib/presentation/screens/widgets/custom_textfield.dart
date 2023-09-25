@@ -74,7 +74,7 @@ class CustomTextField extends HookWidget {
       this.onTap,
       this.maxLength,
       this.cursorColor = kGrey,
-      this.textColor = kGrey,
+      this.textColor = kWhite,
       this.prefixIconColor = kOffWhite,
       this.suffixIconColor = kOffWhite,
       this.counterColor = kOffWhite,

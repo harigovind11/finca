@@ -6,11 +6,12 @@ import 'package:finca/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:finca/domain/category/category.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-class CategoryCard extends StatelessWidget {
+class CategoryCard extends HookWidget {
   final CategoryEntity categoryEntity;
 
   const CategoryCard({
@@ -19,6 +20,7 @@ class CategoryCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final _deleteButtonPressed = useState(true);
     return Container(
       height: 75,
       decoration: const BoxDecoration(
@@ -42,44 +44,72 @@ class CategoryCard extends StatelessWidget {
             fontSize: 15,
           ),
           trailing: SizedBox(
-            width: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    context.pushRoute(
-                      AddCategoryRoute(categoryEntity: categoryEntity),
-                    );
-                  },
-                  style:
-                      const ButtonStyle(splashFactory: NoSplash.splashFactory),
-                  icon: const LineIcon.pen(
-                    color: kBlueShade,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    showTopSnackBar(
-                      Overlay.of(context),
-                      const CustomSnackBar.success(
-                        backgroundColor: kBlueShade,
-                        message: 'Deleted',
-                      ),
-                    );
-                    context
-                        .read<CatergoryActorBloc>()
-                        .add(CatergoryActorEvent.deleted(categoryEntity));
-                  },
-                  style:
-                      const ButtonStyle(splashFactory: NoSplash.splashFactory),
-                  icon: const LineIcon.trash(
-                    color: kRed,
-                  ),
-                ),
-              ],
-            ),
-          ),
+              width: 100,
+              child: _deleteButtonPressed.value //?Edit  or Delete
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            context.pushRoute(
+                              AddCategoryRoute(categoryEntity: categoryEntity),
+                            );
+                          },
+                          style: const ButtonStyle(
+                              splashFactory: NoSplash.splashFactory),
+                          icon: const LineIcon.pen(
+                            color: kBlueShade,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            _deleteButtonPressed.value =
+                                !_deleteButtonPressed.value;
+                          },
+                          style: const ButtonStyle(
+                              splashFactory: NoSplash.splashFactory),
+                          icon: const LineIcon.trash(
+                            color: kRed,
+                          ),
+                        ),
+                      ],
+                    )
+
+                  //?Delete confirmation
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            showTopSnackBar(
+                              Overlay.of(context),
+                              const CustomSnackBar.success(
+                                backgroundColor: kBlueShade,
+                                message: 'Deleted',
+                              ),
+                            );
+                            context.read<CatergoryActorBloc>().add(
+                                CatergoryActorEvent.deleted(categoryEntity));
+                          },
+                          style: const ButtonStyle(
+                              splashFactory: NoSplash.splashFactory),
+                          icon: const LineIcon.check(
+                            color: kBlueShade,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            _deleteButtonPressed.value =
+                                !_deleteButtonPressed.value;
+                          },
+                          style: const ButtonStyle(
+                              splashFactory: NoSplash.splashFactory),
+                          icon: const LineIcon.times(
+                            color: kRed,
+                          ),
+                        ),
+                      ],
+                    )),
         ),
       ),
     );

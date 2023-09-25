@@ -7,6 +7,5 @@ abstract class ICategoryRepository {
   Future<Either<FirestoreFailure, Unit>> create(CategoryEntity categoryEntity);
   Future<Either<FirestoreFailure, Unit>> update(CategoryEntity categoryEntity);
   Future<Either<FirestoreFailure, Unit>> delete(CategoryEntity categoryEntity);
-
-  Future<Either<FirestoreFailure, Unit>> populateDefaultCategories();
+  Future<void> initializeCategories();
 }

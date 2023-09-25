@@ -20,7 +20,7 @@ class CategoryFormBloc extends Bloc<CategoryFormEvent, CategoryFormState> {
   CategoryFormBloc(
     this._iCategoryRepository,
   ) : super(CategoryFormState.initial()) {
-    on<_Initialized>((event, emit) {
+    on<_Initialized>((event, emit) async {
       emit(
         event.initialOption.fold(
           () => state,
