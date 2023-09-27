@@ -338,7 +338,7 @@ mixin _$CategoryWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<CategoryEntity> categories) loadSucess,
+    required TResult Function(List<CategoryEntity> categories) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -346,7 +346,7 @@ mixin _$CategoryWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<CategoryEntity> categories)? loadSucess,
+    TResult? Function(List<CategoryEntity> categories)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -354,7 +354,7 @@ mixin _$CategoryWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<CategoryEntity> categories)? loadSucess,
+    TResult Function(List<CategoryEntity> categories)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -363,7 +363,7 @@ mixin _$CategoryWatcherState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -371,7 +371,7 @@ mixin _$CategoryWatcherState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -379,7 +379,7 @@ mixin _$CategoryWatcherState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -444,7 +444,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<CategoryEntity> categories) loadSucess,
+    required TResult Function(List<CategoryEntity> categories) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return initial();
@@ -455,7 +455,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<CategoryEntity> categories)? loadSucess,
+    TResult? Function(List<CategoryEntity> categories)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -466,7 +466,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<CategoryEntity> categories)? loadSucess,
+    TResult Function(List<CategoryEntity> categories)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -481,7 +481,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return initial(this);
@@ -492,7 +492,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return initial?.call(this);
@@ -503,7 +503,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -558,7 +558,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<CategoryEntity> categories) loadSucess,
+    required TResult Function(List<CategoryEntity> categories) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -569,7 +569,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<CategoryEntity> categories)? loadSucess,
+    TResult? Function(List<CategoryEntity> categories)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -580,7 +580,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<CategoryEntity> categories)? loadSucess,
+    TResult Function(List<CategoryEntity> categories)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -595,7 +595,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadInProgress(this);
@@ -606,7 +606,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadInProgress?.call(this);
@@ -617,7 +617,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -679,7 +679,7 @@ class _$_LoadSucess implements _LoadSucess {
 
   @override
   String toString() {
-    return 'CategoryWatcherState.loadSucess(categories: $categories)';
+    return 'CategoryWatcherState.loadSuccess(categories: $categories)';
   }
 
   @override
@@ -706,10 +706,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<CategoryEntity> categories) loadSucess,
+    required TResult Function(List<CategoryEntity> categories) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
-    return loadSucess(categories);
+    return loadSuccess(categories);
   }
 
   @override
@@ -717,10 +717,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<CategoryEntity> categories)? loadSucess,
+    TResult? Function(List<CategoryEntity> categories)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
-    return loadSucess?.call(categories);
+    return loadSuccess?.call(categories);
   }
 
   @override
@@ -728,12 +728,12 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<CategoryEntity> categories)? loadSucess,
+    TResult Function(List<CategoryEntity> categories)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
-    if (loadSucess != null) {
-      return loadSucess(categories);
+    if (loadSuccess != null) {
+      return loadSuccess(categories);
     }
     return orElse();
   }
@@ -743,10 +743,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
-    return loadSucess(this);
+    return loadSuccess(this);
   }
 
   @override
@@ -754,10 +754,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
-    return loadSucess?.call(this);
+    return loadSuccess?.call(this);
   }
 
   @override
@@ -765,12 +765,12 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
-    if (loadSucess != null) {
-      return loadSucess(this);
+    if (loadSuccess != null) {
+      return loadSuccess(this);
     }
     return orElse();
   }
@@ -863,7 +863,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<CategoryEntity> categories) loadSucess,
+    required TResult Function(List<CategoryEntity> categories) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadFailure(firestoreFailure);
@@ -874,7 +874,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<CategoryEntity> categories)? loadSucess,
+    TResult? Function(List<CategoryEntity> categories)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadFailure?.call(firestoreFailure);
@@ -885,7 +885,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<CategoryEntity> categories)? loadSucess,
+    TResult Function(List<CategoryEntity> categories)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -900,7 +900,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadFailure(this);
@@ -911,7 +911,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadFailure?.call(this);
@@ -922,7 +922,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {

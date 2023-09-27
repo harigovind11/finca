@@ -30,7 +30,7 @@ class AccountWatcherBloc
       emit(
         event.failureOrAccounts.fold(
           (f) => AccountWatcherState.loadFailure(f),
-          (accounts) => AccountWatcherState.loadSucess(accounts),
+          (accounts) => AccountWatcherState.loadSuccess(accounts),
         ),
       );
     });

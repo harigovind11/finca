@@ -23,8 +23,14 @@ final BorderRadius kRadius20 = BorderRadius.circular(20);
 final BorderRadius kRadius30 = BorderRadius.circular(30);
 //!Decorations
 
-const kTextStyle = TextStyle(
+const kTextStyleDark = TextStyle(
   color: kBluegrey,
+  fontSize: 20,
+  fontFamily: 'MusticaPro',
+  fontWeight: FontWeight.bold,
+);
+const kTextStyleLight = TextStyle(
+  color: kWhite,
   fontSize: 20,
   fontFamily: 'MusticaPro',
   fontWeight: FontWeight.bold,

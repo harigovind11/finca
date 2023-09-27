@@ -336,7 +336,7 @@ mixin _$AccountWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<AccountEntity> accounts) loadSucess,
+    required TResult Function(List<AccountEntity> accounts) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -344,7 +344,7 @@ mixin _$AccountWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<AccountEntity> accounts)? loadSucess,
+    TResult? Function(List<AccountEntity> accounts)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -352,7 +352,7 @@ mixin _$AccountWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<AccountEntity> accounts)? loadSucess,
+    TResult Function(List<AccountEntity> accounts)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -361,7 +361,7 @@ mixin _$AccountWatcherState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -369,7 +369,7 @@ mixin _$AccountWatcherState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -377,7 +377,7 @@ mixin _$AccountWatcherState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -441,7 +441,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<AccountEntity> accounts) loadSucess,
+    required TResult Function(List<AccountEntity> accounts) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return initial();
@@ -452,7 +452,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<AccountEntity> accounts)? loadSucess,
+    TResult? Function(List<AccountEntity> accounts)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -463,7 +463,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<AccountEntity> accounts)? loadSucess,
+    TResult Function(List<AccountEntity> accounts)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -478,7 +478,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return initial(this);
@@ -489,7 +489,7 @@ class _$_Initial implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return initial?.call(this);
@@ -500,7 +500,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -555,7 +555,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<AccountEntity> accounts) loadSucess,
+    required TResult Function(List<AccountEntity> accounts) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -566,7 +566,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<AccountEntity> accounts)? loadSucess,
+    TResult? Function(List<AccountEntity> accounts)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -577,7 +577,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<AccountEntity> accounts)? loadSucess,
+    TResult Function(List<AccountEntity> accounts)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -592,7 +592,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadInProgress(this);
@@ -603,7 +603,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadInProgress?.call(this);
@@ -614,7 +614,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -676,7 +676,7 @@ class _$_LoadSucess implements _LoadSucess {
 
   @override
   String toString() {
-    return 'AccountWatcherState.loadSucess(accounts: $accounts)';
+    return 'AccountWatcherState.loadSuccess(accounts: $accounts)';
   }
 
   @override
@@ -702,10 +702,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<AccountEntity> accounts) loadSucess,
+    required TResult Function(List<AccountEntity> accounts) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
-    return loadSucess(accounts);
+    return loadSuccess(accounts);
   }
 
   @override
@@ -713,10 +713,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<AccountEntity> accounts)? loadSucess,
+    TResult? Function(List<AccountEntity> accounts)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
-    return loadSucess?.call(accounts);
+    return loadSuccess?.call(accounts);
   }
 
   @override
@@ -724,12 +724,12 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<AccountEntity> accounts)? loadSucess,
+    TResult Function(List<AccountEntity> accounts)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
-    if (loadSucess != null) {
-      return loadSucess(accounts);
+    if (loadSuccess != null) {
+      return loadSuccess(accounts);
     }
     return orElse();
   }
@@ -739,10 +739,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
-    return loadSucess(this);
+    return loadSuccess(this);
   }
 
   @override
@@ -750,10 +750,10 @@ class _$_LoadSucess implements _LoadSucess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
-    return loadSucess?.call(this);
+    return loadSuccess?.call(this);
   }
 
   @override
@@ -761,12 +761,12 @@ class _$_LoadSucess implements _LoadSucess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
-    if (loadSucess != null) {
-      return loadSucess(this);
+    if (loadSuccess != null) {
+      return loadSuccess(this);
     }
     return orElse();
   }
@@ -858,7 +858,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<AccountEntity> accounts) loadSucess,
+    required TResult Function(List<AccountEntity> accounts) loadSuccess,
     required TResult Function(FirestoreFailure firestoreFailure) loadFailure,
   }) {
     return loadFailure(firestoreFailure);
@@ -869,7 +869,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<AccountEntity> accounts)? loadSucess,
+    TResult? Function(List<AccountEntity> accounts)? loadSuccess,
     TResult? Function(FirestoreFailure firestoreFailure)? loadFailure,
   }) {
     return loadFailure?.call(firestoreFailure);
@@ -880,7 +880,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<AccountEntity> accounts)? loadSucess,
+    TResult Function(List<AccountEntity> accounts)? loadSuccess,
     TResult Function(FirestoreFailure firestoreFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -895,7 +895,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
-    required TResult Function(_LoadSucess value) loadSucess,
+    required TResult Function(_LoadSucess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadFailure(this);
@@ -906,7 +906,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadInProgress value)? loadInProgress,
-    TResult? Function(_LoadSucess value)? loadSucess,
+    TResult? Function(_LoadSucess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
   }) {
     return loadFailure?.call(this);
@@ -917,7 +917,7 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
-    TResult Function(_LoadSucess value)? loadSucess,
+    TResult Function(_LoadSucess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {

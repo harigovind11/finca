@@ -573,10 +573,10 @@ class __$$_ColorChangedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
     return _then(_$_ColorChanged(
-      freezed == color
+      null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
@@ -602,12 +602,11 @@ class _$_ColorChanged implements _ColorChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ColorChanged &&
-            const DeepCollectionEquality().equals(other.color, color));
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override

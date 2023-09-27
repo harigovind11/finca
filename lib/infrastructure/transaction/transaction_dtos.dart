@@ -10,13 +10,13 @@ part 'transaction_dtos.freezed.dart';
 @freezed
 abstract class TransactionDto implements _$TransactionDto {
   const TransactionDto._();
-  const factory TransactionDto({
-    @JsonKey(includeFromJson: false) String? id,
-    required String amount,
-    required String purpose,
-    required DateTime date,
-    required TransactionType type,
-  }) = _TransactionDto;
+  const factory TransactionDto(
+      {@JsonKey(includeFromJson: false) String? id,
+      required String amount,
+      required String purpose,
+      required DateTime date,
+      required TransactionType type,
+      required String accountName}) = _TransactionDto;
 
   //?Domain to entity
 
@@ -27,27 +27,10 @@ abstract class TransactionDto implements _$TransactionDto {
       purpose: transactionEntity.purpose.getOrCrash(),
       date: transactionEntity.date,
       type: transactionEntity.type,
+      accountName: transactionEntity.accountName.getOrCrash(),
     );
   }
 
   factory TransactionDto.fromJson(Map<String, dynamic> json) =>
       _$TransactionDtoFromJson(json);
 }
-
-
-// Entity to Domain
- // TransactionEntity toDomain() {
-  //   return TransactionEntity(
-  //     id: UniqueId.fromUniqueString(id!),
-  //     amount: TransactionAmount(amount),
-  //     purpose: TransactionPurpose(purpose),
-  //     date: date,
-  //     type: type,
-  //   );
-  // }
-
-  
-  // factory TransactionDto.fromFirestore(DocumentSnapshot doc) {
-  //   return TransactionDto.fromJson(doc.data as Map<String, dynamic>)
-  //       .copyWith(id: doc.id);
-  // }

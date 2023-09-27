@@ -12,5 +12,8 @@ class TransactionFormEvent with _$TransactionFormEvent {
       _DateChanged;
   const factory TransactionFormEvent.typeChanged(
       TransactionType transactionType) = _TypeChanged;
+
+  const factory TransactionFormEvent.accountSelected(String selectedAccount) =
+      _AccountSelected;
   const factory TransactionFormEvent.saved() = _Saved;
 }

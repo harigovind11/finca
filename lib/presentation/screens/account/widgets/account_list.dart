@@ -18,7 +18,7 @@ class AccountListWidget extends StatelessWidget {
             loadInProgress: (_) => const Center(
                   child: CircularProgressIndicator(),
                 ),
-            loadSucess: (state) {
+            loadSuccess: (state) {
               return ListView.builder(
                 shrinkWrap: true,
                 itemBuilder: (context, index) {

@@ -5,7 +5,7 @@ class AccountWatcherState with _$AccountWatcherState {
   const factory AccountWatcherState.initial() = _Initial;
 
   const factory AccountWatcherState.loadInProgress() = _LoadInProgress;
-  const factory AccountWatcherState.loadSucess(
+  const factory AccountWatcherState.loadSuccess(
     List<AccountEntity> accounts,
   ) = _LoadSucess;
   const factory AccountWatcherState.loadFailure(

@@ -45,12 +45,12 @@ class AccountCard extends StatelessWidget {
               kHeight20,
               Text(
                 accountEntity.accountName.getOrCrash(),
-                style: kTextStyle,
+                style: kTextStyleDark,
               ),
               kHeight20,
               Text(
                 '₹ ${accountEntity.accountBalance.getOrCrash()}',
-                style: kTextStyle.copyWith(
+                style: kTextStyleDark.copyWith(
                   color: kBlack,
                   fontSize: 25,
                 ),
@@ -91,7 +91,7 @@ class AccountCard extends StatelessWidget {
                   ),
                   label: Text(
                     'Edit',
-                    style: kTextStyle.copyWith(
+                    style: kTextStyleDark.copyWith(
                       color: kBlack,
                       fontSize: 15,
                     ),
@@ -119,7 +119,7 @@ class AccountCard extends StatelessWidget {
                   ),
                   label: Text(
                     'Delete',
-                    style: kTextStyle.copyWith(
+                    style: kTextStyleDark.copyWith(
                       color: kBlack,
                       fontSize: 15,
                     ),

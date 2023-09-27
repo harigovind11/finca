@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:finca/domain/account/value_objects.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
 import 'package:finca/domain/core/firestore_faillure.dart';
 import 'package:finca/domain/transaction/value_objects.dart';
@@ -16,6 +17,7 @@ part 'transaction_form_bloc.freezed.dart';
 class TransactionFormBloc
     extends Bloc<TransactionFormEvent, TransactionFormState> {
   final ITransactionRepository _iTransactionRepository;
+
   TransactionFormBloc(this._iTransactionRepository)
       : super(TransactionFormState.initial()) {
     on<_Initialized>((event, emit) {
@@ -59,6 +61,17 @@ class TransactionFormBloc
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
             type: event.transactionType,
+          ),
+        ),
+      );
+    });
+    on<_AccountSelected>((event, emit) {
+      emit(
+        state.copyWith(
+          transactionEntity: state.transactionEntity.copyWith(
+            accountName: AccountName(
+              event.selectedAccount,
+            ),
           ),
         ),
       );

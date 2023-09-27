@@ -34,7 +34,7 @@ class CategoryWatcherBloc
       emit(
         event.failureOrCategories.fold(
           (f) => CategoryWatcherState.loadFailure(f),
-          (categories) => CategoryWatcherState.loadSucess(
+          (categories) => CategoryWatcherState.loadSuccess(
             categories,
           ),
         ),

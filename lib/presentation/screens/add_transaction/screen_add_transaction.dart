@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
+import 'package:finca/application/account/account_watcher/account_watcher_bloc.dart';
+import 'package:finca/application/category/category_watcher/category_watcher_bloc.dart';
 import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
 import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
 import 'package:finca/core/colors_collection.dart';
@@ -17,6 +19,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+import 'widgets/account_picker.dart';
+import 'widgets/category_picker.dart';
 
 @RoutePage()
 class AddTransactionScreen extends StatelessWidget {
@@ -37,6 +42,14 @@ class AddTransactionScreen extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<TransactionActorBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<AccountWatcherBloc>()
+            ..add(const AccountWatcherEvent.watchAllStarted()),
+        ),
+        BlocProvider(
+          create: (context) => getIt<CategoryWatcherBloc>()
+            ..add(const CategoryWatcherEvent.watchAllStarted()),
         ),
       ],
       child: BlocConsumer<TransactionFormBloc, TransactionFormState>(
@@ -108,28 +121,40 @@ class TransactionFormScaffold extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      kHeight20,
                       const AmountField(),
-                      kHeight30,
+                      kHeight15,
                       const PurposeField(),
-                      kHeight30,
-
-                      //? Date picker
-
+                      kHeight10,
+                      const AccountPicker(),
+                      kHeight5, CategoryPicker(),
                       const TransactionDatePickerWidget(),
 
+                      //?
                       kHeight30,
-
                       RoundedButton(
                         title: 'ADD',
                         backgroundColor: kWhite,
                         textColor: kBluegrey,
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            context
-                                .read<TransactionFormBloc>()
-                                .add(const TransactionFormEvent.saved());
-                            await Future.delayed(const Duration(seconds: 1));
+                            if (BlocProvider.of<TransactionFormBloc>(context)
+                                .state
+                                .transactionEntity
+                                .accountName
+                                .isEmpty()) {
+                              showTopSnackBar(
+                                Overlay.of(context),
+                                const CustomSnackBar.error(
+                                  backgroundColor: kGreyShade,
+                                  message: 'Select an account',
+                                ),
+                              );
+                            } else {
+                              context
+                                  .read<TransactionFormBloc>()
+                                  .add(const TransactionFormEvent.saved());
+                              await Future.delayed(const Duration(seconds: 1));
+                            }
                           }
                         },
                       ),
@@ -144,3 +169,39 @@ class TransactionFormScaffold extends StatelessWidget {
     );
   }
 }
+//  BlocBuilder<AccountWatcherBloc, AccountWatcherState>(
+//                         builder: (context, state) {
+//                           return state.maybeMap(
+//                             loadSucess: (state) {
+//                               final accountList = state.accounts;
+//                               var selectedAccount = context
+//                                   .read<TransactionFormBloc>()
+//                                   .state
+//                                   .accountEntity;
+
+//                               return DropdownButton<AccountEntity>(
+//                                 value: selectedAccount,
+//                                 onChanged: (AccountEntity? selectedAccount) {
+//                                   context.read<TransactionFormBloc>().add(
+//                                         TransactionFormEvent
+//                                             .accountEntitySelected(
+//                                                 selectedAccount!),
+//                                       );
+//                                 },
+//                                 items: accountList.map((account) {
+//                                   return DropdownMenuItem<AccountEntity>(
+//                                     value: account,
+//                                     child: Text(
+//                                       account.accountName.getOrCrash(),
+//                                       // style: kTextStyle.copyWith(
+//                                       //   color: kWhite,
+//                                       // ),
+//                                     ),
+//                                   );
+//                                 }).toList(),
+//                               );
+//                             },
+//                             orElse: () => Container(),
+//                           );
+//                         },
+//                       ),

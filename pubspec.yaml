@@ -59,6 +59,7 @@ dependencies:
   syncfusion_flutter_charts: ^22.2.11
   top_snackbar_flutter: ^3.1.0
   uuid: ^3.0.7
+  custom_radio_grouped_button: ^2.2.1
 dev_dependencies:
   auto_route_generator: ^7.3.1
   build_runner: ^2.4.6

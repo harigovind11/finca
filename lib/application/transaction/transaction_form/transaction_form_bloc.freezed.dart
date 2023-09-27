@@ -24,6 +24,7 @@ mixin _$TransactionFormEvent {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +35,7 @@ mixin _$TransactionFormEvent {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +46,7 @@ mixin _$TransactionFormEvent {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
@@ -55,6 +58,7 @@ mixin _$TransactionFormEvent {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +69,7 @@ mixin _$TransactionFormEvent {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +80,7 @@ mixin _$TransactionFormEvent {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -171,6 +177,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return initialized(initialOption);
@@ -184,6 +191,7 @@ class _$_Initialized implements _Initialized {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return initialized?.call(initialOption);
@@ -197,6 +205,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -214,6 +223,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return initialized(this);
@@ -227,6 +237,7 @@ class _$_Initialized implements _Initialized {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return initialized?.call(this);
@@ -240,6 +251,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -331,6 +343,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return amountChanged(amountStr);
@@ -344,6 +357,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return amountChanged?.call(amountStr);
@@ -357,6 +371,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -374,6 +389,7 @@ class _$_AmountChanged implements _AmountChanged {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return amountChanged(this);
@@ -387,6 +403,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return amountChanged?.call(this);
@@ -400,6 +417,7 @@ class _$_AmountChanged implements _AmountChanged {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -490,6 +508,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return purposeChanged(purposeStr);
@@ -503,6 +522,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return purposeChanged?.call(purposeStr);
@@ -516,6 +536,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -533,6 +554,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return purposeChanged(this);
@@ -546,6 +568,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return purposeChanged?.call(this);
@@ -559,6 +582,7 @@ class _$_PurposeChanged implements _PurposeChanged {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -649,6 +673,7 @@ class _$_DateChanged implements _DateChanged {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return dateChanged(dateTime);
@@ -662,6 +687,7 @@ class _$_DateChanged implements _DateChanged {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return dateChanged?.call(dateTime);
@@ -675,6 +701,7 @@ class _$_DateChanged implements _DateChanged {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -692,6 +719,7 @@ class _$_DateChanged implements _DateChanged {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return dateChanged(this);
@@ -705,6 +733,7 @@ class _$_DateChanged implements _DateChanged {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return dateChanged?.call(this);
@@ -718,6 +747,7 @@ class _$_DateChanged implements _DateChanged {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -808,6 +838,7 @@ class _$_TypeChanged implements _TypeChanged {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return typeChanged(transactionType);
@@ -821,6 +852,7 @@ class _$_TypeChanged implements _TypeChanged {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return typeChanged?.call(transactionType);
@@ -834,6 +866,7 @@ class _$_TypeChanged implements _TypeChanged {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -851,6 +884,7 @@ class _$_TypeChanged implements _TypeChanged {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return typeChanged(this);
@@ -864,6 +898,7 @@ class _$_TypeChanged implements _TypeChanged {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return typeChanged?.call(this);
@@ -877,6 +912,7 @@ class _$_TypeChanged implements _TypeChanged {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -894,6 +930,172 @@ abstract class _TypeChanged implements TransactionFormEvent {
   TransactionType get transactionType;
   @JsonKey(ignore: true)
   _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AccountSelectedCopyWith<$Res> {
+  factory _$$_AccountSelectedCopyWith(
+          _$_AccountSelected value, $Res Function(_$_AccountSelected) then) =
+      __$$_AccountSelectedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String selectedAccount});
+}
+
+/// @nodoc
+class __$$_AccountSelectedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$_AccountSelected>
+    implements _$$_AccountSelectedCopyWith<$Res> {
+  __$$_AccountSelectedCopyWithImpl(
+      _$_AccountSelected _value, $Res Function(_$_AccountSelected) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedAccount = null,
+  }) {
+    return _then(_$_AccountSelected(
+      null == selectedAccount
+          ? _value.selectedAccount
+          : selectedAccount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AccountSelected implements _AccountSelected {
+  const _$_AccountSelected(this.selectedAccount);
+
+  @override
+  final String selectedAccount;
+
+  @override
+  String toString() {
+    return 'TransactionFormEvent.accountSelected(selectedAccount: $selectedAccount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AccountSelected &&
+            (identical(other.selectedAccount, selectedAccount) ||
+                other.selectedAccount == selectedAccount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedAccount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AccountSelectedCopyWith<_$_AccountSelected> get copyWith =>
+      __$$_AccountSelectedCopyWithImpl<_$_AccountSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<TransactionEntity> initialOption)
+        initialized,
+    required TResult Function(String amountStr) amountChanged,
+    required TResult Function(String purposeStr) purposeChanged,
+    required TResult Function(DateTime dateTime) dateChanged,
+    required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
+    required TResult Function() saved,
+  }) {
+    return accountSelected(selectedAccount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Option<TransactionEntity> initialOption)? initialized,
+    TResult? Function(String amountStr)? amountChanged,
+    TResult? Function(String purposeStr)? purposeChanged,
+    TResult? Function(DateTime dateTime)? dateChanged,
+    TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
+    TResult? Function()? saved,
+  }) {
+    return accountSelected?.call(selectedAccount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<TransactionEntity> initialOption)? initialized,
+    TResult Function(String amountStr)? amountChanged,
+    TResult Function(String purposeStr)? purposeChanged,
+    TResult Function(DateTime dateTime)? dateChanged,
+    TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (accountSelected != null) {
+      return accountSelected(selectedAccount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_AmountChanged value) amountChanged,
+    required TResult Function(_PurposeChanged value) purposeChanged,
+    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return accountSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialized value)? initialized,
+    TResult? Function(_AmountChanged value)? amountChanged,
+    TResult? Function(_PurposeChanged value)? purposeChanged,
+    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return accountSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_AmountChanged value)? amountChanged,
+    TResult Function(_PurposeChanged value)? purposeChanged,
+    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (accountSelected != null) {
+      return accountSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AccountSelected implements TransactionFormEvent {
+  const factory _AccountSelected(final String selectedAccount) =
+      _$_AccountSelected;
+
+  String get selectedAccount;
+  @JsonKey(ignore: true)
+  _$$_AccountSelectedCopyWith<_$_AccountSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -939,6 +1141,7 @@ class _$_Saved implements _Saved {
     required TResult Function(String purposeStr) purposeChanged,
     required TResult Function(DateTime dateTime) dateChanged,
     required TResult Function(TransactionType transactionType) typeChanged,
+    required TResult Function(String selectedAccount) accountSelected,
     required TResult Function() saved,
   }) {
     return saved();
@@ -952,6 +1155,7 @@ class _$_Saved implements _Saved {
     TResult? Function(String purposeStr)? purposeChanged,
     TResult? Function(DateTime dateTime)? dateChanged,
     TResult? Function(TransactionType transactionType)? typeChanged,
+    TResult? Function(String selectedAccount)? accountSelected,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -965,6 +1169,7 @@ class _$_Saved implements _Saved {
     TResult Function(String purposeStr)? purposeChanged,
     TResult Function(DateTime dateTime)? dateChanged,
     TResult Function(TransactionType transactionType)? typeChanged,
+    TResult Function(String selectedAccount)? accountSelected,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -982,6 +1187,7 @@ class _$_Saved implements _Saved {
     required TResult Function(_PurposeChanged value) purposeChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_TypeChanged value) typeChanged,
+    required TResult Function(_AccountSelected value) accountSelected,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -995,6 +1201,7 @@ class _$_Saved implements _Saved {
     TResult? Function(_PurposeChanged value)? purposeChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_TypeChanged value)? typeChanged,
+    TResult? Function(_AccountSelected value)? accountSelected,
     TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -1008,6 +1215,7 @@ class _$_Saved implements _Saved {
     TResult Function(_PurposeChanged value)? purposeChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_TypeChanged value)? typeChanged,
+    TResult Function(_AccountSelected value)? accountSelected,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {

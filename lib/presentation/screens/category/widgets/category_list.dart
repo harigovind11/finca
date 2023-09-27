@@ -19,7 +19,7 @@ class CategoryListWidget extends StatelessWidget {
             loadInProgress: (_) => const Center(
                   child: CircularProgressIndicator(),
                 ),
-            loadSucess: (state) {
+            loadSuccess: (state) {
               return Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 15,
