@@ -12,7 +12,7 @@ import 'package:finca/injectable.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 
-import 'widgets/add_category_app_bar.dart';
+import 'widgets/app_bar.dart';
 import 'widgets/categoty_name_field.dart';
 import 'widgets/color_picker.dart';
 import 'widgets/icon_picker.dart';

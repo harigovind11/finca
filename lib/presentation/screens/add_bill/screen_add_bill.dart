@@ -16,7 +16,7 @@ import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-import 'widgets/add_bill_app_bar.dart';
+import 'widgets/app_bar.dart';
 import 'widgets/amount_field.dart';
 import 'widgets/date_picker.dart';
 import 'widgets/name_field.dart';

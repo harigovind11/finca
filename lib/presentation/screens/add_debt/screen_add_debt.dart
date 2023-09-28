@@ -6,7 +6,7 @@ import 'package:finca/core/constants.dart';
 import 'package:finca/domain/debt/debt.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/add_debt_app_bar.dart';
+import 'package:finca/presentation/screens/add_debt/widgets/app_bar.dart';
 import 'package:finca/presentation/screens/add_debt/widgets/date_picker_widget.dart';
 import 'package:finca/presentation/screens/add_debt/widgets/description_field.dart';
 import 'package:finca/presentation/screens/add_debt/widgets/name_field.dart';

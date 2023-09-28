@@ -14,7 +14,7 @@ import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_pro
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 
 import 'widgets/account_name_field.dart';
-import 'widgets/add_account_app_bar.dart';
+import 'widgets/app_bar.dart';
 import 'widgets/balance_field.dart';
 
 @RoutePage()

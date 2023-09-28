@@ -15,7 +15,10 @@ class AccountPicker extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final transactionFormBloc = context.read<TransactionFormBloc>();
+
     final _accountSelected = useState(false);
+
     return BlocBuilder<AccountWatcherBloc, AccountWatcherState>(
       builder: (context, state) {
         return state.maybeMap(
@@ -38,20 +41,21 @@ class AccountPicker extends HookWidget {
                     } else {
                       final account = state.accounts[index - 1];
                       return ItemWidget(
-                        selected: account.accountName ==
+                        selected: account.id ==
                             BlocProvider.of<TransactionFormBloc>(context)
                                 .state
                                 .transactionEntity
-                                .accountName,
+                                .accountId,
                         title: account.accountName.getOrCrash(),
                         subtitle: account.accountBalance.getOrCrash(),
                         // icon: account.icon.codePoint,
                         onPressed: () {
-                          BlocProvider.of<TransactionFormBloc>(context).add(
+                          transactionFormBloc.add(
                               TransactionFormEvent.accountSelected(
-                                  account.accountName.getOrCrash()));
+                                  account.id.getOrCrash()));
+                          transactionFormBloc.isAccountSelected = true;
                           _accountSelected.value = !_accountSelected.value;
-                          print(account.accountName.getOrCrash());
+                          print(account.id.getOrCrash());
                         },
                       );
                     }

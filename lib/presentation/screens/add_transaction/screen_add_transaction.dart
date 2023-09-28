@@ -1,26 +1,27 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
-import 'package:finca/application/account/account_watcher/account_watcher_bloc.dart';
-import 'package:finca/application/category/category_watcher/category_watcher_bloc.dart';
-import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
-import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
-import 'package:finca/core/colors_collection.dart';
-import 'package:finca/core/constants.dart';
-import 'package:finca/domain/transaction/transaction.dart';
-import 'package:finca/injectable.dart';
-import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/add_transaction_app_bar.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/amount_field_widger.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_widget.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/purpose_field_widget.dart';
-import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
-import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:finca/injectable.dart';
+
+import 'package:finca/core/constants.dart';
+import 'package:finca/core/colors_collection.dart';
+import 'package:finca/domain/transaction/transaction.dart';
+import 'package:finca/application/account/account_watcher/account_watcher_bloc.dart';
+import 'package:finca/application/category/category_watcher/category_watcher_bloc.dart';
+import 'package:finca/application/transaction/transaction_actor/transaction_actor_bloc.dart';
+import 'package:finca/application/transaction/transaction_form/transaction_form_bloc.dart';
+import 'package:finca/presentation/router/app_router.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/app_bar.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/amount_field_widger.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/date_picker_widget.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/purpose_field_widget.dart';
+import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 
 import 'widgets/account_picker.dart';
+import 'widgets/add_button.dart';
 import 'widgets/category_picker.dart';
 
 @RoutePage()
@@ -108,7 +109,7 @@ class TransactionFormScaffold extends StatelessWidget {
           shrinkWrap: true,
           children: [
             Container(
-              height: 700,
+              // height: 700,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: kBluegrey,
@@ -126,38 +127,12 @@ class TransactionFormScaffold extends StatelessWidget {
                       const PurposeField(),
                       kHeight10,
                       const AccountPicker(),
-                      kHeight5, CategoryPicker(),
+                      kHeight10,
+                      const CategoryPicker(),
+                      kHeight10,
                       const TransactionDatePickerWidget(),
-
-                      //?
                       kHeight30,
-                      RoundedButton(
-                        title: 'ADD',
-                        backgroundColor: kWhite,
-                        textColor: kBluegrey,
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            if (BlocProvider.of<TransactionFormBloc>(context)
-                                .state
-                                .transactionEntity
-                                .accountName
-                                .isEmpty()) {
-                              showTopSnackBar(
-                                Overlay.of(context),
-                                const CustomSnackBar.error(
-                                  backgroundColor: kGreyShade,
-                                  message: 'Select an account',
-                                ),
-                              );
-                            } else {
-                              context
-                                  .read<TransactionFormBloc>()
-                                  .add(const TransactionFormEvent.saved());
-                              await Future.delayed(const Duration(seconds: 1));
-                            }
-                          }
-                        },
-                      ),
+                      AddButton(formKey: _formKey),
                     ],
                   ),
                 ),
@@ -169,39 +144,3 @@ class TransactionFormScaffold extends StatelessWidget {
     );
   }
 }
-//  BlocBuilder<AccountWatcherBloc, AccountWatcherState>(
-//                         builder: (context, state) {
-//                           return state.maybeMap(
-//                             loadSucess: (state) {
-//                               final accountList = state.accounts;
-//                               var selectedAccount = context
-//                                   .read<TransactionFormBloc>()
-//                                   .state
-//                                   .accountEntity;
-
-//                               return DropdownButton<AccountEntity>(
-//                                 value: selectedAccount,
-//                                 onChanged: (AccountEntity? selectedAccount) {
-//                                   context.read<TransactionFormBloc>().add(
-//                                         TransactionFormEvent
-//                                             .accountEntitySelected(
-//                                                 selectedAccount!),
-//                                       );
-//                                 },
-//                                 items: accountList.map((account) {
-//                                   return DropdownMenuItem<AccountEntity>(
-//                                     value: account,
-//                                     child: Text(
-//                                       account.accountName.getOrCrash(),
-//                                       // style: kTextStyle.copyWith(
-//                                       //   color: kWhite,
-//                                       // ),
-//                                     ),
-//                                   );
-//                                 }).toList(),
-//                               );
-//                             },
-//                             orElse: () => Container(),
-//                           );
-//                         },
-//                       ),

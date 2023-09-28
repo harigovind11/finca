@@ -15,5 +15,7 @@ class TransactionFormEvent with _$TransactionFormEvent {
 
   const factory TransactionFormEvent.accountSelected(String selectedAccount) =
       _AccountSelected;
+  const factory TransactionFormEvent.categorySelected(String selectedCategory) =
+      _CategorySelected;
   const factory TransactionFormEvent.saved() = _Saved;
 }

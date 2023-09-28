@@ -12,7 +12,8 @@ _$_TransactionDto _$$_TransactionDtoFromJson(Map<String, dynamic> json) =>
       purpose: json['purpose'] as String,
       date: DateTime.parse(json['date'] as String),
       type: $enumDecode(_$TransactionTypeEnumMap, json['type']),
-      accountName: json['accountName'] as String,
+      accountId: json['accountId'] as String,
+      categoryId: json['categoryId'] as String,
     );
 
 Map<String, dynamic> _$$_TransactionDtoToJson(_$_TransactionDto instance) =>
@@ -21,7 +22,8 @@ Map<String, dynamic> _$$_TransactionDtoToJson(_$_TransactionDto instance) =>
       'purpose': instance.purpose,
       'date': instance.date.toIso8601String(),
       'type': _$TransactionTypeEnumMap[instance.type]!,
-      'accountName': instance.accountName,
+      'accountId': instance.accountId,
+      'categoryId': instance.categoryId,
     };
 
 const _$TransactionTypeEnumMap = {

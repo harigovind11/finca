@@ -15,7 +15,7 @@ class CategoryPicker extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _accountSelected = useState(false);
+    final _categorySelected = useState(false);
     return BlocBuilder<CategoryWatcherBloc, CategoryWatcherState>(
       builder: (context, state) {
         return state.maybeMap(
@@ -30,28 +30,31 @@ class CategoryPicker extends HookWidget {
                     if (index == 0) {
                       return ItemWidget(
                         selected: false,
-                        title: 'Add Account',
+                        title: 'Add category',
                         // icon: Icons.plus_one.codePoint,
                         onPressed: () =>
-                            AutoRouter.of(context).push(AddAccountRoute()),
+                            AutoRouter.of(context).push(AddCategoryRoute()),
                       );
                     } else {
-                      final account = state.categories[index - 1];
+                      final category = state.categories[index - 1];
                       return ItemWidget(
-                        selected: account.categoryName ==
+                        selected: category.id ==
                             BlocProvider.of<TransactionFormBloc>(context)
                                 .state
                                 .transactionEntity
-                                .accountName,
-                        title: account.categoryName.getOrCrash(),
-                        subtitle: account.categoryName.getOrCrash(),
-                        // icon: account.icon.codePoint,
+                                .categoryId,
+                        title: category.categoryName.getOrCrash(),
+                        // subtitle: category.id.getOrCrash(),
+                        // icon: category.icon.codePoint,
                         onPressed: () {
-                          BlocProvider.of<TransactionFormBloc>(context).add(
-                              TransactionFormEvent.accountSelected(
-                                  account.categoryName.getOrCrash()));
-                          _accountSelected.value = !_accountSelected.value;
-                          print(account.categoryName.getOrCrash());
+                          final transactionFormBloc =
+                              context.read<TransactionFormBloc>();
+                          transactionFormBloc.add(
+                              TransactionFormEvent.categorySelected(
+                                  category.id.getOrCrash()));
+                          transactionFormBloc.isCategorySelected = true;
+                          _categorySelected.value = !_categorySelected.value;
+                          print(category.id.getOrCrash());
                         },
                       );
                     }

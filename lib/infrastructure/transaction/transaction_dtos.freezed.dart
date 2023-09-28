@@ -26,7 +26,8 @@ mixin _$TransactionDto {
   String get purpose => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TransactionType get type => throw _privateConstructorUsedError;
-  String get accountName => throw _privateConstructorUsedError;
+  String get accountId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,8 @@ abstract class $TransactionDtoCopyWith<$Res> {
       String purpose,
       DateTime date,
       TransactionType type,
-      String accountName});
+      String accountId,
+      String categoryId});
 }
 
 /// @nodoc
@@ -67,7 +69,8 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? accountName = null,
+    Object? accountId = null,
+    Object? categoryId = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -90,9 +93,13 @@ class _$TransactionDtoCopyWithImpl<$Res, $Val extends TransactionDto>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TransactionType,
-      accountName: null == accountName
-          ? _value.accountName
-          : accountName // ignore: cast_nullable_to_non_nullable
+      accountId: null == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -112,7 +119,8 @@ abstract class _$$_TransactionDtoCopyWith<$Res>
       String purpose,
       DateTime date,
       TransactionType type,
-      String accountName});
+      String accountId,
+      String categoryId});
 }
 
 /// @nodoc
@@ -131,7 +139,8 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? accountName = null,
+    Object? accountId = null,
+    Object? categoryId = null,
   }) {
     return _then(_$_TransactionDto(
       id: freezed == id
@@ -154,9 +163,13 @@ class __$$_TransactionDtoCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TransactionType,
-      accountName: null == accountName
-          ? _value.accountName
-          : accountName // ignore: cast_nullable_to_non_nullable
+      accountId: null == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -171,7 +184,8 @@ class _$_TransactionDto extends _TransactionDto {
       required this.purpose,
       required this.date,
       required this.type,
-      required this.accountName})
+      required this.accountId,
+      required this.categoryId})
       : super._();
 
   factory _$_TransactionDto.fromJson(Map<String, dynamic> json) =>
@@ -189,11 +203,13 @@ class _$_TransactionDto extends _TransactionDto {
   @override
   final TransactionType type;
   @override
-  final String accountName;
+  final String accountId;
+  @override
+  final String categoryId;
 
   @override
   String toString() {
-    return 'TransactionDto(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type, accountName: $accountName)';
+    return 'TransactionDto(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type, accountId: $accountId, categoryId: $categoryId)';
   }
 
   @override
@@ -206,14 +222,16 @@ class _$_TransactionDto extends _TransactionDto {
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.accountName, accountName) ||
-                other.accountName == accountName));
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, amount, purpose, date, type, accountName);
+  int get hashCode => Object.hash(
+      runtimeType, id, amount, purpose, date, type, accountId, categoryId);
 
   @JsonKey(ignore: true)
   @override
@@ -236,7 +254,8 @@ abstract class _TransactionDto extends TransactionDto {
       required final String purpose,
       required final DateTime date,
       required final TransactionType type,
-      required final String accountName}) = _$_TransactionDto;
+      required final String accountId,
+      required final String categoryId}) = _$_TransactionDto;
   const _TransactionDto._() : super._();
 
   factory _TransactionDto.fromJson(Map<String, dynamic> json) =
@@ -254,7 +273,9 @@ abstract class _TransactionDto extends TransactionDto {
   @override
   TransactionType get type;
   @override
-  String get accountName;
+  String get accountId;
+  @override
+  String get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionDtoCopyWith<_$_TransactionDto> get copyWith =>

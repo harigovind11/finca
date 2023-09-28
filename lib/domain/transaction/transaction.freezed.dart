@@ -21,7 +21,8 @@ mixin _$TransactionEntity {
   TransactionPurpose get purpose => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TransactionType get type => throw _privateConstructorUsedError;
-  AccountName get accountName => throw _privateConstructorUsedError;
+  UniqueId get accountId => throw _privateConstructorUsedError;
+  UniqueId get categoryId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TransactionEntityCopyWith<TransactionEntity> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $TransactionEntityCopyWith<$Res> {
       TransactionPurpose purpose,
       DateTime date,
       TransactionType type,
-      AccountName accountName});
+      UniqueId accountId,
+      UniqueId categoryId});
 }
 
 /// @nodoc
@@ -61,7 +63,8 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? accountName = null,
+    Object? accountId = null,
+    Object? categoryId = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -84,10 +87,14 @@ class _$TransactionEntityCopyWithImpl<$Res, $Val extends TransactionEntity>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TransactionType,
-      accountName: null == accountName
-          ? _value.accountName
-          : accountName // ignore: cast_nullable_to_non_nullable
-              as AccountName,
+      accountId: null == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ) as $Val);
   }
 }
@@ -106,7 +113,8 @@ abstract class _$$_TransactionEntityCopyWith<$Res>
       TransactionPurpose purpose,
       DateTime date,
       TransactionType type,
-      AccountName accountName});
+      UniqueId accountId,
+      UniqueId categoryId});
 }
 
 /// @nodoc
@@ -125,7 +133,8 @@ class __$$_TransactionEntityCopyWithImpl<$Res>
     Object? purpose = null,
     Object? date = null,
     Object? type = null,
-    Object? accountName = null,
+    Object? accountId = null,
+    Object? categoryId = null,
   }) {
     return _then(_$_TransactionEntity(
       id: null == id
@@ -148,10 +157,14 @@ class __$$_TransactionEntityCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TransactionType,
-      accountName: null == accountName
-          ? _value.accountName
-          : accountName // ignore: cast_nullable_to_non_nullable
-              as AccountName,
+      accountId: null == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
     ));
   }
 }
@@ -165,7 +178,8 @@ class _$_TransactionEntity extends _TransactionEntity {
       required this.purpose,
       required this.date,
       required this.type,
-      required this.accountName})
+      required this.accountId,
+      required this.categoryId})
       : super._();
 
   @override
@@ -179,11 +193,13 @@ class _$_TransactionEntity extends _TransactionEntity {
   @override
   final TransactionType type;
   @override
-  final AccountName accountName;
+  final UniqueId accountId;
+  @override
+  final UniqueId categoryId;
 
   @override
   String toString() {
-    return 'TransactionEntity(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type, accountName: $accountName)';
+    return 'TransactionEntity(id: $id, amount: $amount, purpose: $purpose, date: $date, type: $type, accountId: $accountId, categoryId: $categoryId)';
   }
 
   @override
@@ -196,13 +212,15 @@ class _$_TransactionEntity extends _TransactionEntity {
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.accountName, accountName) ||
-                other.accountName == accountName));
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, amount, purpose, date, type, accountName);
+  int get hashCode => Object.hash(
+      runtimeType, id, amount, purpose, date, type, accountId, categoryId);
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +237,8 @@ abstract class _TransactionEntity extends TransactionEntity {
       required final TransactionPurpose purpose,
       required final DateTime date,
       required final TransactionType type,
-      required final AccountName accountName}) = _$_TransactionEntity;
+      required final UniqueId accountId,
+      required final UniqueId categoryId}) = _$_TransactionEntity;
   const _TransactionEntity._() : super._();
 
   @override
@@ -233,7 +252,9 @@ abstract class _TransactionEntity extends TransactionEntity {
   @override
   TransactionType get type;
   @override
-  AccountName get accountName;
+  UniqueId get accountId;
+  @override
+  UniqueId get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionEntityCopyWith<_$_TransactionEntity> get copyWith =>
