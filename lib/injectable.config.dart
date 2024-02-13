@@ -112,8 +112,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i24.SignInFormBloc(gh<_i9.IAuthFacade>()));
     gh.factory<_i25.TransactionActorBloc>(
         () => _i25.TransactionActorBloc(gh<_i19.ITransactionRepository>()));
-    gh.factory<_i26.TransactionFormBloc>(
-        () => _i26.TransactionFormBloc(gh<_i19.ITransactionRepository>()));
+    gh.factory<_i26.TransactionFormBloc>(() => _i26.TransactionFormBloc(
+          gh<_i19.ITransactionRepository>(),
+          gh<_i7.IAccountRepository>(),
+        ));
     gh.factory<_i27.TransactionWatcherBloc>(() => _i27.TransactionWatcherBloc(
           gh<_i19.ITransactionRepository>(),
           gh<_i3.BalanceCalculationService>(),

@@ -1,4 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:finca/domain/account/account.dart';
+import 'package:finca/domain/account/i_account_repo.dart';
+import 'package:finca/domain/account/value_objects.dart';
 import 'package:finca/domain/core/value_objects.dart';
 import 'package:finca/domain/transaction/i_transaction_repo.dart';
 import 'package:finca/domain/core/firestore_faillure.dart';
@@ -17,11 +20,14 @@ part 'transaction_form_bloc.freezed.dart';
 class TransactionFormBloc
     extends Bloc<TransactionFormEvent, TransactionFormState> {
   final ITransactionRepository _iTransactionRepository;
-  bool isAccountSelected = false;
-  bool isCategorySelected = false;
-  TransactionFormBloc(this._iTransactionRepository)
-      : super(TransactionFormState.initial()) {
-    on<_Initialized>((event, emit) {
+  final IAccountRepository _iAccountRepository;
+  String selectedAccountId = '';
+  String selectedCategoryId = '';
+  TransactionFormBloc(
+    this._iTransactionRepository,
+    this._iAccountRepository,
+  ) : super(TransactionFormState.initial()) {
+    on<Initialized>((event, emit) {
       emit(
         event.initialOption.fold(
           () => state,
@@ -30,7 +36,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_AmountChanged>((event, emit) {
+    on<AmountChanged>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -39,7 +45,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_PurposeChanged>((event, emit) {
+    on<PurposeChanged>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -48,7 +54,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_DateChanged>((event, emit) {
+    on<DateChanged>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -57,7 +63,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_TypeChanged>((event, emit) {
+    on<TypeChanged>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -66,7 +72,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_AccountSelected>((event, emit) {
+    on<AccountSelected>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -77,7 +83,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_CategorySelected>((event, emit) {
+    on<CategorySelected>((event, emit) {
       emit(
         state.copyWith(
           transactionEntity: state.transactionEntity.copyWith(
@@ -88,7 +94,7 @@ class TransactionFormBloc
         ),
       );
     });
-    on<_Saved>((event, emit) async {
+    on<Saved>((event, emit) async {
       Either<FirestoreFailure, Unit>? failureOrSucess;
       emit(
         state.copyWith(
@@ -101,6 +107,35 @@ class TransactionFormBloc
         failureOrSucess = state.isEditing
             ? await _iTransactionRepository.update(state.transactionEntity)
             : await _iTransactionRepository.create(state.transactionEntity);
+
+        final transactionAmount =
+            double.parse(state.transactionEntity.amount.getOrCrash());
+        final TransactionType transactionType = state.transactionEntity.type;
+        final accountId = state.transactionEntity.accountId.getOrCrash();
+        final accountEither =
+            await _iAccountRepository.watchByAccountId(accountId).first;
+
+        final updatedAccountEither = accountEither.fold(
+          (failure) => left<FirestoreFailure, AccountEntity>(failure),
+          (account) {
+            final currentBalance =
+                double.parse(account.accountBalance.getOrCrash());
+            final newBalance = transactionType == TransactionType.income
+                ? currentBalance + transactionAmount
+                : currentBalance - transactionAmount;
+            final updatedAccount = account.copyWith(
+                accountBalance: AccountBalance(newBalance.toString()));
+            return right<FirestoreFailure, AccountEntity>(updatedAccount);
+          },
+        );
+        updatedAccountEither.fold((failure) => failureOrSucess,
+            (updatedAccount) async {
+          final accountUpdateResult =
+              await _iAccountRepository.update(updatedAccount);
+          if (accountUpdateResult.isLeft()) {
+            failureOrSucess = accountUpdateResult;
+          }
+        });
       }
       emit(
         state.copyWith(

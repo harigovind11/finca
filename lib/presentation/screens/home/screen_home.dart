@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
           preferredSize: Size.fromHeight(100),
           child: HomeAppBar(),
         ),
-        backgroundColor: kplatsilver,
+        backgroundColor: kWhite,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              kHeight60,
+              // kHeight60,
               const RecentTransaction(),
             ],
           ),

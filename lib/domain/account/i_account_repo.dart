@@ -4,7 +4,8 @@ import 'package:finca/domain/core/firestore_faillure.dart';
 
 abstract class IAccountRepository {
   Stream<Either<FirestoreFailure, List<AccountEntity>>> watchAll();
-
+  Stream<Either<FirestoreFailure, AccountEntity>> watchByAccountId(
+      String accountId);
   Future<Either<FirestoreFailure, Unit>> create(AccountEntity accountEntity);
   Future<Either<FirestoreFailure, Unit>> update(AccountEntity accountEntity);
   Future<Either<FirestoreFailure, Unit>> delete(AccountEntity accountEntity);

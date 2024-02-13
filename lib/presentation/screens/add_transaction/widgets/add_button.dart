@@ -25,9 +25,9 @@ class AddButton extends StatelessWidget {
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
               final transactionFormBloc = context.read<TransactionFormBloc>();
-              if (transactionFormBloc.isAccountSelected) {
-                if (transactionFormBloc.isCategorySelected) {
-                  transactionFormBloc.add(const TransactionFormEvent.saved());
+              if (transactionFormBloc.selectedAccountId.isNotEmpty) {
+                if (transactionFormBloc.selectedCategoryId.isNotEmpty) {
+                  transactionFormBloc.add(const Saved());
                   await Future.delayed(const Duration(seconds: 1));
                 } else {
                   showTopSnackBar(

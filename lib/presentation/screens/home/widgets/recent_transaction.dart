@@ -18,14 +18,13 @@ class RecentTransaction extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
-        vertical: 8,
       ),
       decoration: const BoxDecoration(
         color: kWhite,
-        borderRadius: BorderRadiusDirectional.only(
-          topStart: Radius.circular(25),
-          topEnd: Radius.circular(25),
-        ),
+        // borderRadius: BorderRadiusDirectional.only(
+        //   topStart: Radius.circular(25),
+        //   topEnd: Radius.circular(25),
+        // ),
       ),
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),

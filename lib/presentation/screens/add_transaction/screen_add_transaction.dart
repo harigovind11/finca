@@ -105,7 +105,7 @@ class TransactionFormScaffold extends StatelessWidget {
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(120), child: AddTransactionAppBar()),
         body: ListView(
-          physics: const NeverScrollableScrollPhysics(),
+          // physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: [
             Container(

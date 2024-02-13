@@ -96,4 +96,33 @@ class AccountRepo implements IAccountRepository {
       }
     });
   }
+
+  @override
+  Stream<Either<FirestoreFailure, AccountEntity>> watchByAccountId(
+      String accountId) {
+    final _firestoreInstance = FirebaseFirestore.instance;
+    final user = FirebaseAuth.instance.currentUser;
+    final userDoc = _firestoreInstance.collection('users').doc(user?.uid);
+    return userDoc.accountCollection
+        .where('accountId', isEqualTo: accountId)
+        .snapshots()
+        .map((querySnapshot) {
+      final doc = querySnapshot.docs.first;
+      return right<FirestoreFailure, AccountEntity>(
+        AccountEntity.fromSnapshot(doc),
+      );
+    }).onErrorReturnWith((e, stackTrace) {
+      if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
+        return left<FirestoreFailure, AccountEntity>(
+          const FirestoreFailure.insufficientPermissions(),
+        );
+      } else if (e is FirebaseException && e.message!.contains('NOT_FOUND')) {
+        return left(const FirestoreFailure.unableToUpdate());
+      } else {
+        return left<FirestoreFailure, AccountEntity>(
+          const FirestoreFailure.unexpected(),
+        );
+      }
+    });
+  }
 }

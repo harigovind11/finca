@@ -56,38 +56,38 @@ mixin _$TransactionFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,20 +113,20 @@ class _$TransactionFormEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitializedCopyWith<$Res> {
-  factory _$$_InitializedCopyWith(
-          _$_Initialized value, $Res Function(_$_Initialized) then) =
-      __$$_InitializedCopyWithImpl<$Res>;
+abstract class _$$InitializedCopyWith<$Res> {
+  factory _$$InitializedCopyWith(
+          _$Initialized value, $Res Function(_$Initialized) then) =
+      __$$InitializedCopyWithImpl<$Res>;
   @useResult
   $Res call({Option<TransactionEntity> initialOption});
 }
 
 /// @nodoc
-class __$$_InitializedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_Initialized>
-    implements _$$_InitializedCopyWith<$Res> {
-  __$$_InitializedCopyWithImpl(
-      _$_Initialized _value, $Res Function(_$_Initialized) _then)
+class __$$InitializedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$Initialized>
+    implements _$$InitializedCopyWith<$Res> {
+  __$$InitializedCopyWithImpl(
+      _$Initialized _value, $Res Function(_$Initialized) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,7 @@ class __$$_InitializedCopyWithImpl<$Res>
   $Res call({
     Object? initialOption = null,
   }) {
-    return _then(_$_Initialized(
+    return _then(_$Initialized(
       null == initialOption
           ? _value.initialOption
           : initialOption // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
-  const _$_Initialized(this.initialOption);
+class _$Initialized implements Initialized {
+  const _$Initialized(this.initialOption);
 
   @override
   final Option<TransactionEntity> initialOption;
@@ -160,7 +160,7 @@ class _$_Initialized implements _Initialized {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initialized &&
+            other is _$Initialized &&
             (identical(other.initialOption, initialOption) ||
                 other.initialOption == initialOption));
   }
@@ -171,8 +171,8 @@ class _$_Initialized implements _Initialized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
-      __$$_InitializedCopyWithImpl<_$_Initialized>(this, _$identity);
+  _$$InitializedCopyWith<_$Initialized> get copyWith =>
+      __$$InitializedCopyWithImpl<_$Initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -227,14 +227,14 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return initialized(this);
   }
@@ -242,14 +242,14 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return initialized?.call(this);
   }
@@ -257,14 +257,14 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -274,31 +274,31 @@ class _$_Initialized implements _Initialized {
   }
 }
 
-abstract class _Initialized implements TransactionFormEvent {
-  const factory _Initialized(final Option<TransactionEntity> initialOption) =
-      _$_Initialized;
+abstract class Initialized implements TransactionFormEvent {
+  const factory Initialized(final Option<TransactionEntity> initialOption) =
+      _$Initialized;
 
   Option<TransactionEntity> get initialOption;
   @JsonKey(ignore: true)
-  _$$_InitializedCopyWith<_$_Initialized> get copyWith =>
+  _$$InitializedCopyWith<_$Initialized> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AmountChangedCopyWith<$Res> {
-  factory _$$_AmountChangedCopyWith(
-          _$_AmountChanged value, $Res Function(_$_AmountChanged) then) =
-      __$$_AmountChangedCopyWithImpl<$Res>;
+abstract class _$$AmountChangedCopyWith<$Res> {
+  factory _$$AmountChangedCopyWith(
+          _$AmountChanged value, $Res Function(_$AmountChanged) then) =
+      __$$AmountChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({String amountStr});
 }
 
 /// @nodoc
-class __$$_AmountChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_AmountChanged>
-    implements _$$_AmountChangedCopyWith<$Res> {
-  __$$_AmountChangedCopyWithImpl(
-      _$_AmountChanged _value, $Res Function(_$_AmountChanged) _then)
+class __$$AmountChangedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$AmountChanged>
+    implements _$$AmountChangedCopyWith<$Res> {
+  __$$AmountChangedCopyWithImpl(
+      _$AmountChanged _value, $Res Function(_$AmountChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -306,7 +306,7 @@ class __$$_AmountChangedCopyWithImpl<$Res>
   $Res call({
     Object? amountStr = null,
   }) {
-    return _then(_$_AmountChanged(
+    return _then(_$AmountChanged(
       null == amountStr
           ? _value.amountStr
           : amountStr // ignore: cast_nullable_to_non_nullable
@@ -317,8 +317,8 @@ class __$$_AmountChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AmountChanged implements _AmountChanged {
-  const _$_AmountChanged(this.amountStr);
+class _$AmountChanged implements AmountChanged {
+  const _$AmountChanged(this.amountStr);
 
   @override
   final String amountStr;
@@ -332,7 +332,7 @@ class _$_AmountChanged implements _AmountChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AmountChanged &&
+            other is _$AmountChanged &&
             (identical(other.amountStr, amountStr) ||
                 other.amountStr == amountStr));
   }
@@ -343,8 +343,8 @@ class _$_AmountChanged implements _AmountChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
-      __$$_AmountChangedCopyWithImpl<_$_AmountChanged>(this, _$identity);
+  _$$AmountChangedCopyWith<_$AmountChanged> get copyWith =>
+      __$$AmountChangedCopyWithImpl<_$AmountChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -399,14 +399,14 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return amountChanged(this);
   }
@@ -414,14 +414,14 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return amountChanged?.call(this);
   }
@@ -429,14 +429,14 @@ class _$_AmountChanged implements _AmountChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (amountChanged != null) {
@@ -446,30 +446,30 @@ class _$_AmountChanged implements _AmountChanged {
   }
 }
 
-abstract class _AmountChanged implements TransactionFormEvent {
-  const factory _AmountChanged(final String amountStr) = _$_AmountChanged;
+abstract class AmountChanged implements TransactionFormEvent {
+  const factory AmountChanged(final String amountStr) = _$AmountChanged;
 
   String get amountStr;
   @JsonKey(ignore: true)
-  _$$_AmountChangedCopyWith<_$_AmountChanged> get copyWith =>
+  _$$AmountChangedCopyWith<_$AmountChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PurposeChangedCopyWith<$Res> {
-  factory _$$_PurposeChangedCopyWith(
-          _$_PurposeChanged value, $Res Function(_$_PurposeChanged) then) =
-      __$$_PurposeChangedCopyWithImpl<$Res>;
+abstract class _$$PurposeChangedCopyWith<$Res> {
+  factory _$$PurposeChangedCopyWith(
+          _$PurposeChanged value, $Res Function(_$PurposeChanged) then) =
+      __$$PurposeChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({String purposeStr});
 }
 
 /// @nodoc
-class __$$_PurposeChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_PurposeChanged>
-    implements _$$_PurposeChangedCopyWith<$Res> {
-  __$$_PurposeChangedCopyWithImpl(
-      _$_PurposeChanged _value, $Res Function(_$_PurposeChanged) _then)
+class __$$PurposeChangedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$PurposeChanged>
+    implements _$$PurposeChangedCopyWith<$Res> {
+  __$$PurposeChangedCopyWithImpl(
+      _$PurposeChanged _value, $Res Function(_$PurposeChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -477,7 +477,7 @@ class __$$_PurposeChangedCopyWithImpl<$Res>
   $Res call({
     Object? purposeStr = null,
   }) {
-    return _then(_$_PurposeChanged(
+    return _then(_$PurposeChanged(
       null == purposeStr
           ? _value.purposeStr
           : purposeStr // ignore: cast_nullable_to_non_nullable
@@ -488,8 +488,8 @@ class __$$_PurposeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PurposeChanged implements _PurposeChanged {
-  const _$_PurposeChanged(this.purposeStr);
+class _$PurposeChanged implements PurposeChanged {
+  const _$PurposeChanged(this.purposeStr);
 
   @override
   final String purposeStr;
@@ -503,7 +503,7 @@ class _$_PurposeChanged implements _PurposeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PurposeChanged &&
+            other is _$PurposeChanged &&
             (identical(other.purposeStr, purposeStr) ||
                 other.purposeStr == purposeStr));
   }
@@ -514,8 +514,8 @@ class _$_PurposeChanged implements _PurposeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PurposeChangedCopyWith<_$_PurposeChanged> get copyWith =>
-      __$$_PurposeChangedCopyWithImpl<_$_PurposeChanged>(this, _$identity);
+  _$$PurposeChangedCopyWith<_$PurposeChanged> get copyWith =>
+      __$$PurposeChangedCopyWithImpl<_$PurposeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -570,14 +570,14 @@ class _$_PurposeChanged implements _PurposeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return purposeChanged(this);
   }
@@ -585,14 +585,14 @@ class _$_PurposeChanged implements _PurposeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return purposeChanged?.call(this);
   }
@@ -600,14 +600,14 @@ class _$_PurposeChanged implements _PurposeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (purposeChanged != null) {
@@ -617,30 +617,30 @@ class _$_PurposeChanged implements _PurposeChanged {
   }
 }
 
-abstract class _PurposeChanged implements TransactionFormEvent {
-  const factory _PurposeChanged(final String purposeStr) = _$_PurposeChanged;
+abstract class PurposeChanged implements TransactionFormEvent {
+  const factory PurposeChanged(final String purposeStr) = _$PurposeChanged;
 
   String get purposeStr;
   @JsonKey(ignore: true)
-  _$$_PurposeChangedCopyWith<_$_PurposeChanged> get copyWith =>
+  _$$PurposeChangedCopyWith<_$PurposeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DateChangedCopyWith<$Res> {
-  factory _$$_DateChangedCopyWith(
-          _$_DateChanged value, $Res Function(_$_DateChanged) then) =
-      __$$_DateChangedCopyWithImpl<$Res>;
+abstract class _$$DateChangedCopyWith<$Res> {
+  factory _$$DateChangedCopyWith(
+          _$DateChanged value, $Res Function(_$DateChanged) then) =
+      __$$DateChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime dateTime});
 }
 
 /// @nodoc
-class __$$_DateChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_DateChanged>
-    implements _$$_DateChangedCopyWith<$Res> {
-  __$$_DateChangedCopyWithImpl(
-      _$_DateChanged _value, $Res Function(_$_DateChanged) _then)
+class __$$DateChangedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$DateChanged>
+    implements _$$DateChangedCopyWith<$Res> {
+  __$$DateChangedCopyWithImpl(
+      _$DateChanged _value, $Res Function(_$DateChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -648,7 +648,7 @@ class __$$_DateChangedCopyWithImpl<$Res>
   $Res call({
     Object? dateTime = null,
   }) {
-    return _then(_$_DateChanged(
+    return _then(_$DateChanged(
       null == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
@@ -659,8 +659,8 @@ class __$$_DateChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DateChanged implements _DateChanged {
-  const _$_DateChanged(this.dateTime);
+class _$DateChanged implements DateChanged {
+  const _$DateChanged(this.dateTime);
 
   @override
   final DateTime dateTime;
@@ -674,7 +674,7 @@ class _$_DateChanged implements _DateChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DateChanged &&
+            other is _$DateChanged &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime));
   }
@@ -685,8 +685,8 @@ class _$_DateChanged implements _DateChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
-      __$$_DateChangedCopyWithImpl<_$_DateChanged>(this, _$identity);
+  _$$DateChangedCopyWith<_$DateChanged> get copyWith =>
+      __$$DateChangedCopyWithImpl<_$DateChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -741,14 +741,14 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return dateChanged(this);
   }
@@ -756,14 +756,14 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return dateChanged?.call(this);
   }
@@ -771,14 +771,14 @@ class _$_DateChanged implements _DateChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (dateChanged != null) {
@@ -788,30 +788,30 @@ class _$_DateChanged implements _DateChanged {
   }
 }
 
-abstract class _DateChanged implements TransactionFormEvent {
-  const factory _DateChanged(final DateTime dateTime) = _$_DateChanged;
+abstract class DateChanged implements TransactionFormEvent {
+  const factory DateChanged(final DateTime dateTime) = _$DateChanged;
 
   DateTime get dateTime;
   @JsonKey(ignore: true)
-  _$$_DateChangedCopyWith<_$_DateChanged> get copyWith =>
+  _$$DateChangedCopyWith<_$DateChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TypeChangedCopyWith<$Res> {
-  factory _$$_TypeChangedCopyWith(
-          _$_TypeChanged value, $Res Function(_$_TypeChanged) then) =
-      __$$_TypeChangedCopyWithImpl<$Res>;
+abstract class _$$TypeChangedCopyWith<$Res> {
+  factory _$$TypeChangedCopyWith(
+          _$TypeChanged value, $Res Function(_$TypeChanged) then) =
+      __$$TypeChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({TransactionType transactionType});
 }
 
 /// @nodoc
-class __$$_TypeChangedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_TypeChanged>
-    implements _$$_TypeChangedCopyWith<$Res> {
-  __$$_TypeChangedCopyWithImpl(
-      _$_TypeChanged _value, $Res Function(_$_TypeChanged) _then)
+class __$$TypeChangedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$TypeChanged>
+    implements _$$TypeChangedCopyWith<$Res> {
+  __$$TypeChangedCopyWithImpl(
+      _$TypeChanged _value, $Res Function(_$TypeChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -819,7 +819,7 @@ class __$$_TypeChangedCopyWithImpl<$Res>
   $Res call({
     Object? transactionType = null,
   }) {
-    return _then(_$_TypeChanged(
+    return _then(_$TypeChanged(
       null == transactionType
           ? _value.transactionType
           : transactionType // ignore: cast_nullable_to_non_nullable
@@ -830,8 +830,8 @@ class __$$_TypeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TypeChanged implements _TypeChanged {
-  const _$_TypeChanged(this.transactionType);
+class _$TypeChanged implements TypeChanged {
+  const _$TypeChanged(this.transactionType);
 
   @override
   final TransactionType transactionType;
@@ -845,7 +845,7 @@ class _$_TypeChanged implements _TypeChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TypeChanged &&
+            other is _$TypeChanged &&
             (identical(other.transactionType, transactionType) ||
                 other.transactionType == transactionType));
   }
@@ -856,8 +856,8 @@ class _$_TypeChanged implements _TypeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
-      __$$_TypeChangedCopyWithImpl<_$_TypeChanged>(this, _$identity);
+  _$$TypeChangedCopyWith<_$TypeChanged> get copyWith =>
+      __$$TypeChangedCopyWithImpl<_$TypeChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -912,14 +912,14 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return typeChanged(this);
   }
@@ -927,14 +927,14 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return typeChanged?.call(this);
   }
@@ -942,14 +942,14 @@ class _$_TypeChanged implements _TypeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (typeChanged != null) {
@@ -959,31 +959,31 @@ class _$_TypeChanged implements _TypeChanged {
   }
 }
 
-abstract class _TypeChanged implements TransactionFormEvent {
-  const factory _TypeChanged(final TransactionType transactionType) =
-      _$_TypeChanged;
+abstract class TypeChanged implements TransactionFormEvent {
+  const factory TypeChanged(final TransactionType transactionType) =
+      _$TypeChanged;
 
   TransactionType get transactionType;
   @JsonKey(ignore: true)
-  _$$_TypeChangedCopyWith<_$_TypeChanged> get copyWith =>
+  _$$TypeChangedCopyWith<_$TypeChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AccountSelectedCopyWith<$Res> {
-  factory _$$_AccountSelectedCopyWith(
-          _$_AccountSelected value, $Res Function(_$_AccountSelected) then) =
-      __$$_AccountSelectedCopyWithImpl<$Res>;
+abstract class _$$AccountSelectedCopyWith<$Res> {
+  factory _$$AccountSelectedCopyWith(
+          _$AccountSelected value, $Res Function(_$AccountSelected) then) =
+      __$$AccountSelectedCopyWithImpl<$Res>;
   @useResult
   $Res call({String selectedAccount});
 }
 
 /// @nodoc
-class __$$_AccountSelectedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_AccountSelected>
-    implements _$$_AccountSelectedCopyWith<$Res> {
-  __$$_AccountSelectedCopyWithImpl(
-      _$_AccountSelected _value, $Res Function(_$_AccountSelected) _then)
+class __$$AccountSelectedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$AccountSelected>
+    implements _$$AccountSelectedCopyWith<$Res> {
+  __$$AccountSelectedCopyWithImpl(
+      _$AccountSelected _value, $Res Function(_$AccountSelected) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -991,7 +991,7 @@ class __$$_AccountSelectedCopyWithImpl<$Res>
   $Res call({
     Object? selectedAccount = null,
   }) {
-    return _then(_$_AccountSelected(
+    return _then(_$AccountSelected(
       null == selectedAccount
           ? _value.selectedAccount
           : selectedAccount // ignore: cast_nullable_to_non_nullable
@@ -1002,8 +1002,8 @@ class __$$_AccountSelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AccountSelected implements _AccountSelected {
-  const _$_AccountSelected(this.selectedAccount);
+class _$AccountSelected implements AccountSelected {
+  const _$AccountSelected(this.selectedAccount);
 
   @override
   final String selectedAccount;
@@ -1017,7 +1017,7 @@ class _$_AccountSelected implements _AccountSelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AccountSelected &&
+            other is _$AccountSelected &&
             (identical(other.selectedAccount, selectedAccount) ||
                 other.selectedAccount == selectedAccount));
   }
@@ -1028,8 +1028,8 @@ class _$_AccountSelected implements _AccountSelected {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AccountSelectedCopyWith<_$_AccountSelected> get copyWith =>
-      __$$_AccountSelectedCopyWithImpl<_$_AccountSelected>(this, _$identity);
+  _$$AccountSelectedCopyWith<_$AccountSelected> get copyWith =>
+      __$$AccountSelectedCopyWithImpl<_$AccountSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1084,14 +1084,14 @@ class _$_AccountSelected implements _AccountSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return accountSelected(this);
   }
@@ -1099,14 +1099,14 @@ class _$_AccountSelected implements _AccountSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return accountSelected?.call(this);
   }
@@ -1114,14 +1114,14 @@ class _$_AccountSelected implements _AccountSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (accountSelected != null) {
@@ -1131,31 +1131,31 @@ class _$_AccountSelected implements _AccountSelected {
   }
 }
 
-abstract class _AccountSelected implements TransactionFormEvent {
-  const factory _AccountSelected(final String selectedAccount) =
-      _$_AccountSelected;
+abstract class AccountSelected implements TransactionFormEvent {
+  const factory AccountSelected(final String selectedAccount) =
+      _$AccountSelected;
 
   String get selectedAccount;
   @JsonKey(ignore: true)
-  _$$_AccountSelectedCopyWith<_$_AccountSelected> get copyWith =>
+  _$$AccountSelectedCopyWith<_$AccountSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_CategorySelectedCopyWith<$Res> {
-  factory _$$_CategorySelectedCopyWith(
-          _$_CategorySelected value, $Res Function(_$_CategorySelected) then) =
-      __$$_CategorySelectedCopyWithImpl<$Res>;
+abstract class _$$CategorySelectedCopyWith<$Res> {
+  factory _$$CategorySelectedCopyWith(
+          _$CategorySelected value, $Res Function(_$CategorySelected) then) =
+      __$$CategorySelectedCopyWithImpl<$Res>;
   @useResult
   $Res call({String selectedCategory});
 }
 
 /// @nodoc
-class __$$_CategorySelectedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_CategorySelected>
-    implements _$$_CategorySelectedCopyWith<$Res> {
-  __$$_CategorySelectedCopyWithImpl(
-      _$_CategorySelected _value, $Res Function(_$_CategorySelected) _then)
+class __$$CategorySelectedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$CategorySelected>
+    implements _$$CategorySelectedCopyWith<$Res> {
+  __$$CategorySelectedCopyWithImpl(
+      _$CategorySelected _value, $Res Function(_$CategorySelected) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1163,7 +1163,7 @@ class __$$_CategorySelectedCopyWithImpl<$Res>
   $Res call({
     Object? selectedCategory = null,
   }) {
-    return _then(_$_CategorySelected(
+    return _then(_$CategorySelected(
       null == selectedCategory
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
@@ -1174,8 +1174,8 @@ class __$$_CategorySelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CategorySelected implements _CategorySelected {
-  const _$_CategorySelected(this.selectedCategory);
+class _$CategorySelected implements CategorySelected {
+  const _$CategorySelected(this.selectedCategory);
 
   @override
   final String selectedCategory;
@@ -1189,7 +1189,7 @@ class _$_CategorySelected implements _CategorySelected {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CategorySelected &&
+            other is _$CategorySelected &&
             (identical(other.selectedCategory, selectedCategory) ||
                 other.selectedCategory == selectedCategory));
   }
@@ -1200,8 +1200,8 @@ class _$_CategorySelected implements _CategorySelected {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategorySelectedCopyWith<_$_CategorySelected> get copyWith =>
-      __$$_CategorySelectedCopyWithImpl<_$_CategorySelected>(this, _$identity);
+  _$$CategorySelectedCopyWith<_$CategorySelected> get copyWith =>
+      __$$CategorySelectedCopyWithImpl<_$CategorySelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1256,14 +1256,14 @@ class _$_CategorySelected implements _CategorySelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return categorySelected(this);
   }
@@ -1271,14 +1271,14 @@ class _$_CategorySelected implements _CategorySelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return categorySelected?.call(this);
   }
@@ -1286,14 +1286,14 @@ class _$_CategorySelected implements _CategorySelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -1303,34 +1303,34 @@ class _$_CategorySelected implements _CategorySelected {
   }
 }
 
-abstract class _CategorySelected implements TransactionFormEvent {
-  const factory _CategorySelected(final String selectedCategory) =
-      _$_CategorySelected;
+abstract class CategorySelected implements TransactionFormEvent {
+  const factory CategorySelected(final String selectedCategory) =
+      _$CategorySelected;
 
   String get selectedCategory;
   @JsonKey(ignore: true)
-  _$$_CategorySelectedCopyWith<_$_CategorySelected> get copyWith =>
+  _$$CategorySelectedCopyWith<_$CategorySelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SavedCopyWith<$Res> {
-  factory _$$_SavedCopyWith(_$_Saved value, $Res Function(_$_Saved) then) =
-      __$$_SavedCopyWithImpl<$Res>;
+abstract class _$$SavedCopyWith<$Res> {
+  factory _$$SavedCopyWith(_$Saved value, $Res Function(_$Saved) then) =
+      __$$SavedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SavedCopyWithImpl<$Res>
-    extends _$TransactionFormEventCopyWithImpl<$Res, _$_Saved>
-    implements _$$_SavedCopyWith<$Res> {
-  __$$_SavedCopyWithImpl(_$_Saved _value, $Res Function(_$_Saved) _then)
+class __$$SavedCopyWithImpl<$Res>
+    extends _$TransactionFormEventCopyWithImpl<$Res, _$Saved>
+    implements _$$SavedCopyWith<$Res> {
+  __$$SavedCopyWithImpl(_$Saved _value, $Res Function(_$Saved) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Saved implements _Saved {
-  const _$_Saved();
+class _$Saved implements Saved {
+  const _$Saved();
 
   @override
   String toString() {
@@ -1340,7 +1340,7 @@ class _$_Saved implements _Saved {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Saved);
+        (other.runtimeType == runtimeType && other is _$Saved);
   }
 
   @override
@@ -1399,14 +1399,14 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_AmountChanged value) amountChanged,
-    required TResult Function(_PurposeChanged value) purposeChanged,
-    required TResult Function(_DateChanged value) dateChanged,
-    required TResult Function(_TypeChanged value) typeChanged,
-    required TResult Function(_AccountSelected value) accountSelected,
-    required TResult Function(_CategorySelected value) categorySelected,
-    required TResult Function(_Saved value) saved,
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(AmountChanged value) amountChanged,
+    required TResult Function(PurposeChanged value) purposeChanged,
+    required TResult Function(DateChanged value) dateChanged,
+    required TResult Function(TypeChanged value) typeChanged,
+    required TResult Function(AccountSelected value) accountSelected,
+    required TResult Function(CategorySelected value) categorySelected,
+    required TResult Function(Saved value) saved,
   }) {
     return saved(this);
   }
@@ -1414,14 +1414,14 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_AmountChanged value)? amountChanged,
-    TResult? Function(_PurposeChanged value)? purposeChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
-    TResult? Function(_TypeChanged value)? typeChanged,
-    TResult? Function(_AccountSelected value)? accountSelected,
-    TResult? Function(_CategorySelected value)? categorySelected,
-    TResult? Function(_Saved value)? saved,
+    TResult? Function(Initialized value)? initialized,
+    TResult? Function(AmountChanged value)? amountChanged,
+    TResult? Function(PurposeChanged value)? purposeChanged,
+    TResult? Function(DateChanged value)? dateChanged,
+    TResult? Function(TypeChanged value)? typeChanged,
+    TResult? Function(AccountSelected value)? accountSelected,
+    TResult? Function(CategorySelected value)? categorySelected,
+    TResult? Function(Saved value)? saved,
   }) {
     return saved?.call(this);
   }
@@ -1429,14 +1429,14 @@ class _$_Saved implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_AmountChanged value)? amountChanged,
-    TResult Function(_PurposeChanged value)? purposeChanged,
-    TResult Function(_DateChanged value)? dateChanged,
-    TResult Function(_TypeChanged value)? typeChanged,
-    TResult Function(_AccountSelected value)? accountSelected,
-    TResult Function(_CategorySelected value)? categorySelected,
-    TResult Function(_Saved value)? saved,
+    TResult Function(Initialized value)? initialized,
+    TResult Function(AmountChanged value)? amountChanged,
+    TResult Function(PurposeChanged value)? purposeChanged,
+    TResult Function(DateChanged value)? dateChanged,
+    TResult Function(TypeChanged value)? typeChanged,
+    TResult Function(AccountSelected value)? accountSelected,
+    TResult Function(CategorySelected value)? categorySelected,
+    TResult Function(Saved value)? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
@@ -1446,8 +1446,8 @@ class _$_Saved implements _Saved {
   }
 }
 
-abstract class _Saved implements TransactionFormEvent {
-  const factory _Saved() = _$_Saved;
+abstract class Saved implements TransactionFormEvent {
+  const factory Saved() = _$Saved;
 }
 
 /// @nodoc

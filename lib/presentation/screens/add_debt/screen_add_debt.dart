@@ -6,10 +6,6 @@ import 'package:finca/core/constants.dart';
 import 'package:finca/domain/debt/debt.dart';
 import 'package:finca/injectable.dart';
 import 'package:finca/presentation/router/app_router.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/app_bar.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/date_picker_widget.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/description_field.dart';
-import 'package:finca/presentation/screens/add_debt/widgets/name_field.dart';
 import 'package:finca/presentation/screens/add_transaction/widgets/saving_in_progress_overlay.dart';
 import 'package:finca/presentation/screens/widgets/rounded_button.dart';
 
@@ -17,8 +13,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import 'widgets/amount_field_widget.dart';
+import 'widgets/app_bar.dart';
+import 'widgets/date_picker_widget.dart';
+import 'widgets/description_field.dart';
+import 'widgets/name_field.dart';
 
 @RoutePage()
 class AddDebtScreen extends StatelessWidget {
